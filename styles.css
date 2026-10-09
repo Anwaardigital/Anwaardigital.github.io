@@ -227,3 +227,81 @@ a{text-decoration:none;color:inherit}
   .about-wrap{gap:26px;text-align:center}
   .section{padding:64px 0}
 }
+
+/* ---------- Auth (Firebase Login/Signup) ---------- */
+.nav-user{display:inline-flex;align-items:center;gap:8px}
+.user-chip{
+  background:rgba(255,215,0,.12);border:1px solid rgba(255,215,0,.35);
+  color:var(--gold);font-weight:600;font-size:.9rem;
+  padding:8px 14px;border-radius:30px;max-width:150px;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+.nav-logout{padding:9px 14px;border-radius:30px;font-weight:500;font-size:.9rem;color:var(--muted)}
+.nav-logout:hover{background:rgba(255,80,80,.12);color:#ffb3b3}
+
+.auth-modal{
+  position:fixed;inset:0;z-index:2000;display:none;
+  align-items:center;justify-content:center;
+  background:rgba(4,31,23,.72);backdrop-filter:blur(6px);padding:20px;
+}
+.auth-modal.open{display:flex}
+.auth-card{
+  background:linear-gradient(160deg,#0E4A38,#062A20);
+  border:1px solid rgba(255,215,0,.28);border-radius:22px;
+  max-width:420px;width:100%;padding:34px 30px;position:relative;
+  box-shadow:var(--shadow);animation:authPop .25s ease;max-height:92vh;overflow-y:auto;
+}
+@keyframes authPop{from{transform:scale(.94);opacity:0}}
+.auth-close{
+  position:absolute;top:14px;right:16px;background:rgba(255,255,255,.06);
+  border:none;color:var(--muted);font-size:1rem;cursor:pointer;
+  width:34px;height:34px;border-radius:50%;line-height:1;
+}
+.auth-close:hover{background:rgba(255,80,80,.2);color:#ffb3b3}
+.auth-brand{font-size:2.6rem;text-align:center;filter:drop-shadow(0 0 8px rgba(255,215,0,.5))}
+.auth-card h2{text-align:center;font-size:1.6rem;margin:8px 0 4px}
+.auth-sub{text-align:center;color:var(--muted);font-size:.92rem;margin-bottom:20px}
+.auth-error{
+  display:none;background:rgba(255,80,80,.12);border:1px solid rgba(255,80,80,.4);
+  color:#ffb3b3;padding:10px 14px;border-radius:12px;margin-bottom:16px;font-size:.88rem;line-height:1.5;
+}
+.auth-error.show{display:block}
+.auth-card label{display:block;font-size:.9rem;font-weight:600;color:var(--gold-light);margin-bottom:14px}
+.auth-card input{
+  display:block;width:100%;margin-top:6px;padding:13px 15px;border-radius:12px;
+  border:1px solid rgba(255,215,0,.25);background:rgba(255,255,255,.05);
+  color:#fff;font-family:inherit;font-size:.95rem;outline:none;transition:border .2s,box-shadow .2s;
+}
+.auth-card input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(255,215,0,.15)}
+.auth-card input::placeholder{color:rgba(255,255,255,.35)}
+.btn-auth{
+  width:100%;padding:14px;border:none;border-radius:14px;cursor:pointer;
+  background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+  color:#3a2c00;font-weight:700;font-size:1rem;font-family:inherit;margin-top:4px;
+  transition:filter .2s,transform .1s;
+}
+.btn-auth:hover{filter:brightness(1.08)}
+.btn-auth:active{transform:scale(.98)}
+.btn-auth:disabled{opacity:.6;cursor:wait}
+.auth-divider{display:flex;align-items:center;gap:12px;margin:18px 0;color:var(--muted);font-size:.85rem}
+.auth-divider::before,.auth-divider::after{content:'';flex:1;height:1px;background:rgba(255,215,0,.2)}
+.btn-google{
+  width:100%;padding:13px;border-radius:14px;cursor:pointer;font-family:inherit;
+  background:#fff;color:#3c4043;font-weight:600;font-size:.95rem;
+  border:1px solid #dadce0;display:flex;align-items:center;justify-content:center;gap:10px;
+  transition:background .2s;
+}
+.btn-google:hover{background:#f6fafe}
+.g-logo{
+  width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;
+  background:conic-gradient(#4285F4 0 40%,#EA4335 40% 65%,#FBBC05 65% 85%,#34A853 85%);
+  color:#fff;font-weight:800;font-size:.8rem;
+}
+.auth-switch{text-align:center;margin-top:18px;font-size:.92rem;color:var(--muted)}
+.auth-switch a{color:var(--gold);font-weight:600;cursor:pointer}
+.auth-switch a:hover{text-decoration:underline}
+
+@media(max-width:480px){
+  .auth-card{padding:28px 22px}
+  .user-chip{max-width:110px}
+}

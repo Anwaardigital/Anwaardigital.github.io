@@ -9,6 +9,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<!-- Firebase Auth SDK (login/signup) -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌙</text></svg>">
 </head>
 <body>
@@ -18,16 +21,24 @@
   <div class="nav-inner">
     <a href="#home" class="brand">
       <span class="brand-icon">🌙</span>
-      <span class="brand-text">Malik Anwaar <span class="gold">Apps</span></span>
+      <span class="brand-text">Anwaar <span class="gold">Digital</span></span>
     </a>
     <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
     <ul class="nav-links" id="navLinks">
       <li><a href="#home">Home</a></li>
-      <li><a href="#apps">Apps</a></li>
+      <li><a href="#apps">Android</a></li>
       <li><a href="#games">Games</a></li>
+      <li><a href="#windows">Windows</a></li>
       <li><a href="#channels">YouTube</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact" class="nav-cta">Contact</a></li>
+      <li id="navAuthArea">
+        <a href="#" class="nav-cta nav-login" id="navLoginBtn">🔐 Login</a>
+        <span id="navUserArea" class="nav-user" style="display:none">
+          <span class="user-chip" id="navUserName">👤</span>
+          <a href="#" class="nav-logout" id="navLogoutBtn">Logout</a>
+        </span>
+      </li>
     </ul>
   </div>
 </nav>
@@ -37,7 +48,7 @@
   <div class="hero-pattern"></div>
   <div class="hero-content">
     <div class="hero-badge">✨ Premium Android Apps & Games</div>
-    <h1>Malik Anwaar <span class="gold-text">Apps</span></h1>
+    <h1>Anwaar <span class="gold-text">Digital</span></h1>
     <p class="hero-sub">Beautiful, professional, high-quality apps — made with care for everyone.</p>
     <div class="hero-buttons">
       <a href="#apps" class="btn btn-gold">Explore Apps</a>
@@ -52,13 +63,13 @@
   <a href="#apps" class="scroll-down" aria-label="Scroll down">⌄</a>
 </header>
 
-<!-- ============ APPS ============ -->
+<!-- ============ ANDROID APPS ============ -->
 <section class="section" id="apps">
   <div class="container">
     <div class="section-head">
-      <span class="section-tag">📱 Our Collection</span>
-      <h2>Premium <span class="gold-text">Apps</span></h2>
-      <p>Hand-crafted apps with beautiful design and powerful features.</p>
+      <span class="section-tag">📱 Android Downloads</span>
+      <h2>Android <span class="gold-text">Apps</span></h2>
+      <p>Hand-crafted apps with beautiful design and powerful features. Tap Download to get the APK directly.</p>
     </div>
     <div class="search-bar">
       <input type="text" id="appSearch" placeholder="🔍 Search apps...">
@@ -76,6 +87,18 @@
       <p>High-quality games with smooth graphics and exciting gameplay.</p>
     </div>
     <div class="cards-grid" id="gamesGrid"><!-- rendered by JS --></div>
+  </div>
+</section>
+
+<!-- ============ WINDOWS SOFTWARE ============ -->
+<section class="section section-dark" id="windows">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">💻 Desktop Downloads</span>
+      <h2>Windows <span class="gold-text">Software</span></h2>
+      <p>Portable Python apps for Windows — free download. Install Python 3, then double-click run.bat. That's it!</p>
+    </div>
+    <div class="cards-grid" id="windowsGrid"><!-- rendered by JS --></div>
   </div>
 </section>
 
@@ -140,11 +163,11 @@
 <!-- ============ FOOTER ============ -->
 <footer class="footer">
   <div class="container">
-    <div class="footer-brand">🌙 Malik Anwaar <span class="gold-text">Apps</span></div>
+    <div class="footer-brand">🌙 Anwaar <span class="gold-text">Digital</span></div>
     <p>All apps developed by Malik Muhammad Anwaar</p>
     <p class="footer-note">🤲 Please remember me in your prayers</p>
     <div class="footer-links">
-      <a href="#home">Home</a> · <a href="#apps">Apps</a> · <a href="#games">Games</a> · <a href="#channels">YouTube</a> · <a href="#about">About</a>
+      <a href="#home">Home</a> · <a href="#apps">Android</a> · <a href="#games">Games</a> · <a href="#windows">Windows</a> · <a href="#channels">YouTube</a> · <a href="#about">About</a>
     </div>
     <p class="copyright">© 2026 Anwaar Digital. All rights reserved.</p>
   </div>
@@ -152,41 +175,113 @@
 
 <a href="https://wa.me/923288317526?text=Assalam%20o%20Alaikum!" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp">💬</a>
 
-<script>/* ===== Malik Anwaar Apps — data & interactions ===== */
+<!-- ============ AUTH MODALS (Firebase) ============ -->
+<div class="auth-modal" id="loginModal" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+  <div class="auth-card">
+    <button class="auth-close" data-close="loginModal" aria-label="Close">✕</button>
+    <div class="auth-brand">🌙</div>
+    <h2 id="loginTitle">Welcome <span class="gold-text">Back</span></h2>
+    <p class="auth-sub">Login to your Anwaar Digital account</p>
+    <div class="auth-error" id="loginError"></div>
+    <form id="loginForm">
+      <label>Email
+        <input type="email" id="loginEmail" placeholder="you@example.com" required autocomplete="email">
+      </label>
+      <label>Password
+        <input type="password" id="loginPassword" placeholder="••••••••" required autocomplete="current-password">
+      </label>
+      <button type="submit" class="btn-auth" id="loginSubmit">🔐 Login</button>
+    </form>
+    <div class="auth-divider"><span>or</span></div>
+    <button class="btn-google" id="googleLoginBtn">
+      <span class="g-logo">G</span> Continue with Google
+    </button>
+    <p class="auth-switch">New here? <a id="goSignup">Create an account</a></p>
+  </div>
+</div>
+
+<div class="auth-modal" id="signupModal" role="dialog" aria-modal="true" aria-labelledby="signupTitle">
+  <div class="auth-card">
+    <button class="auth-close" data-close="signupModal" aria-label="Close">✕</button>
+    <div class="auth-brand">🌙</div>
+    <h2 id="signupTitle">Join <span class="gold-text">Anwaar Digital</span></h2>
+    <p class="auth-sub">Create your free account</p>
+    <div class="auth-error" id="signupError"></div>
+    <form id="signupForm">
+      <label>Name
+        <input type="text" id="signupName" placeholder="Your name" required autocomplete="name">
+      </label>
+      <label>Email
+        <input type="email" id="signupEmail" placeholder="you@example.com" required autocomplete="email">
+      </label>
+      <label>Password
+        <input type="password" id="signupPassword" placeholder="Min. 6 characters" required minlength="6" autocomplete="new-password">
+      </label>
+      <button type="submit" class="btn-auth" id="signupSubmit">✨ Sign Up</button>
+    </form>
+    <div class="auth-divider"><span>or</span></div>
+    <button class="btn-google" id="googleSignupBtn">
+      <span class="g-logo">G</span> Continue with Google
+    </button>
+    <p class="auth-switch">Already have an account? <a id="goLogin">Login</a></p>
+  </div>
+</div>
+
+<script>/* ===== Anwaar Digital — data & interactions ===== */
 const WA = "https://wa.me/923288317526?text=";
 const waMsg = app => WA + encodeURIComponent("Assalam o Alaikum! Mujhe " + app + " download karni hai.");
 
-/* Direct APK links where known (muse.ai file hosting, 48h expiry — replace as needed) */
-const DIRECT_LINKS = {
-  "Music Player": "https://muse.ai/files/1314374028430291/1826347042113965/ck1x9u5nnt4smhhm1b3c5psk/MalikAnwaar-MusicPlayer-v2.4.apk"
-};
+/* Direct APK downloads — APKs live in the GitHub repo "downloads" folder,
+   served at https://anwaardigital.github.io/downloads/<file> */
+const DL = "https://anwaardigital.github.io/downloads/";
 
 const APPS = [
-  {name:"Islam 786", ver:"v3.5", icon:"🌙", desc:"Complete Islamic app — prayer times, Quran, duas, Qibla, tasbeeh & more.", dl: null},
-  {name:"Malik Anwaar AI", ver:"v4.0", icon:"🤖", desc:"Free AI chat assistant — ask anything in Urdu & English.", dl: null},
-  {name:"SafeBox", ver:"v3.1", icon:"🔒", desc:"Private vault — hide photos & videos securely on your phone.", dl: null},
-  {name:"CV Maker", ver:"v3.0", icon:"📄", desc:"Build professional CVs & resumes in minutes.", dl: null},
-  {name:"ClipCraft", ver:"v3.0", icon:"🎬", desc:"Video editor — trim, merge, music, text & filters.", dl: null},
-  {name:"LensCraft", ver:"v6.0", icon:"📸", desc:"Camera filters & photo editor with beautiful effects.", dl: null},
-  {name:"App Locker", ver:"v2.3", icon:"🔐", desc:"Lock your apps with PIN — keep your privacy safe.", dl: null},
-  {name:"PDF Master", ver:"v2.0", icon:"📕", desc:"All PDF tools — merge, split, compress, rotate & convert.", dl: null},
-  {name:"Urdu Notes", ver:"v3.2", icon:"📝", desc:"Beautiful Urdu notes app — write & organize easily.", dl: null},
-  {name:"Video Player", ver:"v2.1", icon:"▶️", desc:"Smooth HD video player for all formats.", dl: null},
-  {name:"Music Player", ver:"v2.4", icon:"🎵", desc:"Beautiful music player with 16 languages support.", dl: DIRECT_LINKS["Music Player"]},
-  {name:"Thumbnail Maker", ver:"v2.0", icon:"🖼️", desc:"Create stunning YouTube thumbnails in seconds.", dl: null},
-  {name:"Image Resizer", ver:"v2.0", icon:"📐", desc:"Resize images to any size quickly & easily.", dl: null},
+  {name:"Islam 786", ver:"v3.5", icon:"🌙", desc:"Complete Islamic app — prayer times, Quran, duas, Qibla, tasbeeh & more.", dl: DL+"MalikAnwaar-Islam786-v3.5.apk"},
+  {name:"Malik Anwaar AI", ver:"v4.0", icon:"🤖", desc:"Free AI chat assistant — ask anything in Urdu & English.", dl: DL+"MalikAnwaar-AI-v4.0.apk"},
+  {name:"SafeBox", ver:"v3.1", icon:"🔒", desc:"Private vault — hide photos & videos securely on your phone.", dl: DL+"MalikAnwaar-SafeBox-v3.1.apk"},
+  {name:"CV Maker", ver:"v3.0", icon:"📄", desc:"Build professional CVs & resumes in minutes.", dl: DL+"MalikAnwaar-CVMaker-v3.0.apk"},
+  {name:"ClipCraft", ver:"v3.0", icon:"🎬", desc:"Video editor — trim, merge, music, text & filters.", dl: DL+"MalikAnwaar-ClipCraft-v3.0.apk"},
+  {name:"LensCraft", ver:"v6.0", icon:"📸", desc:"Camera filters & photo editor with beautiful effects.", dl: DL+"MalikAnwaar-LensCraft-v6.0.apk"},
+  {name:"App Locker", ver:"v2.3", icon:"🔐", desc:"Lock your apps with PIN — keep your privacy safe.", dl: DL+"MalikAnwaar-AppLocker-v2.3.apk"},
+  {name:"PDF Master", ver:"v2.0", icon:"📕", desc:"All PDF tools — merge, split, compress, rotate & convert.", dl: DL+"MalikAnwaar-PDFMaster-v2.0.apk"},
+  {name:"Urdu Notes", ver:"v3.2", icon:"📝", desc:"Beautiful Urdu notes app — write & organize easily.", dl: DL+"MalikAnwaar-UrduNotes-v3.2.apk"},
+  {name:"Video Player", ver:"v2.1", icon:"▶️", desc:"Smooth HD video player for all formats.", dl: DL+"MalikAnwaar-VideoPlayer-v2.1.apk"},
+  {name:"Music Player", ver:"v2.4", icon:"🎵", desc:"Beautiful music player with 16 languages support.", dl: DL+"MalikAnwaar-MusicPlayer-v2.4.apk"},
+  {name:"Thumbnail Maker", ver:"v2.0", icon:"🖼️", desc:"Create stunning YouTube thumbnails in seconds.", dl: DL+"MalikAnwaar-ThumbnailMaker-v2.0.apk"},
+  {name:"Image Resizer", ver:"v2.0", icon:"📐", desc:"Resize images to any size quickly & easily.", dl: DL+"MalikAnwaar-ImageResizer-v2.0.apk"},
+  {name:"Taleem Hub", ver:"v1.0", icon:"📚", desc:"Study app for school & college — notes, past papers, MCQs, dictionary & more.", dl: DL+"MalikAnwaar-TaleemHub-v1.0.apk"},
 ];
 
 const GAMES = [
-  {name:"Hill Climb", ver:"v3.4", icon:"🏔️", desc:"Thrilling hill climbing racing — conquer every mountain!", dl: null},
-  {name:"Bike Racer 3D", ver:"v1.1", icon:"🏍️", desc:"Real 3D bike racing with stunning graphics.", dl: null},
-  {name:"Ludo", ver:"v2.1", icon:"🎲", desc:"Classic Ludo — play with family & friends.", dl: null},
-  {name:"Car Driving Sim", ver:"v2.3", icon:"🚗", desc:"Realistic car driving simulator with smooth controls.", dl: null},
+  {name:"Hill Climb", ver:"v3.4", icon:"🏔️", desc:"Thrilling hill climbing racing — conquer every mountain!", dl: DL+"MalikAnwaar-HillClimb-v3.4.apk"},
+  {name:"Bike Racer 3D", ver:"v1.1", icon:"🏍️", desc:"Real 3D bike racing with stunning graphics.", dl: DL+"MalikAnwaar-BikeRacer3D-v1.1.apk"},
+  {name:"Ludo", ver:"v2.1", icon:"🎲", desc:"Classic Ludo — play with family & friends.", dl: DL+"MalikAnwaar-Ludo-v2.1.apk"},
+  {name:"Car Driving Sim", ver:"v2.3", icon:"🚗", desc:"Realistic car driving simulator with smooth controls.", dl: DL+"MalikAnwaar-CarDrivingSim-v2.3.apk"},
+];
+
+/* Windows desktop apps — portable Python apps (run via run.bat).
+   Download buttons open WhatsApp with a prefilled request message. */
+const waWin = app => WA + encodeURIComponent("Assalam o Alaikum! Mujhe " + app + " Windows version chahiye.");
+const WINDOWS = [
+  {name:"Islam 786", ver:"Windows", icon:"🌙", desc:"Islamic desktop app — prayer times, duas & more (Roman Urdu)."},
+  {name:"Bachon ki Taleem", ver:"Windows", icon:"🧒", desc:"Kids' Islamic learning — Noorani Qaida grid, duas & activities."},
+  {name:"PDF Master", ver:"Windows", icon:"📕", desc:"Merge, split & rotate PDFs; view PDF info (needs pypdf)."},
+  {name:"Image Resizer", ver:"Windows", icon:"📐", desc:"Resize images by size or %, convert PNG/JPG (needs Pillow)."},
+  {name:"Document Scanner", ver:"Windows", icon:"📷", desc:"Clean up document photos — grayscale, B&W, contrast (needs Pillow)."},
+  {name:"CV Maker", ver:"Windows", icon:"📄", desc:"Fill a form, live preview, export CV to .txt & styled .html."},
+  {name:"Urdu Notes", ver:"Windows", icon:"📝", desc:"Beautiful Urdu/English notes with RTL writing."},
+  {name:"Video Player", ver:"Windows", icon:"▶️", desc:"Playlist manager — opens videos in your system player."},
+  {name:"App Locker", ver:"Windows", icon:"🔐", desc:"Password-protected launcher for your desktop programs."},
+  {name:"Thumbnail Maker", ver:"Windows", icon:"🖼️", desc:"Make 1280x720 YouTube thumbnails with live preview."},
+  {name:"SafeBox", ver:"Windows", icon:"🔒", desc:"Password-protected local vault for your files."},
+  {name:"Taleem Hub", ver:"Windows", icon:"📚", desc:"Study app for school & college — notes, MCQs quiz, dictionary, calculator."},
 ];
 
 function cardHTML(app){
-  const href = app.dl ? app.dl : waMsg(app.name + " " + app.ver);
-  const target = app.dl ? ' target="_blank" rel="noopener"' : ' target="_blank" rel="noopener"';
+  const isDirect = !!app.dl;
+  const href = isDirect ? app.dl : waMsg(app.name + " " + app.ver);
+  const dlAttr = isDirect ? ' download' : '';
+  const label = isDirect ? '⬇ Download APK' : '⬇ Download';
   return `
   <div class="app-card" data-name="${app.name.toLowerCase()}">
     <div class="app-icon">${app.icon}</div>
@@ -194,7 +289,20 @@ function cardHTML(app){
     <div class="app-ver">${app.ver}</div>
     <p>${app.desc}</p>
     <div class="card-btns">
-      <a href="${href}"${target} class="btn-dl">⬇ Download</a>
+      <a href="${href}"${dlAttr} target="_blank" rel="noopener" class="btn-dl">${label}</a>
+    </div>
+  </div>`;
+}
+
+function winCardHTML(app){
+  return `
+  <div class="app-card" data-name="${app.name.toLowerCase()}">
+    <div class="app-icon">${app.icon}</div>
+    <h3>${app.name}</h3>
+    <div class="app-ver">${app.ver}</div>
+    <p>${app.desc}</p>
+    <div class="card-btns">
+      <a href="${waWin(app.name)}" target="_blank" rel="noopener" class="btn-dl">⬇ Download</a>
     </div>
   </div>`;
 }
@@ -202,6 +310,7 @@ function cardHTML(app){
 function render(){
   document.getElementById('appsGrid').innerHTML = APPS.map(cardHTML).join('');
   document.getElementById('gamesGrid').innerHTML = GAMES.map(cardHTML).join('');
+  document.getElementById('windowsGrid').innerHTML = WINDOWS.map(winCardHTML).join('');
 }
 render();
 
@@ -249,6 +358,204 @@ const io = new IntersectionObserver(entries => {
   });
 }, {threshold:.5});
 counters.forEach(c => io.observe(c));
+
+/* =====================================================
+   Firebase Auth — Login / Signup
+   SETUP: README.md me "Firebase Setup" dekhein.
+   Apni Firebase config neeche firebaseConfig me dalen.
+   ===================================================== */
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  appId: "YOUR_APP_ID"
+};
+
+let auth = null;
+let firebaseReady = false;
+
+function firebaseConfigured() {
+  return firebaseConfig.apiKey && !firebaseConfig.apiKey.startsWith("YOUR_");
+}
+
+function requireFirebase() {
+  if (!firebaseReady) {
+    showAuthError("⚠️ Firebase abhi configure nahi hai. README.md me 'Firebase Setup' steps follow karein, phir config yahan dalen.");
+    return false;
+  }
+  return true;
+}
+
+function initFirebase() {
+  if (typeof firebase === "undefined") {
+    console.warn("[auth] Firebase SDK load nahi hua (offline?). Auth disabled.");
+    return;
+  }
+  if (!firebaseConfigured()) {
+    console.warn("[auth] Firebase config placeholder hai. README.md → Firebase Setup dekhein.");
+    return;
+  }
+  try {
+    firebase.initializeApp(firebaseConfig);
+    auth = firebase.auth();
+    // Session localStorage me persist rahegi (browser band karne par bhi login rahega)
+    auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).catch(function(){});
+    firebaseReady = true;
+    auth.onAuthStateChanged(updateAuthUI);
+    console.log("[auth] Firebase Auth ready ✅");
+  } catch (e) {
+    console.error("[auth] init failed:", e);
+  }
+}
+
+/* ---------- Modal open/close ---------- */
+const loginModal = document.getElementById('loginModal');
+const signupModal = document.getElementById('signupModal');
+
+function openModal(m) {
+  m.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(m) {
+  m.classList.remove('open');
+  document.body.style.overflow = '';
+  clearAuthErrors();
+}
+function clearAuthErrors() {
+  document.getElementById('loginError').classList.remove('show');
+  document.getElementById('signupError').classList.remove('show');
+}
+
+document.getElementById('navLoginBtn').addEventListener('click', function(e) {
+  e.preventDefault();
+  if (!requireFirebase()) { openModal(loginModal); return; }
+  openModal(loginModal);
+});
+document.querySelectorAll('.auth-close').forEach(function(btn) {
+  btn.addEventListener('click', function() { closeModal(document.getElementById(btn.dataset.close)); });
+});
+[loginModal, signupModal].forEach(function(m) {
+  m.addEventListener('click', function(e) { if (e.target === m) closeModal(m); });
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') { closeModal(loginModal); closeModal(signupModal); }
+});
+document.getElementById('goSignup').addEventListener('click', function() {
+  closeModal(loginModal); openModal(signupModal);
+});
+document.getElementById('goLogin').addEventListener('click', function() {
+  closeModal(signupModal); openModal(loginModal);
+});
+
+/* ---------- Auth UI state ---------- */
+function updateAuthUI(user) {
+  const loginBtn = document.getElementById('navLoginBtn');
+  const userArea = document.getElementById('navUserArea');
+  const userName = document.getElementById('navUserName');
+  if (user) {
+    loginBtn.style.display = 'none';
+    userArea.style.display = 'inline-flex';
+    const name = user.displayName || (user.email ? user.email.split('@')[0] : 'User');
+    userName.textContent = '👤 ' + name;
+  } else {
+    loginBtn.style.display = '';
+    userArea.style.display = 'none';
+  }
+}
+
+/* ---------- Helpers ---------- */
+function currentModal() {
+  if (loginModal.classList.contains('open')) return 'login';
+  if (signupModal.classList.contains('open')) return 'signup';
+  return 'login';
+}
+function showAuthError(msg) {
+  const id = currentModal() === 'signup' ? 'signupError' : 'loginError';
+  const el = document.getElementById(id);
+  el.textContent = msg;
+  el.classList.add('show');
+}
+function friendlyAuthError(err) {
+  const code = err && err.code ? err.code : '';
+  switch (code) {
+    case 'auth/user-not-found': return 'Ye email registered nahi hai. Pehle Sign Up karein.';
+    case 'auth/wrong-password': return 'Password ghalat hai. Dobara try karein.';
+    case 'auth/invalid-credential': return 'Email ya password ghalat hai.';
+    case 'auth/email-already-in-use': return 'Ye email pehle se registered hai. Login karein.';
+    case 'auth/weak-password': return 'Password kam az kam 6 characters ka ho.';
+    case 'auth/invalid-email': return 'Email address theek nahi hai.';
+    case 'auth/too-many-requests': return 'Bohat zyada koshishen. Thori der baad try karein.';
+    case 'auth/popup-closed-by-user': return 'Google popup band ho gaya. Dobara try karein.';
+    case 'auth/network-request-failed': return 'Internet connection check karein.';
+    default: return (err && err.message) ? err.message : 'Kuch ghalat ho gaya. Dobara try karein.';
+  }
+}
+function setAuthLoading(btn, loading, label) {
+  btn.disabled = loading;
+  btn.textContent = loading ? '⏳ Please wait...' : label;
+}
+
+/* ---------- Email/Password Login ---------- */
+document.getElementById('loginForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  if (!requireFirebase()) return;
+  const btn = document.getElementById('loginSubmit');
+  setAuthLoading(btn, true);
+  try {
+    await auth.signInWithEmailAndPassword(
+      document.getElementById('loginEmail').value.trim(),
+      document.getElementById('loginPassword').value
+    );
+    closeModal(loginModal);
+  } catch (err) {
+    showAuthError(friendlyAuthError(err));
+  }
+  setAuthLoading(btn, false, '🔐 Login');
+});
+
+/* ---------- Email/Password Signup ---------- */
+document.getElementById('signupForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  if (!requireFirebase()) return;
+  const btn = document.getElementById('signupSubmit');
+  setAuthLoading(btn, true);
+  try {
+    const cred = await auth.createUserWithEmailAndPassword(
+      document.getElementById('signupEmail').value.trim(),
+      document.getElementById('signupPassword').value
+    );
+    const name = document.getElementById('signupName').value.trim();
+    if (name && cred.user) { await cred.user.updateProfile({ displayName: name }); }
+    closeModal(signupModal);
+  } catch (err) {
+    showAuthError(friendlyAuthError(err));
+  }
+  setAuthLoading(btn, false, '✨ Sign Up');
+});
+
+/* ---------- Google login ---------- */
+async function googleSignIn() {
+  if (!requireFirebase()) return;
+  try {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    await auth.signInWithPopup(provider);
+    closeModal(loginModal);
+    closeModal(signupModal);
+  } catch (err) {
+    showAuthError(friendlyAuthError(err));
+  }
+}
+document.getElementById('googleLoginBtn').addEventListener('click', googleSignIn);
+document.getElementById('googleSignupBtn').addEventListener('click', googleSignIn);
+
+/* ---------- Logout ---------- */
+document.getElementById('navLogoutBtn').addEventListener('click', async function(e) {
+  e.preventDefault();
+  if (auth) { try { await auth.signOut(); } catch (err) { console.error(err); } }
+});
+
+/* ---------- Start ---------- */
+initFirebase();
 </script>
 </body>
 </html>
