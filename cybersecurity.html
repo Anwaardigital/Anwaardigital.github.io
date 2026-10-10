@@ -1,0 +1,1523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cyber Security — Anwaar Digital</title>
+<meta name="description" content="Learn cyber security in Urdu and English — 60 practical guides across 6 categories. By Anwaar Digital.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+<style>[dir="rtl"] .cyber-detail-card,[dir="rtl"] .cyber-feat-item .fi-title,[dir="rtl"] .section-head h2,[dir="rtl"] .section-head p{font-family:'Noto Nastaliq Urdu','Poppins',sans-serif;line-height:2.1}</style>
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html#home" class="brand">
+      <span class="brand-icon">🌙</span>
+      <span class="brand-text">Anwaar <span class="gold">Digital</span></span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="index.html#apps">Android</a></li>
+      <li><a href="index.html#games">Games</a></li>
+      <li><a href="index.html#windows">Windows</a></li>
+      <li><a href="cybersecurity.html" style="color:var(--gold);font-weight:700">🛡️ Cyber Security</a></li>
+      <li><a href="index.html#channels">YouTube</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============ CYBER HERO ============ -->
+<header class="hero" id="cyber">
+  <div class="hero-pattern"></div>
+  <div class="hero-content">
+    <div class="hero-badge">🛡️ Cyber Security Hub</div>
+    <h1>Cyber <span class="gold-text">Security</span></h1>
+    <p class="hero-sub">60 practical guides in <strong>اردو</strong> and <strong>English</strong> — learn to stay safe online, the ethical way.</p>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num" data-count="60">0</span><span class="stat-label">Guides</span></div>
+      <div class="stat"><span class="stat-num" data-count="6">0</span><span class="stat-label">Categories</span></div>
+      <div class="stat"><span class="stat-num" data-count="2">0</span><span class="stat-label">Languages</span></div>
+    </div>
+  </div>
+  <a href="#cyberApp" class="scroll-down" aria-label="Scroll down">⌄</a>
+</header>
+
+<!-- ============ CYBER APP ============ -->
+<section class="section" id="cyberApp">
+  <div class="container cyber-wrap" id="cyberRoot">
+    <div class="cyber-view" id="viewLang"></div>
+    <div class="cyber-view" id="viewCats"></div>
+    <div class="cyber-view" id="viewFeats"></div>
+    <div class="cyber-view" id="viewDetail"></div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-brand">🌙 Anwaar <span class="gold-text">Digital</span></div>
+    <p>All apps developed by Malik Muhammad Anwaar</p>
+    <p class="footer-note">🤲 Please remember me in your prayers</p>
+    <div class="footer-links">
+      <a href="index.html#home">Home</a> · <a href="index.html#apps">Android</a> · <a href="index.html#games">Games</a> · <a href="index.html#windows">Windows</a> · <a href="cybersecurity.html">Cyber Security</a> · <a href="index.html#channels">YouTube</a> · <a href="index.html#about">About</a>
+    </div>
+    <p class="copyright">© 2026 Anwaar Digital. All rights reserved.</p>
+  </div>
+</footer>
+
+<a href="https://wa.me/923288317526?text=Assalam%20o%20Alaikum!" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp">💬</a>
+
+<script>
+var CYBER_CAT1 = {
+  id: "basic",
+  icon: "🛡️",
+  name: { ur: "بنیادی حفاظت", en: "Basic Protection" },
+  desc: { ur: "اپنے اکاؤنٹس اور ڈیوائسز کی بنیادی حفاظت سیکھیں۔", en: "Learn the basics of protecting your accounts and devices." },
+  features: [
+    {
+      id: "password-generator",
+      icon: "🔑",
+      title: { ur: "پاس ورڈ جنریٹر", en: "Password Generator" },
+      desc: { ur: "مضبوط پاس ورڈ خود یاد کرنا مشکل ہے، اس لیے رینڈم پاس ورڈ بنانے والے ٹولز استعمال کریں۔ یہ ٹول حروف، اعداد اور علامات کا محفوظ مجموعہ بناتا ہے جسے اندازہ لگانا ناممکن ہوتا ہے۔ ہر اکاؤنٹ کے لیے الگ پاس ورڈ بنائیں۔", en: "Strong passwords are hard to invent yourself, so use random password generator tools. These create a secure mix of letters, numbers and symbols that is impossible to guess. Create a unique password for every account." },
+      tips: { ur: ["کم از کم 14 حروف کا پاس ورڈ بنائیں — جتنا لمبا، اتنا محفوظ۔", "بڑے حروف، چھوٹے حروف، اعداد اور علامات (@#$%) کا مجموعہ استعمال کریں۔", "اپنا نام، تاریخِ پیدائش یا موبائل نمبر کبھی پاس ورڈ میں نہ رکھیں۔", "ایک ہی پاس ورڈ دو اکاؤنٹس پر کبھی دوبارہ استعمال نہ کریں۔", "بنایا ہوا پاس ورڈ پاس ورڈ مینیجر میں محفوظ کریں، کاغذ پر لکھ کر نہ رکھیں۔"], en: ["Generate passwords of at least 14 characters — longer is safer.", "Mix uppercase letters, lowercase letters, numbers and symbols (@#$%).", "Never use your name, birthday or mobile number in a password.", "Never reuse the same password on two accounts.", "Save generated passwords in a password manager, not on paper."] }
+    },
+    {
+      id: "password-strength",
+      icon: "💪",
+      title: { ur: "پاس ورڈ کی مضبوطی جانچ", en: "Password Strength Checker" },
+      desc: { ur: "یہ ٹول بتاتا ہے کہ آپ کا موجودہ پاس ورڈ کتنا مضبوط ہے اور اسے توڑنے میں کتنا وقت لگے گا۔ کمزور پاس ورڈ فوراً معلوم ہو جاتا ہے، اس لیے اسے تبدیل کرنے کی عادت ڈالیں۔ اپنی اصل پاس ورڈ آن لائن ٹولز میں چیک کرتے وقت احتیاط کریں۔", en: "This tool tells you how strong your current password is and how long it would take to crack. Weak passwords are exposed instantly, so build the habit of upgrading them. Be careful when checking real passwords on online tools." },
+      tips: { ur: ["اپنے اہم اکاؤنٹس (ای میل، بینک) کے پاس ورڈ پہلے چیک کریں۔", "اگر ٹول کہے کہ پاس ورڈ سیکنڈوں میں ٹوٹ جائے گا تو فوراً تبدیل کریں۔", "اصل پاس ورڈ چیک کرتے وقت اسی طرح کا فرضی پاس ورڈ استعمال کریں۔", "تین یا چار بے ربط اردو/انگریزی الفاظ جوڑ کر لمبا پاس فریز بنائیں۔", "مضبوط پاس ورڈ کے ساتھ 2FA بھی لازمی فعال کریں۔"], en: ["Check passwords of your important accounts (email, banking) first.", "If the tool says your password cracks in seconds, change it immediately.", "Use a similar dummy password when testing on online checkers.", "Build long passphrases from three or four random words joined together.", "Always enable 2FA alongside a strong password."] }
+    },
+    {
+      id: "password-manager",
+      icon: "🗝️",
+      title: { ur: "پاس ورڈ مینیجر گائیڈ", en: "Password Manager Guide" },
+      desc: { ur: "پاس ورڈ مینیجر آپ کے تمام پاس ورڈز کو ایک خفیہ ڈیجیٹل تجوری میں محفوظ رکھتا ہے۔ آپ کو صرف ایک ماسٹر پاس ورڈ یاد رکھنا ہوتا ہے، باقی سب مینیجر سنبھالتا ہے۔ Bitwarden مفت، محفوظ اور اوپن سورس ہے — نئے صارفین کے لیے بہترین انتخاب۔", en: "A password manager stores all your passwords in an encrypted digital vault. You only need to remember one master password — the manager handles the rest. Bitwarden is free, secure and open source — the best choice for beginners." },
+      tips: { ur: ["Bitwarden ڈاؤن لوڈ کریں اور ایک لمبا ماسٹر پاس ورڈ سیٹ کریں۔", "ماسٹر پاس ورڈ کہیں لکھ کر نہ رکھیں — یہ آپ کی واحد چابی ہے۔", "پرانے کمزور پاس ورڈز کو مینیجر کے جنریٹر سے ایک ایک کر کے تبدیل کریں۔", "مینیجر میں 2FA آن کریں تاکہ تجوری بھی محفوظ رہے۔", "مینیجر کا بیک اپ یا ریکوری کوڈ محفوظ جگہ پر رکھیں۔"], en: ["Download Bitwarden and set a long master password.", "Never write your master password down — it is your only key.", "Replace old weak passwords one by one using the manager's generator.", "Turn on 2FA inside the manager so the vault itself stays secure.", "Keep a backup or recovery code of the manager in a safe place."] }
+    },
+    {
+      id: "two-factor-auth",
+      icon: "🔐",
+      title: { ur: "ٹو فیکٹر تصدیق (2FA) گائیڈ", en: "2FA Setup Guide" },
+      desc: { ur: "ٹو فیکٹر تصدیق پاس ورڈ کے ساتھ ایک دوسری تہہ کا تحفظ دیتی ہے — عام طور پر موبائل پر آنے والا کوڈ۔ اگر کوئی آپ کا پاس ورڈ چرا بھی لے تو اس کوڈ کے بغیر لاگ اِن نہیں کر سکتا۔ ہر اہم اکاؤنٹ پر 2FA فعال کرنا آج کی سب سے ضروری عادت ہے۔", en: "Two-factor authentication adds a second layer of protection on top of your password — usually a code sent to your phone. Even if someone steals your password, they cannot log in without that code. Enabling 2FA on every important account is today's most essential habit." },
+      tips: { ur: ["سب سے پہلے اپنی ای میل اور WhatsApp پر 2FA فعال کریں۔", "SMS کے بجائے Authenticator ایپ (جیسے Google Authenticator) استعمال کریں۔", "بیک اپ/ریکوری کوڈز کا اسکرین شاٹ لے کر محفوظ جگہ پر رکھیں۔", "JazzCash اور EasyPaisa اکاؤنٹس پر بھی PIN کے ساتھ اضافی تصدیق آن کریں۔", "نئے فون پر منتقل ہوتے وقت Authenticator کا بیک اپ پہلے بحال کریں۔"], en: ["Enable 2FA on your email and WhatsApp first.", "Use an authenticator app (like Google Authenticator) instead of SMS.", "Screenshot your backup/recovery codes and store them safely.", "Turn on extra verification on JazzCash and Easypaisa accounts too.", "Restore your authenticator backup before switching to a new phone."] }
+    },
+    {
+      id: "mobile-security",
+      icon: "📱",
+      title: { ur: "موبائل سیکیورٹی", en: "Mobile Security" },
+      desc: { ur: "آپ کا فون آپ کی پوری ڈیجیٹل زندگی رکھتا ہے — تصاویر، بینک ایپس، پیغامات اور دستاویزات۔ چند بنیادی سیٹنگز سے فون کو چوروں اور ہیکرز دونوں سے محفوظ بنایا جا سکتا ہے۔ یہ عادتیں ہر اینڈرائیڈ اور آئی فون صارف کے لیے لازمی ہیں۔", en: "Your phone holds your entire digital life — photos, banking apps, messages and documents. A few basic settings can protect it from both thieves and hackers. These habits are essential for every Android and iPhone user." },
+      tips: { ur: ["فون پر مضبوط اسکرین لاک (PIN یا فنگر پرنٹ) لازمی لگائیں۔", "آپریٹنگ سسٹم اور ایپس کی اپ ڈیٹس فوراً انسٹال کریں۔", "ایپس صرف Play Store یا App Store سے ڈاؤن لوڈ کریں۔", "Find My Device / Find My iPhone فعال رکھیں تاکہ گم شدہ فون مل سکے۔", "عوامی WiFi پر بینکنگ ایپس استعمال نہ کریں — موبائل ڈیٹا استعمال کریں۔"], en: ["Always set a strong screen lock (PIN or fingerprint) on your phone.", "Install operating system and app updates immediately.", "Download apps only from the Play Store or App Store.", "Keep Find My Device / Find My iPhone enabled to locate a lost phone.", "Never use banking apps on public WiFi — use mobile data instead."] }
+    },
+    {
+      id: "whatsapp-security",
+      icon: "💬",
+      title: { ur: "واٹس ایپ سیکیورٹی", en: "WhatsApp Security" },
+      desc: { ur: "پاکستان میں سب سے زیادہ استعمال ہونے والی ایپ ہونے کی وجہ سے WhatsApp ہیکرز کا پسندیدہ نشانہ ہے۔ ٹو اسٹیپ ویریفکیشن اور چند پرائیویسی سیٹنگز سے آپ کا اکاؤنٹ کافی حد تک محفوظ ہو جاتا ہے۔ مشکوک لنکس پر کلک کرنے سے ہمیشہ گریز کریں۔", en: "Being Pakistan's most-used app makes WhatsApp a favorite target for hackers. Two-step verification and a few privacy settings make your account far more secure. Always avoid clicking suspicious links." },
+      tips: { ur: ["Settings میں جا کر Two-Step Verification لازمی آن کریں۔", "اپنا 6 ہندسوں کا PIN کسی کے ساتھ شیئر نہ کریں — WhatsApp کبھی PIN نہیں مانگتا۔", "نامعلوم نمبروں سے آنے والے لنکس اور OTP کوڈز کو نظر انداز کریں۔", "Profile Photo اور About کی پرائیویسی 'My Contacts' پر سیٹ کریں۔", "اگر اکاؤنٹ ہیک ہو جائے تو فوراً دوبارہ لاگ اِن کر کے ہیکر کو باہر نکالیں۔"], en: ["Turn on Two-Step Verification from Settings.", "Never share your 6-digit PIN — WhatsApp never asks for it.", "Ignore links and OTP codes from unknown numbers.", "Set Profile Photo and About privacy to 'My Contacts'.", "If hacked, log back in immediately to kick the hacker out."] }
+    },
+    {
+      id: "email-security",
+      icon: "📧",
+      title: { ur: "ای میل سیکیورٹی", en: "Email Security" },
+      desc: { ur: "آپ کی ای میل تمام اکاؤنٹس کی چابی ہے — پاس ورڈ ری سیٹ اسی پر آتے ہیں۔ اگر ای میل ہیک ہو جائے تو بینک، سوشل میڈیا اور سب کچھ خطرے میں پڑ جاتا ہے۔ اس لیے ای میل کی حفاظت سب سے پہلی ترجیح ہونی چاہیے۔", en: "Your email is the key to all your accounts — password resets arrive there. If your email is hacked, your bank, social media and everything else is at risk. That's why email security must be your first priority." },
+      tips: { ur: ["ای میل کا پاس ورڈ سب سے لمبا اور منفرد رکھیں۔", "ای میل پر 2FA لازمی فعال کریں — یہ سب سے اہم اکاؤنٹ ہے۔", "مشکوک ای میلز میں لنکس پر کلک یا فائلیں ڈاؤن لوڈ نہ کریں۔", "بھیجنے والے کا اصل ایڈریس چیک کریں — جعلی ای میلز اکثر ملتے جلتے نام استعمال کرتی ہیں۔", "ریکوری فون نمبر اور متبادل ای میل اپ ڈیٹ رکھیں۔"], en: ["Keep your email password the longest and most unique of all.", "Enable 2FA on email — it is your most important account.", "Don't click links or download files in suspicious emails.", "Check the sender's real address — fake emails use lookalike names.", "Keep your recovery phone number and backup email updated."] }
+    },
+    {
+      id: "windows-security",
+      icon: "🖥️",
+      title: { ur: "ونڈوز سیکیورٹی", en: "Windows Security" },
+      desc: { ur: "آپ کا کمپیوٹر دفتر، پڑھائی اور بینکنگ کا مرکز ہے، اس لیے اس کی حفاظت بنیادی ضرورت ہے۔ ونڈوز میں پہلے سے موجود سیکیورٹی ٹولز اکثر کافی ہوتے ہیں اگر انہیں صحیح طرح آن رکھا جائے۔ غیر معروف سوفٹ ویئر سے پرہیز کریں۔", en: "Your computer is the hub of work, study and banking, so its security is a basic need. Windows' built-in security tools are usually enough if kept properly enabled. Avoid unknown software." },
+      tips: { ur: ["Windows Defender اور Firewall ہمیشہ آن رکھیں۔", "Windows اپ ڈیٹس کو نظر انداز نہ کریں — یہ سیکیورٹی کے سوراخ بند کرتی ہیں۔", "غیر معروف ویب سائٹس سے مفت سوفٹ ویئر یا 'کریک' ڈاؤن لوڈ نہ کریں۔", "ایڈمن کے بجائے روزمرہ کام کے لیے عام یوزر اکاؤنٹ استعمال کریں۔", "اہم فائلوں کا بیک اپ بیرونی ڈرائیو یا کلاؤڈ پر رکھیں۔"], en: ["Keep Windows Defender and Firewall always on.", "Don't ignore Windows updates — they close security holes.", "Never download free software or 'cracks' from unknown websites.", "Use a standard user account for daily work instead of admin.", "Back up important files to an external drive or the cloud."] }
+    },
+    {
+      id: "wifi-security",
+      icon: "📶",
+      title: { ur: "وائی فائی سیکیورٹی", en: "WiFi Security" },
+      desc: { ur: "گھر کا وائی فائی اگر محفوظ نہ ہو تو پڑوسی یا کوئی اجنبی آپ کا انٹرنیٹ استعمال کر سکتا ہے اور آپ کی سرگرمیاں دیکھ سکتا ہے۔ راؤٹر کی چند سیٹنگز بدلنے سے آپ کا نیٹ ورک مضبوط قلعہ بن جاتا ہے۔", en: "If your home WiFi isn't secured, a neighbor or stranger can use your internet and spy on your activity. Changing a few router settings turns your network into a strong fortress." },
+      tips: { ur: ["راؤٹر کا ڈیفالٹ ایڈمن پاس ورڈ (admin/admin) فوراً تبدیل کریں۔", "WiFi کا مضبوط پاس ورڈ رکھیں اور WPA2 یا WPA3 سیکیورٹی استعمال کریں۔", "راؤٹر کا فرم ویئر اپ ڈیٹ رکھیں۔", "مہمانوں کے لیے الگ Guest WiFi بنائیں — اصل پاس ورڈ نہ دیں۔", "WPS بٹن والی خصوصیت بند کر دیں کیونکہ یہ آسانی سے توڑی جا سکتی ہے۔"], en: ["Change the router's default admin password (admin/admin) immediately.", "Set a strong WiFi password and use WPA2 or WPA3 security.", "Keep your router's firmware updated.", "Create a separate Guest WiFi for visitors — don't share the main password.", "Turn off the WPS button feature as it can be cracked easily."] }
+    },
+    {
+      id: "biometric-security",
+      icon: "👆",
+      title: { ur: "بائیومیٹرک سیکیورٹی", en: "Biometric Security" },
+      desc: { ur: "فنگر پرنٹ اور چہرے کی شناخت (Face ID) پاس ورڈ سے زیادہ تیز اور محفوظ ہیں کیونکہ انہیں چرایا یا اندازہ نہیں لگایا جا سکتا۔ جدید فونز میں یہ سہولت مفت موجود ہے — اسے فعال کرنا عقلمندی ہے۔", en: "Fingerprint and face recognition are faster and safer than passwords because they can't be stolen or guessed. Modern phones include them for free — enabling them is simply smart." },
+      tips: { ur: ["فون کے اسکرین لاک کے لیے فنگر پرنٹ یا Face ID فعال کریں۔", "بینکنگ ایپس (JazzCash، EasyPaisa) میں بائیومیٹرک لاگ اِن آن کریں۔", "فنگر پرنٹ کے ساتھ ایک مضبوط بیک اپ PIN بھی لازمی رکھیں۔", "اپنے فنگر پرنٹ یا چہرے کا ڈیٹا کسی ایپ یا ویب سائٹ کو نہ دیں۔", "فون بیچنے یا دینے سے پہلے بائیومیٹرک ڈیٹا ڈیلیٹ کر دیں۔"], en: ["Enable fingerprint or Face ID for your phone's screen lock.", "Turn on biometric login in banking apps (JazzCash, Easypaisa).", "Always keep a strong backup PIN alongside biometrics.", "Never give your fingerprint or face data to random apps or websites.", "Delete biometric data before selling or giving away your phone."] }
+    },
+    {
+      id: "app-permissions",
+      icon: "📲",
+      title: { ur: "ایپ کی اجازتیں", en: "App Permissions" },
+      desc: { ur: "بہت سی ایپس ضرورت سے زیادہ اجازتیں مانگتی ہیں — جیسے ٹارچ ایپ کا آپ کے رابطے مانگنا۔ ہر اجازت کا مطلب ہے کہ ایپ آپ کی نجی معلومات دیکھ سکتی ہے۔ وقتاً فوقتاً اجازتوں کا جائزہ لینا آپ کی پرائیویسی کی حفاظت کرتا ہے۔", en: "Many apps ask for more permissions than they need — like a torch app requesting your contacts. Every permission means the app can see your private information. Reviewing permissions regularly protects your privacy." },
+      tips: { ur: ["نئی ایپ انسٹال کرتے وقت ہر اجازت غور سے پڑھیں۔", "غیر ضروری اجازتیں (مائیک، کیمرہ، لوکیشن) بند کر دیں۔", "لوکیشن کی اجازت صرف 'While Using App' پر رکھیں۔", "مہینے میں ایک بار Settings میں جا کر تمام ایپس کی اجازتیں چیک کریں۔", "جو ایپ استعمال نہ کرتے ہوں اسے ڈیلیٹ کر دیں۔"], en: ["Read every permission carefully when installing a new app.", "Turn off unnecessary permissions (mic, camera, location).", "Keep location permission on 'While Using App' only.", "Check all app permissions in Settings once a month.", "Delete apps you no longer use."] }
+    },
+    {
+      id: "backup-strategy",
+      icon: "💾",
+      title: { ur: "بیک اپ کی حکمت عملی", en: "Backup Strategy" },
+      desc: { ur: "فون گم ہو جائے، چوری ہو جائے یا خراب ہو جائے — آپ کی یادیں اور اہم دستاویزات ہمیشہ محفوظ رہنی چاہئیں۔ باقاعدہ بیک اپ کا مطلب ہے کہ ڈیوائس جائے تو ڈیٹا نہ جائے۔ یہ عادت ایک بار ڈالیں، پھر خودکار کر دیں۔", en: "Phone lost, stolen or broken — your memories and important documents should always survive. Regular backup means if the device goes, your data doesn't. Build this habit once, then automate it." },
+      tips: { ur: ["Google Photos یا iCloud میں تصاویر کا خودکار بیک اپ آن کریں۔", "اہم دستاویزات Google Drive پر بھی محفوظ کریں۔", "WhatsApp چیٹ کا ہفتہ وار بیک اپ آن رکھیں۔", "3-2-1 اصول: 3 کاپیاں، 2 مختلف جگہوں پر، 1 آف لائن۔", "بیک اپ کے بعد کبھی کبھی چیک کریں کہ فائلیں واقعی محفوظ ہوئی ہیں۔"], en: ["Turn on automatic photo backup in Google Photos or iCloud.", "Also save important documents on Google Drive.", "Keep weekly WhatsApp chat backup enabled.", "Follow the 3-2-1 rule: 3 copies, on 2 different media, 1 offline.", "Occasionally verify that your files actually got backed up."] }
+    },
+    {
+      id: "usb-protection",
+      icon: "🔌",
+      title: { ur: "یو ایس بی وائرس سے حفاظت", en: "USB Virus Protection" },
+      desc: { ur: "دکان، دوست یا یونیورسٹی سے لی گئی USB میں اکثر وائرس چھپے ہوتے ہیں جو لگاتے ہی کمپیوٹر میں پھیل جاتے ہیں۔ USB لگانے سے پہلے چند احتیاطی تدابیر آپ کے سسٹم کو محفوظ رکھتی ہیں۔", en: "USB drives from shops, friends or universities often hide viruses that spread the moment you plug them in. A few precautions before inserting a USB keep your system safe." },
+      tips: { ur: ["نامعلوم USB کو اپنے کمپیوٹر میں کبھی نہ لگائیں۔", "USB لگاتے ہی اسے اینٹی وائرس سے اسکین کریں۔", "Windows میں AutoRun/AutoPlay بند رکھیں۔", "USB میں نظر آنے والی عجیب .exe فائلوں پر ڈبل کلک نہ کریں۔", "اہم ڈیٹا والی USB کی کاپی الگ رکھیں۔"], en: ["Never plug an unknown USB into your computer.", "Scan the USB with antivirus as soon as you insert it.", "Keep AutoRun/AutoPlay disabled in Windows.", "Don't double-click strange .exe files you see on a USB.", "Keep a separate copy of data from important USB drives."] }
+    },
+    {
+      id: "hacked-emergency",
+      icon: "🆘",
+      title: { ur: "ہیک ہونے پر ہنگامی گائیڈ", en: "Hacked Emergency Guide" },
+      desc: { ur: "اگر آپ کا اکاؤنٹ ہیک ہو جائے تو گھبراہٹ کے بجائے تیز اور درست اقدامات نقصان کو روکتے ہیں۔ یہ گائیڈ بتاتی ہے کہ پہلے 10 منٹ میں کیا کرنا ہے تاکہ ہیکر کو باہر نکالا جا سکے اور اکاؤنٹ واپس مل سکے۔", en: "If your account gets hacked, fast and correct steps — not panic — stop the damage. This guide shows what to do in the first 10 minutes to lock the hacker out and recover your account." },
+      tips: { ur: ["فوراً پاس ورڈ تبدیل کریں — کسی دوسری ڈیوائس سے اگر ممکن ہو۔", "تمام ڈیوائسز سے لاگ آؤٹ کریں (Gmail اور Facebook میں یہ آپشن موجود ہے)۔", "2FA فعال کریں اور ریکوری ای میل/فون چیک کریں کہ بدلا تو نہیں گیا۔", "بینک اور JazzCash/EasyPaisa کو اطلاع دے کر اکاؤنٹ عارضی بند کروائیں۔", "FIA سائبر کرائم (1991) پر رپورٹ درج کروائیں۔"], en: ["Change your password immediately — from another device if possible.", "Log out of all devices (Gmail and Facebook offer this option).", "Enable 2FA and check that recovery email/phone wasn't changed.", "Inform your bank and JazzCash/Easypaisa to temporarily block the account.", "File a report with FIA Cybercrime (1991)."] }
+    },
+    {
+      id: "hash-identifier",
+      icon: "🔢",
+      title: { ur: "ہیش شناخت کنندہ", en: "Hash Identifier" },
+      desc: { ur: "ہیش ایک لمبی بے ربط سی لائن ہوتی ہے جو کسی فائل یا پاس ورڈ کی ڈیجیٹل شناخت ہوتی ہے۔ MD5، SHA1 اور SHA256 سب سے مشہور اقسام ہیں۔ ہیش کی لمبائی اور شکل دیکھ کر اس کی قسم پہچانی جا سکتی ہے — یہ ڈیجیٹل فرانزک کی بنیادی مہارت ہے۔", en: "A hash is a long random-looking string that acts as a digital fingerprint of a file or password. MD5, SHA1 and SHA256 are the most famous types. You can identify a hash type by its length and format — a basic digital forensics skill." },
+      tips: { ur: ["32 حروف کا ہیش عام طور پر MD5 ہوتا ہے۔", "40 حروف کا ہیش SHA1 اور 64 حروف کا SHA256 ہوتا ہے۔", "ڈاؤن لوڈ کی گئی فائل کا ہیش ویب سائٹ پر دیے گئے ہیش سے ملائیں۔", "اگر ہیش نہ ملے تو فائل خراب یا تبدیل شدہ ہو سکتی ہے — استعمال نہ کریں۔", "یہ صرف شناخت اور تصدیق کے لیے ہے — ہیش 'توڑنے' کی کوشش نہ کریں۔"], en: ["A 32-character hash is usually MD5.", "A 40-character hash is SHA1 and 64 characters is SHA256.", "Match a downloaded file's hash with the one given on the website.", "If hashes don't match, the file may be corrupt or tampered — don't use it.", "This is for identification and verification only — don't try to 'crack' hashes."] }
+    }
+  ]
+};
+
+var CYBER_CAT2 = {
+  id: "learn",
+  icon: "🎓",
+  name: { ur: "سیکھو", en: "Learn" },
+  desc: { ur: "سائبر سیکیورٹی سیکھیں — شروع سے آگے تک۔", en: "Learn cyber security — from zero to hero." },
+  features: [
+    {
+      id: "security-blog",
+      icon: "📝",
+      title: { ur: "سیکیورٹی بلاگ", en: "Security Blog" },
+      desc: {
+        ur: "اردو میں ایتھیکل ہیکنگ اور سائبر سیکیورٹی کے آسان مضامین۔ ہر مضمون ایک تصور کو مثالوں کے ساتھ سمجھاتا ہے، تاکہ شروعات کرنے والے بغیر کسی الجھن کے سیکھ سکیں۔",
+        en: "Easy ethical hacking and cyber security articles in Urdu. Each post explains one concept with examples, so beginners can learn without confusion."
+      },
+      tips: {
+        ur: [
+          "آسان مضامین سے شروع کریں — بنیادی اصطلاحات پہلے سیکھیں، پھر آگے بڑھیں۔",
+          "ہر مضمون پڑھنے کے بعد اس کی اہم باتیں اپنی نوٹ بک میں لکھیں۔",
+          "حملوں کے بارے میں پڑھتے وقت ہمیشہ یہ سوچیں: اس سے بچا کیسے جا سکتا ہے؟",
+          "ہفتے میں کم از کم دو نئے مضامین پڑھنے کا معمول بنائیں۔",
+          "جو بات سمجھ نہ آئے، اسے فورم یا کمیونٹی میں پوچھنے سے نہ ہچکچائیں۔"
+        ],
+        en: [
+          "Start with the simplest articles — learn basic terms first, then move ahead.",
+          "After reading each post, write its key points in your own notebook.",
+          "When reading about attacks, always ask yourself: how can this be prevented?",
+          "Make a habit of reading at least two new articles every week.",
+          "Don't hesitate to ask in forums or the community about anything unclear."
+        ]
+      }
+    },
+    {
+      id: "course-notes",
+      icon: "📚",
+      title: { ur: "کورس نوٹس", en: "Course Notes" },
+      desc: {
+        ur: "مکمل سائبر سیکیورٹی کورس کے نوٹس اور مرحلہ وار لرننگ پاتھ۔ پہلے دن سے لے کر عملی مہارت تک، ہر مرحلے پر کیا سیکھنا ہے — سب کچھ منظم انداز میں۔",
+        en: "Complete cyber security course notes with a step-by-step learning path. From day one to practical skills — what to learn at every stage, all organized."
+      },
+      tips: {
+        ur: [
+          "لرننگ پاتھ کے ترتیب پر عمل کریں — موضوعات کو چھوڑ کر آگے نہ بڑھیں۔",
+          "ہر نوٹ کے ساتھ عملی مشق کریں؛ صرف پڑھنے سے مہارت نہیں بنتی۔",
+          "اپنی ترقی کا ریکارڈ رکھیں — مکمل شدہ موضوعات پر نشان لگائیں۔",
+          "مشکل موضوع کو دو تین دن میں تھوڑا تھوڑا کر کے مکمل کریں۔",
+          "نوٹس کو دوسروں کو سکھائیں — سکھانے سے سمجھ پکی ہوتی ہے۔"
+        ],
+        en: [
+          "Follow the learning path in order — don't skip topics to jump ahead.",
+          "Practice hands-on with every note; reading alone builds no skill.",
+          "Track your progress — tick off topics as you complete them.",
+          "Break difficult topics into small pieces over two or three days.",
+          "Teach the notes to others — teaching deepens understanding."
+        ]
+      }
+    },
+    {
+      id: "kali-linux-guide",
+      icon: "🐉",
+      title: { ur: "کالی لینکس گائیڈ", en: "Kali Linux Guide" },
+      desc: {
+        ur: "کالی لینکس انسٹال کرنے سے لے کر اس کے مشہور سیکیورٹی ٹولز کے قانونی استعمال تک — مکمل اردو رہنمائی۔ یہ ٹولز صرف اپنی یا اجازت شدہ سسٹمز کی حفاظت جانچنے کے لیے ہیں۔",
+        en: "Complete Urdu guidance from installing Kali Linux to the legal use of its famous security tools. These tools are only for testing the security of your own or authorized systems."
+      },
+      tips: {
+        ur: [
+          "کالی لینکس کو پہلے ورچوئل مشین میں چلائیں — اپنے مین سسٹم پر براہ راست انسٹال نہ کریں۔",
+          "ہر ٹول سیکھنے سے پہلے اس کا مقصد اور قانونی حدود سمجھیں۔",
+          "مشق صرف اپنی ڈیوائسز یا واضح اجازت والی سسٹمز پر کریں۔",
+          "ٹرمینل کے بنیادی کمانڈز پہلے سیکھیں — ٹولز بعد میں آسان لگیں گے۔",
+          "اپنے تجربات کے نوٹس بنائیں — کون سا ٹول کس مقصد کے لیے استعمال ہوا۔"
+        ],
+        en: [
+          "Run Kali Linux in a virtual machine first — don't install it directly on your main system.",
+          "Before learning any tool, understand its purpose and legal limits.",
+          "Practice only on your own devices or clearly authorized systems.",
+          "Learn basic terminal commands first — the tools will feel easier afterwards.",
+          "Keep notes of your experiments — which tool was used for what purpose."
+        ]
+      }
+    },
+    {
+      id: "linux-commands",
+      icon: "⌨️",
+      title: { ur: "لینکس کمانڈز", en: "Linux Commands" },
+      desc: {
+        ur: "سائبر سیکیورٹی کے لیے ضروری لینکس کمانڈز — فائل مینجمنٹ، نیٹ ورکنگ اور سسٹم چیکس۔ ہر کمانڈ کے ساتھ سادہ اردو وضاحت اور مثال۔",
+        en: "Essential Linux commands for cyber security — file management, networking and system checks. Each command comes with a simple Urdu explanation and example."
+      },
+      tips: {
+        ur: [
+          "روزانہ صرف پانچ نئے کمانڈز سیکھیں — زیادہ ایک ساتھ یاد نہیں رہیں گے۔",
+          "ہر کمانڈ کو خود ٹائپ کر کے چلائیں — کاپی پیسٹ سے یاد نہیں ہوتا۔",
+          "خطرناک کمانڈز (جیسے ڈیلیٹ والے) پہلے ٹیسٹ فولڈر میں آزمائیں۔",
+          "مینوئل دیکھنے کے لیے man کمانڈ کا استعمال سیکھیں۔",
+          "اپنے پسندیدہ کمانڈز کی ایک چیٹ شیٹ بنا کر دیوار پر لگائیں۔"
+        ],
+        en: [
+          "Learn only five new commands daily — more won't stick at once.",
+          "Type and run each command yourself — copy-paste doesn't build memory.",
+          "Try dangerous commands (like delete ones) in a test folder first.",
+          "Learn to use the man command to read manuals.",
+          "Make a cheat sheet of your favorite commands and pin it on your wall."
+        ]
+      }
+    },
+    {
+      id: "web-hacking-basics",
+      icon: "🕸️",
+      title: { ur: "ویب ہیکنگ کی بنیادی باتیں", en: "Web Hacking Basics" },
+      desc: {
+        ur: "SQL انجیکشن اور XSS جیسے مشہور ویب حملے کیا ہیں — صرف سمجھنے اور ان سے بچاؤ کے لیے۔ یہ سیکشن دفاعی زاویے سے لکھا گیا ہے؛ حملے کے عملی طریقے یہاں نہیں سکھائے جاتے۔",
+        en: "What famous web attacks like SQL injection and XSS are — explained only to understand and defend against them. This section is written from a defensive angle; attack steps are not taught here."
+      },
+      tips: {
+        ur: [
+          "ہر حملے کو اس کے دفاع کے ساتھ سیکھیں — حملہ سمجھیں، بچاؤ پر عمل کریں۔",
+          "اپنی ویب سائٹ پر ہمیشہ یوزر ان پٹ کی جانچ (ویلیڈیشن) لگائیں۔",
+          "ڈیٹابیس کے لیے پیرامیٹرائزڈ کوئریز استعمال کریں — SQL انجیکشن کا بہترین بچاؤ۔",
+          "XSS سے بچنے کے لیے آؤٹ پٹ کو ہمیشہ انکوڈ کریں۔",
+          "مشق کے لیے قانونی پلیٹ فارمز (جیسے بگ باؤنٹی پروگرامز) استعمال کریں۔"
+        ],
+        en: [
+          "Learn every attack together with its defense — understand the attack, apply the protection.",
+          "Always validate user input on your website.",
+          "Use parameterized queries for databases — the best defense against SQL injection.",
+          "Always encode output to prevent XSS.",
+          "Use legal platforms (like bug bounty programs) for practice."
+        ]
+      }
+    },
+    {
+      id: "osint-guide",
+      icon: "🔍",
+      title: { ur: "اوسنٹ گائیڈ", en: "OSINT Guide" },
+      desc: {
+        ur: "اوپن سورس انٹیلیجنس — عوامی ذرائع سے معلومات جمع کرنے کا فن۔ جانیں کہ سیکیورٹی ماہرین عوامی ڈیٹا سے خطرات کیسے پہچانتے ہیں، اور اپنی آن لائن پرائیویسی کیسے بہتر بنائیں۔",
+        en: "Open Source Intelligence — the art of gathering information from public sources. Learn how security experts spot risks from public data, and how to improve your own online privacy."
+      },
+      tips: {
+        ur: [
+          "خود پر OSINT آزمائیں — گوگل میں اپنا نام لکھ کر دیکھیں کیا نظر آتا ہے۔",
+          "سوشل میڈیا پر ذاتی معلومات (فون، پتہ، شناختی کارڈ) کبھی شیئر نہ کریں۔",
+          "تصاویر پوسٹ کرنے سے پہلے ان کی لوکیشن (جیو ٹیگ) بند کریں۔",
+          "پرانے اکاؤنٹس اور غیر ضروری پوسٹس کو ڈیلیٹ یا پرائیویٹ کریں۔",
+          "کسی اور کی معلومات اس کی اجازت کے بغیر جمع نہ کریں — یہ غیر قانونی ہو سکتا ہے۔"
+        ],
+        en: [
+          "Try OSINT on yourself — search your own name on Google and see what shows up.",
+          "Never share personal details (phone, address, ID card) on social media.",
+          "Turn off photo location (geo-tagging) before posting pictures.",
+          "Delete or privatize old accounts and unnecessary posts.",
+          "Don't collect someone else's information without their permission — it can be illegal."
+        ]
+      }
+    },
+    {
+      id: "malware-analysis-basics",
+      icon: "🦠",
+      title: { ur: "میلویئر اینالائسز کی بنیادی باتیں", en: "Malware Analysis Basics" },
+      desc: {
+        ur: "میلویئر کیا ہے، یہ کیسے پھیلتا ہے اور اسے کیسے پہچانا جائے۔ وائرس، رینسم ویئر اور ٹروجن کی سادہ اردو وضاحت — تاکہ آپ خود کو اور اپنے خاندان کو محفوظ رکھ سکیں۔",
+        en: "What malware is, how it spreads, and how to recognize it. Simple Urdu explanations of viruses, ransomware and trojans — so you can keep yourself and your family safe."
+      },
+      tips: {
+        ur: [
+          "نامعلوم لنکس اور اٹیچمنٹس پر کلک نہ کریں — خاص طور پر واٹس ایپ اور ای میل میں۔",
+          "سافٹ ویئر ہمیشہ آفیشل ویب سائٹس سے ڈاؤن لوڈ کریں۔",
+          "اینٹی وائرس اپ ڈیٹ رکھیں اور ہفتہ وار اسکین چلائیں۔",
+          "اہم فائلوں کا بیک اپ الگ ڈرائیو یا کلاؤڈ پر رکھیں — رینسم ویئر سے بچاؤ۔",
+          "مشکوک فائل ملے تو اسے الگ رکھیں اور کسی ماہر سے مشورہ کریں۔"
+        ],
+        en: [
+          "Don't click unknown links and attachments — especially on WhatsApp and email.",
+          "Always download software from official websites.",
+          "Keep antivirus updated and run a weekly scan.",
+          "Back up important files on a separate drive or cloud — protection against ransomware.",
+          "If you find a suspicious file, isolate it and consult an expert."
+        ]
+      }
+    },
+    {
+      id: "encryption-explained",
+      icon: "🔏",
+      title: { ur: "انکرپشن کی وضاحت", en: "Encryption Explained" },
+      desc: {
+        ur: "انکرپشن کو آسان زبان میں سمجھیں — آپ کے پیغامات اور ڈیٹا کو خفیہ رکھنے والی ٹیکنالوجی۔ واٹس ایپ کی اینڈ ٹو اینڈ انکرپشن سے لے کر پاس ورڈز کی حفاظت تک۔",
+        en: "Understand encryption in simple words — the technology that keeps your messages and data secret. From WhatsApp's end-to-end encryption to password protection."
+      },
+      tips: {
+        ur: [
+          "سمجھیں: انکرپشن آپ کا ڈیٹا تالے میں بند کرتی ہے — چابی صرف آپ کے پاس ہوتی ہے۔",
+          "اہم چیٹس کے لیے اینڈ ٹو اینڈ انکرپشن والی ایپس استعمال کریں۔",
+          "اپنے فون اور کمپیوٹر پر ڈسک انکرپشن آن رکھیں۔",
+          "پاس ورڈز کو کبھی سادہ ٹیکسٹ فائل میں نہ لکھیں — پاس ورڈ مینیجر استعمال کریں۔",
+          "عوامی وائی فائی پر حساس کام کرتے وقت VPN استعمال کریں۔"
+        ],
+        en: [
+          "Understand: encryption locks your data — only you hold the key.",
+          "Use apps with end-to-end encryption for important chats.",
+          "Keep disk encryption turned on for your phone and computer.",
+          "Never write passwords in a plain text file — use a password manager.",
+          "Use a VPN when doing sensitive work on public Wi-Fi."
+        ]
+      }
+    },
+    {
+      id: "certifications-guide",
+      icon: "🏅",
+      title: { ur: "سرٹیفیکیشنز گائیڈ", en: "Certifications Guide" },
+      desc: {
+        ur: "CEH، Security+، اور دیگر مشہور سائبر سیکیورٹی سرٹیفیکیشنز کی مکمل معلومات — کون سی کس کے لیے ہے، تیاری کیسے کریں، اور پاکستان میں ان کی اہمیت۔",
+        en: "Complete information on popular cyber security certifications like CEH and Security+ — which one is for whom, how to prepare, and their value in Pakistan."
+      },
+      tips: {
+        ur: [
+          "پہلے بنیادی علم مضبوط کریں — سرٹیفیکیشن مہارت کا ثبوت ہے، جادو نہیں۔",
+          "ابتدائی افراد کے لیے Security+ یا Google Cybersecurity Certificate بہترین آغاز ہے۔",
+          "آفیشل سلیبس ڈاؤن لوڈ کریں اور ہر موضوع پر نشان لگا کر تیاری کریں۔",
+          "مفت پریکٹس ٹیسٹس حل کریں — امتحانی پیٹرن سمجھنے کے لیے۔",
+          "پاکستان میں آن لائن امتحان کے مراکز اور فیس کی تصدیق آفیشل ویب سائٹ سے کریں۔"
+        ],
+        en: [
+          "Strengthen basic knowledge first — a certification proves skill, it isn't magic.",
+          "For beginners, Security+ or the Google Cybersecurity Certificate is the best start.",
+          "Download the official syllabus and prepare topic by topic.",
+          "Solve free practice tests to understand the exam pattern.",
+          "Verify exam centers and fees in Pakistan from the official website."
+        ]
+      }
+    },
+    {
+      id: "ebooks-library",
+      icon: "📖",
+      title: { ur: "ای بکس لائبریری", en: "E-books Library" },
+      desc: {
+        ur: "سائبر سیکیورٹی کی مفت اور قانونی ای بکس کا مجموعہ۔ ابتدائی سے لے کر ایڈوانسڈ سطح تک — صرف وہ کتابیں جو مصنفین یا پبلشرز نے مفت فراہم کی ہیں۔",
+        en: "A collection of free and legal cyber security e-books. From beginner to advanced level — only books freely provided by authors or publishers."
+      },
+      tips: {
+        ur: [
+          "ایک وقت میں ایک کتاب پڑھیں — کئی کتابیں ایک ساتھ شروع نہ کریں۔",
+          "ہر باب کے بعد عملی مشق کریں — تھیوری اکیلی کافی نہیں۔",
+          "صرف قانونی مفت ذرائع سے کتابیں حاصل کریں — پائریٹڈ کاپیاں نقصان دہ ہو سکتی ہیں۔",
+          "مشکل ابواب کے نوٹس بنائیں اور بعد میں دہرائیں۔",
+          "کتاب مکمل کرنے پر اپنا خلاصہ لکھیں — یہ آپ کی سمجھ کا امتحان ہے۔"
+        ],
+        en: [
+          "Read one book at a time — don't start several together.",
+          "Practice after every chapter — theory alone is not enough.",
+          "Get books only from legal free sources — pirated copies can be harmful.",
+          "Make notes on difficult chapters and revise them later.",
+          "Write your own summary after finishing a book — it tests your understanding."
+        ]
+      }
+    },
+    {
+      id: "video-tutorials",
+      icon: "🎬",
+      title: { ur: "ویڈیو ٹیوٹوریلز", en: "Video Tutorials" },
+      desc: {
+        ur: "ویڈیو کے ذریعے سائبر سیکیورٹی سیکھیں — اردو میں منتخب کردہ بہترین ٹیوٹوریلز۔ دیکھیں، ساتھ ساتھ مشق کریں، اور عملی مہارت حاصل کریں۔",
+        en: "Learn cyber security through video — handpicked best tutorials in Urdu. Watch, practice along, and build practical skills."
+      },
+      tips: {
+        ur: [
+          "ویڈیو دیکھتے وقت لیپ ٹاپ ساتھ رکھیں — ساتھ ساتھ مشق کریں۔",
+          "ویڈیو کو 1x اسپیڈ پر دیکھیں — جلدی میں اہم نکات چھوٹ جاتے ہیں۔",
+          "ہر ویڈیو کے بعد اس کے اہم مراحل خود دہرائیں۔",
+          "پلے لسٹ کی ترتیب پر عمل کریں — بے ترتیب ویڈیوز سے الجھن ہوتی ہے۔",
+          "نئے تصورات کی فہرست بنائیں اور ہفتے کے آخر میں ان کا جائزہ لیں۔"
+        ],
+        en: [
+          "Keep your laptop beside you while watching — practice along.",
+          "Watch videos at 1x speed — important points get missed in a rush.",
+          "Repeat each video's key steps yourself afterwards.",
+          "Follow the playlist order — random videos cause confusion.",
+          "List new concepts and review them at the end of the week."
+        ]
+      }
+    },
+    {
+      id: "security-news",
+      icon: "📰",
+      title: { ur: "سیکیورٹی نیوز", en: "Security News" },
+      desc: {
+        ur: "سائبر سیکیورٹی کی تازہ ترین خبریں — نئے خطرات، ڈیٹا لیکس اور حفاظتی اپ ڈیٹس۔ باخبر رہیں تاکہ نئے حملوں سے پہلے ہی محفوظ رہ سکیں۔",
+        en: "Latest cyber security news — new threats, data leaks and security updates. Stay informed so you can stay safe ahead of new attacks."
+      },
+      tips: {
+        ur: [
+          "روزانہ دس منٹ سیکیورٹی خبریں پڑھنے کی عادت بنائیں۔",
+          "خبر پڑھ کر سوچیں: کیا یہ خطرہ مجھے یا میرے خاندان کو متاثر کر سکتا ہے؟",
+          "خبریں ہمیشہ معتبر ذرائع سے پڑھیں — افواہوں سے بچیں۔",
+          "نئے خطرے کی خبر ملے تو فوراً اپنے سافٹ ویئر اپ ڈیٹ کریں۔",
+          "اہم خبروں کو خاندان اور دوستوں کے ساتھ شیئر کریں — آگاہی پھیلائیں۔"
+        ],
+        en: [
+          "Build a habit of reading security news for ten minutes daily.",
+          "After reading a news item, ask: could this threat affect me or my family?",
+          "Always read news from trusted sources — avoid rumors.",
+          "When news of a new threat breaks, update your software immediately.",
+          "Share important news with family and friends — spread awareness."
+        ]
+      }
+    }
+  ]
+};
+
+var CYBER_CAT3 = {
+  id: "lab",
+  icon: "🎯",
+  name: { ur: "ایتھیکل ہیکنگ لیب", en: "Ethical Hacking Lab" },
+  desc: { ur: "عملی مشق — محفوظ طریقے سے ہیکنگ سیکھیں۔", en: "Hands-on practice — learn hacking the safe way." },
+  features: [
+    {
+      id: "ctf-challenges",
+      icon: "🏆",
+      title: { ur: "سی ٹی ایف چیلنجز", en: "CTF Challenges" },
+      desc: {
+        ur: "کیپچر دی فلیگ (CTF) ایسے آن لائن مقابلے اور مشقیں ہیں جن میں آپ قانونی اور محفوظ ماحول میں سیکیورٹی پہیلیاں حل کر کے پوائنٹس کماتے ہیں۔ یہ ایتھیکل ہیکنگ سیکھنے کا سب سے بہترین اور محفوظ عملی طریقہ ہے۔",
+        en: "Capture The Flag (CTF) competitions and exercises let you solve security puzzles in a legal, safe environment to earn points. This is the best and safest hands-on way to learn ethical hacking."
+      },
+      tips: {
+        ur: [
+          "اپنے لیول کے مطابق شروع کریں — آسان ویب چیلنجز سے آغاز کریں اور آہستہ آہستہ مشکل بڑھائیں۔",
+          "ہر چیلنج کے بعد اس کا مکمل حل ضرور پڑھیں تاکہ وہ تکنیک پوری طرح سمجھ آئے۔",
+          "صرف قانونی پلیٹ فارمز پر مشق کریں — کبھی کسی اصل ویب سائٹ یا سسٹم پر تجربہ نہ کریں۔",
+          "نوٹس رکھیں: جو طریقے سیکھیں ان کی ڈائری بنائیں، یہ آپ کا ذاتی سیکھنے کا خزانہ ہے۔",
+          "کمیونٹی میں شامل ہوں — پاکستانی سیکیورٹی گروپس اور فورمز میں سوالات پوچھیں اور سیکھیں۔"
+        ],
+        en: [
+          "Start at your level — begin with easy web challenges and gradually increase the difficulty.",
+          "Read the writeup after every challenge so you fully understand the technique involved.",
+          "Practice only on legal platforms — never experiment on real websites or systems.",
+          "Keep notes: maintain a diary of the methods you learn; it becomes your personal learning treasure.",
+          "Join the community — ask questions and learn in Pakistani security groups and forums."
+        ]
+      }
+    },
+    {
+      id: "hackthebox-guide",
+      icon: "📦",
+      title: { ur: "ہیک دی باکس گائیڈ", en: "HackTheBox Guide" },
+      desc: {
+        ur: "HackTheBox ایک مشہور آن لائن پلیٹ فارم ہے جہاں آپ ورچوئل مشینوں پر قانونی طور پر سیکیورٹی ٹیسٹنگ کی مشق کرتے ہیں۔ یہاں سیکھے گئے اصول آپ کو اپنے اور اپنی کمپنی کے سسٹمز محفوظ رکھنے میں مدد دیتے ہیں۔",
+        en: "HackTheBox is a famous online platform where you legally practice security testing on virtual machines. The principles you learn here help you keep your own and your company's systems secure."
+      },
+      tips: {
+        ur: [
+          "مفت اکاؤنٹ بنائیں اور Starting Point لیب سے آغاز کریں — یہ بالکل نئے سیکھنے والوں کے لیے بنی ہے۔",
+          "وی پی این ضرور جوڑیں — پلیٹ فارم کی گائیڈ کے مطابق کنکشن سیٹ اپ کریں۔",
+          "آسان مشینوں سے شروع کریں اور ہر مشین کے بعد سرکاری حل سے اپنا طریقہ موازنہ کریں۔",
+          "دفاعی سبق نوٹ کریں: ہر کمزوری کے ساتھ یہ بھی لکھیں کہ اسے کیسے ٹھیک کیا جائے۔",
+          "باقاعدگی سے مشق کریں — ہفتے میں چند گھنٹے مسلسل محنت مہینوں میں بڑا فرق ڈالتی ہے۔"
+        ],
+        en: [
+          "Create a free account and start with the Starting Point lab — it is built for complete beginners.",
+          "Always connect the VPN — set up the connection exactly as the platform's guide shows.",
+          "Start with easy machines and compare your method with the official writeup after each one.",
+          "Note the defensive lesson: for every weakness, also write down how to fix it.",
+          "Practice regularly — a few hours every week makes a huge difference over months."
+        ]
+      }
+    },
+    {
+      id: "red-blue-team",
+      icon: "⚔️",
+      title: { ur: "ریڈ ٹیم بمقابلہ بلیو ٹیم", en: "Red Team vs Blue Team" },
+      desc: {
+        ur: "ریڈ ٹیم حملہ آور کا کردار ادا کر کے کمزوریاں تلاش کرتی ہے، جبکہ بلیو ٹیم دفاع کرتی ہے اور حملوں کو روکتی ہے۔ دونوں کا مقصد ایک ہی ہے — تنظیم کو محفوظ بنانا۔",
+        en: "The red team plays the attacker's role to find weaknesses, while the blue team defends and stops attacks. Both share one goal — making the organization secure."
+      },
+      tips: {
+        ur: [
+          "پہلے دفاع سیکھیں — بلیو ٹیم کی بنیادیں (لاگز، الرٹس، فائر وال) ہر سیکیورٹی کیریئر کی بنیاد ہیں۔",
+          "ریڈ ٹیم کی سوچ سمجھیں تاکہ بطور محافظ بہتر دفاع بنا سکیں — حملہ آور کیسے سوچتا ہے؟",
+          "پرپل ٹیم کا تصور اپنائیں: حملہ اور دفاع کی ٹیمیں مل کر علم بانٹیں۔",
+          "اپنے گھر یا دفتر کے نیٹ ورک پر دفاعی مشق کریں — لاگز چیک کرنا سیکھیں۔",
+          "اخلاقیات کبھی نہ بھولیں: صرف اجازت شدہ سسٹمز پر ٹیسٹ کریں، ہمیشہ تحریری اجازت لیں۔"
+        ],
+        en: [
+          "Learn defense first — blue team basics (logs, alerts, firewalls) are the foundation of every security career.",
+          "Understand red team thinking so you can build better defenses as a protector — how does an attacker think?",
+          "Adopt the purple team concept: attack and defense teams sharing knowledge together.",
+          "Practice defense on your home or office network — learn to check logs.",
+          "Never forget ethics: test only authorized systems, always with written permission."
+        ]
+      }
+    },
+    {
+      id: "security-quiz",
+      icon: "❓",
+      title: { ur: "سیکیورٹی کوئز", en: "Security Quiz" },
+      desc: {
+        ur: "اپنا سائبر سیکیورٹی علم ٹیسٹ کریں — پاس ورڈز، فشنگ، وائی فائی اور پرائیویسی جیسے موضوعات پر مختصر سوالات۔ غلط جواب بھی سیکھنے کا بہترین موقع ہے۔",
+        en: "Test your cyber security knowledge — short questions on passwords, phishing, Wi-Fi, and privacy. Even a wrong answer is a great chance to learn."
+      },
+      tips: {
+        ur: [
+          "روزانہ 5 منٹ کوئز حل کریں — چھوٹی عادت بڑا علم بناتی ہے۔",
+          "غلط جوابات نوٹ کریں اور ان موضوعات پر مزید پڑھیں۔",
+          "خاندان اور دوستوں کے ساتھ کوئز کھیلیں — سب کی آگاہی بڑھے گی۔",
+          "ہر ہفتے پرانے سوالات دہرائیں تاکہ علم پکا ہو جائے۔",
+          "سو فیصد اسکور کا ہدف رکھیں، پھر اگلے مشکل درجے پر جائیں۔"
+        ],
+        en: [
+          "Solve quizzes for 5 minutes daily — a small habit builds big knowledge.",
+          "Note your wrong answers and read more about those topics.",
+          "Play quizzes with family and friends — everyone's awareness will grow.",
+          "Repeat old questions every week so the knowledge sticks.",
+          "Aim for a 100% score, then move to the next difficulty level."
+        ]
+      }
+    },
+    {
+      id: "phishing-analysis",
+      icon: "🎣",
+      title: { ur: "فشنگ ای میل کا تجزیہ", en: "Phishing Email Analysis" },
+      desc: {
+        ur: "فشنگ ای میلز جعلی پیغامات ہوتی ہیں جو بینک یا معروف کمپنی بن کر آپ کا پاس ورڈ یا پیسے چرانے کی کوشش کرتی ہیں۔ ان کی نشانیاں پہچاننا سیکھیں تاکہ آپ اور آپ کے پیارے محفوظ رہیں۔",
+        en: "Phishing emails are fake messages pretending to be your bank or a known company, trying to steal your password or money. Learn to spot their signs so you and your loved ones stay safe."
+      },
+      tips: {
+        ur: [
+          "بھیجنے والے کا اصل ای میل ایڈریس چیک کریں — بینک کبھی Gmail یا عجیب ڈومین سے میل نہیں بھیجتا۔",
+          "جلد بازی والے الفاظ سے ہوشیار رہیں: فوری کارروائی کریں ورنہ اکاؤنٹ بند — یہ دباؤ کی چال ہے۔",
+          "لنک پر کلک کرنے سے پہلے اس پر ماؤس رکھیں یا دبائے رکھیں — اصل ویب ایڈریس نظر آ جائے گا۔",
+          "مشکوک ای میل کی تصدیق ہمیشہ سرکاری نمبر یا ویب سائٹ سے کریں، ای میل کے لنک سے نہیں۔",
+          "فشنگ ای میل ڈیلیٹ کریں اور رپورٹ کریں — کبھی جواب نہ دیں اور کوئی فائل ڈاؤن لوڈ نہ کریں۔"
+        ],
+        en: [
+          "Check the sender's real email address — a bank never emails from Gmail or a strange domain.",
+          "Beware of urgent language like act now or your account will be closed — that is a pressure tactic.",
+          "Before clicking a link, hover over it or long-press it — the real web address will show.",
+          "Always verify a suspicious email through the official number or website, never through the email's link.",
+          "Delete and report phishing emails — never reply and never download any file."
+        ]
+      }
+    },
+    {
+      id: "social-engineering-defense",
+      icon: "🎭",
+      title: { ur: "سوشل انجینئرنگ سے دفاع", en: "Social Engineering Defense" },
+      desc: {
+        ur: "سوشل انجینئرنگ میں دھوکے باز فون کال، واٹس ایپ یا ملاقات میں اعتماد جیت کر آپ سے خفیہ معلومات نکلواتے ہیں۔ پاکستان میں جعلی بینک افسر کالز اس کی عام مثال ہیں۔",
+        en: "In social engineering, fraudsters win your trust through phone calls, WhatsApp, or in-person meetings to extract secret information. Fake bank officer calls are a common example in Pakistan."
+      },
+      tips: {
+        ur: [
+          "بینک یا ادارہ کبھی فون پر OTP، پاس ورڈ یا PIN نہیں مانگتا — مانگے تو فوراً کال کاٹ دیں۔",
+          "انجان نمبر سے آنے والی انعامی یا خوشخبری والی کالز پر کبھی یقین نہ کریں۔",
+          "دباؤ میں فیصلہ نہ کریں — دھوکے باز جلدی کا دباؤ ڈالتے ہیں؛ کال رکھ کر خود تصدیق کریں۔",
+          "سوشل میڈیا پر ذاتی معلومات (پتہ، شناختی کارڈ، خاندان کی تفصیل) شیئر نہ کریں۔",
+          "بزرگوں اور گھر والوں کو آگاہ کریں — دھوکے باز اکثر بزرگوں کو نشانہ بناتے ہیں۔"
+        ],
+        en: [
+          "A bank or institution never asks for your OTP, password, or PIN on a call — if asked, hang up immediately.",
+          "Never trust prize or good-news calls from unknown numbers.",
+          "Do not decide under pressure — fraudsters create urgency; hang up and verify yourself.",
+          "Do not share personal information (address, ID card, family details) on social media.",
+          "Educate elders and family members — fraudsters often target older people."
+        ]
+      }
+    },
+    {
+      id: "dark-web-explained",
+      icon: "🌑",
+      title: { ur: "ڈارک ویب کی وضاحت", en: "Dark Web Explained" },
+      desc: {
+        ur: "ڈارک ویب انٹرنیٹ کا وہ چھپا حصہ ہے جو عام براؤزر سے نہیں کھلتا۔ یہاں غیر قانونی سرگرمیاں ہوتی ہیں اور چوری شدہ ڈیٹا بکتا ہے — اسے سمجھنا اپنے ڈیٹا کی حفاظت کے لیے ضروری ہے۔",
+        en: "The dark web is the hidden part of the internet that does not open in normal browsers. Illegal activity happens here and stolen data is sold — understanding it is essential to protecting your data."
+      },
+      tips: {
+        ur: [
+          "ڈارک ویب پر کبھی نہ جائیں — تجسس بھی آپ کو غیر قانونی مواد اور خطرات میں ڈال سکتا ہے۔",
+          "اپنا ای میل Have I Been Pwned جیسی سروس پر چیک کریں کہ آپ کا ڈیٹا لیک تو نہیں ہوا۔",
+          "ہر اکاؤنٹ کے لیے الگ مضبوط پاس ورڈ رکھیں تاکہ ایک لیک سے سب اکاؤنٹس خطرے میں نہ پڑیں۔",
+          "دو مرحلہ تصدیق (2FA) آن کریں — لیک شدہ پاس ورڈ کے باوجود اکاؤنٹ محفوظ رہتا ہے۔",
+          "اگر آپ کا ڈیٹا لیک ہو جائے تو فوراً پاس ورڈ بدلیں اور بینک کو مطلع کریں۔"
+        ],
+        en: [
+          "Never visit the dark web — even curiosity can expose you to illegal content and danger.",
+          "Check your email on services like Have I Been Pwned to see if your data leaked.",
+          "Use a separate strong password for every account so one leak does not endanger all accounts.",
+          "Turn on two-factor authentication (2FA) — your account stays safe even with a leaked password.",
+          "If your data leaks, change passwords immediately and inform your bank."
+        ]
+      }
+    },
+    {
+      id: "ai-security",
+      icon: "🤖",
+      title: { ur: "اے آئی اور سیکیورٹی", en: "AI & Security" },
+      desc: {
+        ur: "مصنوعی ذہانت (AI) سیکیورٹی کے دونوں طرف استعمال ہوتی ہے — حملہ آور اس سے جعلی پیغامات بناتے ہیں، جبکہ محافظ اس سے حملے پکڑتے ہیں۔ AI کو سمجھ کر آپ بہتر دفاع کر سکتے ہیں۔",
+        en: "Artificial intelligence (AI) is used on both sides of security — attackers use it to craft fake messages, while defenders use it to catch attacks. Understanding AI helps you defend better."
+      },
+      tips: {
+        ur: [
+          "AI سے بنی جعلی آوازوں اور ویڈیوز (ڈیپ فیک) سے ہوشیار رہیں — مشکوک مواد کی تصدیق کریں۔",
+          "چیٹ بوٹس کو کبھی اپنا پاس ورڈ، OTP یا بینک تفصیلات نہ بتائیں۔",
+          "AI پر مبنی سیکیورٹی ٹولز (اسپام فلٹر، فشنگ ڈیٹیکشن) اپنے آلات پر فعال رکھیں۔",
+          "AI کی مدد سے مضبوط پاس ورڈ بنائیں، لیکن انہیں محفوظ پاس ورڈ مینیجر میں رکھیں۔",
+          "نئی AI دھوکہ دہی کی خبروں سے باخبر رہیں — علم ہی سب سے بڑا دفاع ہے۔"
+        ],
+        en: [
+          "Beware of AI-generated fake voices and videos (deepfakes) — verify suspicious content.",
+          "Never tell a chatbot your password, OTP, or bank details.",
+          "Keep AI-based security tools (spam filters, phishing detection) active on your devices.",
+          "Use AI to help create strong passwords, but store them in a secure password manager.",
+          "Stay informed about new AI scams — knowledge is the greatest defense."
+        ]
+      }
+    },
+    {
+      id: "blockchain-security",
+      icon: "⛓️",
+      title: { ur: "بلاک چین سیکیورٹی", en: "Blockchain Security" },
+      desc: {
+        ur: "بلاک چین ایک محفوظ ڈیجیٹل رجسٹر ٹیکنالوجی ہے جو کرپٹو کرنسیوں کی بنیاد ہے۔ اس کے اصول سمجھنا آپ کو کرپٹو دھوکہ دہی سے بچاتا ہے جو پاکستان میں تیزی سے بڑھ رہی ہے۔",
+        en: "Blockchain is a secure digital ledger technology behind cryptocurrencies. Understanding its principles protects you from crypto scams, which are rising fast in Pakistan."
+      },
+      tips: {
+        ur: [
+          "گارنٹی شدہ منافع والے کرپٹو منصوبے ہمیشہ دھوکہ ہوتے ہیں — لالچ میں نہ آئیں۔",
+          "اپنی والیٹ کے خفیہ الفاظ کبھی کسی کو نہ بتائیں، نہ آن لائن لکھیں۔",
+          "صرف معروف اور تصدیق شدہ ایکسچینجز استعمال کریں — انجان لنکس سے دور رہیں۔",
+          "بڑی رقم کے لیے ہارڈ ویئر والیٹ استعمال کریں، موبائل والیٹ میں کم رقم رکھیں۔",
+          "کسی بھی سرمایہ کاری سے پہلے خود تحقیق کریں — واٹس ایپ گروپس کے مشوروں پر پیسے نہ لگائیں۔"
+        ],
+        en: [
+          "Crypto schemes promising guaranteed profit are always scams — do not fall for greed.",
+          "Never share your wallet's secret words (seed phrase) with anyone, nor write them online.",
+          "Use only well-known, verified exchanges — stay away from unknown links.",
+          "Use a hardware wallet for large amounts; keep small sums in a mobile wallet.",
+          "Research yourself before any investment — do not invest based on WhatsApp group tips."
+        ]
+      }
+    },
+    {
+      id: "port-scanner-demo",
+      icon: "🔌",
+      title: { ur: "پورٹ اسکینر ڈیمو", en: "Port Scanner Demo" },
+      desc: {
+        ur: "پورٹس آپ کے ڈیوائس کے دروازے ہیں جن سے انٹرنیٹ ٹریفک آتی جاتی ہے۔ کھلے غیر ضروری پورٹس حملہ آوروں کو دعوت دیتے ہیں — یہ ڈیمو آپ کو اپنا نیٹ ورک چیک کرنا سکھاتا ہے۔",
+        en: "Ports are your device's doors through which internet traffic flows. Open, unnecessary ports invite attackers — this demo teaches you to check your own network."
+      },
+      tips: {
+        ur: [
+          "صرف اپنا ذاتی نیٹ ورک یا ڈیوائس اسکین کریں — دوسروں کا اسکین کرنا غیر قانونی ہو سکتا ہے۔",
+          "جو سروسز استعمال نہیں کرتے ان کے پورٹس بند کریں یا فائر وال سے بلاک کریں۔",
+          "راؤٹر کا ڈیفالٹ ایڈمن پاس ورڈ فوراً تبدیل کریں — یہ سب سے عام کمزوری ہے۔",
+          "غیر ضروری ریموٹ رسائی (جیسے Telnet) بند رکھیں — یہ پرانے اور غیر محفوظ پروٹوکول ہیں۔",
+          "مہینے میں ایک بار اپنا نیٹ ورک چیک کریں اور راؤٹر کا فرم ویئر اپ ڈیٹ رکھیں۔"
+        ],
+        en: [
+          "Scan only your own network or device — scanning others' may be illegal.",
+          "Close or firewall-block the ports of services you do not use.",
+          "Change your router's default admin password immediately — it is the most common weakness.",
+          "Keep unnecessary remote access (like Telnet) off — these are old, insecure protocols.",
+          "Check your network once a month and keep your router firmware updated."
+        ]
+      }
+    }
+  ]
+};
+
+var CYBER_CAT4 = {
+  id: "safety",
+  icon: "🌐",
+  name: { ur: "آن لائن حفاظت", en: "Online Safety" },
+  desc: { ur: "انٹرنیٹ پر محفوظ رہیں — دھوکوں سے بچیں۔", en: "Stay safe online — avoid scams and fraud." },
+  features: [
+    {
+      id: "phishing-awareness",
+      icon: "🎣",
+      title: { ur: "فشنگ کی آگاہی", en: "Phishing Awareness" },
+      desc: {
+        ur: "فشنگ ایسے جعلی پیغامات یا ویب سائٹس ہیں جو بینک یا کمپنی بن کر آپ کا پاسورڈ یا اکاؤنٹ چرا لیتے ہیں۔ یہ SMS، واٹس ایپ یا ای میل کے ذریعے آتے ہیں۔ ان کی پہچان کرنا آن لائن حفاظت کا پہلا قدم ہے۔",
+        en: "Phishing is fake messages or websites that pretend to be a bank or company to steal your password or account. They come via SMS, WhatsApp or email. Recognizing them is the first step of online safety."
+      },
+      tips: {
+        ur: [
+          "لنک پر کلک کرنے سے پہلے بھیجنے والے کا اصل نمبر یا ای میل چیک کریں۔",
+          "جعلی لنکس میں ہجوں کی غلطیاں یا عجیب پتے ہوتے ہیں — احتیاط سے دیکھیں۔",
+          "بینک یا JazzCash/EasyPaisa کبھی SMS یا واٹس ایپ پر آپ کا PIN نہیں مانگتے۔",
+          "مشکوک لنک کی بجائے ایپ یا ویب سائٹ خود کھول کر لاگ اِن کریں۔",
+          "فشنگ پیغام ملے تو فوراً ڈیلیٹ کریں اور پی ٹی اے کو رپورٹ کریں (0800-55055)۔"
+        ],
+        en: [
+          "Check the sender's real number or email before clicking any link.",
+          "Fake links often have spelling mistakes or strange addresses — look carefully.",
+          "Banks or JazzCash/EasyPaisa never ask for your PIN via SMS or WhatsApp.",
+          "Instead of a suspicious link, open the app or website yourself to log in.",
+          "If you get a phishing message, delete it immediately and report it to PTA (0800-55055)."
+        ]
+      }
+    },
+    {
+      id: "online-fraud-protection",
+      icon: "💳",
+      title: { ur: "آن لائن دھوکے سے بچاؤ", en: "Online Fraud Protection" },
+      desc: {
+        ur: "آن لائن فراڈ میں دھوکے باز آپ سے پیسے یا بینک کی معلومات نکلوا لیتے ہیں۔ پاکستان میں یہ اکثر انعامی اسکیموں یا فرضی خریدار کے روپ میں ہوتا ہے۔ ذرا سی احتیاط آپ کے پیسے بچا سکتی ہے۔",
+        en: "In online fraud, tricksters get money or bank details out of you. In Pakistan this often comes as prize schemes or fake buyers. A little caution can save your money."
+      },
+      tips: {
+        ur: [
+          "اپنا بینک اکاؤنٹ نمبر، CNIC یا OTP کسی کو نہ بتائیں — کبھی بھی نہیں۔",
+          "کوئی انجان شخص JazzCash/EasyPaisa میں پیسے بھیجنے کو کہے تو فوراً انکار کریں۔",
+          "دھوکے کی صورت میں فوراً اپنے بینک کی ہیلپ لائن پر کال کر کے اکاؤنٹ منجمد کرائیں۔",
+          "لین دین کے بعد SMS الرٹس آن رکھیں تاکہ ہر حرکت کی خبر ملے۔",
+          "فراڈ کی رپورٹ FIA سائبر کرائم (1991) پر درج کرائیں۔"
+        ],
+        en: [
+          "Never share your bank account number, CNIC or OTP with anyone — ever.",
+          "If a stranger asks you to send money via JazzCash/EasyPaisa, refuse immediately.",
+          "If cheated, call your bank's helpline at once and get the account frozen.",
+          "Keep transaction SMS alerts on so you are notified of every activity.",
+          "Report fraud to FIA Cybercrime (1991)."
+        ]
+      }
+    },
+    {
+      id: "fake-calls-defense",
+      icon: "📞",
+      title: { ur: "جعلی کالوں سے دفاع", en: "Fake Calls Defense" },
+      desc: {
+        ur: "اسکام کالوں میں دھوکے باز بینک افسر، پولیس یا کمپنی کا نمائندہ بن کر ڈراتے یا لالچ دیتے ہیں۔ ان کا مقصد آپ کا OTP یا PIN حاصل کرنا ہوتا ہے۔ پرسکون رہیں اور ان کی باتوں میں نہ آئیں۔",
+        en: "In scam calls, tricksters pose as bank officers, police or company staff to scare or tempt you. Their goal is to get your OTP or PIN. Stay calm and do not fall for their talk."
+      },
+      tips: {
+        ur: [
+          "اصلی بینک افسر کبھی کال پر آپ کا OTP یا PIN نہیں مانگتا — مانگے تو کال کاٹ دیں۔",
+          "\"آپ کا اکاؤنٹ بند ہو رہا ہے\" جیسی دھمکی صرف ڈرانے کا حربہ ہے۔",
+          "کالر کی بات پر یقین کرنے سے پہلے خود بینک کی اصل ہیلپ لائن پر کال کریں۔",
+          "نامعلوم نمبروں کو بلاک کریں اور فون میں اسپیم رپورٹ کا آپشن استعمال کریں۔",
+          "گھر کے بزرگوں کو بھی بتائیں کہ ایسی کالوں پر کوئی معلومات نہ دیں۔"
+        ],
+        en: [
+          "A real bank officer never asks for your OTP or PIN on a call — hang up if asked.",
+          "\"Your account is being closed\" threats are just scare tactics.",
+          "Before believing the caller, call the bank's official helpline yourself.",
+          "Block unknown numbers and use your phone's spam report option.",
+          "Also tell elders at home never to share information on such calls."
+        ]
+      }
+    },
+    {
+      id: "free-gift-scams",
+      icon: "🎁",
+      title: { ur: "مفت انعام کے دھوکے", en: "Free Gift Scams" },
+      desc: {
+        ur: "\"آپ نے موبائل جیتا ہے\" یا \"مفت انعام\" والے پیغامات دھوکا ہوتے ہیں۔ یہ آپ سے \"ڈیلیوری فیس\" یا ذاتی معلومات لے کر غائب ہو جاتے ہیں۔ یاد رکھیں: مفت میں کچھ نہیں ملتا۔",
+        en: "\"You have won a mobile\" or \"free prize\" messages are scams. They take a \"delivery fee\" or your personal details and disappear. Remember: nothing is truly free."
+      },
+      tips: {
+        ur: [
+          "انعام وصول کرنے کے لیے کبھی پہلے پیسے نہ بھیجیں — یہی دھوکا ہے۔",
+          "انعام والے لنک پر کلک کر کے اپنا CNIC یا بینک تفصیل نہ دیں۔",
+          "مشہور کمپنیوں کے نام سے آنے والے پیغامات کی ان کی اصل ویب سائٹ سے تصدیق کریں۔",
+          "واٹس ایپ پر فارورڈ ہونے والے \"جیتو\" پیغامات کو آگے نہ بڑھائیں۔",
+          "اگر پیسے بھیج دیے ہوں تو فوراً بینک اور FIA کو اطلاع دیں۔"
+        ],
+        en: [
+          "Never send money first to claim a prize — that itself is the scam.",
+          "Do not give your CNIC or bank details on prize links.",
+          "Verify messages sent in famous companies' names on their official websites.",
+          "Do not forward \"you won\" messages circulating on WhatsApp.",
+          "If you already sent money, inform your bank and FIA immediately."
+        ]
+      }
+    },
+    {
+      id: "online-shopping-safety",
+      icon: "🛒",
+      title: { ur: "محفوظ آن لائن خریداری", en: "Online Shopping Safety" },
+      desc: {
+        ur: "آن لائن خریداری آسان ہے مگر جعلی دکانیں پیسے لے کر سامان نہیں بھیجتیں۔ معروف ویب سائٹس اور کیش آن ڈیلیوری استعمال کریں۔ خریدنے سے پہلے دکان کی ساکھ ضرور چیک کریں۔",
+        en: "Online shopping is easy, but fake stores take money and never deliver. Use well-known websites and cash on delivery. Always check a store's reputation before buying."
+      },
+      tips: {
+        ur: [
+          "نئی یا انجان ویب سائٹ سے خریدنے سے پہلے اس کے ریویوز اور رابطہ نمبر چیک کریں۔",
+          "ممکن ہو تو کیش آن ڈیلیوری (COD) منتخب کریں۔",
+          "ادائیگی صرف ویب سائٹ کے اندر کریں — واٹس ایپ پر براہِ راست پیسے نہ بھیجیں۔",
+          "بہت سستی قیمت اکثر دھوکے کی نشانی ہے — موازنہ ضرور کریں۔",
+          "آرڈر کی رسید اور ٹریکنگ نمبر محفوظ رکھیں۔"
+        ],
+        en: [
+          "Before buying from a new or unknown website, check its reviews and contact number.",
+          "Choose cash on delivery (COD) whenever possible.",
+          "Pay only inside the website — never send money directly on WhatsApp.",
+          "An unbelievably cheap price is often a scam sign — compare first.",
+          "Keep your order receipt and tracking number safe."
+        ]
+      }
+    },
+    {
+      id: "banking-app-security",
+      icon: "🏦",
+      title: { ur: "بینکنگ ایپ کی حفاظت", en: "Banking App Security" },
+      desc: {
+        ur: "JazzCash، EasyPaisa اور بینک ایپس میں آپ کے پیسے ہوتے ہیں، اس لیے ان کی حفاظت بہت ضروری ہے۔ مضبوط PIN، اسکرین لاک اور احتیاطی تدابیر سے آپ کا اکاؤنٹ محفوظ رہتا ہے۔",
+        en: "JazzCash, EasyPaisa and bank apps hold your money, so securing them is essential. A strong PIN, screen lock and careful habits keep your account safe."
+      },
+      tips: {
+        ur: [
+          "موبائل بینکنگ کا PIN 1234 یا تاریخِ پیدائش جیسا آسان نہ رکھیں۔",
+          "فون میں اسکرین لاک (فنگر پرنٹ یا PIN) لازمی لگائیں۔",
+          "بینکنگ ایپ صرف Play Store یا App Store سے ڈاؤن لوڈ کریں۔",
+          "پبلک یا کسی اور کے فون پر بینکنگ ایپ میں لاگ اِن نہ کریں۔",
+          "فون گم ہو جائے تو فوراً بینک ہیلپ لائن پر کال کر کے اکاؤنٹ بلاک کرائیں۔"
+        ],
+        en: [
+          "Do not keep an easy mobile banking PIN like 1234 or your birth date.",
+          "Always set a screen lock (fingerprint or PIN) on your phone.",
+          "Download banking apps only from the Play Store or App Store.",
+          "Never log in to a banking app on a public or someone else's phone.",
+          "If your phone is lost, call the bank helpline immediately to block the account."
+        ]
+      }
+    },
+    {
+      id: "kids-online-safety",
+      icon: "👶",
+      title: { ur: "بچوں کی آن لائن حفاظت", en: "Kids Online Safety" },
+      desc: {
+        ur: "بچے انٹرنیٹ پر نامناسب مواد اور انجان لوگوں کے رابطے کا شکار ہو سکتے ہیں۔ والدین کی نگرانی اور کھلی بات چیت بچوں کو محفوظ رکھتی ہے۔ بچے کو آن لائن خطرات سے آگاہ کرنا ضروری ہے۔",
+        en: "Children can face inappropriate content and strangers contacting them online. Parental supervision and open conversation keep kids safe. It is important to make children aware of online dangers."
+      },
+      tips: {
+        ur: [
+          "بچے کو بتائیں کہ انجان آن لائن \"دوستوں\" سے کبھی نہ ملیں اور ذاتی معلومات نہ دیں۔",
+          "بچے کے فون یا ٹیبلیٹ پر پیرنٹل کنٹرول ضرور لگائیں۔",
+          "بچے کی آن لائن سرگرمی پر نظر رکھیں مگر اعتماد کے ساتھ بات بھی کریں۔",
+          "کوئی ڈرائے یا پریشان کرے تو بچے کو بتائیں کہ فوراً آپ کو بتائے۔",
+          "سوشل میڈیا اکاؤنٹس پر پرائیویسی سیٹنگز سخت رکھیں۔"
+        ],
+        en: [
+          "Tell your child never to meet unknown online \"friends\" or share personal information.",
+          "Always set up parental controls on your child's phone or tablet.",
+          "Watch your child's online activity but also talk with trust.",
+          "Tell your child to inform you immediately if anyone scares or bothers them.",
+          "Keep privacy settings strict on social media accounts."
+        ]
+      }
+    },
+    {
+      id: "kids-mode-setup",
+      icon: "🧒",
+      title: { ur: "بچوں کے لیے محفوظ انٹرنیٹ", en: "Kids Mode Setup" },
+      desc: {
+        ur: "کڈز موڈ بچوں کو صرف عمر کے مطابق مواد دکھاتا ہے اور نقصان دہ چیزوں کو بلاک کرتا ہے۔ یوٹیوب کڈز اور فون کے بلٹ اِن فیچرز سے یہ سیٹ اپ منٹوں میں ہو جاتا ہے۔",
+        en: "Kids mode shows children only age-appropriate content and blocks harmful material. With YouTube Kids and your phone's built-in features, setup takes just minutes."
+      },
+      tips: {
+        ur: [
+          "بچوں کے لیے YouTube کی بجائے YouTube Kids ایپ انسٹال کریں۔",
+          "گوگل پر SafeSearch آن کریں تاکہ نامناسب نتائج نہ آئیں۔",
+          "فون کی سیٹنگز میں Screen Time یا Digital Wellbeing سے حدود لگائیں۔",
+          "ایپ انسٹال کرنے کے لیے والدین کی اجازت لازمی بنائیں۔",
+          "بچے کے لیے الگ پروفائل بنائیں، اپنا اکاؤنٹ شیئر نہ کریں۔"
+        ],
+        en: [
+          "Install the YouTube Kids app for children instead of regular YouTube.",
+          "Turn on SafeSearch on Google so inappropriate results do not appear.",
+          "Set limits using Screen Time or Digital Wellbeing in phone settings.",
+          "Make parental approval mandatory for installing new apps.",
+          "Create a separate profile for the child; do not share your own account."
+        ]
+      }
+    },
+    {
+      id: "digital-footprint",
+      icon: "👣",
+      title: { ur: "آپ کا آن لائن نشان", en: "Digital Footprint" },
+      desc: {
+        ur: "ڈیجیٹل فٹ پرنٹ وہ معلومات ہیں جو آپ انٹرنیٹ پر چھوڑتے ہیں — پوسٹس، تصاویر اور کمنٹس۔ یہ ہمیشہ رہتی ہیں اور نوکری یا داخلے پر اثر ڈال سکتی ہیں۔ اپنا نشان خود چیک کریں۔",
+        en: "A digital footprint is the information you leave on the internet — posts, photos and comments. It stays forever and can affect jobs or admissions. Check your own footprint."
+      },
+      tips: {
+        ur: [
+          "گوگل پر اپنا نام سرچ کر کے دیکھیں کہ آپ کے بارے میں کیا نظر آتا ہے۔",
+          "پرانی شرمناک پوسٹس یا تصاویر ڈیلیٹ کر دیں۔",
+          "سوشل میڈیا پروفائلز پرائیویٹ رکھیں، صرف دوستوں کے لیے۔",
+          "غصے یا جذبات میں آ کر کبھی پوسٹ نہ کریں — اسکرین شاٹ ہمیشہ رہتا ہے۔",
+          "اپنا CNIC، پتہ یا فون نمبر کبھی پبلک پوسٹ میں نہ لکھیں۔"
+        ],
+        en: [
+          "Search your own name on Google to see what appears about you.",
+          "Delete old embarrassing posts or photos.",
+          "Keep social media profiles private, visible to friends only.",
+          "Never post in anger or emotion — screenshots last forever.",
+          "Never write your CNIC, address or phone number in a public post."
+        ]
+      }
+    },
+    {
+      id: "public-wifi-dangers",
+      icon: "⚠️",
+      title: { ur: "پبلک وائی فائی کے خطرات", en: "Public WiFi Dangers" },
+      desc: {
+        ur: "ہوٹل، مال یا کیفے کے مفت وائی فائی پر ہیکرز آپ کا ڈیٹا چرا سکتے ہیں۔ ایسی نیٹ ورک پر بینکنگ یا خریداری کرنا خطرناک ہے۔ چند احتیاطی تدابیر سے آپ محفوظ رہ سکتے ہیں۔",
+        en: "On free WiFi at hotels, malls or cafes, hackers can steal your data. Banking or shopping on such networks is risky. A few precautions keep you safe."
+      },
+      tips: {
+        ur: [
+          "پبلک وائی فائی پر کبھی بینک ایپ یا آن لائن خریداری نہ کریں۔",
+          "اپنے موبائل ڈیٹا یا ذاتی ہاٹ اسپاٹ کو ترجیح دیں۔",
+          "پبلک وائی فائی استعمال کرنا ہو تو VPN آن کر لیں۔",
+          "فون کی \"آٹو کنیکٹ ٹو وائی فائی\" سیٹنگ بند رکھیں۔",
+          "استعمال کے بعد وائی فائی بند کر دیں اور نیٹ ورک \"بھول\" جائیں۔"
+        ],
+        en: [
+          "Never use banking apps or shop online on public WiFi.",
+          "Prefer your own mobile data or personal hotspot.",
+          "If you must use public WiFi, turn on a VPN.",
+          "Keep your phone's \"auto-connect to WiFi\" setting off.",
+          "After use, turn WiFi off and \"forget\" the network."
+        ]
+      }
+    },
+    {
+      id: "deepfake-defense",
+      icon: "🎭",
+      title: { ur: "ڈیپ فیک کی پہچان", en: "Deepfake Defense" },
+      desc: {
+        ur: "ڈیپ فیک مصنوعی ذہانت سے بنی جعلی ویڈیو یا آواز ہوتی ہے جو اصلی لگتی ہے۔ اس سے کسی کی شبیہ بگاڑی یا دھوکا دیا جا سکتا ہے۔ پہچاننا سیکھیں اور شیئر کرنے سے پہلے تصدیق کریں۔",
+        en: "A deepfake is AI-made fake video or audio that looks real. It can damage someone's image or be used for fraud. Learn to spot it and verify before sharing."
+      },
+      tips: {
+        ur: [
+          "چہرے کے غیر فطری تاثرات، آنکھوں کی عجیب حرکت یا آواز کی بے ترتیبی دیکھیں۔",
+          "حیران کن ویڈیو ملے تو اصل ذریعے (خبر چینل کی ویب سائٹ) سے تصدیق کریں۔",
+          "مشکوک ویڈیو کو آگے فارورڈ نہ کریں — دھوکا پھیلانے میں حصہ نہ بنیں۔",
+          "کسی کے نام سے پیسے مانگنے والی آواز پر پہلے اس شخص سے براہِ راست رابطہ کریں۔",
+          "ڈیپ فیک سے ہراساں کیے جانے پر FIA سائبر کرائم کو رپورٹ کریں۔"
+        ],
+        en: [
+          "Look for unnatural facial expressions, strange eye movement or mismatched audio.",
+          "If you get a shocking video, verify it from the original source (a news channel's website).",
+          "Do not forward suspicious videos — do not help spread the deception.",
+          "If a voice asks for money in someone's name, contact that person directly first.",
+          "If harassed through a deepfake, report it to FIA Cybercrime."
+        ]
+      }
+    },
+    {
+      id: "proxy-vs-vpn",
+      icon: "🔀",
+      title: { ur: "پراکسی بمقابلہ VPN", en: "Proxy vs VPN" },
+      desc: {
+        ur: "پراکسی اور VPN دونوں آپ کا انٹرنیٹ راستہ بدلتے ہیں مگر تحفظ میں فرق ہے۔ VPN آپ کا پورا ڈیٹا خفیہ کرتا ہے جبکہ پراکسی صرف راستہ بدلتا ہے۔ فرق سمجھ کر صحیح انتخاب کریں۔",
+        en: "Proxy and VPN both change your internet route, but differ in protection. A VPN encrypts all your data while a proxy only changes the route. Understand the difference to choose correctly."
+      },
+      tips: {
+        ur: [
+          "بینکنگ یا حساس کام کے لیے ہمیشہ قابلِ اعتماد VPN استعمال کریں، مفت پراکسی نہیں۔",
+          "مفت VPN اکثر آپ کا ڈیٹا بیچتے ہیں — معروف سروس ہی چنیں۔",
+          "پراکسی آپ کا ڈیٹا خفیہ نہیں کرتا، اس لیے اس پر پاسورڈ نہ ڈالیں۔",
+          "پاکستان میں VPN کا استعمال قانونی ہے مگر غیر قانونی سرگرمی کے لیے نہیں۔",
+          "کام ختم ہونے پر VPN بند کر دیں تاکہ بینک ایپس میں مسئلہ نہ ہو۔"
+        ],
+        en: [
+          "For banking or sensitive work, always use a trusted VPN, not a free proxy.",
+          "Free VPNs often sell your data — choose a well-known service.",
+          "A proxy does not encrypt your data, so never enter passwords over it.",
+          "Using a VPN in Pakistan is legal, but not for illegal activity.",
+          "Turn the VPN off when done so banking apps work without issues."
+        ]
+      }
+    }
+  ]
+};
+
+var CYBER_CAT5 = {
+  id: "career",
+  icon: "💼",
+  name: { ur: "کیریئر", en: "Career" },
+  desc: { ur: "سائبر سیکیورٹی میں اپنا کیریئر بنائیں — گائیڈز، سی وی ٹپس اور پاکستان کے قوانین۔", en: "Build your career in cyber security — guides, CV tips and Pakistan's cyber laws." },
+  features: [
+    {
+      id: "career-guide",
+      icon: "🚀",
+      title: { ur: "کیریئر گائیڈ", en: "Career Guide" },
+      desc: {
+        ur: "سائبر سیکیورٹی میں کیریئر شروع کرنے کا مکمل راستہ سیکھیں۔ آپ کو کس مہارت کی ضرورت ہے، کون سے سرٹیفیکیشن اہم ہیں اور پاکستان میں نوکریاں کہاں ملتی ہیں — سب کچھ یہاں ہے۔",
+        en: "Learn the complete roadmap to start a career in cyber security. Which skills you need, which certifications matter, and where jobs are available in Pakistan — all in one place."
+      },
+      tips: {
+        ur: [
+          "بنیاد مضبوط کریں: کمپیوٹر نیٹ ورکس، آپریٹنگ سسٹمز (خصوصاً Linux) اور پروگرامنگ (Python) سیکھیں۔",
+          "مفت سرٹیفیکیشن سے آغاز کریں جیسے Google Cybersecurity Certificate یا TryHackMe کے مفت رومز۔",
+          "ہاتھ کی مشق کے لیے Hack The Box اور TryHackMe پر روزانہ پریکٹس کریں۔",
+          "LinkedIn پر پروفائل بنائیں اور پاکستانی سائبر سیکیورٹی کمیونٹی سے جڑیں۔",
+          "انٹرن شپ یا فری لانس پروجیکٹس سے تجربہ حاصل کریں، پھر جاب کے لیے اپلائی کریں۔"
+        ],
+        en: [
+          "Build strong basics: learn computer networks, operating systems (especially Linux) and programming (Python).",
+          "Start with free certifications like the Google Cybersecurity Certificate or free TryHackMe rooms.",
+          "Practice hands-on daily on Hack The Box and TryHackMe.",
+          "Create a LinkedIn profile and connect with Pakistan's cyber security community.",
+          "Gain experience through internships or freelance projects, then apply for jobs."
+        ]
+      }
+    },
+    {
+      id: "resume-tips",
+      icon: "📄",
+      title: { ur: "سی وی ٹپس", en: "Resume Tips" },
+      desc: {
+        ur: "سیکیورٹی نوکری کے لیے ایسا سی وی بنائیں جو بھرتی کرنے والوں کی توجہ حاصل کرے۔ مہارت، سرٹیفیکیشن اور پراجیکٹس کو درست طریقے سے پیش کرنے کے طریقے جانیں۔",
+        en: "Build a CV that grabs recruiters' attention for security jobs. Learn how to present your skills, certifications and projects the right way."
+      },
+      tips: {
+        ur: [
+          "سی وی ایک صفحے کا رکھیں اور اوپر اپنا ٹیکنیکل خلاصہ (skills summary) لکھیں۔",
+          "سرٹیفیکیشن (جیسے Security+, CEH) اور عملی لیبز کو نمایاں جگہ دیں۔",
+          "ہر پراجیکٹ کے ساتھ نتیجہ لکھیں، مثلاً: '10 کمزوریاں تلاش کیں اور رپورٹ کیں'۔",
+          "GitHub پروفائل کا لنک ضرور شامل کریں تاکہ آپ کا کام نظر آئے۔",
+          "جھوٹے دعوے کبھی نہ لکھیں — انٹرویو میں عملی سوال سے پکڑے جائیں گے۔"
+        ],
+        en: [
+          "Keep your CV to one page and put a technical skills summary at the top.",
+          "Give prominent space to certifications (like Security+, CEH) and practical labs.",
+          "Add results with each project, e.g. 'Found and reported 10 vulnerabilities'.",
+          "Always include your GitHub profile link so your work is visible.",
+          "Never write false claims — practical interview questions will expose them."
+        ]
+      }
+    },
+    {
+      id: "bug-bounty",
+      icon: "🐛",
+      title: { ur: "بگ باؤنٹی گائیڈ", en: "Bug Bounty Guide" },
+      desc: {
+        ur: "کمپنیوں کی ویب سائٹس میں کمزوریاں تلاش کر کے قانونی طریقے سے پیسے کمائیں۔ بگ باؤنٹی پلیٹ فارمز، شروع کرنے کے مراحل اور اخلاقی اصول یہاں سیکھیں۔",
+        en: "Earn money legally by finding vulnerabilities in companies' websites. Learn bug bounty platforms, how to start, and the ethical rules here."
+      },
+      tips: {
+        ur: [
+          "HackerOne اور Bugcrowd پر اکاؤنٹ بنائیں اور صرف ان پروگرامز پر کام کریں جن کی اجازت ہو۔",
+          "ویب سیکیورٹی کی بنیادیں سیکھیں: OWASP Top 10 کمزوریاں سمجھیں۔",
+          "چھوٹے اور کم مقابلے والے پروگرامز سے شروع کریں تاکہ پہلی کامیابی جلد ملے۔",
+          "ہر بگ کی واضح رپورٹ لکھیں — دوبارہ پیدا کرنے کے مراحل (reproduction steps) ضرور شامل کریں۔",
+          "بغیر اجازت کسی سسٹم کو ہیک کرنا PECA قانون کے تحت جرم ہے — ہمیشہ دائرہ کار (scope) میں رہیں۔"
+        ],
+        en: [
+          "Create accounts on HackerOne and Bugcrowd, and only work on programs you are authorized for.",
+          "Learn web security basics: understand the OWASP Top 10 vulnerabilities.",
+          "Start with small, low-competition programs so your first win comes quickly.",
+          "Write clear reports for every bug — always include reproduction steps.",
+          "Hacking any system without permission is a crime under PECA law — always stay within scope."
+        ]
+      }
+    },
+    {
+      id: "internship-guide",
+      icon: "🎓",
+      title: { ur: "انٹرن شپ گائیڈ", en: "Internship Guide" },
+      desc: {
+        ur: "سائبر سیکیورٹی میں انٹرن شپ حاصل کرنے کا طریقہ جانیں۔ کہاں اپلائی کریں، انٹرویو کی تیاری کیسے کریں اور انٹرن شپ کو نوکری میں کیسے بدلیں۔",
+        en: "Learn how to land an internship in cyber security. Where to apply, how to prepare for interviews, and how to turn an internship into a job."
+      },
+      tips: {
+        ur: [
+          "Rozee.pk، LinkedIn اور کمپنیوں کی ویب سائٹس پر انٹرن شپ کی آسامیاں تلاش کریں۔",
+          "اپلائی کرنے سے پہلے 2-3 چھوٹے پراجیکٹس یا لیب سرٹیفکیٹ تیار رکھیں۔",
+          "انٹرویو میں بنیادی سوالات (نیٹ ورکنگ، عام حملے) کی تیاری کریں۔",
+          "انٹرن شپ کے دوران سیکھنے پر توجہ دیں، ہر ٹاسک سے کچھ نیا سیکھیں۔",
+          "اچھا کام کریں اور رابطے بنائیں — اکثر انٹرنز کو مستقل نوکری مل جاتی ہے۔"
+        ],
+        en: [
+          "Look for internship openings on Rozee.pk, LinkedIn and company websites.",
+          "Before applying, prepare 2-3 small projects or lab certificates.",
+          "Prepare for basic interview questions (networking, common attacks).",
+          "Focus on learning during the internship — learn something new from every task.",
+          "Do good work and build connections — interns often get permanent job offers."
+        ]
+      }
+    },
+    {
+      id: "cyber-law-pakistan",
+      icon: "⚖️",
+      title: { ur: "پاکستان کا سائبر قانون", en: "Cyber Law Pakistan" },
+      desc: {
+        ur: "پاکستان کا PECA قانون (Prevention of Electronic Crimes Act) سمجھیں۔ کون سے آن لائن کام جرم ہیں، سزائیں کیا ہیں اور شکایت کہاں درج کرائیں۔",
+        en: "Understand Pakistan's PECA law (Prevention of Electronic Crimes Act). Which online acts are crimes, what the punishments are, and where to file complaints."
+      },
+      tips: {
+        ur: [
+          "PECA 2016 کے تحت غیر مجاز ہیکنگ، ڈیٹا چوری اور آن لائن دھوکہ دہی سنگین جرائم ہیں۔",
+          "کسی کے سوشل میڈیا اکاؤنٹ میں گھسنا یا پاس ورڈ چرانا جرم ہے — چاہے مذاق میں ہی کیوں نہ ہو۔",
+          "آن لائن ہراسانی یا جعلی خبریں پھیلانے پر قید اور جرمانہ دونوں ہو سکتے ہیں۔",
+          "سائبر کرائم کی شکایت FIA کے سائبر کرائم ونگ میں درج کرائیں (آن لائن پورٹل بھی موجود ہے)۔",
+          "ثبوت محفوظ رکھیں: اسکرین شاٹس، لنکس اور پیغامات شکایت کے وقت کام آتے ہیں۔"
+        ],
+        en: [
+          "Under PECA 2016, unauthorized hacking, data theft and online fraud are serious crimes.",
+          "Breaking into someone's social media account or stealing passwords is a crime — even as a joke.",
+          "Online harassment or spreading fake news can lead to both imprisonment and fines.",
+          "File cybercrime complaints with the FIA Cybercrime Wing (an online portal is also available).",
+          "Preserve evidence: screenshots, links and messages help when filing a complaint."
+        ]
+      }
+    },
+    {
+      id: "community-forum",
+      icon: "💬",
+      title: { ur: "کمیونٹی فورم", en: "Community Forum" },
+      desc: {
+        ur: "سوال پوچھیں، تجربہ بانٹیں اور پاکستان کی سائبر سیکیورٹی کمیونٹی سے جڑیں۔ نئے سیکھنے والوں سے لے کر ماہرین تک — سب کے لیے جگہ ہے۔",
+        en: "Ask questions, share experience and connect with Pakistan's cyber security community. From new learners to experts — there is space for everyone."
+      },
+      tips: {
+        ur: [
+          "سوال پوچھنے سے پہلے تلاش کریں — شاید جواب پہلے سے موجود ہو۔",
+          "سوال واضح لکھیں: آپ نے کیا کوشش کی اور کہاں اٹکے، یہ ضرور بتائیں۔",
+          "دوسروں کے سوالات کے جواب دے کر اپنی سمجھ بھی مضبوط کریں۔",
+          "ذاتی معلومات (پاس ورڈ، CNIC) کبھی فورم پر شیئر نہ کریں۔",
+          "شائستہ رہیں — ہر ماہر کبھی نیا سیکھنے والا تھا۔"
+        ],
+        en: [
+          "Search before asking — the answer may already exist.",
+          "Write clear questions: mention what you tried and where you got stuck.",
+          "Answer others' questions to strengthen your own understanding.",
+          "Never share personal information (passwords, CNIC) on the forum.",
+          "Stay polite — every expert was once a beginner."
+        ]
+      }
+    }
+  ]
+};
+
+var CYBER_CAT6 = {
+  id: "smart",
+  icon: "🏠",
+  name: { ur: "اسمارٹ لائف", en: "Smart Life" },
+  desc: { ur: "جدید زندگی — ہر ڈیوائس محفوظ۔", en: "Modern life — every device secured." },
+  features: [
+    {
+      id: "smart-home-security",
+      icon: "🏠",
+      title: { ur: "سمارٹ ہوم سیکیورٹی", en: "Smart Home Security" },
+      desc: {
+        ur: "آج گھروں میں سی سی ٹی وی کیمرے، سمارٹ بلب اور وائی فائی لاکس عام ہو گئے ہیں، لیکن اکثر ان کا ڈیفالٹ پاس ورڈ کبھی بدلا نہیں جاتا۔ یہ آسان رہنما آپ کو سکھائے گا کہ اپنے سمارٹ ڈیوائسز کو محفوظ کیسے بنائیں تاکہ کوئی اجنبی انہیں کنٹرول نہ کر سکے۔",
+        en: "Homes today have CCTV cameras, smart bulbs, and Wi-Fi locks, yet their default passwords are often never changed. This simple guide shows how to secure your smart devices so no stranger can control them."
+      },
+      tips: {
+        ur: [
+          "ہر سمارٹ ڈیوائس کا ڈیفالٹ پاس ورڈ فوراً بدلیں اور مضبوط، منفرد پاس ورڈ لگائیں۔",
+          "ڈیوائسز کو گھر کے مین وائی فائی کی بجائے الگ گیسٹ نیٹ ورک پر جوڑیں۔",
+          "کیمروں کی فرموئیر/سافٹ ویئر اپ ڈیٹس باقاعدگی سے انسٹال کریں۔",
+          "جن خصوصیات کی ضرورت نہ ہو، مثلاً ریموٹ ایکسیس یا کلاؤڈ شیئرنگ، انہیں بند رکھیں۔",
+          "کیمرے کبھی بیڈروم یا واش روم کی طرف نہ لگائیں اور استعمال شدہ ڈیوائس بیچنے سے پہلے فیکٹری ری سیٹ کریں۔"
+        ],
+        en: [
+          "Change the default password on every smart device immediately and use a strong, unique password.",
+          "Connect smart devices to a separate guest network instead of your main home Wi-Fi.",
+          "Install camera firmware and software updates regularly.",
+          "Turn off features you do not need, such as remote access or cloud sharing.",
+          "Never point cameras at bedrooms or bathrooms, and factory-reset devices before selling them."
+        ]
+      }
+    },
+    {
+      id: "car-hacking-awareness",
+      icon: "🚗",
+      title: { ur: "کار ہیکنگ سے آگاہی", en: "Car Hacking Awareness" },
+      desc: {
+        ur: "جدید گاڑیوں میں بلوٹوتھ، وائی فائی اور موبائل ایپ کنٹرول ہوتا ہے، جس سے سیکیورٹی کے نئے خطرات پیدا ہوئے ہیں۔ اس حصے میں آپ سیکھیں گے کہ اپنی گاڑی کے ڈیجیٹل نظام کو چوروں اور ہیکرز سے کیسے بچائیں۔",
+        en: "Modern cars come with Bluetooth, Wi-Fi, and mobile app control, which creates new security risks. In this section you will learn how to protect your car's digital systems from thieves and hackers."
+      },
+      tips: {
+        ur: [
+          "گاڑی کی موبائل ایپ اور انفوٹینمنٹ سسٹم کا سافٹ ویئر ہمیشہ اپ ڈیٹ رکھیں۔",
+          "ریلے اٹیک سے بچنے کے لیے اسمارٹ کی کو سگنل بلاک کرنے والی تھیلی (فیراڈے پاؤچ) میں رکھیں۔",
+          "نامعلوم بلوٹوتھ ڈیوائسز کو گاڑی سے پیئر نہ کریں اور پرانے پیئرڈ ڈیوائسز ہٹا دیں۔",
+          "گاڑی کی ڈائیگناسٹک (OBD) پورٹ پر لاک لگائیں تاکہ کوئی غیر مجاز ڈیوائس نہ جوڑ سکے۔",
+          "گاڑی بیچتے وقت بلوٹوتھ لسٹ، نیویگیشن ہسٹری اور منسلک اکاؤنٹس مکمل صاف کریں۔"
+        ],
+        en: [
+          "Always keep your car's mobile app and infotainment system software updated.",
+          "Store your smart key in a signal-blocking pouch (Faraday pouch) to prevent relay attacks.",
+          "Do not pair unknown Bluetooth devices with your car, and remove old paired devices.",
+          "Put a lock on the car's diagnostic (OBD) port so no unauthorized device can be plugged in.",
+          "When selling the car, wipe the Bluetooth list, navigation history, and linked accounts completely."
+        ]
+      }
+    },
+    {
+      id: "small-business-security",
+      icon: "🏪",
+      title: { ur: "چھوٹے کاروبار کی سیکیورٹی", en: "Small Business Security" },
+      desc: {
+        ur: "چھوٹی دکان یا دفتر میں اکثر ایک ہی کمپیوٹر پر اکاؤنٹس، اسٹاک اور کسٹمر کا ڈیٹا ہوتا ہے، جس کی حفاظت کو نظر انداز کیا جاتا ہے۔ یہ عملی نکات آپ کے کاروبار کے ڈیٹا اور پیسوں کو ڈیجیٹل چوری سے محفوظ رکھیں گے۔",
+        en: "A small shop or office often keeps accounts, stock, and customer data on one computer, with security ignored. These practical steps will protect your business data and money from digital theft."
+      },
+      tips: {
+        ur: [
+          "کاروباری اکاؤنٹس پر ٹو فیکٹر تصدیق (2FA) لازمی لگائیں، خاص طور پر بینک اور ای میل پر۔",
+          "روزانہ کا بیک اپ بنائیں — ایک کاپی کمپیوٹر میں اور ایک یو ایس بی یا کلاؤڈ میں۔",
+          "ملازمین کو الگ یوزر اکاؤنٹ دیں اور ایڈمن پاس ورڈ کسی سے شیئر نہ کریں۔",
+          "دکان کے وائی فائی کا پاس ورڈ گاہکوں والے نیٹ ورک سے الگ رکھیں۔",
+          "مشکوک لنکس یا انجان نمبروں سے آنے والی فائلوں پر کبھی کلک نہ کریں — پہلے تصدیق کریں۔"
+        ],
+        en: [
+          "Enable two-factor authentication (2FA) on all business accounts, especially banking and email.",
+          "Make daily backups — one copy on the computer and another on a USB drive or cloud storage.",
+          "Give employees separate user accounts and never share the admin password.",
+          "Keep the shop's Wi-Fi password separate from the customer network.",
+          "Never click suspicious links or files from unknown numbers — verify first."
+        ]
+      }
+    },
+    {
+      id: "daily-security-tip",
+      icon: "💡",
+      title: { ur: "روزانہ سیکیورٹی ٹپ", en: "Daily Security Tip" },
+      desc: {
+        ur: "سیکیورٹی کوئی ایک دن کا کام نہیں بلکہ روز کی چھوٹی عادت ہے۔ ہر روز ایک چھوٹی سی ٹپ اپنائیں — چند ہفتوں میں آپ کی ڈیجیٹل زندگی بہت زیادہ محفوظ ہو جائے گی۔",
+        en: "Security is not a one-day job but a small daily habit. Adopt one small tip each day — within a few weeks your digital life will be far more secure."
+      },
+      tips: {
+        ur: [
+          "آج ہی اپنے سب سے اہم اکاؤنٹ (جی میل یا بینک) پر ٹو فیکٹر تصدیق آن کریں۔",
+          "اپنے فون کی اسکرین لاک کو مضبوط PIN یا فنگر پرنٹ پر سیٹ کریں۔",
+          "پرانے، غیر استعمال شدہ ایپس اور اکاؤنٹس ڈیلیٹ کریں — ہر اکاؤنٹ ایک دروازہ ہے۔",
+          "اپنے وائی فائی راؤٹر کا ڈیفالٹ ایڈمن پاس ورڈ آج ہی تبدیل کریں۔",
+          "کسی ایک دوست یا خاندان کے فرد کو آج کوئی سیکیورٹی ٹپ سکھائیں — علم بانٹنے سے بڑھتا ہے۔"
+        ],
+        en: [
+          "Turn on two-factor authentication today for your most important account (Gmail or bank).",
+          "Set your phone's screen lock to a strong PIN or fingerprint.",
+          "Delete old, unused apps and accounts — every account is a door.",
+          "Change your Wi-Fi router's default admin password today.",
+          "Teach one security tip to a friend or family member today — knowledge grows by sharing."
+        ]
+      }
+    },
+    {
+      id: "vpn-guide",
+      icon: "🛡️",
+      title: { ur: "وی پی این گائیڈ", en: "VPN Guide" },
+      desc: {
+        ur: "وی پی این آپ کے انٹرنیٹ کنکشن کو خفیہ کرتا ہے، خاص طور پر پبلک وائی فائی پر، جہاں آپ کا ڈیٹا چوری ہو سکتا ہے۔ یہ گائیڈ بتائے گا کہ کون سا وی پی این چنیں اور اسے صحیح طریقے سے کیسے استعمال کریں۔",
+        en: "A VPN encrypts your internet connection, especially on public Wi-Fi where your data can be stolen. This guide explains which VPN to choose and how to use it correctly."
+      },
+      tips: {
+        ur: [
+          "معروف، معاوضہ (پیڈ) وی پی این چنیں — مفت وی پی این اکثر آپ کا ڈیٹا بیچتے ہیں۔",
+          "وی پی این صرف آفیشل ایپ یا ویب سائٹ سے ڈاؤن لوڈ کریں، کبھی واٹس ایپ لنکس سے نہیں۔",
+          "پبلک وائی فائی (ہوٹل، کیفے، ایئرپورٹ) پر بینکنگ سے پہلے ہمیشہ وی پی این آن کریں۔",
+          "ایپ میں 'کِل سوئچ' آن رکھیں تاکہ وی پی این منقطع ہو تو انٹرنیٹ بھی بند ہو جائے۔",
+          "یاد رکھیں: وی پی این آپ کو نامکمل تحفظ دیتا ہے — مشکوک لنکس پر پھر بھی کلک نہ کریں۔"
+        ],
+        en: [
+          "Choose a reputable paid VPN — free VPNs often sell your data.",
+          "Download the VPN only from its official app or website, never from WhatsApp links.",
+          "Always turn on the VPN before banking on public Wi-Fi (hotels, cafes, airports).",
+          "Keep the 'kill switch' on in the app so the internet cuts off if the VPN disconnects.",
+          "Remember: a VPN gives partial protection — still never click suspicious links."
+        ]
+      }
+    }
+  ]
+};
+
+var CYBER_CATS=[CYBER_CAT1,CYBER_CAT2,CYBER_CAT3,CYBER_CAT4,CYBER_CAT5,CYBER_CAT6];/* ============ Cyber Security section — view logic ============ */
+(function(){
+  var cyberLang = null;
+  try { cyberLang = localStorage.getItem('cyberLang') || null; } catch(e){}
+  var curCat = null, curFeat = null;
+
+  function T(o){ return (o && (o[cyberLang] || o.en)) || ''; }
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+  function showView(id){
+    document.querySelectorAll('.cyber-view').forEach(function(v){ v.classList.remove('active'); });
+    var el = document.getElementById(id);
+    if (el) el.classList.add('active');
+    var root = document.getElementById('cyberRoot');
+    if (root) root.setAttribute('dir', cyberLang === 'ur' ? 'rtl' : 'ltr');
+    window.scrollTo({top: document.getElementById('cyber').offsetTop - 70, behavior:'smooth'});
+  }
+
+  var STR = {
+    ur: {
+      chooseLang: 'زبان منتخب کریں',
+      chooseLangSub: 'آپ جس زبان کا انتخاب کریں گے، تمام مواد اسی زبان میں نظر آئے گا۔',
+      back: '→ واپس',
+      backCats: '→ کیٹیگریز',
+      catsTitle: 'کیٹیگریز',
+      catsSub: 'کوئی کیٹیگری منتخب کریں',
+      featuresOf: 'کے فیچرز',
+      tipsHead: '💡 عملی ٹپس',
+      switchLang: '🌐 زبان بدلیں',
+      langUrdu: 'اردو',
+      langEnglish: 'English'
+    },
+    en: {
+      chooseLang: 'Choose Language',
+      chooseLangSub: 'Everything will appear in the language you select.',
+      back: '← Back',
+      backCats: '← Categories',
+      catsTitle: 'Categories',
+      catsSub: 'Pick a category to explore',
+      featuresOf: 'Features',
+      tipsHead: '💡 Practical Tips',
+      switchLang: '🌐 Switch Language',
+      langUrdu: 'اردو',
+      langEnglish: 'English'
+    }
+  };
+  function S(k){ return (STR[cyberLang] && STR[cyberLang][k]) || STR.en[k]; }
+
+  function langCard(code, big, sub){
+    return '<div class="cyber-lang-card" onclick="CyberGo.setLang(\''+code+'\')">'
+      + '<div class="lang-big">'+big+'</div>'
+      + '<div class="lang-sub">'+sub+'</div></div>';
+  }
+
+  function renderLang(){
+    var h = '<div class="section-head"><span class="section-tag">🛡️ Cyber Security</span>'
+      + '<h2>'+esc(S('chooseLang'))+'</h2><p>'+esc(S('chooseLangSub'))+'</p></div>'
+      + '<div class="cyber-lang-grid">'
+      + langCard('ur','اردو','مکمل مواد اردو میں')
+      + langCard('en','English','Full content in English')
+      + '</div>';
+    document.getElementById('viewLang').innerHTML = h;
+  }
+
+  function renderCats(){
+    var h = '<div class="cyber-toolbar"><button class="cyber-back" onclick="CyberGo.home()">'+esc(S('back'))+'</button>'
+      + '<button class="cyber-switch" onclick="CyberGo.resetLang()">'+esc(S('switchLang'))+'</button></div>'
+      + '<div class="section-head"><span class="section-tag">🛡️ Cyber Security</span>'
+      + '<h2>'+esc(S('catsTitle'))+'</h2><p>'+esc(S('catsSub'))+'</p></div>'
+      + '<div class="cyber-cat-grid">'
+      + CYBER_CATS.map(function(c){
+          return '<div class="cyber-cat-card" onclick="CyberGo.openCat(\''+c.id+'\')">'
+            + '<div class="cyber-cat-icon">'+c.icon+'</div>'
+            + '<h3>'+esc(T(c.name))+'</h3><p>'+esc(T(c.desc))+'</p>'
+            + '<span class="feat-count">'+c.features.length+' '+(cyberLang==='ur'?'فیچرز':'features')+'</span></div>';
+        }).join('') + '</div>';
+    document.getElementById('viewCats').innerHTML = h;
+  }
+
+  function renderFeats(){
+    var c = CYBER_CATS.find(function(x){return x.id===curCat;});
+    if(!c) return;
+    var h = '<button class="cyber-back" onclick="CyberGo.openCats()">'+esc(S('back'))+'</button>'
+      + '<div class="section-head"><span class="section-tag">'+c.icon+' '+esc(T(c.name))+'</span>'
+      + '<h2>'+esc(T(c.name))+' <span class="gold-text">'+esc(S('featuresOf'))+'</span></h2>'
+      + '<p>'+esc(T(c.desc))+'</p></div>'
+      + '<div class="cyber-feat-list">'
+      + c.features.map(function(f){
+          return '<div class="cyber-feat-item" onclick="CyberGo.openFeat(\''+c.id+'\',\''+f.id+'\')">'
+            + '<span class="fi-icon">'+f.icon+'</span>'
+            + '<span class="fi-title">'+esc(T(f.title))+'</span></div>';
+        }).join('') + '</div>';
+    document.getElementById('viewFeats').innerHTML = h;
+  }
+
+  function renderDetail(){
+    var c = CYBER_CATS.find(function(x){return x.id===curCat;});
+    if(!c) return;
+    var f = c.features.find(function(x){return x.id===curFeat;});
+    if(!f) return;
+    var tips = T(f.tips) || [];
+    var h = '<button class="cyber-back" onclick="CyberGo.openCat(\''+c.id+'\')">'+esc(S('back'))+'</button>'
+      + '<div class="cyber-detail-card">'
+      + '<div class="cyber-detail-head"><span class="di-icon">'+f.icon+'</span><h2>'+esc(T(f.title))+'</h2></div>'
+      + '<p class="detail-desc">'+esc(T(f.desc))+'</p>'
+      + '<div class="cyber-tips-head">'+esc(S('tipsHead'))+'</div>'
+      + '<ul class="cyber-tips">'+tips.map(function(tp){return '<li>'+esc(tp)+'</li>';}).join('')+'</ul>'
+      + '</div>';
+    document.getElementById('viewDetail').innerHTML = h;
+  }
+
+  window.CyberGo = {
+    setLang: function(l){
+      cyberLang = l;
+      try { localStorage.setItem('cyberLang', l); } catch(e){}
+      renderCats(); showView('viewCats');
+    },
+    resetLang: function(){
+      cyberLang = null;
+      try { localStorage.removeItem('cyberLang'); } catch(e){}
+      renderLang(); showView('viewLang');
+    },
+    home: function(){ document.getElementById('home').scrollIntoView({behavior:'smooth'}); },
+    openCats: function(){ renderCats(); showView('viewCats'); },
+    openCat: function(id){ curCat = id; renderFeats(); showView('viewFeats'); },
+    openFeat: function(catId, featId){ curCat = catId; curFeat = featId; renderDetail(); showView('viewDetail'); }
+  };
+
+  document.addEventListener('DOMContentLoaded', function(){
+    if (cyberLang === 'ur' || cyberLang === 'en') { renderCats(); showView('viewCats'); }
+    else { renderLang(); showView('viewLang'); }
+  });
+})();
+</script>
+<script>
+/* ---------- Mobile menu ---------- */
+document.getElementById('navToggle').addEventListener('click', function(){ document.getElementById('navLinks').classList.toggle('open'); });
+document.querySelectorAll('#navLinks a').forEach(function(a){ a.addEventListener('click', function(){ document.getElementById('navLinks').classList.remove('open'); }); });
+/* ---------- Navbar shadow ---------- */
+window.addEventListener('scroll', function(){ document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 30); }, {passive:true});
+/* ---------- Animated counters ---------- */
+(function(){
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(!en.isIntersecting) return;
+      var el = en.target, target = +el.dataset.count, t0 = performance.now(), dur = 1200;
+      (function tick(t){
+        var p = Math.min((t - t0) / dur, 1);
+        el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+        if (p < 1) requestAnimationFrame(tick);
+      })(t0);
+      io.unobserve(el);
+    });
+  }, {threshold:.5});
+  document.querySelectorAll('.stat-num').forEach(function(c){ io.observe(c); });
+})();
+</script>
+</body>
+</html>
