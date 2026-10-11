@@ -5,6 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Anwaar Digital — Premium Android Apps & Games</title>
 <meta name="description" content="Download premium Android apps and games by Malik Muhammad Anwaar. Islamic apps, tools, games and more.">
+<meta name="keywords" content="Anwaar Digital, Malik Anwaar apps, Islam 786, free Android apps Pakistan, APK download, Islamic apps, CV Maker, Urdu apps">
+<meta name="author" content="Malik Muhammad Anwaar">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://anwaardigital.github.io/">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Anwaar Digital — Premium Android Apps & Games">
+<meta property="og:description" content="28+ free premium Android apps, Windows software & cyber security guides. Download now!">
+<meta property="og:url" content="https://anwaardigital.github.io/">
+<meta property="og:site_name" content="Anwaar Digital">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Anwaar Digital — Premium Android Apps & Games">
+<meta name="twitter:description" content="28+ free premium Android apps, Windows software & cyber security guides.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -24,6 +38,7 @@
       <span class="brand-text">Anwaar <span class="gold">Digital</span></span>
     </a>
     <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+    <button id="darkModeToggle" class="dark-toggle" aria-label="Toggle theme">🌙</button>
     <ul class="nav-links" id="navLinks">
       <li><a href="#home">Home</a></li>
       <li><a href="#apps">Android</a></li>
@@ -31,6 +46,8 @@
       <li><a href="#apkonly">APK Only</a></li>
       <li><a href="#windows">Windows</a></li>
       <li><a href="cybersecurity.html">🛡️ Cyber Security</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#faq">FAQ</a></li>
       <li><a href="#channels">YouTube</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact" class="nav-cta">Contact</a></li>
@@ -48,14 +65,6 @@
 <!-- ============ HERO ============ -->
 <header class="hero" id="home">
   <div class="hero-pattern"></div>
-  <div class="hero-floaters" aria-hidden="true">
-    <img src="icons/islam786.png" class="floater f1" alt="">
-    <img src="icons/ludo.png" class="floater f2" alt="">
-    <img src="icons/bikeracer.png" class="floater f3" alt="">
-    <img src="icons/cvmaker.png" class="floater f4" alt="">
-    <img src="icons/musicplayer.png" class="floater f5" alt="">
-    <img src="icons/clipcraft.png" class="floater f6" alt="">
-  </div>
   <div class="hero-content">
     <div class="hero-badge">✨ Premium Android Apps & Games</div>
     <h1>Anwaar <span class="gold-text">Digital</span></h1>
@@ -65,10 +74,10 @@
       <a href="https://wa.me/923288317526?text=Assalam%20o%20Alaikum!%20Mujhe%20apps%20download%20karni%20hain." target="_blank" rel="noopener" class="btn btn-outline">WhatsApp Us</a>
     </div>
     <div class="hero-stats">
-      <div class="stat"><span class="stat-num" data-count="19">0</span><span class="stat-label">Premium Apps</span></div>
-      <div class="stat"><span class="stat-num" data-count="4">0</span><span class="stat-label">Games</span></div>
-      <div class="stat"><span class="stat-num" data-count="24">0</span><span class="stat-label">Windows Apps</span></div>
-      <div class="stat"><span class="stat-num" data-count="2">0</span><span class="stat-label">YouTube Channels</span></div>
+      <div class="stat"><span class="stat-num" data-count="28">0</span><span class="stat-label">Premium Apps</span></div>
+      <div class="stat"><span class="stat-num" data-count="5">0</span><span class="stat-label">Games</span></div>
+      <div class="stat"><span class="stat-num" data-count="29">0</span><span class="stat-label">Windows Apps</span></div>
+      <div class="stat"><span class="stat-num" data-count="10000" data-suffix="+">0</span><span class="stat-label">Downloads</span></div>
     </div>
   </div>
   <a href="#featured" class="scroll-down" aria-label="Scroll down">⌄</a>
@@ -84,6 +93,41 @@
     </div>
     <div class="cards-grid" id="featuredGrid"><!-- rendered by JS --></div>
     <div class="center-btn"><a href="#apps" class="btn btn-outline">View All Apps →</a></div>
+  </div>
+</section>
+
+<!-- ============ APP OF THE WEEK ============ -->
+<section class="section section-dark" id="appoftheweek">
+  <div class="container reveal">
+    <div class="section-head">
+      <span class="section-tag">🏆 App of the Week</span>
+      <h2>This Week's <span class="gold-text">Star App</span></h2>
+      <p>Har hafte humari sab se mashhoor app — user ki pasand!</p>
+    </div>
+
+    <div class="aotw-card" id="aotwCard">
+      <div class="aotw-glow" aria-hidden="true"></div>
+      <div class="aotw-media">
+        <img id="aotwIcon" src="icons/islam786.png" alt="App of the Week icon" loading="lazy">
+        <span class="aotw-badge" id="aotwVersion">v3.5</span>
+      </div>
+      <div class="aotw-body">
+        <h3 id="aotwTitle">Islam 786</h3>
+        <p class="aotw-desc" id="aotwDesc">Namaz timings, Quran, duas, tasbeeh aur Islamic calendar — sab kuch ek hi app mein.</p>
+        <div class="aotw-love">
+          <h4>Why we love it</h4>
+          <ul id="aotwBullets">
+            <li>✅ Sunni Hanafi Barelvi maslak ke mutabiq namaz ke auqaat</li>
+            <li>✅ Mukammal Quran, duas aur tasbeeh counter</li>
+            <li>✅ Bilkul FREE — koi ads, koi hidden charges nahi</li>
+          </ul>
+        </div>
+        <div class="aotw-actions">
+          <a href="https://anwaardigital.github.io/downloads/MalikAnwaar-Islam786-v3.5.apk" class="btn btn-gold" id="aotwDownload">⬇ Download Now</a>
+          <span class="aotw-week" id="aotwWeekLabel">Week <span id="aotwWeekNum"></span></span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -191,6 +235,39 @@
   </div>
 </section>
 
+<!-- ============ USER REVIEW FORM ============ -->
+<section class="section" id="userreviews">
+  <div class="container reveal">
+    <div class="section-head">
+      <span class="section-tag">⭐ Reviews</span>
+      <h2>Apna Review <span class="gold-text">Likhein</span></h2>
+      <p>Aapki rai hamare liye qeemti hai!</p>
+    </div>
+    <div class="rv-card">
+      <form id="rvForm" novalidate>
+        <label>Aapka Naam
+          <input type="text" id="rvName" placeholder="Apna naam likhein" autocomplete="name">
+        </label>
+        <div class="rv-stars-wrap">
+          <span class="rv-stars-label">Rating</span>
+          <div class="rv-stars" id="rvStars" role="radiogroup" aria-label="Star rating">
+            <button type="button" data-v="1" aria-label="1 star">⭐</button>
+            <button type="button" data-v="2" aria-label="2 stars">⭐</button>
+            <button type="button" data-v="3" aria-label="3 stars">⭐</button>
+            <button type="button" data-v="4" aria-label="4 stars">⭐</button>
+            <button type="button" data-v="5" aria-label="5 stars">⭐</button>
+          </div>
+        </div>
+        <label>Aapka Review
+          <textarea id="rvText" rows="4" placeholder="Hamari apps ke baare mein kya kehte hain?"></textarea>
+        </label>
+        <div class="rv-msg" id="rvMsg" role="status"></div>
+        <button type="submit" class="rv-btn">⭐ Review Submit Karein</button>
+      </form>
+    </div>
+  </div>
+</section>
+
 <!-- ============ ANDROID APPS ============ -->
 <section class="section" id="apps">
   <div class="container">
@@ -242,6 +319,203 @@
   </div>
 </section>
 
+<section class="section" id="blog">
+  <div class="container reveal">
+    <div class="section-head">
+      <span class="section-tag">📰 Blog</span>
+      <h2>Latest <span class="gold-text">Articles</span></h2>
+      <p>Apps, mobile tips aur technology par mufeed articles — Roman Urdu aur English mein.</p>
+    </div>
+
+    <div class="cards-grid">
+
+      <!-- Article 1 -->
+      <article class="blog-card">
+        <div class="blog-date">📅 10 Oct 2026</div>
+        <h3>Top 5 Islamic Apps 2026</h3>
+        <p class="blog-excerpt">2026 ki behtreen Islamic apps ka intekhab — prayer times, Quran, Qibla aur duain sab ek jagah...</p>
+        <div class="blog-body">
+          <p>Har Muslim ke phone mein kam se kam ek achhi Islamic app honi chahiye. Yahan 2026 ki top 5 apps ki list hai:</p>
+          <ol>
+            <li><strong>Islam 786</strong> — Hamari apni app! Accurate Hanafi prayer times, Qibla finder, full Quran with translation, digital tasbeeh aur 20+ duain — sab kuch 100% free.</li>
+            <li><strong>Quran apps</strong> — Tilawat aur translation ke liye.</li>
+            <li><strong>Prayer reminder apps</strong> — Namaz ka waqt kabhi miss na ho.</li>
+            <li><strong>Dua collection apps</strong> — Roz marra ki duain.</li>
+            <li><strong>Islamic calendar apps</strong> — Chand aur tehwaron ki dates.</li>
+          </ol>
+          <p>Tip: Aisi app chunein jo <strong>offline kaam kare</strong> aur baghair ads ke ho — jaise Islam 786.</p>
+        </div>
+        <button class="blog-toggle" type="button">Read More ⬇</button>
+      </article>
+
+      <!-- Article 2 -->
+      <article class="blog-card">
+        <div class="blog-date">📅 08 Oct 2026</div>
+        <h3>How to Download APK Safely</h3>
+        <p class="blog-excerpt">Play Store ke bahar se APK download karna safe bhi ho sakta hai — bas ye 5 usool yaad rakhein...</p>
+        <div class="blog-body">
+          <p>Kabhi kabhi app Play Store par nahi milti, to APK download karna parta hai. Safe tareeqa ye hai:</p>
+          <ol>
+            <li><strong>Sirf trusted website se download karein</strong> — jaise anwaardigital.github.io. Ajnabi links par click na karein.</li>
+            <li><strong>Permissions check karein</strong> — Agar torch app contacts mang rahi hai, to kuch ghalat hai!</li>
+            <li><strong>Play Protect on rakhein</strong> — Install ke waqt Google scan karta hai.</li>
+            <li><strong>Modded / cracked APKs se bachein</strong> — In mein aksar malware hota hai.</li>
+            <li><strong>App ke baad source verify karein</strong> — Developer ka naam aur website match honi chahiye.</li>
+          </ol>
+          <p>Anwaar Digital ki tamam APKs <strong>virus-free aur safe</strong> hain.</p>
+        </div>
+        <button class="blog-toggle" type="button">Read More ⬇</button>
+      </article>
+
+      <!-- Article 3 -->
+      <article class="blog-card">
+        <div class="blog-date">📅 05 Oct 2026</div>
+        <h3>Best Free Video Editor for Android</h3>
+        <p class="blog-excerpt">Bina watermark, bina paise — phone par professional video editing kaise karein? Jawab: ClipCraft...</p>
+        <div class="blog-body">
+          <p>Mehengi editing apps ki zaroorat nahi — ClipCraft se aap phone par hi zabardast videos bana sakte hain:</p>
+          <ul>
+            <li>✂️ <strong>Trim & Cut</strong> — Fuzool hisse kaatein, secondon mein.</li>
+            <li>🔗 <strong>Merge Clips</strong> — Kayi videos jor kar ek banayein.</li>
+            <li>🎵 <strong>Music Add</strong> — Apni pasand ka background music.</li>
+            <li>🔤 <strong>Text & Filters</strong> — Titles, stylish text aur 30+ filters.</li>
+            <li>📐 <strong>16:9 / 9:16 Export</strong> — YouTube aur Shorts dono ke liye.</li>
+          </ul>
+          <p>Aur sab se achhi baat — <strong>bilkul free, koi watermark nahi!</strong></p>
+        </div>
+        <button class="blog-toggle" type="button">Read More ⬇</button>
+      </article>
+
+      <!-- Article 4 -->
+      <article class="blog-card">
+        <div class="blog-date">📅 02 Oct 2026</div>
+        <h3>Protect Your Phone: 7 Tips</h3>
+        <p class="blog-excerpt">Aapka phone hackers se kitna mehfooz hai? Ye 7 aasaan tips aapko safe rakhen gi...</p>
+        <div class="blog-body">
+          <ol>
+            <li><strong>Screen lock lazmi</strong> — PIN ya fingerprint, pattern se behtar.</li>
+            <li><strong>Apps update rakhein</strong> — Updates mein security fixes hote hain.</li>
+            <li><strong>Public WiFi par banking na karein</strong> — Hackers data chura sakte hain.</li>
+            <li><strong>Unknown links na kholen</strong> — WhatsApp/SMS ke ajeeb links se bachein.</li>
+            <li><strong>App permissions review karein</strong> — Jo app jo permission mangti hai, soch kar dein.</li>
+            <li><strong>Backup lete rahein</strong> — Photos aur contacts ka cloud backup.</li>
+            <li><strong>SafeBox jaisi app use karein</strong> — Private photos/videos ko lock karein.</li>
+          </ol>
+          <p>Cybersecurity seekhna chahte hain? <strong>Anwaar Digital</strong> par hamari cybersecurity guides dekhein!</p>
+        </div>
+        <button class="blog-toggle" type="button">Read More ⬇</button>
+      </article>
+
+      <!-- Article 5 -->
+      <article class="blog-card">
+        <div class="blog-date">📅 28 Sep 2026</div>
+        <h3>Why Learn Quran Online?</h3>
+        <p class="blog-excerpt">Ghar baithe Quran seekhna — bachon aur baron dono ke liye asaan aur mehfooz tareeqa...</p>
+        <div class="blog-body">
+          <p>Online Quran learning duniya bhar mein maqbool ho rahi hai, aur iski wajuhat wazeh hain:</p>
+          <ul>
+            <li>🏠 <strong>Ghar ki sahulat</strong> — Kahin aane jaane ki zaroorat nahi, waqt bachta hai.</li>
+            <li>👨‍🏫 <strong>Qualified teachers</strong> — Achhe qari se seekhne ka mauqa, chahe aap kahin bhi hon.</li>
+            <li>👶 <strong>Bachon ke liye mehfooz</strong> — Waliden ki nigrani mein taleem.</li>
+            <li>⏰ <strong>Flexible timing</strong> — Apne schedule ke mutabiq class.</li>
+            <li>📊 <strong>Progress tracking</strong> — Kitna parha, kitna yaad hua — sab record.</li>
+          </ul>
+          <p>Islam 786 app mein Quran translation ke sath parhein aur apni deeni zindagi behtar banayein.</p>
+        </div>
+        <button class="blog-toggle" type="button">Read More ⬇</button>
+      </article>
+
+      <!-- Article 6 -->
+      <article class="blog-card">
+        <div class="blog-date">📅 25 Sep 2026</div>
+        <h3>Hidden Android Features</h3>
+        <p class="blog-excerpt">Aapka phone in 6 chhupe features se bohat kuch kar sakta hai — aksar log in se bekhabar hain...</p>
+        <div class="blog-body">
+          <ol>
+            <li><strong>Split Screen</strong> — Do apps ek sath chalayein (Recent apps → app icon dabayein → Split screen).</li>
+            <li><strong>App Pinning</strong> — Kisi ko phone dein to ek app par lock karein (Settings → Security).</li>
+            <li><strong>Notification History</strong> — Galti se hatayi hui notification wapas dekhein.</li>
+            <li><strong>One-Handed Mode</strong> — Bare phone ko ek haath se asani se chalayein.</li>
+            <li><strong>Screen Recorder</strong> — Baghair app ke screen video banayein (Quick settings mein).</li>
+            <li><strong>Developer Options</strong> — Animation speed kam kar ke phone tez mehsoos karein.</li>
+          </ol>
+          <p>Apne phone ka poora faida uthayein — ye features bilkul free hain!</p>
+        </div>
+        <button class="blog-toggle" type="button">Read More ⬇</button>
+      </article>
+
+    </div>
+  </div>
+</section>
+<script>
+/* Blog: Read More / Read Less expand-collapse */
+(function(){
+  document.querySelectorAll('#blog .blog-toggle').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var card = btn.closest('.blog-card');
+      var open = card.classList.toggle('open');
+      btn.innerHTML = open ? 'Read Less ⬆' : 'Read More ⬇';
+    });
+  });
+})();
+</script>
+
+<section class="section" id="tutorials">
+  <div class="container reveal">
+    <div class="section-head">
+      <span class="section-tag">🎬 Tutorials</span>
+      <h2>App <span class="gold-text">Video Guides</span></h2>
+      <p>Har app ko step-by-step seekhein — video dekh kar use karna asaan ho jayega.</p>
+    </div>
+
+    <div class="cards-grid">
+
+      <article class="tut-card">
+        <a class="tut-thumb" href="https://www.youtube.com/@ajoobaJahan" target="_blank" rel="noopener" aria-label="Islam 786 tutorial on YouTube">
+          <span class="tut-play">▶</span>
+          <span class="tut-dur">6:12</span>
+        </a>
+        <h3>Islam 786 — Kaise Use Karein?</h3>
+        <p>Prayer times set karna, Qibla finder, Quran parhna aur tasbeeh counter — mukammal guide.</p>
+        <a class="tut-link" href="https://www.youtube.com/@ajoobaJahan" target="_blank" rel="noopener">▶ YouTube par dekhein</a>
+      </article>
+
+      <article class="tut-card">
+        <a class="tut-thumb" href="https://www.youtube.com/@ajoobaJahan" target="_blank" rel="noopener" aria-label="CV Maker tutorial on YouTube">
+          <span class="tut-play">▶</span>
+          <span class="tut-dur">4:45</span>
+        </a>
+        <h3>CV Maker — Kaise Use Karein?</h3>
+        <p>Template chunein, apni details bharein aur ek click mein professional PDF CV download karein.</p>
+        <a class="tut-link" href="https://www.youtube.com/@ajoobaJahan" target="_blank" rel="noopener">▶ YouTube par dekhein</a>
+      </article>
+
+      <article class="tut-card">
+        <a class="tut-thumb" href="https://www.youtube.com/@ajoobaJahan" target="_blank" rel="noopener" aria-label="SafeBox tutorial on YouTube">
+          <span class="tut-play">▶</span>
+          <span class="tut-dur">5:20</span>
+        </a>
+        <h3>SafeBox — Kaise Use Karein?</h3>
+        <p>Photos aur videos hide karna, PIN set karna aur backup lena — privacy ka mukammal tareeqa.</p>
+        <a class="tut-link" href="https://www.youtube.com/@ajoobaJahan" target="_blank" rel="noopener">▶ YouTube par dekhein</a>
+      </article>
+
+      <article class="tut-card">
+        <a class="tut-thumb" href="https://www.youtube.com/@ajoobaJahan" target="_blank" rel="noopener" aria-label="LensCraft tutorial on YouTube">
+          <span class="tut-play">▶</span>
+          <span class="tut-dur">7:03</span>
+        </a>
+        <h3>LensCraft — Kaise Use Karein?</h3>
+        <p>40+ filters, frames aur photo editor — apni photos ko professional look dein.</p>
+        <a class="tut-link" href="https://www.youtube.com/@ajoobaJahan" target="_blank" rel="noopener">▶ YouTube par dekhein</a>
+      </article>
+
+    </div>
+
+    <p class="tut-note">🎥 Videos jald aa rahi hain — <a href="https://www.youtube.com/@ajoobaJahan" target="_blank" rel="noopener">YouTube channel subscribe karein</a> taake koi tutorial miss na ho!</p>
+  </div>
+</section>
+
 <!-- ============ YOUTUBE CHANNELS ============ -->
 <section class="section" id="channels">
   <div class="container">
@@ -257,13 +531,68 @@
         <p>Discover the world's most amazing and mind-blowing facts every day. From history to science, nature to space.</p>
         <a href="https://www.youtube.com/@ajoobaJahan" target="_blank" rel="noopener" class="btn btn-gold btn-sm">▶ Visit Channel</a>
       </div>
-      <div class="channel-card">
-        <div class="channel-icon">📜</div>
-        <h3>Tareekh Kay Raaz</h3>
-        <p>Uncover the hidden secrets of history — untold stories, great empires and mysterious events.</p>
-        <a href="https://www.youtube.com/results?search_query=tareekh+kay+raaz" target="_blank" rel="noopener" class="btn btn-gold btn-sm">▶ Visit Channel</a>
-      </div>
     </div>
+  </div>
+</section>
+
+<section class="section section-dark" id="hadith">
+  <div class="container reveal">
+    <div class="section-head">
+      <span class="section-tag">🕌 Daily Hadith</span>
+      <h2>Hadith of the <span class="gold-text">Day</span></h2>
+      <p>Roz nayi hadith — roz visit karein!</p>
+    </div>
+    <div class="hd-card">
+      <div class="hd-ornament">🌙</div>
+      <p class="hd-arabic" id="hdArabic"></p>
+      <p class="hd-urdu" id="hdUrdu"></p>
+      <div class="hd-ref" id="hdRef"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="compare">
+  <div class="container reveal">
+    <div class="section-head">
+      <span class="section-tag">⚖️ Compare</span>
+      <h2>Why <span class="gold-text">We're Better</span></h2>
+      <p>Hamari apps ka doosri apps se mawazna — farq khud dekhein!</p>
+    </div>
+
+    <!-- Table 1 -->
+    <h3 class="cmp-title">🕌 Islam 786 <span class="gold-text">vs</span> Other Islamic Apps</h3>
+    <div class="cmp-scroll">
+      <table class="cmp-table">
+        <thead>
+          <tr><th>Feature</th><th class="cmp-us">Anwaar Digital ✅</th><th>Others ❌</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Accurate Hanafi (Barelvi) prayer times</td><td class="cmp-yes">✔ Included</td><td class="cmp-no">✘ Generic timings</td></tr>
+          <tr><td>Qibla direction finder</td><td class="cmp-yes">✔ Included</td><td class="cmp-no">✘ Missing / paid</td></tr>
+          <tr><td>Digital tasbeeh + 20+ duas</td><td class="cmp-yes">✔ Included</td><td class="cmp-no">✘ Limited</td></tr>
+          <tr><td>Full Quran with translation</td><td class="cmp-yes">✔ Included</td><td class="cmp-no">✘ Separate app needed</td></tr>
+          <tr><td>100% free — no ads, no premium</td><td class="cmp-yes">✔ Always free</td><td class="cmp-no">✘ Ads + subscriptions</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Table 2 -->
+    <h3 class="cmp-title">📄 CV Maker <span class="gold-text">vs</span> Other CV Apps</h3>
+    <div class="cmp-scroll">
+      <table class="cmp-table">
+        <thead>
+          <tr><th>Feature</th><th class="cmp-us">Anwaar Digital ✅</th><th>Others ❌</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Professional CV templates</td><td class="cmp-yes">✔ 10+ templates</td><td class="cmp-no">✘ 2–3 basic</td></tr>
+          <tr><td>PDF export</td><td class="cmp-yes">✔ Free unlimited</td><td class="cmp-no">✘ Paid / limited</td></tr>
+          <tr><td>Watermark on CV</td><td class="cmp-yes">✔ No watermark</td><td class="cmp-no">✘ Watermark on free plan</td></tr>
+          <tr><td>Works fully offline</td><td class="cmp-yes">✔ Yes</td><td class="cmp-no">✘ Internet required</td></tr>
+          <tr><td>Urdu + English CVs</td><td class="cmp-yes">✔ Both supported</td><td class="cmp-no">✘ English only</td></tr>
+        </tbody>
+      </table>
+    </div>
+
   </div>
 </section>
 
@@ -271,13 +600,173 @@
 <section class="section section-dark" id="about">
   <div class="container">
     <div class="about-wrap">
-      <div class="about-icon">👨‍💻</div>
-      <div class="about-text">
+      <div class="about-text about-intro">
         <span class="section-tag">👋 Meet the Developer</span>
         <h2>Malik Muhammad <span class="gold-text">Anwaar</span></h2>
         <p>Passionate app developer creating beautiful, professional-quality Android apps and games. Every app is carefully designed, thoroughly tested and built to the highest standard — so users around the world can enjoy a premium experience.</p>
         <p class="dua">🤲 Mujhe bhi apni duaon mein yaad rakhein.</p>
       </div>
+      <div class="about-photos">
+        <div class="about-photo-card reveal">
+          <img src="images/about-islamic.jpg" alt="Malik Muhammad Anwaar — Islamic scholar" loading="lazy">
+          <div class="about-photo-cap">
+            <div class="about-photo-title">🕌 Islamic Scholar</div>
+            <div class="about-photo-sub">Dars e Nizami, Doura Hadith</div>
+          </div>
+        </div>
+        <div class="about-photo-card reveal">
+          <img src="images/about-suit.jpg" alt="Malik Muhammad Anwaar — Tech expert" loading="lazy">
+          <div class="about-photo-cap">
+            <div class="about-photo-title">💻 Tech Expert</div>
+            <div class="about-photo-sub">Cyber Security, Pen Testing, App Development, Website Developer, AI Tools me maharat</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="container reveal">
+    <div class="section-head">
+      <span class="section-tag">❓ FAQ</span>
+      <h2>Frequently Asked <span class="gold-text">Questions</span></h2>
+      <p>Aapke sawalat ke jawabat — kisi sawal par click karein.</p>
+    </div>
+
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span>Kya Anwaar Digital ki apps free hain?</span><span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p>Haan, <strong>100% free!</strong> Hamari tamam apps — Islam 786, CV Maker, SafeBox, ClipCraft aur baqi sab — baghair kisi charge ke download aur use kar sakte hain. Koi hidden payment nahi.</p>
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span>APK file kaise install karun?</span><span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p>Bohat asaan — sirf 4 steps:</p>
+          <ol>
+            <li>Website se APK file download karein.</li>
+            <li>File par tap karein — agar "Unknown sources" ki ijazat mange to <strong>Allow</strong> kar dein.</li>
+            <li><strong>Install</strong> dabayein aur thori der intezar karein.</li>
+            <li>App kholen aur enjoy karein! 🎉</li>
+          </ol>
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span>Kya ye apps safe hain? Virus to nahi?</span><span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p>Bilkul safe! Hamari tamam apps <strong>malware aur virus se pak</strong> hain. Hum khud har app ko install kar ke test karte hain phir hi website par lagate hain. Aapki privacy hamari zimmedari hai.</p>
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span>Windows version kaise chalau?</span><span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p>Windows software chalana asaan hai:</p>
+          <ol>
+            <li><strong>Python 3</strong> install karein (python.org se free).</li>
+            <li>Website se software ki <strong>ZIP file</strong> download kar ke extract karein.</li>
+            <li>Folder mein <strong>run.bat</strong> par double-click karein.</li>
+            <li>Software khul jayega — bas! 💻</li>
+          </ol>
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span>Apps ki update kaise milegi?</span><span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p>Jab kisi app ki nayi version aayegi, wo <strong>isi website par</strong> upload ho jayegi. Bas nayi APK download kar ke purani ke upar install kar dein — aapka data mehfooz rahega. Newsletter subscribe kar lein taake update ki khabar sab se pehle mile!</p>
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span>Kya apps chalane ke liye internet chahiye?</span><span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p><strong>Zyada tar apps offline kaam karti hain</strong> — jaise Tasbeeh counter, CV Maker, SafeBox, video player. Sirf kuch features (jaise AI chat, ya online downloads) ke liye internet darkar hota hai.</p>
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span>Kya ye apps iPhone par chalengi?</span><span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p>Filhal hamari apps <strong>sirf Android aur Windows</strong> ke liye hain. iPhone (iOS) versions par kaam jari hai — jald khushkhabri milegi! 📱</p>
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span>Nayi app ki request kaise karun?</span><span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p>Bohat khushi hogi! Neeche <strong>contact/request form</strong> bharein ya WhatsApp par message karein — apni app ka idea batayein. Achhe ideas par hum zaroor app banate hain. 💡</p>
+        </div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark" id="request">
+  <div class="container reveal">
+    <div class="section-head">
+      <span class="section-tag">💡 Request</span>
+      <h2>Request an <span class="gold-text">App</span></h2>
+      <p>Konsi app chahiye? Humein batayein!</p>
+    </div>
+    <div class="rq-card">
+      <form id="rqForm" novalidate>
+        <label>Aapka Naam
+          <input type="text" id="rqName" placeholder="Apna naam likhein" autocomplete="name">
+        </label>
+        <label>WhatsApp Number
+          <input type="tel" id="rqPhone" placeholder="0300-1234567" autocomplete="tel">
+        </label>
+        <label>App ka Naam
+          <input type="text" id="rqApp" placeholder="Konsi app chahiye?">
+        </label>
+        <label>Details
+          <textarea id="rqDetails" rows="4" placeholder="App mein kya features hone chahiye?"></textarea>
+        </label>
+        <div class="rq-msg" id="rqMsg" role="status"></div>
+        <button type="submit" class="rq-btn">📩 WhatsApp par Bhejein</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="newsletter">
+  <div class="container reveal">
+    <div class="section-head">
+      <span class="section-tag">📧 Newsletter</span>
+      <h2>Stay <span class="gold-text">Updated</span></h2>
+      <p>Nayi apps aur updates sab se pehle payein!</p>
+    </div>
+    <div class="nl-card">
+      <div class="nl-icon">✉️</div>
+      <p class="nl-text">Har nayi app, update aur khaas offer — seedha aapke inbox mein. Bilkul muft!</p>
+      <form id="nlForm" class="nl-form" novalidate>
+        <input type="email" id="nlEmail" placeholder="Aapka email address..." autocomplete="email" aria-label="Email address">
+        <button type="submit" class="nl-btn">🔔 Subscribe</button>
+      </form>
+      <div class="nl-msg" id="nlMsg" role="status"></div>
     </div>
   </div>
 </section>
@@ -307,7 +796,12 @@
     <p>All apps developed by Malik Muhammad Anwaar</p>
     <p class="footer-note">🤲 Please remember me in your prayers</p>
     <div class="footer-links">
-      <a href="#home">Home</a> · <a href="#apps">Android</a> · <a href="#games">Games</a> · <a href="#windows">Windows</a> · <a href="cybersecurity.html">Cyber Security</a> · <a href="#channels">YouTube</a> · <a href="#about">About</a>
+      <a href="#home">Home</a> · <a href="#apps">Android</a> · <a href="#games">Games</a> · <a href="#windows">Windows</a> · <a href="cybersecurity.html">Cyber Security</a> · <a href="#channels">YouTube</a> · <a href="#blog">Blog</a> · <a href="#faq">FAQ</a> · <a href="speedtest.html">Speed Test</a> · <a href="#about">About</a>
+    </div>
+    <div class="social-links">
+      <a href="https://www.youtube.com/@ajoobaJahan" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube">▶️</a>
+      <a href="https://wa.me/923288317526" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp">💬</a>
+      <a href="mailto:malikanwaarapps@gmail.com" aria-label="Email" title="Email">📧</a>
     </div>
     <p class="copyright">© 2026 Anwaar Digital. All rights reserved.</p>
   </div>
@@ -459,8 +953,10 @@ function cardHTML(app){
   const href = isDirect ? app.dl : waMsg(app.name + " " + app.ver);
   const dlAttr = isDirect ? ' download' : '';
   const label = isDirect ? '⬇ Download APK' : '⬇ Download';
+  const shareMsg = encodeURIComponent("Check out " + app.name + " " + app.ver + " — free premium app by Anwaar Digital! Download: https://anwaardigital.github.io/ 📱");
   return `
   <div class="app-card" data-name="${app.name.toLowerCase()}">
+    <button class="share-btn" data-share="${shareMsg}" aria-label="Share ${app.name} on WhatsApp" title="Share on WhatsApp">📤</button>
     <div class="app-icon">${iconHTML(app)}</div>
     <h3>${app.name}</h3>
     <div class="app-ver">${app.ver}</div>
@@ -502,6 +998,14 @@ function render(){
   document.getElementById('windowsGrid').innerHTML = WINDOWS.map(winCardHTML).join('');
 }
 render();
+
+/* ---------- WhatsApp share buttons ---------- */
+document.addEventListener('click', function(e){
+  const btn = e.target.closest('.share-btn');
+  if (!btn) return;
+  const msg = btn.getAttribute('data-share') || 'Check out Anwaar Digital — free premium apps! https://anwaardigital.github.io/';
+  window.open('https://wa.me/?text=' + msg, '_blank', 'noopener');
+});
 
 /* ---------- Scroll reveal ---------- */
 const revealObs = new IntersectionObserver(entries => {
@@ -545,10 +1049,11 @@ const io = new IntersectionObserver(entries => {
   entries.forEach(en => {
     if (!en.isIntersecting) return;
     const el = en.target, target = +el.dataset.count;
+    const suffix = el.dataset.suffix || '';
     const t0 = performance.now(), dur = 1200;
     (function tick(t){
       const p = Math.min((t - t0) / dur, 1);
-      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))).toLocaleString() + suffix;
       if (p < 1) requestAnimationFrame(tick);
     })(t0);
     io.unobserve(el);
@@ -758,5 +1263,12 @@ document.getElementById('navLogoutBtn').addEventListener('click', async function
 /* ---------- Start ---------- */
 initFirebase();
 </script>
+<script src="aotw.js"></script>
+<script src="darkmode.js"></script>
+<script src="faq.js"></script>
+<script src="newsletter.js"></script>
+<script src="request.js"></script>
+<script src="reviewform.js"></script>
+<script src="hadith.js"></script>
 </body>
 </html>
