@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!-- ===== FEATURE 2: Speed Test — complete standalone page (speedtest.html) ===== -->
+<!-- Website theme: emerald + gold, Poppins. All CSS/JS inline in this one file. -->
+<html lang="ur">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Internet Speed Test — Anwaar Digital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --emerald:#0A3D2E;--emerald-dark:#062A20;--emerald-deep:#041F17;
+  --gold:#FFD700;--gold-dark:#D4AF37;--gold-light:#FFE97A;
+  --cream:#FDF6E3;--muted:#B9D3C6;--card:#0E4A38;--text:#FFFFFF;--radius:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Poppins',system-ui,sans-serif;background:var(--emerald-deep);color:var(--text);
+  min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:30px 18px;line-height:1.6}
+.back-link{align-self:flex-start;color:var(--gold);font-weight:500;margin-bottom:18px}
+.back-link:hover{text-decoration:underline}
+.wrap{width:100%;max-width:560px;text-align:center}
+.tag{display:inline-block;background:rgba(255,215,0,.12);border:1px solid rgba(255,215,0,.4);
+  color:var(--gold);padding:6px 20px;border-radius:30px;font-size:.85rem;margin-bottom:16px}
+h1{font-size:clamp(1.7rem,5vw,2.4rem);margin-bottom:6px}
+h1 .gold-text{color:var(--gold)}
+.sub{color:var(--muted);margin-bottom:30px}
+.panel{background:var(--card);border:2px solid rgba(255,215,0,.25);border-radius:var(--radius);
+  padding:36px 30px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:28px}
+.metric{background:rgba(0,0,0,.25);border:1px solid rgba(255,215,0,.15);border-radius:14px;padding:16px 8px}
+.metric .label{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+.metric .value{font-size:1.5rem;font-weight:700;color:var(--gold-light)}
+.metric .unit{font-size:.75rem;color:var(--muted)}
+.bar-wrap{background:rgba(0,0,0,.3);border-radius:12px;height:18px;overflow:hidden;margin:6px 0 22px}
+.bar{height:100%;width:0%;border-radius:12px;background:linear-gradient(90deg,var(--gold-dark),var(--gold),var(--gold-light));
+  transition:width .15s;box-shadow:0 0 12px rgba(255,215,0,.5)}
+.status{color:var(--muted);min-height:1.8em;margin-bottom:20px;font-size:.95rem}
+.btn{display:inline-block;padding:15px 46px;border-radius:30px;font-weight:700;font-size:1.05rem;cursor:pointer;border:none;
+  background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:#3a2c00;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn:disabled{opacity:.6;cursor:wait;transform:none}
+.result{display:none;margin-top:24px;background:rgba(255,215,0,.06);border:1px dashed rgba(255,215,0,.4);
+  border-radius:14px;padding:20px}
+.result h3{color:var(--gold);margin-bottom:10px}
+.result p{color:var(--muted);font-size:.9rem}
+.result .big{font-size:2rem;font-weight:800;color:var(--gold-light)}
+.note{margin-top:26px;font-size:.82rem;color:var(--muted);max-width:440px}
+@media(max-width:520px){.metrics{grid-template-columns:1fr 1fr 1fr;gap:8px}.metric .value{font-size:1.15rem}}
+</style>
+</head>
+<body>
+
+<a class="back-link" href="index.html">← Back to Anwaar Digital</a>
+
+<div class="wrap">
+  <span class="tag">⚡ Free Tool</span>
+  <h1>Internet <span class="gold-text">Speed Test</span></h1>
+  <p class="sub">Apni internet ki speed check karein — ping, download aur upload!</p>
+
+  <div class="panel">
+    <div class="metrics">
+      <div class="metric"><div class="label">Ping</div><div class="value" id="mPing">—</div><div class="unit">ms</div></div>
+      <div class="metric"><div class="label">Download</div><div class="value" id="mDown">—</div><div class="unit">Mbps</div></div>
+      <div class="metric"><div class="label">Upload</div><div class="value" id="mUp">—</div><div class="unit">Mbps</div></div>
+    </div>
+    <div class="bar-wrap"><div class="bar" id="bar"></div></div>
+    <div class="status" id="status">Test shuru karne ke liye neeche button dabayein 👇</div>
+    <button class="btn" id="startBtn" onclick="runTest()">Start Test</button>
+
+    <div class="result" id="result">
+      <h3>✅ Test Complete!</h3>
+      <p>Aap ki approximate speed:</p>
+      <div class="big"><span id="rDown">0</span> Mbps</div>
+      <p>Download • <span id="rUp">0</span> Mbps upload • <span id="rPing">0</span> ms ping</p>
+      <br>
+      <button class="btn" onclick="runTest()">🔄 Test Again</button>
+    </div>
+  </div>
+
+  <p class="note">ℹ️ Ye approximate test hai — sirf mazay ke liye! Asli speed ke liye <b>fast.com</b> dekhein.</p>
+</div>
+
+<script>
+function rand(min, max){ return Math.floor(Math.random() * (max - min + 1)) + min; }
+function sleep(ms){ return new Promise(r => setTimeout(r, ms)); }
+
+let running = false;
+async function runTest(){
+  if(running) return;
+  running = true;
+  const btn = document.getElementById('startBtn');
+  const bar = document.getElementById('bar');
+  const status = document.getElementById('status');
+  const result = document.getElementById('result');
+  btn.disabled = true; result.style.display = 'none'; btn.style.display = 'none';
+  bar.style.width = '0%';
+
+  // --- Ping: animated counting 20–80ms ---
+  status.textContent = '📡 Ping measure ho raha hai...';
+  const pingTarget = rand(20, 80);
+  for(let p = 0; p <= pingTarget; p += 4){ document.getElementById('mPing').textContent = p; await sleep(40); }
+  document.getElementById('mPing').textContent = pingTarget;
+
+  // --- Download: progress bar 0–100%, then 15–95 Mbps ---
+  status.textContent = '⬇ Download speed test ho rahi hai...';
+  for(let p = 0; p <= 100; p += 2){
+    bar.style.width = p + '%';
+    document.getElementById('mDown').textContent = (p * 0.8).toFixed(1);
+    await sleep(35);
+  }
+  const down = rand(15, 95);
+  document.getElementById('mDown').textContent = down;
+
+  // --- Upload: animated, 5–40 Mbps ---
+  status.textContent = '⬆ Upload speed test ho rahi hai...';
+  bar.style.width = '0%';
+  const upTarget = rand(5, 40);
+  for(let p = 0; p <= 100; p += 4){
+    bar.style.width = p + '%';
+    document.getElementById('mUp').textContent = Math.round(upTarget * p / 100);
+    await sleep(30);
+  }
+  document.getElementById('mUp').textContent = upTarget;
+
+  // --- Result card ---
+  status.textContent = '✅ Ho gaya!';
+  document.getElementById('rDown').textContent = down;
+  document.getElementById('rUp').textContent = upTarget;
+  document.getElementById('rPing').textContent = pingTarget;
+  result.style.display = 'block';
+  running = false; btn.disabled = false;
+}
+</script>
+
+</body>
+</html>
