@@ -42,9 +42,9 @@
   <div class="hero-content">
     <div class="hero-badge">🛡️ Cyber Security Hub</div>
     <h1>Cyber <span class="gold-text">Security</span></h1>
-    <p class="hero-sub">60 practical guides in <strong>اردو</strong> and <strong>English</strong> — learn to stay safe online, the ethical way.</p>
+    <p class="hero-sub">60+ practical guides in <strong>English</strong> (also available in <strong>اردو</strong>) — learn to stay safe online, the ethical way.</p>
     <div class="hero-stats">
-      <div class="stat"><span class="stat-num" data-count="60">0</span><span class="stat-label">Guides</span></div>
+      <div class="stat"><span class="stat-num" data-count="66">0</span><span class="stat-label">Guides</span></div>
       <div class="stat"><span class="stat-num" data-count="6">0</span><span class="stat-label">Categories</span></div>
       <div class="stat"><span class="stat-num" data-count="2">0</span><span class="stat-label">Languages</span></div>
     </div>
@@ -61,6 +61,33 @@
     <div class="cyber-view" id="viewDetail"></div>
   </div>
 </section>
+
+<!-- ============ SECURITY GUIDES ============ -->
+<section class="section">
+<div class="container">
+<span class="section-tag">🛡️ In-Depth Guides</span>
+<h2>Cybersecurity <span class="gold-text">Guides</span></h2>
+<div class="guide-grid">
+<a href="cybersecurity/password-security-guide.html" class="guide-card"><span class="guide-emoji">🔐</span><h3>Password Security: The Complete Guide</h3><p>Read the complete guide →</p></a>
+<a href="cybersecurity/phishing-protection-guide.html" class="guide-card"><span class="guide-emoji">🎣</span><h3>How to Spot and Stop Phishing Attacks</h3><p>Read the complete guide →</p></a>
+<a href="cybersecurity/mobile-security-guide.html" class="guide-card"><span class="guide-emoji">📱</span><h3>Mobile Security: 15 Tips to Secure Your Android Phone</h3><p>Read the complete guide →</p></a>
+<a href="cybersecurity/safe-downloading-guide.html" class="guide-card"><span class="guide-emoji">⬇️</span><h3>The Safe Downloading Guide: APKs, Software & Files</h3><p>Read the complete guide →</p></a>
+<a href="cybersecurity/privacy-tips-guide.html" class="guide-card"><span class="guide-emoji">👁️</span><h3>Privacy Tips: Take Control of Your Digital Footprint</h3><p>Read the complete guide →</p></a>
+<a href="cybersecurity/hacked-response-guide.html" class="guide-card"><span class="guide-emoji">🚨</span><h3>Hacked? Your Emergency Response Plan</h3><p>Read the complete guide →</p></a>
+</div>
+</div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
 
 <!-- ============ FOOTER ============ -->
 <footer class="footer">
@@ -1364,8 +1391,8 @@ var CYBER_CAT6 = {
 
 var CYBER_CATS=[CYBER_CAT1,CYBER_CAT2,CYBER_CAT3,CYBER_CAT4,CYBER_CAT5,CYBER_CAT6];/* ============ Cyber Security section — view logic ============ */
 (function(){
-  var cyberLang = null;
-  try { cyberLang = localStorage.getItem('cyberLang') || null; } catch(e){}
+  var cyberLang = 'en';
+  try { cyberLang = localStorage.getItem('cyberLang') || 'en'; } catch(e){}
   var curCat = null, curFeat = null;
 
   function T(o){ return (o && (o[cyberLang] || o.en)) || ''; }
