@@ -6,48 +6,48 @@
       title: "Islam 786",
       version: "v3.5",
       icon: "icons/islam786.png",
-      desc: "Namaz timings, Quran, duas, tasbeeh aur Islamic calendar — sab kuch ek hi app mein.",
+      desc: "Prayer timings, Quran, duas, tasbeeh and Islamic calendar — everything in one app.",
       download: "https://anwaardigital.github.io/downloads/MalikAnwaar-Islam786-v3.5.apk",
       bullets: [
-        "✅ Sunni Hanafi Barelvi maslak ke mutabiq namaz ke auqaat",
-        "✅ Mukammal Quran, duas aur tasbeeh counter",
-        "✅ Bilkul FREE — koi ads, koi hidden charges nahi"
+        "✅ Accurate prayer times (Sunni Hanafi Barelvi)",
+        "✅ Complete Quran, duas and tasbeeh counter",
+        "✅ Completely FREE — no ads, no hidden charges"
       ]
     },
     {
       title: "LensCraft",
       version: "v6.0",
       icon: "icons/lenscraft.png",
-      desc: "30+ iPhone-style camera filters, frames aur photo editor — tasveerain khubsurat banao!",
+      desc: "30+ iPhone-style camera filters, frames and photo editor — make your photos stunning!",
       download: "https://anwaardigital.github.io/downloads/MalikAnwaar-LensCraft-v6.0.apk",
       bullets: [
-        "✅ 30-40 professional camera filters aur frames",
-        "✅ Basic face stickers aur easy photo editor",
-        "✅ Instagram-ready pics — ek click mein!"
+        "✅ 30-40 professional camera filters and frames",
+        "✅ Basic face stickers and easy photo editor",
+        "✅ Instagram-ready pics — in one click!"
       ]
     },
     {
       title: "Taleem Hub",
       version: "v2.0",
       icon: "icons/taleemhub.png",
-      desc: "Bachon ke liye Urdu, English, Math aur Islamiat — taleem ab mazedaar!",
+      desc: "Urdu, English, Math and Islamiat for kids — learning made fun!",
       download: "https://anwaardigital.github.io/downloads/MalikAnwaar-TaleemHub-v2.0.apk",
       bullets: [
         "✅ Urdu + English + Math + Islamiat courses",
-        "✅ Bachon ke liye asaan aur mazedaar interface",
-        "✅ 100% FREE — baghair kisi subscription ke"
+        "✅ Easy and fun interface designed for kids",
+        "✅ 100% FREE — no subscription needed"
       ]
     },
     {
       title: "Bike Racer 3D",
       version: "v1.1",
       icon: "icons/bikeracer.png",
-      desc: "Asli 3D bike racing game — tez raftaar, traffic aur mazedaar stunts!",
+      desc: "Real 3D bike racing game — high speed, traffic and thrilling stunts!",
       download: "https://anwaardigital.github.io/downloads/MalikAnwaar-BikeRacer3D-v1.1.apk",
       bullets: [
         "✅ Real 3D graphics — Play Store standard quality",
-        "✅ Traffic, near-miss bonus aur challenging tracks",
-        "✅ Offline khele — internet ki zaroorat nahi"
+        "✅ Traffic, near-miss bonus and challenging tracks",
+        "✅ Play offline — no internet needed"
       ]
     }
   ];
