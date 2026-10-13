@@ -23,7 +23,7 @@
       +'📲 App ka Naam: '+app+'\n'
       +'📝 Details: '+(details||'—');
     window.open('https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(text),'_blank','noopener');
-    show('✅ Shukriya! Aapki request WhatsApp par khol di gayi hai.', 'ok');
+    show('✅ Thank you! Your request has been opened in WhatsApp.', 'ok');
     form.reset();
   });
 })();

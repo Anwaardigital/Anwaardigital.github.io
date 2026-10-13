@@ -3,37 +3,37 @@
   var hadiths=[
     {
       ar:'إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى',
-      ur:'"Aamal ka daromadar niyyaton par hai, aur har shakhs ke liye wahi hai jo us ne niyyat ki."',
+      en:'"Actions are judged by intentions, and every person will have only what they intended."',
       ref:'📖 Sahih Bukhari — Hadith 1'
     },
     {
       ar:'مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ',
-      ur:'"Jo Allah aur aakhirat ke din par iman rakhta hai, use chahiye ke achi baat kahe ya khamosh rahe."',
+      en:'"Whoever believes in Allah and the Last Day, let him speak good or remain silent."',
       ref:'📖 Sahih Bukhari — Hadith 6018'
     },
     {
       ar:'لَا يُؤْمِنُ أَحَدُكُمْ حَتَّى يُحِبَّ لِأَخِيهِ مَا يُحِبُّ لِنَفْسِهِ',
-      ur:'"Tum mein se koi shakhs us waqt tak (kaamil) momin nahi ho sakta jab tak apne bhai ke liye wahi pasand na kare jo apne liye pasand karta hai."',
+      en:'"None of you truly believes until he loves for his brother what he loves for himself."',
       ref:'📖 Sahih Bukhari — Hadith 13'
     },
     {
       ar:'خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ',
-      ur:'"Tum mein se behtareen woh hai jo Quran seekhe aur sikhaye."',
+      en:'"The best of you are those who learn the Quran and teach it."',
       ref:'📖 Sahih Bukhari — Hadith 5027'
     },
     {
       ar:'الطُّهُورُ شَطْرُ الْإِيمَانِ وَالْحَمْدُ لِلَّهِ تَمْلَأُ الْمِيزَانَ',
-      ur:'"Pakeezgi aadha iman hai, aur "Alhamdulillah" meezan ko bhar deta hai."',
+      en:'"Cleanliness is half of faith, and \"Alhamdulillah\" fills the scale."',
       ref:'📖 Sahih Muslim — Hadith 223'
     },
     {
       ar:'مَا نَقَصَتْ صَدَقَةٌ مِنْ مَالٍ',
-      ur:'"Sadqa se maal kabhi kam nahi hota."',
+      en:'"Charity never decreases wealth."',
       ref:'📖 Sahih Muslim — Hadith 2588'
     },
     {
       ar:'مَنْ صَلَّى الْبَرْدَيْنِ دَخَلَ الْجَنَّةَ',
-      ur:'"Jo Fajr aur Asr ki namazain parhega, woh Jannat mein dakhil hoga."',
+      en:'"Whoever prays Fajr and Asr will enter Paradise."',
       ref:'📖 Sahih Bukhari — Hadith 574'
     }
   ];
@@ -47,6 +47,6 @@
       elU=document.getElementById('hdUrdu'),
       elR=document.getElementById('hdRef');
   if(elA)elA.textContent=h.ar;
-  if(elU)elU.textContent=h.ur;
+  if(elU)elU.textContent=h.en;
   if(elR)elR.textContent=h.ref;
 })();
