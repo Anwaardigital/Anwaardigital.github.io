@@ -4,10 +4,10 @@
   const APPS = [
     {
       title: "Islam 786",
-      version: "v3.5",
+      version: "v3.5.2",
       icon: "icons/islam786.png",
       desc: "Prayer timings, Quran, duas, tasbeeh and Islamic calendar — everything in one app.",
-      download: "https://anwaardigital.github.io/downloads/MalikAnwaar-Islam786-v3.5.apk",
+      download: "https://anwaardigital.github.io/downloads/MalikAnwaar-Islam786-v3.5.2.apk",
       bullets: [
         "✅ Accurate prayer times (Sunni Hanafi Barelvi)",
         "✅ Complete Quran, duas and tasbeeh counter",
@@ -40,10 +40,10 @@
     },
     {
       title: "Bike Racer 3D",
-      version: "v1.1",
+      version: "v1.2",
       icon: "icons/bikeracer.png",
       desc: "Real 3D bike racing game — high speed, traffic and thrilling stunts!",
-      download: "https://anwaardigital.github.io/downloads/MalikAnwaar-BikeRacer3D-v1.1.apk",
+      download: "https://anwaardigital.github.io/downloads/MalikAnwaar-BikeRacer3D-v1.2.apk",
       bullets: [
         "✅ Real 3D graphics — Play Store standard quality",
         "✅ Traffic, near-miss bonus and challenging tracks",
