@@ -1,1 +1,85 @@
-Ly8gPT09PT0gRkVBVFVSRSAxOiBBcHAgb2YgdGhlIFdlZWsg4oCUIHdlZWtseSByb3RhdGlvbiAoYW90dy5qcykgPT09PT0KLy8gRGVwZW5kcyBvbjogZWxlbWVudCBpZHMgZnJvbSBhb3R3Lmh0bWwuIFJ1bnMgb24gRE9NQ29udGVudExvYWRlZC4KKGZ1bmN0aW9uKCl7CiAgY29uc3QgQVBQUyA9IFsKICAgIHsKICAgICAgdGl0bGU6ICJJc2xhbSA3ODYiLAogICAgICB2ZXJzaW9uOiAidjMuNiIsCiAgICAgIGljb246ICJpY29ucy9pc2xhbTc4Ni5wbmciLAogICAgICBkZXNjOiAiUHJheWVyIHRpbWluZ3MsIFF1cmFuLCBkdWFzLCB0YXNiZWVoIGFuZCBJc2xhbWljIGNhbGVuZGFyIOKAlCBldmVyeXRoaW5nIGluIG9uZSBhcHAuIiwKICAgICAgZG93bmxvYWQ6ICJodHRwczovL2Fud2FhcmRpZ2l0YWwuZ2l0aHViLmlvL2Rvd25sb2Fkcy9NYWxpa0Fud2Fhci1Jc2xhbTc4Ni12My42LmFwayIsCiAgICAgIGJ1bGxldHM6IFsKICAgICAgICAi4pyFIEFjY3VyYXRlIHByYXllciB0aW1lcyAoU3VubmkgSGFuYWZpIEJhcmVsdmkpIiwKICAgICAgICAi4pyFIENvbXBsZXRlIFF1cmFuLCBkdWFzIGFuZCB0YXNiZWVoIGNvdW50ZXIiLAogICAgICAgICLinIUgQ29tcGxldGVseSBGUkVFIOKAlCBubyBhZHMsIG5vIGhpZGRlbiBjaGFyZ2VzIgogICAgICBdCiAgICB9LAogICAgewogICAgICB0aXRsZTogIkxlbnNDcmFmdCIsCiAgICAgIHZlcnNpb246ICJ2Ni4wIiwKICAgICAgaWNvbjogImljb25zL2xlbnNjcmFmdC5wbmciLAogICAgICBkZXNjOiAiMzArIGlQaG9uZS1zdHlsZSBjYW1lcmEgZmlsdGVycywgZnJhbWVzIGFuZCBwaG90byBlZGl0b3Ig4oCUIG1ha2UgeW91ciBwaG90b3Mgc3R1bm5pbmchIiwKICAgICAgZG93bmxvYWQ6ICJodHRwczovL2Fud2FhcmRpZ2l0YWwuZ2l0aHViLmlvL2Rvd25sb2Fkcy9NYWxpa0Fud2Fhci1MZW5zQ3JhZnQtdjYuMC5hcGsiLAogICAgICBidWxsZXRzOiBbCiAgICAgICAgIuKchSAzMC00MCBwcm9mZXNzaW9uYWwgY2FtZXJhIGZpbHRlcnMgYW5kIGZyYW1lcyIsCiAgICAgICAgIuKchSBCYXNpYyBmYWNlIHN0aWNrZXJzIGFuZCBlYXN5IHBob3RvIGVkaXRvciIsCiAgICAgICAgIuKchSBJbnN0YWdyYW0tcmVhZHkgcGljcyDigJQgaW4gb25lIGNsaWNrISIKICAgICAgXQogICAgfSwKICAgIHsKICAgICAgdGl0bGU6ICJUYWxlZW0gSHViIiwKICAgICAgdmVyc2lvbjogInYyLjAiLAogICAgICBpY29uOiAiaWNvbnMvdGFsZWVtaHViLnBuZyIsCiAgICAgIGRlc2M6ICJVcmR1LCBFbmdsaXNoLCBNYXRoIGFuZCBJc2xhbWlhdCBmb3Iga2lkcyDigJQgbGVhcm5pbmcgbWFkZSBmdW4hIiwKICAgICAgZG93bmxvYWQ6ICJodHRwczovL2Fud2FhcmRpZ2l0YWwuZ2l0aHViLmlvL2Rvd25sb2Fkcy9NYWxpa0Fud2Fhci1UYWxlZW1IdWItdjIuMC5hcGsiLAogICAgICBidWxsZXRzOiBbCiAgICAgICAgIuKchSBVcmR1ICsgRW5nbGlzaCArIE1hdGggKyBJc2xhbWlhdCBjb3Vyc2VzIiwKICAgICAgICAi4pyFIEVhc3kgYW5kIGZ1biBpbnRlcmZhY2UgZGVzaWduZWQgZm9yIGtpZHMiLAogICAgICAgICLinIUgMTAwJSBGUkVFIOKAlCBubyBzdWJzY3JpcHRpb24gbmVlZGVkIgogICAgICBdCiAgICB9LAogICAgewogICAgICB0aXRsZTogIkJpa2UgUmFjZXIgM0QiLAogICAgICB2ZXJzaW9uOiAidjEuMiIsCiAgICAgIGljb246ICJpY29ucy9iaWtlcmFjZXIucG5nIiwKICAgICAgZGVzYzogIlJlYWwgM0QgYmlrZSByYWNpbmcgZ2FtZSDigJQgaGlnaCBzcGVlZCwgdHJhZmZpYyBhbmQgdGhyaWxsaW5nIHN0dW50cyEiLAogICAgICBkb3dubG9hZDogImh0dHBzOi8vYW53YWFyZGlnaXRhbC5naXRodWIuaW8vZG93bmxvYWRzL01hbGlrQW53YWFyLUJpa2VSYWNlcjNELXYxLjIuYXBrIiwKICAgICAgYnVsbGV0czogWwogICAgICAgICLinIUgUmVhbCAzRCBncmFwaGljcyDigJQgUGxheSBTdG9yZSBzdGFuZGFyZCBxdWFsaXR5IiwKICAgICAgICAi4pyFIFRyYWZmaWMsIG5lYXItbWlzcyBib251cyBhbmQgY2hhbGxlbmdpbmcgdHJhY2tzIiwKICAgICAgICAi4pyFIFBsYXkgb2ZmbGluZSDigJQgbm8gaW50ZXJuZXQgbmVlZGVkIgogICAgICBdCiAgICB9CiAgXTsKCiAgZnVuY3Rpb24gd2Vla051bWJlcigpewogICAgY29uc3Qgbm93ID0gbmV3IERhdGUoKTsKICAgIGNvbnN0IHN0YXJ0ID0gbmV3IERhdGUobm93LmdldEZ1bGxZZWFyKCksIDAsIDEpOwogICAgY29uc3QgZGF5cyA9IE1hdGguZmxvb3IoKG5vdyAtIHN0YXJ0KSAvIDg2NDAwMDAwKTsKICAgIHJldHVybiBNYXRoLmNlaWwoKGRheXMgKyBzdGFydC5nZXREYXkoKSArIDEpIC8gNyk7CiAgfQoKICBkb2N1bWVudC5hZGRFdmVudExpc3RlbmVyKCJET01Db250ZW50TG9hZGVkIiwgZnVuY3Rpb24oKXsKICAgIGNvbnN0IGNhcmQgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgiYW90d0NhcmQiKTsKICAgIGlmKCFjYXJkKSByZXR1cm47CiAgICBjb25zdCBhcHAgPSBBUFBTW3dlZWtOdW1iZXIoKSAlIEFQUFMubGVuZ3RoXTsKCiAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgiYW90d0ljb24iKS5zcmMgPSBhcHAuaWNvbjsKICAgIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCJhb3R3SWNvbiIpLmFsdCA9IGFwcC50aXRsZSArICIgaWNvbiI7CiAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgiYW90d1ZlcnNpb24iKS50ZXh0Q29udGVudCA9IGFwcC52ZXJzaW9uOwogICAgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoImFvdHdUaXRsZSIpLnRleHRDb250ZW50ID0gYXBwLnRpdGxlOwogICAgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoImFvdHdEZXNjIikudGV4dENvbnRlbnQgPSBhcHAuZGVzYzsKICAgIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCJhb3R3RG93bmxvYWQiKS5ocmVmID0gYXBwLmRvd25sb2FkOwoKICAgIGNvbnN0IHVsID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoImFvdHdCdWxsZXRzIik7CiAgICB1bC5pbm5lckhUTUwgPSAiIjsKICAgIGFwcC5idWxsZXRzLmZvckVhY2goYiA9PiB7CiAgICAgIGNvbnN0IGxpID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgibGkiKTsKICAgICAgbGkudGV4dENvbnRlbnQgPSBiOwogICAgICB1bC5hcHBlbmRDaGlsZChsaSk7CiAgICB9KTsKCiAgICBjb25zdCB3biA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCJhb3R3V2Vla051bSIpOwogICAgaWYod24pIHduLnRleHRDb250ZW50ID0gd2Vla051bWJlcigpOwogIH0pOwp9KSgpOwo=
+// ===== FEATURE 1: App of the Week — weekly rotation (aotw.js) =====
+// Depends on: element ids from aotw.html. Runs on DOMContentLoaded.
+(function(){
+  const APPS = [
+    {
+      title: "Islam 786",
+      version: "v3.6",
+      icon: "icons/islam786.png",
+      desc: "Prayer timings, Quran, duas, tasbeeh and Islamic calendar — everything in one app.",
+      download: "https://anwaardigital.github.io/downloads/MalikAnwaar-Islam786-v3.6.apk",
+      bullets: [
+        "✅ Accurate prayer times (Sunni Hanafi Barelvi)",
+        "✅ Complete Quran, duas and tasbeeh counter",
+        "✅ Completely FREE — no ads, no hidden charges"
+      ]
+    },
+    {
+      title: "LensCraft",
+      version: "v6.0",
+      icon: "icons/lenscraft.png",
+      desc: "30+ iPhone-style camera filters, frames and photo editor — make your photos stunning!",
+      download: "https://anwaardigital.github.io/downloads/MalikAnwaar-LensCraft-v6.0.apk",
+      bullets: [
+        "✅ 30-40 professional camera filters and frames",
+        "✅ Basic face stickers and easy photo editor",
+        "✅ Instagram-ready pics — in one click!"
+      ]
+    },
+    {
+      title: "Taleem Hub",
+      version: "v2.0",
+      icon: "icons/taleemhub.png",
+      desc: "Urdu, English, Math and Islamiat for kids — learning made fun!",
+      download: "https://anwaardigital.github.io/downloads/MalikAnwaar-TaleemHub-v2.0.apk",
+      bullets: [
+        "✅ Urdu + English + Math + Islamiat courses",
+        "✅ Easy and fun interface designed for kids",
+        "✅ 100% FREE — no subscription needed"
+      ]
+    },
+    {
+      title: "Bike Racer 3D",
+      version: "v1.2",
+      icon: "icons/bikeracer.png",
+      desc: "Real 3D bike racing game — high speed, traffic and thrilling stunts!",
+      download: "https://anwaardigital.github.io/downloads/MalikAnwaar-BikeRacer3D-v1.2.apk",
+      bullets: [
+        "✅ Real 3D graphics — Play Store standard quality",
+        "✅ Traffic, near-miss bonus and challenging tracks",
+        "✅ Play offline — no internet needed"
+      ]
+    }
+  ];
+
+  function weekNumber(){
+    const now = new Date();
+    const start = new Date(now.getFullYear(), 0, 1);
+    const days = Math.floor((now - start) / 86400000);
+    return Math.ceil((days + start.getDay() + 1) / 7);
+  }
+
+  document.addEventListener("DOMContentLoaded", function(){
+    const card = document.getElementById("aotwCard");
+    if(!card) return;
+    const app = APPS[weekNumber() % APPS.length];
+
+    document.getElementById("aotwIcon").src = app.icon;
+    document.getElementById("aotwIcon").alt = app.title + " icon";
+    document.getElementById("aotwVersion").textContent = app.version;
+    document.getElementById("aotwTitle").textContent = app.title;
+    document.getElementById("aotwDesc").textContent = app.desc;
+    document.getElementById("aotwDownload").href = app.download;
+
+    const ul = document.getElementById("aotwBullets");
+    ul.innerHTML = "";
+    app.bullets.forEach(b => {
+      const li = document.createElement("li");
+      li.textContent = b;
+      ul.appendChild(li);
+    });
+
+    const wn = document.getElementById("aotwWeekNum");
+    if(wn) wn.textContent = weekNumber();
+  });
+})();
