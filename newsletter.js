@@ -10,7 +10,7 @@
     var saved=localStorage.getItem('ad_newsletter_email');
     if(saved){
       input.value=saved;
-      show('✅ Aap pehle se subscribe hain — updates milti rahengi!', 'info');
+      show('✅ Aap ki email save hai — email updates jald shuru honge, aap sab se pehle janenge!', 'info');
     }
   }catch(e){}
 
@@ -22,7 +22,7 @@
       return;
     }
     try{localStorage.setItem('ad_newsletter_email',email);}catch(e){}
-    show('Shukriya! Aap subscribe ho gaye. 🎉', 'ok');
+    show('Shukriya! Aap ki email save ho gayi — updates jald aa rahe hain. 🎉', 'ok');
     form.reset();
   });
 })();

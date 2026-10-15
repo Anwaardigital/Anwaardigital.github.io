@@ -4,10 +4,10 @@
   const APPS = [
     {
       title: "Islam 786",
-      version: "v3.5.2",
+      version: "v3.6",
       icon: "icons/islam786.png",
       desc: "Prayer timings, Quran, duas, tasbeeh and Islamic calendar — everything in one app.",
-      download: "https://anwaardigital.github.io/downloads/MalikAnwaar-Islam786-v3.5.2.apk",
+      download: "https://anwaardigital.github.io/downloads/MalikAnwaar-Islam786-v3.6.apk",
       bullets: [
         "✅ Accurate prayer times (Sunni Hanafi Barelvi)",
         "✅ Complete Quran, duas and tasbeeh counter",
