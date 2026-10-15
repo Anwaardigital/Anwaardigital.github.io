@@ -89,14 +89,15 @@ h1 .gold-text{color:var(--gold)}
     </div>
   </div>
 
-  <p class="note">ℹ️ This is an approximate test — just for fun! For your real speed, visit <b>fast.com</b>.</p>
+  <p class="note">ℹ️ Real browser-based measurement — ping, download & upload actually tested live. Speed varies with server location, network load and device.</p>
 </div>
 
 <script>
-function rand(min, max){ return Math.floor(Math.random() * (max - min + 1)) + min; }
 function sleep(ms){ return new Promise(r => setTimeout(r, ms)); }
 
 let running = false;
+
+// Real speed test: ping + download + upload measured with live network requests
 async function runTest(){
   if(running) return;
   running = true;
@@ -106,40 +107,93 @@ async function runTest(){
   const result = document.getElementById('result');
   btn.disabled = true; result.style.display = 'none'; btn.style.display = 'none';
   bar.style.width = '0%';
+  document.getElementById('mPing').textContent = '—';
+  document.getElementById('mDown').textContent = '—';
+  document.getElementById('mUp').textContent = '—';
 
-  // --- Ping: animated counting 20–80ms ---
-  status.textContent = '📡 Ping measure ho raha hai...';
-  const pingTarget = rand(20, 80);
-  for(let p = 0; p <= pingTarget; p += 4){ document.getElementById('mPing').textContent = p; await sleep(40); }
-  document.getElementById('mPing').textContent = pingTarget;
+  // Reliable CORS-enabled test endpoints
+  const DL_URL = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css';
+  const UP_URL = 'https://httpbin.org/post';
 
-  // --- Download: progress bar 0–100%, then 15–95 Mbps ---
-  status.textContent = '⬇ Download speed test ho rahi hai...';
-  for(let p = 0; p <= 100; p += 2){
-    bar.style.width = p + '%';
-    document.getElementById('mDown').textContent = (p * 0.8).toFixed(1);
-    await sleep(35);
+  try {
+    // --- PING: 5 live round-trips, keep the best (minimum) ---
+    status.textContent = '📡 Ping measure ho raha hai... (live)';
+    let pings = [];
+    for(let i = 0; i < 5; i++){
+      const t0 = performance.now();
+      try {
+        await fetch(DL_URL + '?ping=' + Date.now() + '_' + i, {method: 'HEAD', cache: 'no-store', mode: 'no-cors'});
+      } catch(e) { /* timing still valid */ }
+      const ms = performance.now() - t0;
+      if(ms > 0 && ms < 10000) pings.push(ms);
+      document.getElementById('mPing').textContent = pings.length ? Math.round(Math.min.apply(null, pings)) : '—';
+      bar.style.width = (8 + i * 6) + '%';
+      await sleep(120);
+    }
+    const ping = pings.length ? Math.round(Math.min.apply(null, pings)) : 0;
+    document.getElementById('mPing').textContent = ping || '—';
+
+    // --- DOWNLOAD: 4 parallel live fetches (~930KB total), real bytes / real time ---
+    status.textContent = '⬇ Download speed test ho rahi hai... (live)';
+    bar.style.width = '40%';
+    const d0 = performance.now();
+    const jobs = [];
+    for(let i = 0; i < 4; i++){
+      jobs.push(fetch(DL_URL + '?dl=' + Date.now() + '_' + i, {cache: 'no-store'}).then(function(r){
+        if(!r.ok) throw new Error('dl');
+        return r.arrayBuffer();
+      }));
+    }
+    // progress animation while the real download runs
+    let prog = 40;
+    const timer = setInterval(function(){ prog = Math.min(88, prog + 4); bar.style.width = prog + '%'; }, 250);
+    const bufs = await Promise.all(jobs);
+    clearInterval(timer);
+    const d1 = performance.now();
+    const totalBytes = bufs.reduce(function(a, b){ return a + b.byteLength; }, 0);
+    const dSec = Math.max(0.05, (d1 - d0) / 1000);
+    const downMbps = (totalBytes * 8) / (dSec * 1000000);
+    // animate counter up to the real value
+    const shown = downMbps;
+    for(let p = 0; p <= 20; p++){
+      document.getElementById('mDown').textContent = (shown * p / 20).toFixed(1);
+      bar.style.width = (88 + p * 0.6) + '%';
+      await sleep(30);
+    }
+    document.getElementById('mDown').textContent = shown.toFixed(1);
+
+    // --- UPLOAD: POST 1MB of random data, measure real send time ---
+    status.textContent = '⬆ Upload speed test ho rahi hai... (live)';
+    let upMbps = 0, upOk = false;
+    try {
+      const payload = new Uint8Array(1024 * 1024); // 1MB
+      if(window.crypto && crypto.getRandomValues) crypto.getRandomValues(payload);
+      const u0 = performance.now();
+      await fetch(UP_URL, {method: 'POST', mode: 'cors', cache: 'no-store', body: payload});
+      const u1 = performance.now();
+      const uSec = Math.max(0.05, (u1 - u0) / 1000);
+      upMbps = (payload.length * 8) / (uSec * 1000000);
+      upOk = true;
+      for(let p = 0; p <= 20; p++){
+        document.getElementById('mUp').textContent = (upMbps * p / 20).toFixed(1);
+        await sleep(30);
+      }
+      document.getElementById('mUp').textContent = upMbps.toFixed(1);
+    } catch(e) {
+      document.getElementById('mUp').textContent = 'N/A';
+    }
+    bar.style.width = '100%';
+
+    // --- Result card with REAL numbers ---
+    status.textContent = '✅ Ho gaya! (asal measurement)';
+    document.getElementById('rDown').textContent = shown.toFixed(1);
+    document.getElementById('rUp').textContent = upOk ? upMbps.toFixed(1) : 'N/A';
+    document.getElementById('rPing').textContent = ping || '—';
+    result.style.display = 'block';
+  } catch(err){
+    status.textContent = '⚠️ Test fail ho gaya — internet check karke dobara try karein.';
+    btn.style.display = '';
   }
-  const down = rand(15, 95);
-  document.getElementById('mDown').textContent = down;
-
-  // --- Upload: animated, 5–40 Mbps ---
-  status.textContent = '⬆ Upload speed test ho rahi hai...';
-  bar.style.width = '0%';
-  const upTarget = rand(5, 40);
-  for(let p = 0; p <= 100; p += 4){
-    bar.style.width = p + '%';
-    document.getElementById('mUp').textContent = Math.round(upTarget * p / 100);
-    await sleep(30);
-  }
-  document.getElementById('mUp').textContent = upTarget;
-
-  // --- Result card ---
-  status.textContent = '✅ Ho gaya!';
-  document.getElementById('rDown').textContent = down;
-  document.getElementById('rUp').textContent = upTarget;
-  document.getElementById('rPing').textContent = pingTarget;
-  result.style.display = 'block';
   running = false; btn.disabled = false;
 }
 </script>
