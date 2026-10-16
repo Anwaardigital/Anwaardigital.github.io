@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Cookie consent (GDPR): Google Analytics loads only after you press Accept -->
+<script src="../cookie-consent.js" defer></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Android App Permissions Explained: What to Allow, What to Deny (2026 Guide) | Anwaar Digital Blog</title>
+<meta name="description" content="Confused by Android permission popups? This 2026 guide explains every app permission in plain English — which ones are safe to allow, which to deny, and how to audit the permissions you already granted.">
+<meta name="keywords" content="Android app permissions explained, what app permissions to allow, Android privacy permissions 2026, deny app permissions, app permission manager">
+<meta name="author" content="Malik Muhammad Anwaar">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://anwaardigital.github.io/blog/android-app-permissions-guide-2026.html">
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android App Permissions Explained: What to Allow, What to Deny (2026 Guide)">
+<meta property="og:description" content="Every Android app permission explained in plain English — which are safe to allow, which to deny, and how to audit permissions you already granted.">
+<meta property="og:url" content="https://anwaardigital.github.io/blog/android-app-permissions-guide-2026.html">
+<meta property="og:site_name" content="Anwaar Digital">
+<meta property="og:image" content="https://anwaardigital.github.io/anwaar-icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android App Permissions Explained: What to Allow, What to Deny (2026 Guide)">
+<meta name="twitter:description" content="Which Android app permissions are safe to allow — and which should you deny? A plain-English 2026 guide.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌙</text></svg>">
+<style>
+.article-wrap{max-width:800px;margin:0 auto;padding:2.5rem 1.2rem 3.5rem}
+.article-wrap h1{font-size:2rem;color:#0A3D2E;line-height:1.35;margin:.4rem 0 .8rem}
+.article-meta{font-size:.85rem;color:#888;margin-bottom:1.5rem}
+.article-wrap h2{font-size:1.45rem;color:#0A3D2E;margin:2rem 0 .8rem}
+.article-wrap h3{font-size:1.15rem;color:#0e523e;margin:1.4rem 0 .6rem}
+.article-wrap p,.article-wrap li{color:#444;line-height:1.85}
+.article-wrap ul{padding-left:1.3rem}
+.article-wrap li{margin-bottom:.5rem}
+.article-wrap a{color:#0e6b4d;font-weight:500}
+.article-wrap .toc{background:#f4f8f6;border:1px solid #e2ece8;border-radius:.8rem;padding:1.2rem 1.5rem;margin:1.5rem 0}
+.article-wrap .toc strong{color:#0A3D2E}
+.article-wrap .toc ul{margin:.6rem 0 0}
+.article-wrap .tip{background:#fff8e1;border-left:4px solid #FFD700;border-radius:.5rem;padding:.9rem 1.1rem;margin:1.2rem 0}
+.article-wrap .warn{background:#fdecea;border-left:4px solid #d43d2a;border-radius:.5rem;padding:.9rem 1.1rem;margin:1.2rem 0}
+.article-back{display:inline-block;margin:2rem 0 .5rem}
+.dark-mode .article-wrap h1,.dark-mode .article-wrap h2,.dark-mode .article-wrap h3{color:#7fe0b2}
+.dark-mode .article-wrap p,.dark-mode .article-wrap li{color:#c8d6d0}
+.dark-mode .article-wrap .toc{background:#152b25;border-color:#23453a}
+.dark-mode .article-wrap .toc strong{color:#fff}
+.dark-mode .article-wrap .tip{background:#332d10;color:#eee}
+.dark-mode .article-wrap .warn{background:#3a1a14;color:#eee}
+</style>
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="../index.html" class="brand">
+      <span class="brand-icon">🌙</span>
+      <span class="brand-text">Anwaar <span class="gold">Digital</span></span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+    <button id="darkModeToggle" class="dark-toggle" aria-label="Toggle theme">🌙</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../blog.html" class="active">Blog</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+<article class="article-wrap">
+  <div class="article-meta">🔐 Android Privacy · October 16, 2026 · By Anwaar Digital Team</div>
+  <h1>Android App Permissions Explained: What to Allow, What to Deny (2026 Guide)</h1>
+  <p>A flashlight app asks for your location. A photo editor wants your contacts. A simple calculator requests access to your microphone. These permission popups appear so often that most people tap <strong>"Allow"</strong> without thinking — and that one-tap habit is exactly what shady apps count on. Permissions are Android's way of asking <em>you</em> to draw the line between what an app genuinely needs and what it is merely curious about. This guide explains every major permission in plain English, shows you exactly which ones to allow and which to deny, and walks you through a five-minute audit of the permissions you have already granted.</p>
+
+  <div class="toc">
+    <strong>In this guide:</strong>
+    <ul>
+      <li>How Android permissions work (allow only while using, ask every time, deny)</li>
+      <li>Location, camera, microphone, contacts — the big four explained</li>
+      <li>Storage, notifications, phone, SMS — when to say yes</li>
+      <li>Red flags: permission requests that signal a shady app</li>
+      <li>The 5-minute permission audit: revoke what you don't need</li>
+      <li>Special permissions to watch: overlay, accessibility, device admin</li>
+    </ul>
+  </div>
+
+  <h2>How Android Permissions Work</h2>
+  <p>Modern Android (version 6 and later) asks for "dangerous" permissions at runtime — the moment an app actually needs something — instead of at install time. When you tap a button that needs the camera, Android shows a popup with three choices:</p>
+  <ul>
+    <li><strong>Allow only while using the app</strong> — the safe default for most permissions. The app can use your location or camera while open, but not in the background.</li>
+    <li><strong>Ask every time</strong> — the most cautious option. Android prompts you each time, so you stay in control.</li>
+    <li><strong>Don't allow</strong> — a hard no. The app keeps working without that capability (or shows an error if it truly needs it).</li>
+  </ul>
+  <p>Newer Android versions add <strong>one-time permissions</strong> and <strong>auto-reset</strong>: if you do not open an app for a few months, Android silently revokes its permissions. You can also grant <strong>approximate location</strong> instead of precise location for apps that only need your general area. These defaults are genuinely good — your job is simply not to override them carelessly.</p>
+
+  <div class="tip">💡 <strong>Tip:</strong> When in doubt, choose "Allow only while using the app" or "Ask every time." You can always upgrade a permission later — but you can never take back data an app already collected.</div>
+
+  <h2>The Big Four: Location, Camera, Microphone, Contacts</h2>
+  <p>These four permissions expose the most sensitive parts of your digital life, so they deserve the most scrutiny.</p>
+
+  <h3>📍 Location</h3>
+  <p>A maps or ride-hailing app obviously needs your location. A weather widget needs your approximate area. But a calculator, a flashlight, or a wallpaper app has no legitimate reason to know where you are. Allow location <strong>only while using the app</strong> for apps with a genuine reason, prefer <strong>approximate location</strong> when Android offers it (Android 12+), and never grant <strong>"Allow all the time"</strong> unless you specifically trust the app and understand why — fitness trackers and family-locator apps are the rare exceptions.</p>
+
+  <h3>📷 Camera</h3>
+  <p>Grant camera access to camera apps, QR scanners, video-call apps, and banking apps (for depositing checks). Deny it for everything else. One detail many people miss: Android also lets apps access your camera <strong>through the system camera app</strong> without needing the permission themselves. If an app only needs a profile photo, it should use the built-in camera — if it insists on its own camera permission anyway, ask yourself why.</p>
+
+  <h3>🎤 Microphone</h3>
+  <p>Allow for voice calls, voice assistants, voice notes, and video recording. Deny for apps with no audio feature. Android shows a green dot indicator whenever any app uses the camera or microphone — if that dot lights up while you are just scrolling a shopping app, something is wrong. Check <strong>Settings → Privacy → Privacy dashboard</strong> to see exactly which apps used these sensors recently.</p>
+
+  <h3>👥 Contacts</h3>
+  <p>Messaging and dialer apps need your contacts. Almost nothing else does. Be especially careful here: granting contacts access gives the app <em>everyone else's</em> phone numbers and emails, not just yours. Social apps often request it to "find friends" — and then upload your entire address book to their servers. Deny it unless the app's core purpose is communication.</p>
+
+  <h2>Storage, Notifications, Phone, SMS: When to Say Yes</h2>
+  <ul>
+    <li><strong>Photos and videos (media access):</strong> Allow for photo editors, gallery apps, and social apps — but prefer <strong>"Select photos"</strong> (Android 13+) to share only chosen images instead of your whole gallery.</li>
+    <li><strong>Files and media / storage:</strong> File managers, downloaders, and document apps genuinely need this. Most others do not.</li>
+    <li><strong>Notifications:</strong> This is not a privacy risk, but it is an attention risk. Allow only for messaging, banking, and calendar apps. Deny for shopping, games, and news apps — your focus will thank you.</li>
+    <li><strong>Phone (calls):</strong> Dialer and banking apps that verify via your number need this. Most apps asking for it just want your phone number for tracking.</li>
+    <li><strong>SMS:</strong> Treat this as high-risk. Only banking apps (for auto-reading OTPs) and your default messaging app have a legitimate claim. A game or a coupon app asking for SMS access is a red flag.</li>
+    <li><strong>Calendar:</strong> Allow for calendar and scheduling apps; deny for everything else.</li>
+  </ul>
+
+  <h2>Red Flags: Permission Requests That Signal a Shady App</h2>
+  <div class="warn">⚠️ <strong>Treat these combinations as warning signs:</strong> a simple utility app (flashlight, calculator, wallpaper, compass) asking for location + contacts + SMS; any app demanding permissions <em>before</em> you use the feature that needs them; and apps that refuse to work at all when you deny an unrelated permission.</div>
+  <p>A legitimate app explains <em>why</em> it needs a permission, asks at the moment of use, and keeps working (with reduced features) if you deny. A shady app asks for everything upfront, gives no explanation, and blocks you for saying no. When you see the second pattern, uninstall — it is one of the clearest malware tells we cover in our <a href="apk-safety-guide-2026.html">APK safety guide</a>.</p>
+
+  <h2>The 5-Minute Permission Audit</h2>
+  <p>Even careful users accumulate permissions over time. Here is how to clean house:</p>
+  <ul>
+    <li><strong>Step 1:</strong> Open <strong>Settings → Privacy → Permission manager</strong> (on some phones: Settings → Apps → Permission manager).</li>
+    <li><strong>Step 2:</strong> Tap each permission — Location, Camera, Microphone, Contacts, SMS — and look at the <strong>"Allowed"</strong> list.</li>
+    <li><strong>Step 3:</strong> For every app, ask: <em>does this app's job require this permission?</em> If not, change it to <strong>"Don't allow"</strong> or <strong>"Ask every time."</strong></li>
+    <li><strong>Step 4:</strong> Check <strong>"Allowed all the time"</strong> location access specifically — this is the most abused setting. Switch anything non-essential to "Allow only while using."</li>
+    <li><strong>Step 5:</strong> In <strong>Settings → Privacy → Privacy dashboard</strong>, review the last 24 hours. Any app accessing the camera, mic, or location when you were not using it deserves a second look.</li>
+  </ul>
+  <p>Do this audit once every few months. It takes five minutes and it is one of the highest-value privacy habits on Android.</p>
+
+  <h2>Special Permissions to Watch</h2>
+  <p>A few permissions live outside the normal popup system and are worth knowing about:</p>
+  <ul>
+    <li><strong>Display over other apps (overlay):</strong> lets an app draw on top of your screen — abused by "tapjacking" malware to fake buttons. Only chat heads and screen-dimming apps need this.</li>
+    <li><strong>Accessibility:</strong> the most powerful permission on Android — it can read your screen and click for you. Only grant it to password managers, launchers, or automation tools you deeply trust.</li>
+    <li><strong>Device admin:</strong> lets an app lock or wipe your phone. "Find my device" apps and corporate email profiles use this. Random apps should never get it.</li>
+    <li><strong>Install unknown apps:</strong> per-app permission to install APKs. Grant it only to your browser or file manager temporarily — and turn it off afterwards, as we recommend in our <a href="how-to-install-apk-safely.html">safe APK installation guide</a>.</li>
+  </ul>
+
+  <h2>Conclusion</h2>
+  <p>Android permissions are a conversation between you and the app: the app says what it wants, and you decide what it deserves. The winning strategy is simple — <strong>grant the minimum, prefer "only while using," use approximate location, and audit every few months.</strong> A permission denied today costs you nothing; a permission carelessly granted can cost you your location history, your contacts, or worse. For more practical Android guidance, browse our <a href="https://anwaardigital.github.io/blog.html">blog</a>.</p>
+
+  <a href="https://anwaardigital.github.io/blog.html" class="article-back btn btn-outline">← Back to Blog</a>
+</article>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-brand">🌙 Anwaar <span class="gold-text">Digital</span></div>
+    <p>All apps developed by Malik Muhammad Anwaar</p>
+    <p class="footer-note">🤲 Please remember me in your prayers</p>
+    <div class="footer-links">
+      <a href="../index.html">Home</a> · <a href="../blog.html">Blog</a> · <a href="../about.html">About</a> · <a href="../contact.html">Contact</a>
+    </div>
+    <div class="footer-links footer-legal">
+      <a href="../privacy.html">Privacy Policy</a> · <a href="../terms.html">Terms of Service</a> · <a href="../disclaimer.html">Disclaimer</a>
+    </div>
+    <div class="social-links">
+      <a href="https://www.youtube.com/@ajoobaJahan" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube">▶️</a>
+      <a href="https://wa.me/923288317526" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp">💬</a>
+      <a href="mailto:malikanwaarapps@gmail.com" aria-label="Email" title="Email">📧</a>
+    </div>
+    <p class="copyright">© 2026 Anwaar Digital. All rights reserved.</p>
+  </div>
+</footer>
+
+<a href="https://wa.me/923288317526?text=Assalam%20o%20Alaikum!" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp">💬</a>
+
+<script src="../darkmode.js"></script>
+<script>
+document.getElementById('navToggle').addEventListener('click', function(){ document.getElementById('navLinks').classList.toggle('open'); });
+</script>
+</body>
+</html>
