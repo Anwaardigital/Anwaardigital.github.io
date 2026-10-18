@@ -86,6 +86,28 @@
 
     <article class="blog-card">
       <div class="blog-card-body">
+        <div class="blog-card-icon">📲</div>
+        <div class="blog-card-date">October 18, 2026</div>
+        <h2><a href="blog/how-to-transfer-data-new-android-phone-2026.html">How to Transfer All Your Data to a New Android Phone (2026 Guide)</a></h2>
+        <p>Upgrading phones? Move apps, photos, WhatsApp chats, contacts and passwords to your new Android — Google restore, cable transfer, authenticator migration, what restore misses, and the secure pre-wipe checklist.</p>
+        <a href="blog/how-to-transfer-data-new-android-phone-2026.html" class="btn btn-gold">Read more</a>
+        <div class="blog-tags"><span>Android</span><span>How-To</span><span>Guide</span></div>
+      </div>
+    </article>
+
+    <article class="blog-card">
+      <div class="blog-card-body">
+        <div class="blog-card-icon">🎬</div>
+        <div class="blog-card-date">October 17, 2026</div>
+        <h2><a href="blog/how-to-record-android-screen-2026.html">How to Record Your Screen on Android (2026 Guide)</a></h2>
+        <p>No extra app needed — use Android's built-in screen recorder for tutorials, gameplay and app demos: finding the tile, sound options, quality settings, basic edits and privacy safety.</p>
+        <a href="blog/how-to-record-android-screen-2026.html" class="btn btn-gold">Read more</a>
+        <div class="blog-tags"><span>Android</span><span>How-To</span><span>Guide</span></div>
+      </div>
+    </article>
+
+    <article class="blog-card">
+      <div class="blog-card-body">
         <div class="blog-card-icon">💾</div>
         <div class="blog-card-date">October 17, 2026</div>
         <h2><a href="blog/how-to-free-up-android-storage-2026.html">How to Free Up Storage Space on Your Android Phone (2026 Guide)</a></h2>
@@ -256,5 +278,18 @@
 <script>
 document.getElementById('navToggle').addEventListener('click', function(){ document.getElementById('navLinks').classList.toggle('open'); });
 </script>
+
+<!-- Back to top button -->
+<button id="backToTop" aria-label="Back to top" title="Back to top"
+style="position:fixed;bottom:24px;right:24px;width:48px;height:48px;border-radius:50%;border:none;background:#FFD700;color:#1a1a1a;font-size:22px;line-height:1;cursor:pointer;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s,transform .2s;box-shadow:0 4px 12px rgba(0,0,0,.35);z-index:9999;padding:0;">&#8593;</button>
+<script>
+(function(){var b=document.getElementById('backToTop');if(!b)return;
+window.addEventListener('scroll',function(){var s=window.pageYOffset||document.documentElement.scrollTop;
+if(s>300){b.style.opacity='1';b.style.visibility='visible';}else{b.style.opacity='0';b.style.visibility='hidden';}},{passive:true});
+b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+b.addEventListener('mouseenter',function(){b.style.transform='scale(1.12)';});
+b.addEventListener('mouseleave',function(){b.style.transform='scale(1)';});})();
+</script>
+
 </body>
 </html>
