@@ -67,4 +67,9 @@
   }
 
   init();
+
+  window.showCookieBanner = function () {
+    try { localStorage.removeItem(KEY); } catch (e) {}
+    showBanner();
+  };
 })();
