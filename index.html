@@ -622,6 +622,9 @@
       <span class="brand-text">Anwaar <span class="gold">Digital</span></span>
     </a>
     <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+    <div class="nav-search">
+      <input type="text" id="navSearch" placeholder="🔍 Search apps..." aria-label="Search apps">
+    </div>
     <button id="darkModeToggle" class="dark-toggle" aria-label="Toggle theme">🌙</button>
     <ul class="nav-links" id="navLinks">
       <li><a href="#home">Home</a></li>
@@ -1663,8 +1666,8 @@ const revealObs = new IntersectionObserver(entries => {
 document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
 /* ---------- Live search ---------- */
-document.getElementById('appSearch').addEventListener('input', e => {
-  const q = e.target.value.trim().toLowerCase();
+function filterApps(q) {
+  q = q.trim().toLowerCase();
   const grid = document.getElementById('appsGrid');
   const cards = [...grid.querySelectorAll('.app-card')];
   let visible = 0;
@@ -1677,7 +1680,26 @@ document.getElementById('appSearch').addEventListener('input', e => {
   if (visible === 0 && !nr) {
     grid.insertAdjacentHTML('beforeend', '<div class="no-result">No apps found. Try another search 🔍</div>');
   } else if (visible > 0 && nr) nr.remove();
+}
+document.getElementById('appSearch').addEventListener('input', e => {
+  filterApps(e.target.value);
+  const navS = document.getElementById('navSearch');
+  if (navS && navS.value !== e.target.value) navS.value = e.target.value;
 });
+/* Navbar search: type to jump to apps & filter */
+(function(){
+  const navS = document.getElementById('navSearch');
+  if (!navS) return;
+  navS.addEventListener('focus', () => {
+    document.getElementById('apps').scrollIntoView({behavior:'smooth'});
+  });
+  navS.addEventListener('input', e => {
+    const main = document.getElementById('appSearch');
+    if (main) { main.value = e.target.value; }
+    filterApps(e.target.value);
+    document.getElementById('apps').scrollIntoView({behavior:'smooth'});
+  });
+})();
 
 /* ---------- Mobile menu ---------- */
 const toggle = document.getElementById('navToggle');
