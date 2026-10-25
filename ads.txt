@@ -1,3 +1,3 @@
-# ads.txt for Anwaar Cybersecurity Hub
+# ads.txt for Anwaar Digital
 # This file will be updated with the AdSense publisher ID when approved
 # Format: google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
