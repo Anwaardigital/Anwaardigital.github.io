@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M0NYM1FT9H"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M0NYM1FT9H');
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Invoice Generator — Create Professional Invoices | Anwaar Digital</title>
+<meta name="description" content="Create professional invoices in seconds: add items, tax and discount, then print or download. Free, private, runs fully in your browser.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Free Invoice Generator — Create Professional Invoices | Anwaar Digital">
+<meta property="og:description" content="Create professional invoices in seconds: add items, tax and discount, then print or download. Free, private, runs fully in your browser.">
+<meta property="og:url" content="https://anwaardigital.com/Freetools/tools/invoice-generator.html">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://anwaardigital.com/Freetools/tools/invoice-generator.html">
+<link rel="stylesheet" href="../assets/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Invoice Generator",
+      "url": "https://anwaardigital.com/Freetools/tools/invoice-generator.html",
+      "description": "Create professional invoices in seconds: add items, tax and discount, then print or download. Free, private, runs fully in your browser.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any",
+      "isAccessibleForFree": true,
+      "browserRequirements": "Requires JavaScript",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Is it really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — every tool on this site is 100% free with no limits, no signup and no watermarks." } },
+        { "@type": "Question", "name": "Is my data private?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. All processing happens locally in your browser. Your invoice details are never uploaded to any server." } },
+        { "@type": "Question", "name": "Can I print or save the invoice?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — use the Print button to print or save as PDF from your browser's print dialog, or Download HTML to keep an editable copy." } }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+<a class="logo" href="../index.html"><span class="shield">🛡️</span> Free Privacy Tools</a>
+<button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button><nav class="nav"><a href="../index.html">Home</a><a href="../index.html#tools">All Tools</a><a href="../about.html">About</a><a href="../faq.html">FAQ</a><a href="../blog.html">Blog</a><a href="../contact.html">Contact</a><a href="../privacy.html">Privacy</a></nav>
+</div></header>
+
+<main class="wrap">
+<div class="crumbs"><a href="../index.html">Home</a> / Business Tools / Invoice Generator</div>
+<div class="tool-hero"><h1>🧾 Invoice Generator</h1><p>Create professional invoices in seconds — add items, tax and discount, then print or download. Free, unlimited, private — works entirely in your browser.</p></div>
+<div class="ad-slot"><!-- AdSense code goes here --></div>
+<div class="tool-box" id="tool-root" data-tool="invoice-generator">
+<div class="field"><label for="inv-from">From (your name / business)</label><input id="inv-from" type="text" placeholder="Your Business Name"></div>
+<div class="field"><label for="inv-to">Bill To (client name)</label><input id="inv-to" type="text" placeholder="Client Name"></div>
+<div class="field"><label for="inv-no">Invoice Number</label><input id="inv-no" type="text" value="INV-001"></div>
+<div class="field"><label for="inv-date">Date</label><input id="inv-date" type="date"></div>
+<div class="field"><label for="inv-cur">Currency</label><select id="inv-cur"><option value="USD">USD ($)</option><option value="EUR">EUR (€)</option><option value="GBP">GBP (£)</option><option value="PKR">PKR (Rs)</option></select></div>
+<div class="field"><label>Items</label><div id="inv-items"></div>
+<div class="btn-row"><button class="btn" type="button" id="inv-add">+ Add Item</button></div></div>
+<div class="field"><label for="inv-tax">Tax (%)</label><input id="inv-tax" type="number" value="0" min="0" max="100" step="0.5"></div>
+<div class="field"><label for="inv-disc">Discount (%)</label><input id="inv-disc" type="number" value="0" min="0" max="100" step="0.5"></div>
+<div class="btn-row"><button class="btn" type="button" id="inv-build">Build Invoice</button><button class="btn" type="button" id="inv-print">Print / Save PDF</button><button class="btn" type="button" id="inv-dl">Download HTML</button></div>
+<div class="result" id="inv-preview" style="text-align:left"></div>
+</div>
+<script>
+(function(){
+var SYM={USD:'$',EUR:'€',GBP:'£',PKR:'Rs '};
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function money(n,cur){return SYM[cur]+Number(n).toFixed(2);}
+function addRow(desc,qty,price){
+  var wrap=document.getElementById('inv-items');
+  var row=document.createElement('div');
+  row.className='btn-row';row.style.marginBottom='6px';
+  row.innerHTML='<input type="text" class="inv-desc" placeholder="Description" value="'+esc(desc||'')+'" style="flex:2">'
+    +'<input type="number" class="inv-qty" placeholder="Qty" value="'+(qty==null?1:qty)+'" min="0" step="1" style="flex:1">'
+    +'<input type="number" class="inv-price" placeholder="Price" value="'+(price==null?'':price)+'" min="0" step="0.01" style="flex:1">'
+    +'<button class="btn" type="button">✕</button>';
+  row.querySelector('button').addEventListener('click',function(){row.remove();});
+  wrap.appendChild(row);
+}
+function build(){
+  var cur=document.getElementById('inv-cur').value;
+  var rows=document.querySelectorAll('#inv-items .btn-row');
+  var items=[],sub=0;
+  rows.forEach(function(r){
+    var d=r.querySelector('.inv-desc').value.trim();
+    var q=parseFloat(r.querySelector('.inv-qty').value)||0;
+    var p=parseFloat(r.querySelector('.inv-price').value)||0;
+    if(!d&&q===0&&p===0)return;
+    var amt=q*p;sub+=amt;
+    items.push({d:d||'(no description)',q:q,p:p,amt:amt});
+  });
+  var taxPct=parseFloat(document.getElementById('inv-tax').value)||0;
+  var discPct=parseFloat(document.getElementById('inv-disc').value)||0;
+  var disc=sub*discPct/100;
+  var tax=(sub-disc)*taxPct/100;
+  var total=sub-disc+tax;
+  var rowsHtml=items.length?items.map(function(it){
+    return '<tr><td>'+esc(it.d)+'</td><td>'+it.q+'</td><td>'+money(it.p,cur)+'</td><td>'+money(it.amt,cur)+'</td></tr>';
+  }).join(''):'<tr><td colspan="4">No items — click “+ Add Item”.</td></tr>';
+  var html='<h3>INVOICE '+esc(document.getElementById('inv-no').value)+'</h3>'
+    +'<p><strong>From:</strong> '+esc(document.getElementById('inv-from').value||'—')+'<br>'
+    +'<strong>Bill To:</strong> '+esc(document.getElementById('inv-to').value||'—')+'<br>'
+    +'<strong>Date:</strong> '+esc(document.getElementById('inv-date').value||'—')+'</p>'
+    +'<table style="width:100%;border-collapse:collapse"><thead><tr><th style="text-align:left;border-bottom:1px solid #ccc">Description</th><th style="border-bottom:1px solid #ccc">Qty</th><th style="border-bottom:1px solid #ccc">Price</th><th style="border-bottom:1px solid #ccc">Amount</th></tr></thead><tbody>'+rowsHtml+'</tbody></table>'
+    +'<p style="text-align:right">Subtotal: '+money(sub,cur)+'<br>Discount ('+discPct+'%): −'+money(disc,cur)+'<br>Tax ('+taxPct+'%): '+money(tax,cur)+'<br><strong>Total: '+money(total,cur)+'</strong></p>';
+  var prev=document.getElementById('inv-preview');
+  prev.innerHTML=html;
+  prev.dataset.html='<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Invoice '+esc(document.getElementById('inv-no').value)+'</title></head><body style="font-family:sans-serif;max-width:700px;margin:40px auto">'+html+'</body></html>';
+  return html;
+}
+document.getElementById('inv-add').addEventListener('click',function(){addRow('',1,'');});
+document.getElementById('inv-build').addEventListener('click',build);
+document.getElementById('inv-print').addEventListener('click',function(){
+  build();
+  var w=window.open('','_blank');
+  w.document.write(document.getElementById('inv-preview').dataset.html||'');
+  w.document.close();w.focus();w.print();
+});
+document.getElementById('inv-dl').addEventListener('click',function(){
+  build();
+  var blob=new Blob([document.getElementById('inv-preview').dataset.html||''],{type:'text/html'});
+  var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='invoice.html';
+  document.body.appendChild(a);a.click();
+  setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},4000);
+});
+document.getElementById('inv-date').value=new Date().toISOString().slice(0,10);
+addRow('Website design',1,250);
+addRow('Monthly maintenance',1,50);
+build();
+})();
+</script>
+<div class="howto"><h2>How to use</h2><ol><li>Enter your <strong>business and client names</strong>, invoice number and date.</li><li>Add items with <strong>quantity and price</strong> — click “+ Add Item” for more rows.</li><li>Set <strong>tax and discount</strong> percentages if needed.</li><li>Click <strong>Build Invoice</strong>, then <strong>Print / Save PDF</strong> or <strong>Download HTML</strong>.</li></ol></div>
+<div class="faq"><h2>FAQ</h2><details><summary>Is it really free?</summary><p>Yes — every tool on this site is 100% free with no limits, no signup and no watermarks.</p></details><details><summary>Is my data private?</summary><p>Absolutely. All processing happens locally in your browser. Your invoice details are never uploaded to any server.</p></details><details><summary>Can I print or save the invoice?</summary><p>Yes — use the Print button to print or save as PDF from your browser's print dialog, or Download HTML to keep an editable copy.</p></details></div>
+<div class="tool-guide"><h2>Complete Guide to Invoicing</h2><p>A good invoice gets you paid faster: it states who is billing, who owes, what was delivered, and exactly how much is due. Always include an <strong>invoice number</strong> (for your records and your client's), a <strong>date</strong>, an itemized list with quantities and prices, and any <strong>tax or discount</strong> shown separately so the total is easy to verify. Vague invoices get questioned; itemized ones get paid.</p><p>Freelancers in the US, UK and EU use the same basics, with local differences: EU invoices often need a VAT number and VAT rate, while US invoices usually show sales tax only where it applies. This generator keeps your data on your device — nothing is stored online — and produces a clean invoice you can print, save as PDF, or email as HTML.</p></div>
+<div class="related"><h2>Related tools</h2><div class="grid"><a class="tool-card" href="./vat-calculator.html"><div class="ticon">🇪🇺</div><h3>VAT Calculator</h3><p>Add or remove VAT for EU countries.</p></a><a class="tool-card" href="./mortgage-calculator.html"><div class="ticon">🏠</div><h3>Mortgage Calculator</h3><p>Monthly payments and total interest.</p></a><a class="tool-card" href="./percentage-calculator.html"><div class="ticon">💯</div><h3>Percentage Calculator</h3><p>Solve any percentage problem instantly.</p></a></div></div>
+</div>
+</main>
+<footer class="site-footer"><div class="wrap">
+<div class="cols">
+<div><h4>🛡️ Free Privacy Tools</h4><p>50+ free online tools. No signup, no tracking — everything runs in your browser.</p></div>
+<div><h4>Popular</h4><a href="./image-compressor.html">Image Compressor</a><a href="./word-counter.html">Word Counter</a><a href="./password-generator.html">Password Generator</a><a href="./pdf-merger.html">PDF Merger</a><a href="./age-calculator.html">Age Calculator</a></div>
+<div><h4>Site</h4><a href="../index.html">Home</a><a href="../index.html#tools">All Tools</a><a href="../about.html">About</a><a href="../faq.html">FAQ</a><a href="../blog.html">Blog</a><a href="../contact.html">Contact</a><a href="../request.html">Request a Tool</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../disclaimer.html">Disclaimer</a></div>
+</div>
+<div class="foot-note">© 2026 Free Privacy Tools — All tools run 100% in your browser.<br>Developed by <a href="https://anwaardigital.com/" target="_blank" rel="noopener" style="color:#fbbf24;font-weight:700">Malik Anwaar</a> ❤️</div>
+</div></footer>
+<script src="../assets/app.js"></script>
+<script src="../assets/tools.js"></script>
+<script src="../assets/features.js"></script>
+</body></html>

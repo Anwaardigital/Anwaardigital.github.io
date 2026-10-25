@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M0NYM1FT9H"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M0NYM1FT9H');
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Barcode Generator — CODE128, EAN-13, UPC | Anwaar Digital</title>
+<meta name="description" content="Generate barcodes for products, books and inventory: CODE128, EAN-13 and UPC. Download as SVG or PNG. Free, private, runs in your browser.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Free Barcode Generator — CODE128, EAN-13, UPC | Anwaar Digital">
+<meta property="og:description" content="Generate barcodes for products, books and inventory: CODE128, EAN-13 and UPC. Download as SVG or PNG. Free, private, runs in your browser.">
+<meta property="og:url" content="https://anwaardigital.com/Freetools/tools/barcode-generator.html">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://anwaardigital.com/Freetools/tools/barcode-generator.html">
+<link rel="stylesheet" href="../assets/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Barcode Generator",
+      "url": "https://anwaardigital.com/Freetools/tools/barcode-generator.html",
+      "description": "Generate barcodes for products, books and inventory: CODE128, EAN-13 and UPC. Download as SVG or PNG. Free, private, runs in your browser.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any",
+      "isAccessibleForFree": true,
+      "browserRequirements": "Requires JavaScript",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Is it really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — every tool on this site is 100% free with no limits, no signup and no watermarks." } },
+        { "@type": "Question", "name": "Is my data private?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Barcodes are generated locally in your browser. Your codes are never uploaded to any server." } },
+        { "@type": "Question", "name": "Which format should I choose?", "acceptedAnswer": { "@type": "Answer", "text": "CODE128 works for almost any text and is the safest default. EAN-13 is the standard retail barcode (13 digits) and UPC is the North American retail standard (12 digits)." } }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+<a class="logo" href="../index.html"><span class="shield">🛡️</span> Free Privacy Tools</a>
+<button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button><nav class="nav"><a href="../index.html">Home</a><a href="../index.html#tools">All Tools</a><a href="../about.html">About</a><a href="../faq.html">FAQ</a><a href="../blog.html">Blog</a><a href="../contact.html">Contact</a><a href="../privacy.html">Privacy</a></nav>
+</div></header>
+
+<main class="wrap">
+<div class="crumbs"><a href="../index.html">Home</a> / Business Tools / Barcode Generator</div>
+<div class="tool-hero"><h1>🏷️ Barcode Generator</h1><p>Generate CODE128, EAN-13 and UPC barcodes and download them as SVG or PNG. Free, unlimited, private — works in your browser.</p></div>
+<div class="ad-slot"><!-- AdSense code goes here --></div>
+<div class="tool-box" id="tool-root" data-tool="barcode-generator">
+<div class="field"><label for="bc-value">Barcode Value</label><input id="bc-value" type="text" value="5901234123457" placeholder="e.g. 5901234123457"></div>
+<div class="field"><label for="bc-format">Format</label><select id="bc-format"><option value="CODE128">CODE128 (any text — safest default)</option><option value="EAN13" selected>EAN-13 (13 digits, retail)</option><option value="UPC">UPC-A (12 digits, North America)</option></select></div>
+<div class="field"><label for="bc-width">Bar Width</label><input id="bc-width" type="number" value="2" min="1" max="6" step="1"></div>
+<div class="btn-row"><button class="btn" type="button" id="bc-gen">Generate</button><button class="btn" type="button" id="bc-svg">Download SVG</button><button class="btn" type="button" id="bc-png">Download PNG</button></div>
+<div class="result" id="bc-wrap" style="background:#fff;padding:16px"><svg id="bc-svg-el"></svg></div>
+<div class="result" id="bc-msg"></div>
+<p style="font-size:0.9em">Note: the barcode library loads from a CDN (jsdelivr). If you are offline, generation will show an error instead of a fake barcode — reconnect and try again. Your value is never sent to any server; the library runs locally once loaded.</p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js"></script>
+<script>
+(function(){
+function gen(){
+  var msg=document.getElementById('bc-msg');
+  if(typeof JsBarcode==='undefined'){msg.textContent='Barcode library could not load (offline or CDN blocked). Please check your connection and try again — no fake barcode will be shown.';return false;}
+  var val=document.getElementById('bc-value').value.trim();
+  var fmt=document.getElementById('bc-format').value;
+  var w=parseInt(document.getElementById('bc-width').value,10)||2;
+  if(!val){msg.textContent='Please enter a barcode value.';return false;}
+  if(fmt==='EAN13'&&!/^\d{12,13}$/.test(val)){msg.textContent='EAN-13 needs 12 digits (check digit added automatically) or 13 digits.';return false;}
+  if(fmt==='UPC'&&!/^\d{11,12}$/.test(val)){msg.textContent='UPC-A needs 11 digits (check digit added automatically) or 12 digits.';return false;}
+  try{
+    JsBarcode('#bc-svg-el',val,{format:fmt,width:w,height:80,displayValue:true,margin:10});
+    msg.textContent='Barcode generated ('+fmt+'). Download as SVG or PNG.';
+    return true;
+  }catch(e){
+    msg.textContent='Could not generate this barcode: '+e.message;
+    return false;
+  }
+}
+document.getElementById('bc-gen').addEventListener('click',gen);
+document.getElementById('bc-format').addEventListener('change',function(){
+  var f=this.value;
+  var v=document.getElementById('bc-value');
+  if(f==='EAN13')v.value='5901234123457';
+  else if(f==='UPC')v.value='590123412345';
+  else v.value='ANWAAR-2026';
+});
+document.getElementById('bc-svg').addEventListener('click',function(){
+  if(!gen())return;
+  var svg=document.getElementById('bc-svg-el');
+  var src=new XMLSerializer().serializeToString(svg);
+  var blob=new Blob([src],{type:'image/svg+xml'});
+  var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='barcode.svg';
+  document.body.appendChild(a);a.click();
+  setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},4000);
+});
+document.getElementById('bc-png').addEventListener('click',function(){
+  if(!gen())return;
+  var svg=document.getElementById('bc-svg-el');
+  var src=new XMLSerializer().serializeToString(svg);
+  var blob=new Blob([src],{type:'image/svg+xml'});
+  var url=URL.createObjectURL(blob);
+  var img=new Image();
+  img.onload=function(){
+    var c=document.createElement('canvas');
+    c.width=img.width||600;c.height=img.height||150;
+    var ctx=c.getContext('2d');ctx.fillStyle='#ffffff';ctx.fillRect(0,0,c.width,c.height);
+    ctx.drawImage(img,0,0);
+    URL.revokeObjectURL(url);
+    c.toBlob(function(b){
+      var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='barcode.png';
+      document.body.appendChild(a);a.click();
+      setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},4000);
+    },'image/png');
+  };
+  img.onerror=function(){URL.revokeObjectURL(url);document.getElementById('bc-msg').textContent='PNG export failed in this browser — please use Download SVG instead.';};
+  img.src=url;
+});
+window.addEventListener('load',gen);
+})();
+</script>
+<div class="howto"><h2>How to use</h2><ol><li>Enter your <strong>barcode value</strong> (digits for EAN-13/UPC, any text for CODE128).</li><li>Pick the <strong>format</strong> and bar width.</li><li>Click <strong>Generate</strong>, then <strong>Download SVG</strong> (best for print) or <strong>PNG</strong>.</li></ol></div>
+<div class="faq"><h2>FAQ</h2><details><summary>Is it really free?</summary><p>Yes — every tool on this site is 100% free with no limits, no signup and no watermarks.</p></details><details><summary>Is my data private?</summary><p>Absolutely. Barcodes are generated locally in your browser. Your codes are never uploaded to any server.</p></details><details><summary>Which format should I choose?</summary><p>CODE128 works for almost any text and is the safest default. EAN-13 is the standard retail barcode (13 digits) and UPC is the North American retail standard (12 digits).</p></details></div>
+<div class="tool-guide"><h2>Complete Guide to Barcodes</h2><p>Barcodes encode data as bars that scanners read in a fraction of a second. <strong>CODE128</strong> is the workhorse: it handles letters, digits and symbols, so it fits inventory labels, tickets and internal tracking. <strong>EAN-13</strong> is the retail barcode printed on products across Europe and most of the world — 13 digits, where the last digit is a check digit that catches misreads. <strong>UPC-A</strong> is its 12-digit North American cousin.</p><p>For both EAN-13 and UPC you can enter one digit fewer and the check digit is calculated automatically — or enter the full code if you already have it. Download <strong>SVG</strong> for print (it scales perfectly to any label size) or <strong>PNG</strong> for documents and listings. This tool runs the open-source JsBarcode library in your browser; your values never leave your device.</p></div>
+<div class="related"><h2>Related tools</h2><div class="grid"><a class="tool-card" href="./qr-generator.html"><div class="ticon">🔳</div><h3>QR Code Generator</h3><p>Create custom QR codes from any text or URL.</p></a><a class="tool-card" href="./invoice-generator.html"><div class="ticon">🧾</div><h3>Invoice Generator</h3><p>Create professional invoices in seconds.</p></a><a class="tool-card" href="./favicon-generator.html"><div class="ticon">⭐</div><h3>Favicon Generator</h3><p>Generate favicon PNGs in multiple sizes.</p></a></div></div>
+</div>
+</main>
+<footer class="site-footer"><div class="wrap">
+<div class="cols">
+<div><h4>🛡️ Free Privacy Tools</h4><p>50+ free online tools. No signup, no tracking — everything runs in your browser.</p></div>
+<div><h4>Popular</h4><a href="./image-compressor.html">Image Compressor</a><a href="./word-counter.html">Word Counter</a><a href="./password-generator.html">Password Generator</a><a href="./pdf-merger.html">PDF Merger</a><a href="./age-calculator.html">Age Calculator</a></div>
+<div><h4>Site</h4><a href="../index.html">Home</a><a href="../index.html#tools">All Tools</a><a href="../about.html">About</a><a href="../faq.html">FAQ</a><a href="../blog.html">Blog</a><a href="../contact.html">Contact</a><a href="../request.html">Request a Tool</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../disclaimer.html">Disclaimer</a></div>
+</div>
+<div class="foot-note">© 2026 Free Privacy Tools — All tools run 100% in your browser.<br>Developed by <a href="https://anwaardigital.com/" target="_blank" rel="noopener" style="color:#fbbf24;font-weight:700">Malik Anwaar</a> ❤️</div>
+</div></footer>
+<script src="../assets/app.js"></script>
+<script src="../assets/tools.js"></script>
+<script src="../assets/features.js"></script>
+</body></html>
