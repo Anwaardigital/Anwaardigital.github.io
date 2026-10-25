@@ -59,7 +59,12 @@ a{text-decoration:none;color:inherit}
 }
 .nav-search input:focus{border-color:var(--gold);width:220px}
 .nav-search input::placeholder{color:#8aa89c}
-@media(max-width:900px){.nav-search{display:none}}
+@media(max-width:768px){
+  .nav-inner{flex-wrap:wrap}
+  .nav-search{display:block;order:10;width:100%;margin:12px 0 0}
+  .nav-search input{width:100%}
+  .nav-search input:focus{width:100%}
+}
 
 /* ---------- Hero ---------- */
 .hero{
@@ -300,6 +305,8 @@ a{text-decoration:none;color:inherit}
 .footer-links{margin-bottom:16px}
 .footer-links a{color:var(--muted);font-size:.9rem;transition:color .2s}
 .footer-links a:hover{color:var(--gold)}
+.footer-email{color:var(--gold)!important;font-weight:700;font-size:1rem;margin:18px 0 8px;word-break:break-all}
+.footer-email a{color:var(--gold)!important}
 .copyright{font-size:.82rem!important;opacity:.7}
 
 /* ---------- WhatsApp float ---------- */
@@ -322,7 +329,7 @@ a{text-decoration:none;color:inherit}
   .nav-links li{width:100%;text-align:center}
   .nav-links a{display:block;padding:13px}
   .nav-toggle{display:block}
-  .hero{padding-top:110px}
+  .hero{padding-top:170px}
   .hero-stats{gap:24px}
   .app-card p{min-height:0}
   .about-wrap{gap:26px;text-align:center}
