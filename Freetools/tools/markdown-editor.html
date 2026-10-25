@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M0NYM1FT9H"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M0NYM1FT9H');
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Markdown Editor — Live Preview | Anwaar Digital</title>
+<meta name="description" content="Write Markdown and see a live HTML preview instantly. Copy HTML or download your .md file. Free, private, runs fully in your browser.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Free Markdown Editor — Live Preview | Anwaar Digital">
+<meta property="og:description" content="Write Markdown and see a live HTML preview instantly. Copy HTML or download your .md file. Free, private, runs fully in your browser.">
+<meta property="og:url" content="https://anwaardigital.com/Freetools/tools/markdown-editor.html">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://anwaardigital.com/Freetools/tools/markdown-editor.html">
+<link rel="stylesheet" href="../assets/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Markdown Editor",
+      "url": "https://anwaardigital.com/Freetools/tools/markdown-editor.html",
+      "description": "Write Markdown and see a live HTML preview instantly. Copy HTML or download your .md file. Free, private, runs fully in your browser.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any",
+      "isAccessibleForFree": true,
+      "browserRequirements": "Requires JavaScript",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Is it really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — every tool on this site is 100% free with no limits, no signup and no watermarks." } },
+        { "@type": "Question", "name": "Is my data private?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. All processing happens locally in your browser. Your text is never uploaded to any server." } },
+        { "@type": "Question", "name": "What Markdown is supported?", "acceptedAnswer": { "@type": "Answer", "text": "Headings, bold, italic, inline code, code blocks, links, images, lists, blockquotes and horizontal rules — the most commonly used Markdown." } }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+<a class="logo" href="../index.html"><span class="shield">🛡️</span> Free Privacy Tools</a>
+<button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button><nav class="nav"><a href="../index.html">Home</a><a href="../index.html#tools">All Tools</a><a href="../about.html">About</a><a href="../faq.html">FAQ</a><a href="../blog.html">Blog</a><a href="../contact.html">Contact</a><a href="../privacy.html">Privacy</a></nav>
+</div></header>
+
+<main class="wrap">
+<div class="crumbs"><a href="../index.html">Home</a> / Text Tools / Markdown Editor</div>
+<div class="tool-hero"><h1>📝 Markdown Editor</h1><p>Write Markdown and see a live preview instantly. Free, unlimited, private — works entirely in your browser.</p></div>
+<div class="ad-slot"><!-- AdSense code goes here --></div>
+<div class="tool-box" id="tool-root" data-tool="markdown-editor">
+<div class="field"><label for="md-in">Markdown Input</label><textarea id="md-in" rows="12"># Hello, Markdown!
+
+Write **bold**, *italic* and `code` here.
+
+- Item one
+- Item two
+
+> A blockquote for emphasis.
+
+[Visit Anwaar Digital](https://anwaardigital.com/)</textarea></div>
+<div class="btn-row"><button class="btn" type="button" id="md-copy-html">Copy HTML</button><button class="btn" type="button" id="md-dl">Download .md</button><button class="btn" type="button" id="md-clear">Clear</button></div>
+<div class="field"><label>Live Preview</label><div id="md-out" class="result" style="text-align:left"></div></div>
+<div class="result" id="md-msg"></div>
+</div>
+<script>
+(function(){
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function inline(s){
+  s=esc(s);
+  s=s.replace(/`([^`]+)`/g,'<code>$1</code>');
+  s=s.replace(/!\[([^\]]*)\]\(([^)]+)\)/g,'<img alt="$1" src="$2">');
+  s=s.replace(/\[([^\]]+)\]\(([^)]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>');
+  s=s.replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>');
+  s=s.replace(/(^|[^*])\*([^*\n]+)\*/g,'$1<em>$2</em>');
+  return s;
+}
+function render(src){
+  var lines=src.replace(/\r\n/g,'\n').split('\n');
+  var html=[],i=0,inCode=false,codeBuf=[];
+  function flushCode(){if(codeBuf.length){html.push('<pre><code>'+esc(codeBuf.join('\n'))+'</code></pre>');codeBuf=[];}}
+  while(i<lines.length){
+    var line=lines[i];
+    if(line.trim().indexOf('```')===0){if(inCode){flushCode();inCode=false;}else{inCode=true;}i++;continue;}
+    if(inCode){codeBuf.push(line);i++;continue;}
+    var hm=line.match(/^(#{1,6})\s+(.*)$/);
+    if(hm){html.push('<h'+hm[1].length+'>'+inline(hm[2])+'</h'+hm[1].length+'>');i++;continue;}
+    if(/^(\*\*\*|---|___)\s*$/.test(line)){html.push('<hr>');i++;continue;}
+    if(/^>\s?/.test(line)){var q=[];while(i<lines.length&&/^>\s?/.test(lines[i])){q.push(lines[i].replace(/^>\s?/,''));i++;}html.push('<blockquote>'+q.map(inline).join('<br>')+'</blockquote>');continue;}
+    if(/^\s*[-*+]\s+/.test(line)){var items=[];while(i<lines.length&&/^\s*[-*+]\s+/.test(lines[i])){items.push('<li>'+inline(lines[i].replace(/^\s*[-*+]\s+/,''))+'</li>');i++;}html.push('<ul>'+items.join('')+'</ul>');continue;}
+    if(/^\s*\d+\.\s+/.test(line)){var oitems=[];while(i<lines.length&&/^\s*\d+\.\s+/.test(lines[i])){oitems.push('<li>'+inline(lines[i].replace(/^\s*\d+\.\s+/,''))+'</li>');i++;}html.push('<ol>'+oitems.join('')+'</ol>');continue;}
+    if(line.trim()===''){i++;continue;}
+    var para=[];while(i<lines.length&&lines[i].trim()!==''&&!/^(#{1,6}\s|```|>\s?|\s*[-*+]\s+|\s*\d+\.\s+)/.test(lines[i])){para.push(lines[i]);i++;}
+    html.push('<p>'+para.map(inline).join('<br>')+'</p>');
+  }
+  flushCode();
+  return html.join('\n');
+}
+function update(){document.getElementById('md-out').innerHTML=render(document.getElementById('md-in').value);}
+document.getElementById('md-in').addEventListener('input',update);
+document.getElementById('md-copy-html').addEventListener('click',function(){
+  var ta=document.createElement('textarea');ta.value=document.getElementById('md-out').innerHTML;
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy');document.getElementById('md-msg').textContent='HTML copied to clipboard.';}
+  catch(e){document.getElementById('md-msg').textContent='Copy failed — select the preview HTML manually.';}
+  ta.remove();
+});
+document.getElementById('md-dl').addEventListener('click',function(){
+  var blob=new Blob([document.getElementById('md-in').value],{type:'text/markdown'});
+  var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='document.md';
+  document.body.appendChild(a);a.click();
+  setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},4000);
+});
+document.getElementById('md-clear').addEventListener('click',function(){document.getElementById('md-in').value='';update();});
+update();
+})();
+</script>
+<div class="howto"><h2>How to use</h2><ol><li>Type or paste <strong>Markdown</strong> in the left editor.</li><li>Watch the <strong>live preview</strong> update as you type.</li><li>Click <strong>Copy HTML</strong> to paste formatted output elsewhere, or <strong>Download .md</strong> to save your file.</li></ol></div>
+<div class="faq"><h2>FAQ</h2><details><summary>Is it really free?</summary><p>Yes — every tool on this site is 100% free with no limits, no signup and no watermarks.</p></details><details><summary>Is my data private?</summary><p>Absolutely. All processing happens locally in your browser. Your text is never uploaded to any server.</p></details><details><summary>What Markdown is supported?</summary><p>Headings, bold, italic, inline code, code blocks, links, images, lists, blockquotes and horizontal rules — the most commonly used Markdown.</p></details></div>
+<div class="tool-guide"><h2>Complete Guide to Markdown</h2><p>Markdown is the plain-text way to write formatted documents: README files, blog posts, notes and documentation all use it. Headings use <strong>#</strong> symbols, <strong>**bold**</strong> and <strong>*italic*</strong> add emphasis, backticks mark <code>code</code>, and dashes make lists. Because it is plain text, Markdown files work everywhere, last forever, and convert cleanly to HTML, PDF or Word.</p><p>This editor converts your Markdown to HTML instantly, in your browser — nothing is uploaded. Use it to draft GitHub READMEs, blog posts or notes, then copy the HTML straight into your site or download the .md file for later.</p></div>
+<div class="related"><h2>Related tools</h2><div class="grid"><a class="tool-card" href="./word-counter.html"><div class="ticon">🔢</div><h3>Word Counter</h3><p>Count words, characters, sentences and reading time.</p></a><a class="tool-card" href="./html-encoder.html"><div class="ticon">💻</div><h3>HTML Encoder</h3><p>Encode or decode HTML entities safely.</p></a><a class="tool-card" href="./case-converter.html"><div class="ticon">🔠</div><h3>Text Case Converter</h3><p>Convert text to UPPERCASE, lowercase, Title Case and more.</p></a></div></div>
+</div>
+</main>
+<footer class="site-footer"><div class="wrap">
+<div class="cols">
+<div><h4>🛡️ Free Privacy Tools</h4><p>50+ free online tools. No signup, no tracking — everything runs in your browser.</p></div>
+<div><h4>Popular</h4><a href="./image-compressor.html">Image Compressor</a><a href="./word-counter.html">Word Counter</a><a href="./password-generator.html">Password Generator</a><a href="./pdf-merger.html">PDF Merger</a><a href="./age-calculator.html">Age Calculator</a></div>
+<div><h4>Site</h4><a href="../index.html">Home</a><a href="../index.html#tools">All Tools</a><a href="../about.html">About</a><a href="../faq.html">FAQ</a><a href="../blog.html">Blog</a><a href="../contact.html">Contact</a><a href="../request.html">Request a Tool</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../disclaimer.html">Disclaimer</a></div>
+</div>
+<div class="foot-note">© 2026 Free Privacy Tools — All tools run 100% in your browser.<br>Developed by <a href="https://anwaardigital.com/" target="_blank" rel="noopener" style="color:#fbbf24;font-weight:700">Malik Anwaar</a> ❤️</div>
+</div></footer>
+<script src="../assets/app.js"></script>
+<script src="../assets/tools.js"></script>
+<script src="../assets/features.js"></script>
+</body></html>

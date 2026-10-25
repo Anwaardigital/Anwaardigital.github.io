@@ -8,8 +8,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cyber Security — Anwaar Digital</title>
 <meta name="description" content="Learn cyber security in Urdu and English — 60 practical guides across 6 categories. By Anwaar Digital.">
-<meta property="og:image" content="https://anwaardigital.github.io/anwaar-icon-512.png">
-<link rel="canonical" href="https://anwaardigital.github.io/cybersecurity.html">
+<meta property="og:title" content="Cyber Security — Anwaar Digital">
+<meta property="og:description" content="Learn cyber security in Urdu and English — 60 practical guides across 6 categories, plus 6 free in-browser security tools. By Anwaar Digital.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://anwaardigital.com/cybersecurity.html">
+<meta property="og:site_name" content="Anwaar Digital">
+<meta property="og:image" content="https://anwaardigital.com/anwaar-icon-512.png">
+<link rel="canonical" href="https://anwaardigital.com/cybersecurity.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {"@type": "WebSite", "name": "Anwaar Digital", "url": "https://anwaardigital.com/"},
+    {"@type": "Organization", "name": "Anwaar Digital", "url": "https://anwaardigital.com/", "email": "contact@anwaardigital.com", "sameAs": ["https://www.youtube.com/@ajoobaJahan", "https://www.youtube.com/@TareekhKayRaaz-y9h", "https://www.youtube.com/@TarkariKahanian", "https://www.youtube.com/@QatalFiles"]}
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -95,6 +109,296 @@
 
 
 
+<!-- ============ FREE SECURITY TOOLS ============ -->
+<!-- NOTE: These 6 tools are NEW — they do NOT duplicate the Free Tools site.
+     Password Generator, Password Strength Checker, Hash Generator, Base64 and
+     Phishing URL Checker already exist on anwaardigital.com/Freetools/ and are
+     linked below instead of being rebuilt here. -->
+<section class="section" id="security-tools">
+<div class="container">
+<span class="section-tag">🛠️ Free Security Tools</span>
+<h2>Security <span class="gold-text">Tools</span></h2>
+<p class="sectool-sub">100% free, runs entirely in your browser. Nothing you type here is uploaded anywhere — except the Pwned check, which sends only the first 5 characters of your password's SHA-1 hash (never the password itself).</p>
+<div class="sectool-grid">
+
+<!-- 1. Pwned Password Check -->
+<div class="sectool-card" id="tool-pwned">
+<h3>🔓 Pwned Password Check</h3>
+<p class="sectool-desc">Check if your password has appeared in a known data breach, using the Have I Been Pwned range API. Only the first 5 characters of the SHA-1 hash leave your device (k-anonymity) — your password never does.</p>
+<label class="sectool-label" for="pwnedInput">Password to check (never stored or sent in full):</label>
+<input class="sectool-input" type="password" id="pwnedInput" placeholder="Enter a password" autocomplete="off">
+<button class="sectool-btn" type="button" onclick="SecTools.pwned()">Check breach status</button>
+<div class="sectool-out" id="pwnedOut" aria-live="polite"></div>
+</div>
+
+<!-- 2. Caesar Cipher -->
+<div class="sectool-card" id="tool-caesar">
+<h3>🔡 Caesar Cipher Tool</h3>
+<p class="sectool-desc">Learn how classic ciphers work: shift every letter by a fixed amount. Encode, decode, or brute-force all 25 possible shifts to crack a Caesar message.</p>
+<label class="sectool-label" for="caesarInput">Message:</label>
+<textarea class="sectool-input" id="caesarInput" rows="3" placeholder="Type your message here...">Khoor Zruog</textarea>
+<label class="sectool-label" for="caesarShift">Shift (1–25): <span id="caesarShiftVal">3</span></label>
+<input class="sectool-range" type="range" id="caesarShift" min="1" max="25" value="3" oninput="document.getElementById('caesarShiftVal').textContent=this.value">
+<div class="sectool-row">
+<button class="sectool-btn" type="button" onclick="SecTools.caesar(1)">Encode →</button>
+<button class="sectool-btn" type="button" onclick="SecTools.caesar(-1)">← Decode</button>
+<button class="sectool-btn" type="button" onclick="SecTools.caesarBrute()">Brute-force all shifts</button>
+</div>
+<div class="sectool-out" id="caesarOut" aria-live="polite"></div>
+</div>
+
+<!-- 3. Email Header Analyzer -->
+<div class="sectool-card" id="tool-headers">
+<h3>📧 Email Header Analyzer</h3>
+<p class="sectool-desc">Paste a full email header to inspect its journey: Received hops, SPF / DKIM / DMARC results, and spoofing warning signs. This is a heuristic screening aid, not a definitive verdict — when in doubt, do not click links or reply.</p>
+<label class="sectool-label" for="headerInput">Paste email header:</label>
+<textarea class="sectool-input" id="headerInput" rows="5" placeholder="Received: from mail.example.com ...&#10;Authentication-Results: ... spf=pass dkim=pass ..."></textarea>
+<button class="sectool-btn" type="button" onclick="SecTools.headers()">Analyze header</button>
+<div class="sectool-out" id="headerOut" aria-live="polite"></div>
+</div>
+
+<!-- 4. AES-GCM Text Encryptor -->
+<div class="sectool-card" id="tool-aes">
+<h3>🔒 AES-GCM Text Encryptor</h3>
+<p class="sectool-desc">Encrypt a message with a passphrase using AES-GCM (256-bit, PBKDF2 with 100,000 iterations, random salt and IV). Everything happens in your browser — the passphrase never leaves your device. You need the same passphrase to decrypt.</p>
+<label class="sectool-label" for="aesPass">Passphrase:</label>
+<input class="sectool-input" type="password" id="aesPass" placeholder="Choose a strong passphrase" autocomplete="off">
+<label class="sectool-label" for="aesInput">Message / encrypted text:</label>
+<textarea class="sectool-input" id="aesInput" rows="3" placeholder="Type a message to encrypt, or paste an encrypted bundle to decrypt..."></textarea>
+<div class="sectool-row">
+<button class="sectool-btn" type="button" onclick="SecTools.aesEnc()">Encrypt →</button>
+<button class="sectool-btn" type="button" onclick="SecTools.aesDec()">← Decrypt</button>
+</div>
+<div class="sectool-out" id="aesOut" aria-live="polite"></div>
+</div>
+
+<!-- 5. JWT Decoder -->
+<div class="sectool-card" id="tool-jwt">
+<h3>🎟️ JWT Decoder</h3>
+<p class="sectool-desc">Decode a JSON Web Token's header and payload in your browser. The signature is never verified here (that needs the secret key) — this tool only shows what the token contains, and warns about risky tokens.</p>
+<label class="sectool-label" for="jwtInput">Paste JWT (header.payload.signature):</label>
+<textarea class="sectool-input" id="jwtInput" rows="3" placeholder="eyJhbGciOi..."></textarea>
+<button class="sectool-btn" type="button" onclick="SecTools.jwt()">Decode token</button>
+<div class="sectool-out" id="jwtOut" aria-live="polite"></div>
+</div>
+
+<!-- 6. Browser Privacy Check -->
+<div class="sectool-card" id="tool-privacy">
+<h3>👁️ Browser Privacy Check</h3>
+<p class="sectool-desc">See what any website can learn about you just from your browser — no permission needed. Use this to understand your digital footprint before reading our privacy guides.</p>
+<button class="sectool-btn" type="button" onclick="SecTools.privacy()">What does my browser reveal?</button>
+<div class="sectool-out" id="privacyOut" aria-live="polite"></div>
+</div>
+
+</div><!-- /sectool-grid -->
+
+<div class="sectool-also">
+<h3>Already available on our Free Tools site</h3>
+<p>These security tools already exist on Anwaar Digital's Free Tools site — we link to them here instead of duplicating them:</p>
+<p class="sectool-links">
+<a href="https://anwaardigital.com/Freetools/tools/password-generator.html">🔐 Password Generator</a>
+<a href="https://anwaardigital.com/Freetools/tools/password-strength-checker.html">💪 Password Strength Checker</a>
+<a href="https://anwaardigital.com/Freetools/tools/hash-generator.html">#️⃣ Hash Generator</a>
+<a href="https://anwaardigital.com/Freetools/tools/base64.html">🔤 Base64 Encoder / Decoder</a>
+<a href="https://anwaardigital.com/Freetools/tools/phishing-url-checker.html">🎣 Phishing URL Checker</a>
+</p>
+</div>
+
+</div>
+</section>
+
+<style>
+.sectool-sub{color:var(--muted,#94a3b8);max-width:820px}
+.sectool-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.2rem;margin-top:1.2rem}
+.sectool-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,215,0,.25);border-radius:14px;padding:1.2rem}
+.sectool-card h3{margin:0 0 .5rem}
+.sectool-desc{font-size:.92rem;color:var(--muted,#94a3b8)}
+.sectool-label{display:block;font-size:.85rem;font-weight:600;margin:.8rem 0 .3rem}
+.sectool-input{width:100%;box-sizing:border-box;padding:.6rem .7rem;border-radius:8px;border:1px solid #334155;background:#0f172a;color:#f1f5f9;font-size:.95rem;font-family:inherit}
+.sectool-range{width:100%}
+.sectool-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.6rem}
+.sectool-btn{background:#FFD700;color:#1a1a1a;border:none;border-radius:8px;padding:.55rem 1rem;font-weight:700;cursor:pointer;margin-top:.6rem}
+.sectool-btn:hover{filter:brightness(1.1)}
+.sectool-out{margin-top:.7rem;font-size:.9rem;word-break:break-word;white-space:pre-wrap}
+.sectool-out .ok{color:#4ade80}.sectool-out .warn{color:#facc15}.sectool-out .bad{color:#f87171}
+.sectool-also{margin-top:1.5rem;background:rgba(0,166,81,.08);border:1px solid rgba(0,166,81,.35);border-radius:14px;padding:1.2rem}
+.sectool-also h3{margin-top:0}
+.sectool-links a{display:inline-block;margin:.25rem .5rem .25rem 0;color:#FFD700;font-weight:600}
+</style>
+
+<script>
+var SecTools = (function(){
+  function out(id, html){ document.getElementById(id).innerHTML = html; }
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  function bufToHex(buf){ return Array.prototype.map.call(new Uint8Array(buf), function(b){ return ('00'+b.toString(16)).slice(-2); }).join(''); }
+  function b64urlDecode(s){
+    s = s.replace(/-/g,'+').replace(/_/g,'/');
+    while (s.length % 4) s += '=';
+    var bin = atob(s);
+    var bytes = new Uint8Array(bin.length);
+    for (var i=0;i<bin.length;i++) bytes[i] = bin.charCodeAt(i);
+    return new TextDecoder().decode(bytes);
+  }
+  function b64encode(buf){
+    var bytes = buf instanceof Uint8Array ? buf : new Uint8Array(buf);
+    var bin = '';
+    for (var i=0;i<bytes.length;i++) bin += String.fromCharCode(bytes[i]);
+    return btoa(bin);
+  }
+  function b64decodeToBytes(s){
+    var bin = atob(s);
+    var bytes = new Uint8Array(bin.length);
+    for (var i=0;i<bin.length;i++) bytes[i] = bin.charCodeAt(i);
+    return bytes;
+  }
+  return {
+    pwned: function(){
+      var pw = document.getElementById('pwnedInput').value;
+      if (!pw) { out('pwnedOut','<span class="warn">Please enter a password first.</span>'); return; }
+      out('pwnedOut','Checking… (only the first 5 characters of the hash are sent)');
+      var enc = new TextEncoder().encode(pw);
+      crypto.subtle.digest('SHA-1', enc).then(function(hash){
+        var hex = bufToHex(hash).toUpperCase();
+        var prefix = hex.slice(0,5), suffix = hex.slice(5);
+        return fetch('https://api.pwnedpasswords.com/range/' + prefix).then(function(r){
+          if (!r.ok) throw new Error('API error ' + r.status);
+          return r.text();
+        }).then(function(text){
+          var lines = text.split('\n'), found = null;
+          for (var i=0;i<lines.length;i++){
+            var parts = lines[i].trim().split(':');
+            if (parts[0] === suffix) { found = parts[1]; break; }
+          }
+          if (found) out('pwnedOut','<span class="bad">⚠️ Found in data breaches ' + esc(found.trim()) + ' time(s). Change this password everywhere you used it, and enable 2FA.</span>');
+          else out('pwnedOut','<span class="ok">✅ Good news: this password was NOT found in known breaches. It can still be weak — use a long, unique password for every account.</span>');
+        });
+      }).catch(function(){
+        out('pwnedOut','<span class="warn">Could not reach the breach database (you may be offline). Please try again later. Nothing about your password was stored.</span>');
+      });
+    },
+    caesar: function(dir){
+      var text = document.getElementById('caesarInput').value;
+      var shift = (parseInt(document.getElementById('caesarShift').value,10) * dir) % 26;
+      var res = text.replace(/[A-Za-z]/g, function(c){
+        var base = c <= 'Z' ? 65 : 97;
+        return String.fromCharCode(((c.charCodeAt(0) - base + shift + 26) % 26) + base);
+      });
+      out('caesarOut', esc(res));
+    },
+    caesarBrute: function(){
+      var text = document.getElementById('caesarInput').value, lines = [];
+      for (var s=1;s<=25;s++){
+        var res = text.replace(/[A-Za-z]/g, (function(sh){ return function(c){
+          var base = c <= 'Z' ? 65 : 97;
+          return String.fromCharCode(((c.charCodeAt(0) - base - sh + 26) % 26) + base);
+        }; })(s));
+        lines.push('Shift ' + s + ': ' + res);
+      }
+      out('caesarOut', esc(lines.join('\n')));
+    },
+    headers: function(){
+      var raw = document.getElementById('headerInput').value;
+      if (!raw.trim()) { out('headerOut','<span class="warn">Please paste an email header first.</span>'); return; }
+      var received = (raw.match(/^Received:/gim) || []).length;
+      var notes = [];
+      notes.push('Received hops found: ' + received + (received > 0 ? ' (each hop is one server that handled the mail)' : ' — a normal mail has several; zero hops is suspicious.'));
+      var auth = raw.match(/Authentication-Results:[^\n]*/i);
+      if (auth) {
+        var a = auth[0];
+        notes.push('Authentication line: ' + a.trim());
+        notes.push('SPF: ' + (/spf=pass/i.test(a) ? 'PASS ✅' : /spf=fail/i.test(a) ? 'FAIL ❌ — spoofing risk' : 'not shown'));
+        notes.push('DKIM: ' + (/dkim=pass/i.test(a) ? 'PASS ✅' : /dkim=fail/i.test(a) ? 'FAIL ❌ — message may be altered' : 'not shown'));
+        notes.push('DMARC: ' + (/dmarc=pass/i.test(a) ? 'PASS ✅' : /dmarc=fail/i.test(a) ? 'FAIL ❌ — domain policy failed' : 'not shown'));
+      } else {
+        notes.push('No Authentication-Results line found — cannot verify SPF/DKIM/DMARC. Treat with caution.');
+      }
+      var from = raw.match(/^From:[^\n]*/im);
+      if (from) notes.push('From line: ' + from[0].trim());
+      var replyTo = raw.match(/^Reply-To:[^\n]*/im);
+      if (replyTo) notes.push('⚠️ Reply-To present: ' + replyTo[0].trim() + ' — if it differs from From, replies may go to a scammer.');
+      notes.push('Heuristic note: this is screening only, not a definitive verdict. Never click links or download attachments from a suspicious mail.');
+      out('headerOut', esc(notes.join('\n')));
+    },
+    aesEnc: function(){
+      var pass = document.getElementById('aesPass').value;
+      var msg = document.getElementById('aesInput').value;
+      if (!pass || !msg) { out('aesOut','<span class="warn">Enter both a passphrase and a message.</span>'); return; }
+      out('aesOut','Encrypting…');
+      var salt = crypto.getRandomValues(new Uint8Array(16));
+      var iv = crypto.getRandomValues(new Uint8Array(12));
+      crypto.subtle.importKey('raw', new TextEncoder().encode(pass), 'PBKDF2', false, ['deriveKey']).then(function(baseKey){
+        return crypto.subtle.deriveKey({name:'PBKDF2', salt:salt, iterations:100000, hash:'SHA-256'}, baseKey, {name:'AES-GCM', length:256}, false, ['encrypt','decrypt']);
+      }).then(function(key){
+        return crypto.subtle.encrypt({name:'AES-GCM', iv:iv}, key, new TextEncoder().encode(msg));
+      }).then(function(ct){
+        var bundle = b64encode(salt) + '.' + b64encode(iv) + '.' + b64encode(ct);
+        out('aesOut','Encrypted (salt.iv.ciphertext, base64):\n' + bundle + '\n\nSave this whole text — you need it plus the passphrase to decrypt.');
+      }).catch(function(){ out('aesOut','<span class="bad">Encryption failed in this browser (Web Crypto required).</span>'); });
+    },
+    aesDec: function(){
+      var pass = document.getElementById('aesPass').value;
+      var bundle = document.getElementById('aesInput').value.trim();
+      if (!pass || !bundle) { out('aesOut','<span class="warn">Enter the passphrase and the encrypted bundle.</span>'); return; }
+      var parts = bundle.split('.');
+      if (parts.length !== 3) { out('aesOut','<span class="bad">Invalid format. Expected salt.iv.ciphertext (three base64 parts separated by dots).</span>'); return; }
+      out('aesOut','Decrypting…');
+      try {
+        var salt = b64decodeToBytes(parts[0]), iv = b64decodeToBytes(parts[1]), ct = b64decodeToBytes(parts[2]);
+        crypto.subtle.importKey('raw', new TextEncoder().encode(pass), 'PBKDF2', false, ['deriveKey']).then(function(baseKey){
+          return crypto.subtle.deriveKey({name:'PBKDF2', salt:salt, iterations:100000, hash:'SHA-256'}, baseKey, {name:'AES-GCM', length:256}, false, ['encrypt','decrypt']);
+        }).then(function(key){
+          return crypto.subtle.decrypt({name:'AES-GCM', iv:iv}, key, ct);
+        }).then(function(pt){
+          out('aesOut','Decrypted message:\n' + new TextDecoder().decode(pt));
+        }).catch(function(){
+          out('aesOut','<span class="bad">Decryption failed — wrong passphrase or altered/corrupted text.</span>');
+        });
+      } catch(e){ out('aesOut','<span class="bad">Decryption failed — the text is not valid base64.</span>'); }
+    },
+    jwt: function(){
+      var tok = document.getElementById('jwtInput').value.trim();
+      if (!tok) { out('jwtOut','<span class="warn">Please paste a JWT first.</span>'); return; }
+      var parts = tok.split('.');
+      if (parts.length < 2) { out('jwtOut','<span class="bad">Invalid JWT. Expected at least header.payload (three parts with a signature is normal).</span>'); return; }
+      try {
+        var header = JSON.parse(b64urlDecode(parts[0]));
+        var payload = JSON.parse(b64urlDecode(parts[1]));
+        var warns = [];
+        if (header.alg === 'none') warns.push('⚠️ CRITICAL: alg is "none" — this token has no signature and must never be trusted.');
+        if (parts.length < 3 || !parts[2]) warns.push('⚠️ No signature part — this token is unsigned.');
+        if (payload.exp) {
+          var exp = new Date(payload.exp * 1000);
+          warns.push(payload.exp * 1000 < Date.now() ? '⚠️ EXPIRED on ' + exp.toLocaleString() : 'Expires: ' + exp.toLocaleString());
+        } else { warns.push('No expiry (exp) claim — this token never expires.'); }
+        if (payload.iss) warns.push('Issuer: ' + payload.iss);
+        out('jwtOut','Header:\n' + JSON.stringify(header, null, 2) + '\n\nPayload:\n' + JSON.stringify(payload, null, 2) + '\n\n' + warns.join('\n') + '\nNote: the signature was NOT verified here — verification needs the secret key and must happen on a server.');
+      } catch(e){ out('jwtOut','<span class="bad">Could not decode this token. Check that it is a valid JWT (base64url header.payload.signature).</span>'); }
+    },
+    privacy: function(){
+      var n = navigator;
+      var rows = [
+        ['User agent', n.userAgent],
+        ['Platform', n.platform],
+        ['Language', n.language + (n.languages ? ' (also: ' + n.languages.join(', ') + ')' : '')],
+        ['Screen', screen.width + '×' + screen.height + ', color depth ' + screen.colorDepth],
+        ['Timezone', Intl.DateTimeFormat().resolvedOptions().timeZone],
+        ['Cookies enabled', n.cookieEnabled ? 'Yes' : 'No'],
+        ['Do Not Track', n.doNotTrack || 'not set'],
+        ['CPU cores (approx.)', n.hardwareConcurrency || 'unknown'],
+        ['Device memory (approx.)', n.deviceMemory ? n.deviceMemory + ' GB' : 'unknown'],
+        ['Touch support', ('ontouchstart' in window) ? 'Yes' : 'No'],
+        ['Automation flag (webdriver)', n.webdriver ? 'YES — browser looks automated' : 'No'],
+        ['Online status', n.onLine ? 'Online' : 'Offline']
+      ];
+      var html = rows.map(function(r){ return esc(r[0]) + ': ' + esc(String(r[1])); }).join('\n');
+      html += '\n\nThis is what ANY website can see without asking you. A VPN hides your IP address, but it does not hide most of the above — that is why browser fingerprinting works even with a VPN.';
+      out('privacyOut', html);
+    }
+  };
+})();
+</script>
+
+
 <!-- ============ FOOTER ============ -->
 <footer class="footer">
   <div class="container">
@@ -104,6 +408,7 @@
     <div class="footer-links">
       <a href="index.html#home">Home</a> · <a href="index.html#apps">Android</a> · <a href="index.html#games">Games</a> · <a href="index.html#windows">Windows</a> · <a href="cybersecurity.html">Cyber Security</a> · <a href="index.html#channels">YouTube</a> · <a href="index.html#about">About</a>
     </div>
+    <p class="footer-email">📧 Official Email: <a href="mailto:contact@anwaardigital.com">contact@anwaardigital.com</a></p>
     <p class="copyright">© 2026 Anwaar Digital. All rights reserved.</p>
   </div>
 </footer>

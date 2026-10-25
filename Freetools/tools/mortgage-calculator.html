@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M0NYM1FT9H"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M0NYM1FT9H');
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Mortgage Calculator — Monthly Payment &amp; Interest | Anwaar Digital</title>
+<meta name="description" content="Calculate your monthly mortgage payment, total interest and total cost instantly. Free, private, runs fully in your browser.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Free Mortgage Calculator — Monthly Payment &amp; Interest | Anwaar Digital">
+<meta property="og:description" content="Calculate your monthly mortgage payment, total interest and total cost instantly. Free, private, runs fully in your browser.">
+<meta property="og:url" content="https://anwaardigital.com/Freetools/tools/mortgage-calculator.html">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://anwaardigital.com/Freetools/tools/mortgage-calculator.html">
+<link rel="stylesheet" href="../assets/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Mortgage Calculator",
+      "url": "https://anwaardigital.com/Freetools/tools/mortgage-calculator.html",
+      "description": "Calculate your monthly mortgage payment, total interest and total cost instantly. Free, private, runs fully in your browser.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any",
+      "isAccessibleForFree": true,
+      "browserRequirements": "Requires JavaScript",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Is it really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — every tool on this site is 100% free with no limits, no signup and no watermarks." } },
+        { "@type": "Question", "name": "Is my data private?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. All processing happens locally in your browser. Your numbers are never uploaded to any server." } },
+        { "@type": "Question", "name": "Does this include taxes and insurance?", "acceptedAnswer": { "@type": "Answer", "text": "No — this calculates principal and interest only. Property tax, insurance (PITI) and HOA fees are extra and vary by location." } }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+<a class="logo" href="../index.html"><span class="shield">🛡️</span> Free Privacy Tools</a>
+<button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button><nav class="nav"><a href="../index.html">Home</a><a href="../index.html#tools">All Tools</a><a href="../about.html">About</a><a href="../faq.html">FAQ</a><a href="../blog.html">Blog</a><a href="../contact.html">Contact</a><a href="../privacy.html">Privacy</a></nav>
+</div></header>
+
+<main class="wrap">
+<div class="crumbs"><a href="../index.html">Home</a> / Business Tools / Mortgage Calculator</div>
+<div class="tool-hero"><h1>🏠 Mortgage Calculator</h1><p>Calculate your monthly payment, total interest and total cost. Free, unlimited, private — works entirely in your browser.</p></div>
+<div class="ad-slot"><!-- AdSense code goes here --></div>
+<div class="tool-box" id="tool-root" data-tool="mortgage-calculator">
+<div class="field"><label for="mo-home">Home Price</label><input id="mo-home" type="number" value="300000" min="0" step="1000"></div>
+<div class="field"><label for="mo-down">Down Payment</label><input id="mo-down" type="number" value="60000" min="0" step="1000"></div>
+<div class="field"><label for="mo-rate">Annual Interest Rate (%)</label><input id="mo-rate" type="number" value="6" min="0" max="30" step="0.125"></div>
+<div class="field"><label for="mo-years">Loan Term (years)</label><select id="mo-years"><option value="30" selected>30 years</option><option value="20">20 years</option><option value="15">15 years</option><option value="10">10 years</option></select></div>
+<div class="btn-row"><button class="btn" type="button" id="mo-calc">Calculate</button></div>
+<div class="result" id="mo-out"></div>
+<p style="font-size:0.9em">Principal &amp; interest only. Property tax, homeowner's insurance, PMI and HOA fees are not included — your real monthly bill will be higher.</p>
+</div>
+<script>
+(function(){
+function fmt(n){return '$'+Number(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
+function calc(){
+  var home=parseFloat(document.getElementById('mo-home').value)||0;
+  var down=parseFloat(document.getElementById('mo-down').value)||0;
+  var rate=parseFloat(document.getElementById('mo-rate').value)||0;
+  var years=parseInt(document.getElementById('mo-years').value,10)||30;
+  var out=document.getElementById('mo-out');
+  var P=home-down;
+  if(P<=0){out.textContent='Down payment must be less than the home price.';return;}
+  var n=years*12;
+  var m;
+  if(rate===0){m=P/n;}
+  else{
+    var r=rate/100/12;
+    m=P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);
+  }
+  var total=m*n;
+  out.innerHTML='<strong>Loan amount:</strong> '+fmt(P)+'<br>'
+    +'<strong>Monthly payment (P&amp;I):</strong> '+fmt(m)+'<br>'
+    +'<strong>Total of '+n+' payments:</strong> '+fmt(total)+'<br>'
+    +'<strong>Total interest:</strong> '+fmt(total-P)+'<br>'
+    +'<strong>Interest share:</strong> '+((total-P)/total*100).toFixed(1)+'% of all payments';
+}
+document.getElementById('mo-calc').addEventListener('click',calc);
+['mo-home','mo-down','mo-rate','mo-years'].forEach(function(id){
+  document.getElementById(id).addEventListener('input',calc);
+  document.getElementById(id).addEventListener('change',calc);
+});
+calc();
+})();
+</script>
+<div class="howto"><h2>How to use</h2><ol><li>Enter the <strong>home price</strong> and your <strong>down payment</strong>.</li><li>Enter the <strong>annual interest rate</strong> and pick a <strong>loan term</strong>.</li><li>See your <strong>monthly payment</strong>, total interest and total cost instantly.</li></ol></div>
+<div class="faq"><h2>FAQ</h2><details><summary>Is it really free?</summary><p>Yes — every tool on this site is 100% free with no limits, no signup and no watermarks.</p></details><details><summary>Is my data private?</summary><p>Absolutely. All processing happens locally in your browser. Your numbers are never uploaded to any server.</p></details><details><summary>Does this include taxes and insurance?</summary><p>No — this calculates principal and interest only. Property tax, insurance (PITI) and HOA fees are extra and vary by location.</p></details></div>
+<div class="tool-guide"><h2>Complete Guide to Mortgages</h2><p>A mortgage payment has two parts: <strong>principal</strong> (paying down what you borrowed) and <strong>interest</strong> (the lender's charge). Early payments are mostly interest; later ones are mostly principal. The formula is M = P × r(1+r)^n ÷ ((1+r)^n − 1), where P is the loan amount, r the monthly rate and n the number of payments.</p><p>Two choices change everything: a <strong>larger down payment</strong> shrinks the loan (and can remove PMI, the extra insurance on small down payments), and a <strong>shorter term</strong> (15 vs 30 years) raises the monthly payment but can save tens of thousands in interest. Example: a $240,000 loan at 6% costs about $1,439/month over 30 years but about $2,026/month over 15 years — while total interest falls from roughly $278,000 to $125,000. This calculator covers principal and interest only; add local tax, insurance and HOA fees for your true monthly bill.</p></div>
+<div class="related"><h2>Related tools</h2><div class="grid"><a class="tool-card" href="./loan-calculator.html"><div class="ticon">🏦</div><h3>Loan / EMI Calculator</h3><p>Monthly loan payments and total interest.</p></a><a class="tool-card" href="./invoice-generator.html"><div class="ticon">🧾</div><h3>Invoice Generator</h3><p>Create professional invoices in seconds.</p></a><a class="tool-card" href="./percentage-calculator.html"><div class="ticon">💯</div><h3>Percentage Calculator</h3><p>Solve any percentage problem instantly.</p></a></div></div>
+</div>
+</main>
+<footer class="site-footer"><div class="wrap">
+<div class="cols">
+<div><h4>🛡️ Free Privacy Tools</h4><p>50+ free online tools. No signup, no tracking — everything runs in your browser.</p></div>
+<div><h4>Popular</h4><a href="./image-compressor.html">Image Compressor</a><a href="./word-counter.html">Word Counter</a><a href="./password-generator.html">Password Generator</a><a href="./pdf-merger.html">PDF Merger</a><a href="./age-calculator.html">Age Calculator</a></div>
+<div><h4>Site</h4><a href="../index.html">Home</a><a href="../index.html#tools">All Tools</a><a href="../about.html">About</a><a href="../faq.html">FAQ</a><a href="../blog.html">Blog</a><a href="../contact.html">Contact</a><a href="../request.html">Request a Tool</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../disclaimer.html">Disclaimer</a></div>
+</div>
+<div class="foot-note">© 2026 Free Privacy Tools — All tools run 100% in your browser.<br>Developed by <a href="https://anwaardigital.com/" target="_blank" rel="noopener" style="color:#fbbf24;font-weight:700">Malik Anwaar</a> ❤️</div>
+</div></footer>
+<script src="../assets/app.js"></script>
+<script src="../assets/tools.js"></script>
+<script src="../assets/features.js"></script>
+</body></html>

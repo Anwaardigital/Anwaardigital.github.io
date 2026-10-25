@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — ChatBox</title>
+<style>
+body{font-family:'Segoe UI',Arial,sans-serif;max-width:800px;margin:0 auto;padding:24px;line-height:1.7;color:#222;background:#fff}
+h1{color:#0d6e3f;border-bottom:3px solid #d4af37;padding-bottom:10px}
+h2{color:#0d6e3f;margin-top:28px}
+ul{padding-left:20px}
+.footer{margin-top:40px;padding-top:16px;border-top:1px solid #ddd;color:#666;font-size:14px}
+</style>
+</head>
+<body>
+<h1>Privacy Policy — ChatBox</h1>
+<p><strong>Developer:</strong> Malik Anwaar (Malik Muhammad Anwaar, Anwaar Digital)<br>
+<strong>App package:</strong> com.malakanwaar.chatbox<br>
+<strong>Last updated:</strong> October 25, 2026</p>
+<p>This Privacy Policy explains how <strong>ChatBox</strong> ("the App"), developed by Malik Anwaar, handles your information. By using the App, you agree to the practices described below.</p>
+<h2>Sign-In (Google Only)</h2>
+<p>The App offers <strong>only Google Sign-In</strong>. There is no email/password login and no other sign-in method. When you sign in with Google, we receive your <strong>name, email address, and profile photo</strong> via Firebase Authentication. You may set a username in your Profile. <strong>Usernames are unique: once a username is taken, no one else can use it.</strong> This is enforced in the App and on our servers.</p>
+<h2>Information We Collect</h2>
+<ul>
+<li>Account data you provide (such as your profile name, photo, and about/status text) is stored securely in Firebase and used only to operate your account.</li>
+<li>Content you create inside the App is stored on your device and in Firebase Realtime Database (Google servers) so it can be delivered to your chats.</li>
+<li>Photos, videos, voice messages, and documents you share in chats are uploaded to <strong>Cloudinary</strong> (our media storage provider) so they can be delivered to the other person's device. These files are stored in our Cloudinary account under our control.</li>
+<li>We do <strong>not</strong> sell your personal data to any third party. We show <strong>no ads</strong>.</li>
+</ul>
+<h2>Notifications (How They Work)</h2>
+<p>Message notifications are delivered <strong>primarily by a foreground service on your device</strong> that checks your chats for new messages every 20 seconds and shows a local notification. Android requires this service to show a persistent <strong>"Notifications active"</strong> notice while it runs. This notice is silent, collects no data, and is required for notifications to work — if you dismiss or disable it, notifications will stop.</p>
+<p>As a best-effort supplement, a push attempt is also made when a message is sent (see Cloudflare Workers and OneSignal below). Polling is the reliable delivery path.</p>
+<h2>Permissions</h2>
+<ul>
+<li>The App may request Android permissions (such as storage, camera, or microphone) <strong>only</strong> to perform the features you explicitly use (for example, sending a photo, taking a picture, or recording a voice message).</li>
+<li>The App requests notification permission to show message notifications, and uses a foreground service for notification polling (see above).</li>
+<li>Permissions are never used for background data collection beyond notification polling, which only checks your own chats for new messages.</li>
+<li>You can revoke any permission at any time in your device Settings; the related feature will simply stop working.</li>
+</ul>
+<h2>Third-Party Services</h2>
+<p>The App uses the following third-party services, and no others:</p>
+<ul>
+<li><strong>Google Firebase</strong> (Authentication, Realtime Database, Cloud Messaging) to provide sign-in, data sync, and push tokens. Firebase processes data under <a href="https://firebase.google.com/support/privacy">Google's Firebase Privacy commitments</a>.</li>
+<li><strong>Cloudinary</strong> for media storage — photos, videos, voice messages, and documents you share are uploaded to Cloudinary so they can be delivered to the other person's device. Cloudinary processes data under <a href="https://cloudinary.com/privacy">Cloudinary's Privacy Policy</a>.</li>
+<li><strong>OneSignal</strong> for push notification attempts — when someone sends you a message, a push attempt is made to your device (message preview: sender name and message text). Your device is registered with OneSignal using an anonymous player ID and a user tag. OneSignal processes data under <a href="https://onesignal.com/privacy">OneSignal's Privacy Policy</a>.</li>
+<li><strong>Cloudflare Workers</strong> as a secure notification proxy — when you send a message, our Cloudflare Worker receives the recipient's user ID, your name, and the message preview, then forwards it to OneSignal for delivery. The Worker does not store your messages. Cloudflare processes data under <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare's Privacy Policy</a>.</li>
+</ul>
+<p>We do not share your data with any other third party.</p>
+<h2>More Apps and Message Developer</h2>
+<p>The App's main screen has a <strong>"More Apps"</strong> button that opens Google Play Store search for developer "Malik Anwaar". ChatBox does not send your personal data to Play Store for this — it only opens the Play Store app or website with a search query. The <strong>"Message Developer"</strong> button opens an in-app chat with the developer; those messages are stored in Firebase like regular chats and are not sent via WhatsApp or email.</p>
+<h2>Children's Privacy</h2>
+<p>The App is not directed at children under 13. We do not knowingly collect personal information from children under 13. If you believe a child has provided us personal data, contact us and we will delete it.</p>
+<h2>Data Security</h2>
+<p>We take reasonable technical measures to protect information on your device and, where applicable, in transit to Firebase. However, no method of electronic storage is 100% secure.</p>
+<h2>Your Rights</h2>
+<ul>
+<li>You can delete your messages and statuses inside the App at any time.</li>
+<li>Because the App stores your content locally on your device, you can delete it at any time by clearing the App's data or uninstalling the App.</li>
+<li>For account-based features, you may request deletion of your account and all associated data by emailing us — we will remove it.</li>
+</ul>
+<h2>Changes to This Policy</h2>
+<p>We may update this Privacy Policy from time to time. The updated version will be posted at this URL with a revised "Last updated" date, and in the App.</p>
+
+<h2>Contact Us</h2>
+<p>If you have any questions about this Privacy Policy, contact us at <a href="mailto:contact@anwaardigital.com">contact@anwaardigital.com</a> or <a href="mailto:malikanwaarapps@gmail.com">malikanwaarapps@gmail.com</a>.</p>
+<div class="footer">© 2026 Malik Anwaar. All rights reserved.</div>
+</body>
+</html>

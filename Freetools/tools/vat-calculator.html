@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M0NYM1FT9H"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M0NYM1FT9H');
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free VAT Calculator — Add or Remove VAT | Anwaar Digital</title>
+<meta name="description" content="Add or remove VAT for EU countries and the UK with standard rates. Free, private, runs fully in your browser.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Free VAT Calculator — Add or Remove VAT | Anwaar Digital">
+<meta property="og:description" content="Add or remove VAT for EU countries and the UK with standard rates. Free, private, runs fully in your browser.">
+<meta property="og:url" content="https://anwaardigital.com/Freetools/tools/vat-calculator.html">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://anwaardigital.com/Freetools/tools/vat-calculator.html">
+<link rel="stylesheet" href="../assets/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "VAT Calculator",
+      "url": "https://anwaardigital.com/Freetools/tools/vat-calculator.html",
+      "description": "Add or remove VAT for EU countries and the UK with standard rates. Free, private, runs fully in your browser.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any",
+      "isAccessibleForFree": true,
+      "browserRequirements": "Requires JavaScript",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Is it really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — every tool on this site is 100% free with no limits, no signup and no watermarks." } },
+        { "@type": "Question", "name": "Is my data private?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. All processing happens locally in your browser. Your numbers are never uploaded to any server." } },
+        { "@type": "Question", "name": "Are these rates official?", "acceptedAnswer": { "@type": "Answer", "text": "These are standard VAT rates. Reduced rates may apply to some goods (food, books, medicine) and rates can change — verify before official invoices." } }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+<a class="logo" href="../index.html"><span class="shield">🛡️</span> Free Privacy Tools</a>
+<button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button><nav class="nav"><a href="../index.html">Home</a><a href="../index.html#tools">All Tools</a><a href="../about.html">About</a><a href="../faq.html">FAQ</a><a href="../blog.html">Blog</a><a href="../contact.html">Contact</a><a href="../privacy.html">Privacy</a></nav>
+</div></header>
+
+<main class="wrap">
+<div class="crumbs"><a href="../index.html">Home</a> / Business Tools / VAT Calculator</div>
+<div class="tool-hero"><h1>🇪🇺 VAT Calculator</h1><p>Add or remove VAT for EU countries and the UK. Free, unlimited, private — works entirely in your browser.</p></div>
+<div class="ad-slot"><!-- AdSense code goes here --></div>
+<div class="tool-box" id="tool-root" data-tool="vat-calculator">
+<div class="field"><label for="vat-amount">Amount</label><input id="vat-amount" type="number" value="100" min="0" step="0.01"></div>
+<div class="field"><label for="vat-country">Country (standard VAT rate)</label><select id="vat-country">
+<option value="19">Germany — 19%</option>
+<option value="20" selected>France — 20%</option>
+<option value="22">Italy — 22%</option>
+<option value="21">Spain — 21%</option>
+<option value="21">Netherlands — 21%</option>
+<option value="21">Belgium — 21%</option>
+<option value="23">Poland — 23%</option>
+<option value="23">Ireland — 23%</option>
+<option value="20">Austria — 20%</option>
+<option value="25">Sweden — 25%</option>
+<option value="25">Denmark — 25%</option>
+<option value="25.5">Finland — 25.5%</option>
+<option value="23">Portugal — 23%</option>
+<option value="24">Greece — 24%</option>
+<option value="21">Czechia — 21%</option>
+<option value="27">Hungary — 27%</option>
+<option value="25">Croatia — 25%</option>
+<option value="19">Romania — 19%</option>
+<option value="20">Bulgaria — 20%</option>
+<option value="20">United Kingdom — 20%</option>
+</select></div>
+<div class="field"><label for="vat-rate">Or custom rate (%)</label><input id="vat-rate" type="number" placeholder="Leave empty to use the country rate" min="0" max="100" step="0.1"></div>
+<div class="btn-row"><button class="btn" type="button" id="vat-add">Add VAT</button><button class="btn" type="button" id="vat-remove">Remove VAT</button></div>
+<div class="result" id="vat-out"></div>
+<p style="font-size:0.9em">Standard rates shown. Reduced rates may apply to some goods (food, books, medicine) and rates can change — verify before official invoices. The United States has no VAT; sales tax varies by state.</p>
+</div>
+<script>
+(function(){
+function fmt(n){return '€'+Number(n).toFixed(2);}
+function rate(){
+  var c=document.getElementById('vat-rate').value.trim();
+  if(c!=='')return parseFloat(c)||0;
+  return parseFloat(document.getElementById('vat-country').value)||0;
+}
+function calc(mode){
+  var amt=parseFloat(document.getElementById('vat-amount').value);
+  var out=document.getElementById('vat-out');
+  if(isNaN(amt)){out.textContent='Please enter an amount.';return;}
+  var r=rate();
+  if(mode==='add'){
+    var vat=amt*r/100;
+    out.innerHTML='<strong>Net:</strong> '+fmt(amt)+'<br><strong>VAT ('+r+'%):</strong> '+fmt(vat)+'<br><strong>Gross (with VAT):</strong> '+fmt(amt+vat);
+  } else {
+    var net=amt/(1+r/100);
+    out.innerHTML='<strong>Gross (with VAT):</strong> '+fmt(amt)+'<br><strong>VAT ('+r+'%):</strong> '+fmt(amt-net)+'<br><strong>Net (without VAT):</strong> '+fmt(net);
+  }
+}
+document.getElementById('vat-add').addEventListener('click',function(){calc('add');});
+document.getElementById('vat-remove').addEventListener('click',function(){calc('remove');});
+calc('add');
+})();
+</script>
+<div class="howto"><h2>How to use</h2><ol><li>Enter the <strong>amount</strong>.</li><li>Pick a <strong>country</strong> for its standard VAT rate, or type a <strong>custom rate</strong>.</li><li>Click <strong>Add VAT</strong> to go from net to gross, or <strong>Remove VAT</strong> to go from gross to net.</li></ol></div>
+<div class="faq"><h2>FAQ</h2><details><summary>Is it really free?</summary><p>Yes — every tool on this site is 100% free with no limits, no signup and no watermarks.</p></details><details><summary>Is my data private?</summary><p>Absolutely. All processing happens locally in your browser. Your numbers are never uploaded to any server.</p></details><details><summary>Are these rates official?</summary><p>These are standard VAT rates. Reduced rates may apply to some goods (food, books, medicine) and rates can change — verify before official invoices.</p></details></div>
+<div class="tool-guide"><h2>Complete Guide to VAT</h2><p>VAT (Value Added Tax) is a consumption tax added to most goods and services in the EU and UK. When a price is shown "excluding VAT" (net), you add the rate to get the price the customer pays (gross). When a price already includes VAT, you divide by (1 + rate) to recover the net amount — the figure businesses use for their own accounts.</p><p>Standard rates differ by country: Hungary (27%) is the highest in the EU, while Germany (19%) and Romania (19%) are among the lowest. Many countries also have <strong>reduced rates</strong> for essentials like food, books and medicine, so the standard rate is not always the right one. This calculator uses standard rates for quick estimates; for official invoices, confirm the rate that applies to your specific goods.</p></div>
+<div class="related"><h2>Related tools</h2><div class="grid"><a class="tool-card" href="./invoice-generator.html"><div class="ticon">🧾</div><h3>Invoice Generator</h3><p>Create professional invoices in seconds.</p></a><a class="tool-card" href="./percentage-calculator.html"><div class="ticon">💯</div><h3>Percentage Calculator</h3><p>Solve any percentage problem instantly.</p></a><a class="tool-card" href="./currency-converter.html"><div class="ticon">💱</div><h3>Currency Converter</h3><p>Convert between world currencies.</p></a></div></div>
+</div>
+</main>
+<footer class="site-footer"><div class="wrap">
+<div class="cols">
+<div><h4>🛡️ Free Privacy Tools</h4><p>50+ free online tools. No signup, no tracking — everything runs in your browser.</p></div>
+<div><h4>Popular</h4><a href="./image-compressor.html">Image Compressor</a><a href="./word-counter.html">Word Counter</a><a href="./password-generator.html">Password Generator</a><a href="./pdf-merger.html">PDF Merger</a><a href="./age-calculator.html">Age Calculator</a></div>
+<div><h4>Site</h4><a href="../index.html">Home</a><a href="../index.html#tools">All Tools</a><a href="../about.html">About</a><a href="../faq.html">FAQ</a><a href="../blog.html">Blog</a><a href="../contact.html">Contact</a><a href="../request.html">Request a Tool</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../disclaimer.html">Disclaimer</a></div>
+</div>
+<div class="foot-note">© 2026 Free Privacy Tools — All tools run 100% in your browser.<br>Developed by <a href="https://anwaardigital.com/" target="_blank" rel="noopener" style="color:#fbbf24;font-weight:700">Malik Anwaar</a> ❤️</div>
+</div></footer>
+<script src="../assets/app.js"></script>
+<script src="../assets/tools.js"></script>
+<script src="../assets/features.js"></script>
+</body></html>

@@ -4,10 +4,10 @@
   const APPS = [
     {
       title: "Islam 786",
-      version: "v3.9",
+      version: "v3.8",
       icon: "icons/islam786.png",
       desc: "Prayer timings, Quran, duas, tasbeeh and Islamic calendar — everything in one app.",
-      download: "https://anwaardigital.github.io/downloads/MalikAnwaar-Islam786-v3.9.apk",
+      download: "https://anwaardigital.com/downloads/MalikAnwaar-Islam786-v3.8.apk",
       bullets: [
         "✅ Accurate prayer times (Sunni Hanafi Barelvi)",
         "✅ Complete Quran, duas and tasbeeh counter",
@@ -19,7 +19,7 @@
       version: "v6.0",
       icon: "icons/lenscraft.png",
       desc: "30+ iPhone-style camera filters, frames and photo editor — make your photos stunning!",
-      download: "https://anwaardigital.github.io/downloads/MalikAnwaar-LensCraft-v6.0.apk",
+      download: "https://anwaardigital.com/downloads/MalikAnwaar-LensCraft-v6.0.apk",
       bullets: [
         "✅ 30-40 professional camera filters and frames",
         "✅ Basic face stickers and easy photo editor",
@@ -31,7 +31,7 @@
       version: "v2.0",
       icon: "icons/taleemhub.png",
       desc: "Urdu, English, Math and Islamiat for kids — learning made fun!",
-      download: "https://anwaardigital.github.io/downloads/MalikAnwaar-TaleemHub-v2.0.apk",
+      download: "https://anwaardigital.com/downloads/MalikAnwaar-TaleemHub-v2.0.apk",
       bullets: [
         "✅ Urdu + English + Math + Islamiat courses",
         "✅ Easy and fun interface designed for kids",
@@ -43,7 +43,7 @@
       version: "v1.2",
       icon: "icons/bikeracer.png",
       desc: "Real 3D bike racing game — high speed, traffic and thrilling stunts!",
-      download: "https://anwaardigital.github.io/downloads/MalikAnwaar-BikeRacer3D-v1.2.apk",
+      download: "https://anwaardigital.com/downloads/MalikAnwaar-BikeRacer3D-v1.2.apk",
       bullets: [
         "✅ Real 3D graphics — Play Store standard quality",
         "✅ Traffic, near-miss bonus and challenging tracks",

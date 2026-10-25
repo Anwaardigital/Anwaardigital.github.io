@@ -1,471 +1,505 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://anwaardigital.github.io/</loc>
+    <loc>https://anwaardigital.com/</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/cybersecurity.html</loc>
+    <loc>https://anwaardigital.com/cybersecurity.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/pentesting/</loc>
+    <loc>https://anwaardigital.com/pentesting/</loc>
     <lastmod>2026-10-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/pentesting/what-is-penetration-testing.html</loc>
+    <loc>https://anwaardigital.com/pentesting/what-is-penetration-testing.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/pentesting/penetration-testing-methodology.html</loc>
+    <loc>https://anwaardigital.com/pentesting/penetration-testing-methodology.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/pentesting/nmap-beginners-guide.html</loc>
+    <loc>https://anwaardigital.com/pentesting/nmap-beginners-guide.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/pentesting/web-application-security-basics.html</loc>
+    <loc>https://anwaardigital.com/pentesting/web-application-security-basics.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/pentesting/penetration-testing-career-guide.html</loc>
+    <loc>https://anwaardigital.com/pentesting/penetration-testing-career-guide.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/pentesting/burp-suite-basics.html</loc>
+    <loc>https://anwaardigital.com/pentesting/burp-suite-basics.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/pentesting/kali-linux-setup-guide.html</loc>
+    <loc>https://anwaardigital.com/pentesting/kali-linux-setup-guide.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/pentesting/password-security-testing.html</loc>
+    <loc>https://anwaardigital.com/pentesting/password-security-testing.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/pentesting/social-engineering-awareness.html</loc>
+    <loc>https://anwaardigital.com/pentesting/social-engineering-awareness.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/pentesting/wireless-security-basics.html</loc>
+    <loc>https://anwaardigital.com/pentesting/wireless-security-basics.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/pentesting/penetration-testing-report-writing.html</loc>
+    <loc>https://anwaardigital.com/pentesting/penetration-testing-report-writing.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/speedtest.html</loc>
+    <loc>https://anwaardigital.com/speedtest.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/privacy.html</loc>
+    <loc>https://anwaardigital.com/privacy.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/terms.html</loc>
+    <loc>https://anwaardigital.com/terms.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/disclaimer.html</loc>
+    <loc>https://anwaardigital.com/disclaimer.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/contact.html</loc>
+    <loc>https://anwaardigital.com/contact.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/about.html</loc>
+    <loc>https://anwaardigital.com/about.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/blog.html</loc>
-    <lastmod>2026-10-19</lastmod>
+    <loc>https://anwaardigital.com/blog.html</loc>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/apps/app-locker.html</loc>
+    <loc>https://anwaardigital.com/apps/app-locker.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/apps/bachon-ki-islamic-taleem.html</loc>
+    <loc>https://anwaardigital.com/apps/bachon-ki-islamic-taleem.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/apps/bike-racer-3d.html</loc>
+    <loc>https://anwaardigital.com/apps/bike-racer-3d.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/apps/car-driving-sim.html</loc>
+    <loc>https://anwaardigital.com/apps/car-driving-sim.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/apps/chatbox.html</loc>
+    <loc>https://anwaardigital.com/apps/chatbox.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/apps/clipcraft.html</loc>
+    <loc>https://anwaardigital.com/apps/clipcraft.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/apps/cv-maker.html</loc>
+    <loc>https://anwaardigital.com/apps/cv-maker.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/apps/download-manager.html</loc>
+    <loc>https://anwaardigital.com/apps/download-manager.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/apps/hadith-786.html</loc>
+    <loc>https://anwaardigital.com/apps/hadith-786.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/apps/hill-climb.html</loc>
+    <loc>https://anwaardigital.com/apps/hill-climb.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/apps/image-resizer.html</loc>
+    <loc>https://anwaardigital.com/apps/image-resizer.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/apps/islam-786.html</loc>
+    <loc>https://anwaardigital.com/apps/islam-786.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/apps/karobar-786.html</loc>
+    <loc>https://anwaardigital.com/apps/karobar-786.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/apps/khana-786.html</loc>
+    <loc>https://anwaardigital.com/apps/khana-786.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/apps/lenscraft.html</loc>
+    <loc>https://anwaardigital.com/apps/lenscraft.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/apps/ludo.html</loc>
+    <loc>https://anwaardigital.com/apps/ludo.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/apps/malik-anwaar-ai.html</loc>
+    <loc>https://anwaardigital.com/apps/malik-anwaar-ai.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/apps/music-player.html</loc>
+    <loc>https://anwaardigital.com/apps/music-player.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/apps/pdf-master.html</loc>
+    <loc>https://anwaardigital.com/apps/pdf-master.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/apps/quran-teacher-786.html</loc>
+    <loc>https://anwaardigital.com/apps/quran-teacher-786.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/apps/rishta-786.html</loc>
+    <loc>https://anwaardigital.com/apps/rishta-786.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/apps/safebox.html</loc>
+    <loc>https://anwaardigital.com/apps/safebox.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/apps/sehat-786.html</loc>
+    <loc>https://anwaardigital.com/apps/sehat-786.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/apps/taleem-hub.html</loc>
+    <loc>https://anwaardigital.com/apps/taleem-hub.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/apps/thumbnail-maker.html</loc>
+    <loc>https://anwaardigital.com/apps/thumbnail-maker.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/apps/turbo-racer-3d.html</loc>
+    <loc>https://anwaardigital.com/apps/turbo-racer-3d.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/apps/urdu-notes.html</loc>
+    <loc>https://anwaardigital.com/apps/urdu-notes.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/apps/video-player.html</loc>
+    <loc>https://anwaardigital.com/apps/video-player.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/blog/apk-safety-guide-2026.html</loc>
+    <loc>https://anwaardigital.com/blog/how-to-block-ads-android-2026.html</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://anwaardigital.com/blog/apk-safety-guide-2026.html</loc>
     <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/blog/speed-up-slow-android-phone.html</loc>
+    <loc>https://anwaardigital.com/blog/speed-up-slow-android-phone.html</loc>
     <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/blog/android-app-permissions-guide-2026.html</loc>
+    <loc>https://anwaardigital.com/blog/android-app-permissions-guide-2026.html</loc>
     <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/blog/how-to-save-mobile-data-android-2026.html</loc>
+    <loc>https://anwaardigital.com/blog/how-to-save-mobile-data-android-2026.html</loc>
     <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/blog/how-to-spot-fake-apps-play-store-2026.html</loc>
+    <loc>https://anwaardigital.com/blog/how-to-spot-fake-apps-play-store-2026.html</loc>
     <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/blog/create-professional-cv-phone.html</loc>
+    <loc>https://anwaardigital.com/blog/create-professional-cv-phone.html</loc>
     <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/blog/free-video-editing-apps.html</loc>
+    <loc>https://anwaardigital.com/blog/free-video-editing-apps.html</loc>
     <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/blog/how-to-install-apk-safely.html</loc>
+    <loc>https://anwaardigital.com/blog/how-to-install-apk-safely.html</loc>
     <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/blog/learn-quran-online.html</loc>
+    <loc>https://anwaardigital.com/blog/learn-quran-online.html</loc>
     <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/blog/top-islamic-apps-2026.html</loc>
+    <loc>https://anwaardigital.com/blog/top-islamic-apps-2026.html</loc>
     <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/cybersecurity/password-security-guide.html</loc>
+    <loc>https://anwaardigital.com/cybersecurity/password-security-guide.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/cybersecurity/phishing-protection-guide.html</loc>
+    <loc>https://anwaardigital.com/cybersecurity/phishing-protection-guide.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/cybersecurity/mobile-security-guide.html</loc>
+    <loc>https://anwaardigital.com/cybersecurity/mobile-security-guide.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/cybersecurity/safe-downloading-guide.html</loc>
+    <loc>https://anwaardigital.com/cybersecurity/safe-downloading-guide.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/cybersecurity/privacy-tips-guide.html</loc>
+    <loc>https://anwaardigital.com/cybersecurity/privacy-tips-guide.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/cybersecurity/hacked-response-guide.html</loc>
+    <loc>https://anwaardigital.com/cybersecurity/hacked-response-guide.html</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/blog/best-free-android-apps-for-students-2026.html</loc>
+    <loc>https://anwaardigital.com/blog/best-free-android-apps-for-students-2026.html</loc>
     <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/blog/how-to-backup-android-phone-2026.html</loc>
+    <loc>https://anwaardigital.com/blog/how-to-backup-android-phone-2026.html</loc>
     <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/blog/how-to-free-up-android-storage-2026.html</loc>
+    <loc>https://anwaardigital.com/blog/how-to-free-up-android-storage-2026.html</loc>
     <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/blog/how-to-record-android-screen-2026.html</loc>
+    <loc>https://anwaardigital.com/blog/how-to-record-android-screen-2026.html</loc>
     <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/blog/how-to-transfer-data-new-android-phone-2026.html</loc>
+    <loc>https://anwaardigital.com/blog/how-to-transfer-data-new-android-phone-2026.html</loc>
     <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/blog/how-to-block-spam-calls-android-2026.html</loc>
+    <loc>https://anwaardigital.com/blog/how-to-block-spam-calls-android-2026.html</loc>
     <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/blog/how-to-extend-android-battery-life-2026.html</loc>
+    <loc>https://anwaardigital.com/blog/how-to-extend-android-battery-life-2026.html</loc>
     <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/blog/how-to-recover-deleted-photos-android-2026.html</loc>
+    <loc>https://anwaardigital.com/blog/how-to-recover-deleted-photos-android-2026.html</loc>
     <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/blog/how-to-secure-whatsapp-account-2026.html</loc>
+    <loc>https://anwaardigital.com/blog/how-to-secure-whatsapp-account-2026.html</loc>
     <lastmod>2026-10-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/blog/android-parental-controls-guide-2026.html</loc>
+    <loc>https://anwaardigital.com/blog/android-parental-controls-guide-2026.html</loc>
     <lastmod>2026-10-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/blog/what-to-do-lost-stolen-android-phone-2026.html</loc>
+    <loc>https://anwaardigital.com/blog/what-to-do-lost-stolen-android-phone-2026.html</loc>
     <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/blog/how-to-avoid-scam-apps-fake-loan-apps-2026.html</loc>
+    <loc>https://anwaardigital.com/blog/how-to-avoid-scam-apps-fake-loan-apps-2026.html</loc>
     <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://anwaardigital.github.io/blog/how-to-cut-screen-time-android-2026.html</loc>
+    <loc>https://anwaardigital.com/blog/how-to-cut-screen-time-android-2026.html</loc>
     <lastmod>2026-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://anwaardigital.com/blog/how-to-use-split-screen-android-2026.html</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://anwaardigital.com/blog/how-to-cast-android-to-tv-2026.html</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://anwaardigital.com/blog/how-to-scan-documents-android-phone-2026.html</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://anwaardigital.com/blog/how-to-hide-apps-android-phone-2026.html</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://anwaardigital.com/blog/how-to-set-up-emergency-sos-android-2026.html</loc>
+    <lastmod>2026-10-25</lastmod>
   </url>
 </urlset>

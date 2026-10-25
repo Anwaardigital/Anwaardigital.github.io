@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M0NYM1FT9H"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M0NYM1FT9H');
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Pomodoro Timer — Focus Sessions | Anwaar Digital</title>
+<meta name="description" content="A simple Pomodoro timer: 25-minute focus sessions with short and long breaks. Free, private, runs fully in your browser.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Free Pomodoro Timer — Focus Sessions | Anwaar Digital">
+<meta property="og:description" content="A simple Pomodoro timer: 25-minute focus sessions with short and long breaks. Free, private, runs fully in your browser.">
+<meta property="og:url" content="https://anwaardigital.com/Freetools/tools/pomodoro-timer.html">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://anwaardigital.com/Freetools/tools/pomodoro-timer.html">
+<link rel="stylesheet" href="../assets/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Pomodoro Timer",
+      "url": "https://anwaardigital.com/Freetools/tools/pomodoro-timer.html",
+      "description": "A simple Pomodoro timer: 25-minute focus sessions with short and long breaks. Free, private, runs fully in your browser.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any",
+      "isAccessibleForFree": true,
+      "browserRequirements": "Requires JavaScript",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Is it really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — every tool on this site is 100% free with no limits, no signup and no watermarks." } },
+        { "@type": "Question", "name": "Is my data private?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. The timer runs locally in your browser. Nothing is uploaded to any server." } },
+        { "@type": "Question", "name": "What is the Pomodoro technique?", "acceptedAnswer": { "@type": "Answer", "text": "Work in focused 25-minute sessions, take a 5-minute break, and after four sessions take a longer 15-minute break. It keeps focus high and fatigue low." } }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site-header"><div class="wrap">
+<a class="logo" href="../index.html"><span class="shield">🛡️</span> Free Privacy Tools</a>
+<button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button><nav class="nav"><a href="../index.html">Home</a><a href="../index.html#tools">All Tools</a><a href="../about.html">About</a><a href="../faq.html">FAQ</a><a href="../blog.html">Blog</a><a href="../contact.html">Contact</a><a href="../privacy.html">Privacy</a></nav>
+</div></header>
+
+<main class="wrap">
+<div class="crumbs"><a href="../index.html">Home</a> / Productivity Tools / Pomodoro Timer</div>
+<div class="tool-hero"><h1>🍅 Pomodoro Timer</h1><p>Focus for 25 minutes, rest for 5 — and take a long break after four sessions. Free, unlimited, private — works entirely in your browser.</p></div>
+<div class="ad-slot"><!-- AdSense code goes here --></div>
+<div class="tool-box" id="tool-root" data-tool="pomodoro-timer">
+<div class="field"><label for="po-focus">Focus (minutes)</label><input id="po-focus" type="number" value="25" min="1" max="120" step="1"></div>
+<div class="field"><label for="po-short">Short Break (minutes)</label><input id="po-short" type="number" value="5" min="1" max="60" step="1"></div>
+<div class="field"><label for="po-long">Long Break (minutes)</label><input id="po-long" type="number" value="15" min="1" max="60" step="1"></div>
+<div class="result big" id="po-clock" style="font-size:2.2em">25:00</div>
+<div class="result" id="po-state">Ready — press Start to begin a focus session.</div>
+<div class="btn-row"><button class="btn" type="button" id="po-start">Start</button><button class="btn" type="button" id="po-pause">Pause</button><button class="btn" type="button" id="po-reset">Reset</button></div>
+<div class="result" id="po-sessions">Completed focus sessions: 0</div>
+</div>
+<script>
+(function(){
+var timer=null, remaining=25*60, mode='focus', sessions=0, running=false;
+function fmt(s){var m=Math.floor(s/60),sec=s%60;return (m<10?'0':'')+m+':'+(sec<10?'0':'')+sec;}
+function show(){
+  document.getElementById('po-clock').textContent=fmt(remaining);
+  document.title=fmt(remaining)+' — Pomodoro Timer';
+}
+function label(){
+  var st=document.getElementById('po-state');
+  if(mode==='focus')st.textContent=running?'Focus session — stay on task!':'Paused during a focus session.';
+  else if(mode==='short')st.textContent=running?'Short break — relax.':'Paused during a short break.';
+  else st.textContent=running?'Long break — well earned!':'Paused during a long break.';
+}
+function mins(id,def){var v=parseInt(document.getElementById(id).value,10);return isNaN(v)||v<1?def:v;}
+function setMode(m){
+  mode=m;
+  if(m==='focus')remaining=mins('po-focus',25)*60;
+  else if(m==='short')remaining=mins('po-short',5)*60;
+  else remaining=mins('po-long',15)*60;
+  show();label();
+}
+function tick(){
+  remaining--;
+  if(remaining<=0){
+    clearInterval(timer);timer=null;running=false;
+    try{var ctx=new (window.AudioContext||window.webkitAudioContext)();var o=ctx.createOscillator();var g=ctx.createGain();o.connect(g);g.connect(ctx.destination);o.frequency.value=880;g.gain.value=0.15;o.start();setTimeout(function(){o.stop();ctx.close();},600);}catch(e){}
+    if(mode==='focus'){
+      sessions++;
+      document.getElementById('po-sessions').textContent='Completed focus sessions: '+sessions;
+      if(sessions%4===0){setMode('long');}
+      else{setMode('short');}
+      document.getElementById('po-state').textContent='Session complete! Break started — press Start when ready.';
+    } else {
+      setMode('focus');
+      document.getElementById('po-state').textContent='Break over! Press Start for your next focus session.';
+    }
+    document.getElementById('po-start').textContent='Start';
+    return;
+  }
+  show();
+}
+document.getElementById('po-start').addEventListener('click',function(){
+  if(running)return;
+  running=true;
+  this.textContent='Running…';
+  label();
+  timer=setInterval(tick,1000);
+});
+document.getElementById('po-pause').addEventListener('click',function(){
+  if(!running)return;
+  clearInterval(timer);timer=null;running=false;
+  document.getElementById('po-start').textContent='Resume';
+  label();
+});
+document.getElementById('po-reset').addEventListener('click',function(){
+  clearInterval(timer);timer=null;running=false;sessions=0;
+  document.getElementById('po-sessions').textContent='Completed focus sessions: 0';
+  document.getElementById('po-start').textContent='Start';
+  setMode('focus');
+  document.getElementById('po-state').textContent='Ready — press Start to begin a focus session.';
+});
+show();
+})();
+</script>
+<div class="howto"><h2>How to use</h2><ol><li>Keep the classic <strong>25 / 5 / 15</strong> timings, or set your own.</li><li>Press <strong>Start</strong> and work on one task until the timer rings.</li><li>Take the <strong>break</strong> when it starts — after four focus sessions you get a long break.</li><li>Press <strong>Reset</strong> any time to start over.</li></ol></div>
+<div class="faq"><h2>FAQ</h2><details><summary>Is it really free?</summary><p>Yes — every tool on this site is 100% free with no limits, no signup and no watermarks.</p></details><details><summary>Is my data private?</summary><p>Absolutely. The timer runs locally in your browser. Nothing is uploaded to any server.</p></details><details><summary>What is the Pomodoro technique?</summary><p>Work in focused 25-minute sessions, take a 5-minute break, and after four sessions take a longer 15-minute break. It keeps focus high and fatigue low.</p></details></div>
+<div class="tool-guide"><h2>Complete Guide to the Pomodoro Technique</h2><p>The Pomodoro technique, created by Francesco Cirillo in the 1980s, fights the two enemies of deep work: distraction and fatigue. A <strong>25-minute focus session</strong> is short enough to sustain full attention, and the <strong>5-minute break</strong> that follows lets your brain consolidate. After four sessions, a <strong>15-minute long break</strong> recharges you properly.</p><p>Three rules make it work: one task per session (no multitasking), no pausing the timer for "just one quick message" (write it down, handle it in the break), and always take the break — skipping breaks is how a productive morning becomes an exhausted afternoon. This timer runs entirely in your browser, shows the countdown in the tab title so you can watch it from another tab, and plays a gentle beep when a session ends.</p></div>
+<div class="related"><h2>Related tools</h2><div class="grid"><a class="tool-card" href="./timestamp-converter.html"><div class="ticon">⏱️</div><h3>Timestamp Converter</h3><p>Convert Unix timestamps to dates and back.</p></a><a class="tool-card" href="./date-duration.html"><div class="ticon">📅</div><h3>Date Duration Calculator</h3><p>Days, weeks and months between dates.</p></a><a class="tool-card" href="./word-counter.html"><div class="ticon">🔢</div><h3>Word Counter</h3><p>Count words and reading time as you type.</p></a></div></div>
+</div>
+</main>
+<footer class="site-footer"><div class="wrap">
+<div class="cols">
+<div><h4>🛡️ Free Privacy Tools</h4><p>50+ free online tools. No signup, no tracking — everything runs in your browser.</p></div>
+<div><h4>Popular</h4><a href="./image-compressor.html">Image Compressor</a><a href="./word-counter.html">Word Counter</a><a href="./password-generator.html">Password Generator</a><a href="./pdf-merger.html">PDF Merger</a><a href="./age-calculator.html">Age Calculator</a></div>
+<div><h4>Site</h4><a href="../index.html">Home</a><a href="../index.html#tools">All Tools</a><a href="../about.html">About</a><a href="../faq.html">FAQ</a><a href="../blog.html">Blog</a><a href="../contact.html">Contact</a><a href="../request.html">Request a Tool</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="../disclaimer.html">Disclaimer</a></div>
+</div>
+<div class="foot-note">© 2026 Free Privacy Tools — All tools run 100% in your browser.<br>Developed by <a href="https://anwaardigital.com/" target="_blank" rel="noopener" style="color:#fbbf24;font-weight:700">Malik Anwaar</a> ❤️</div>
+</div></footer>
+<script src="../assets/app.js"></script>
+<script src="../assets/tools.js"></script>
+<script src="../assets/features.js"></script>
+</body></html>
