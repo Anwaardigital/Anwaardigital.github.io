@@ -12,22 +12,6 @@
   var MAX_CHATS = 40;
   var MAX_SEND = 20; // messages of context sent to server
 
-  var MODES = [
-    { id: 'general', label: 'General', title: 'General', sub: 'Ask anything',
-      starter: '' },
-    { id: 'islamic', label: 'Islamic', title: 'Islamic questions', sub: 'Quran, Hadith, rulings',
-      starter: 'If a mistake happens in prayer, when is Sajda Sahw wajib?' },
-    { id: 'cv', label: 'CV / Application', title: 'CV and applications', sub: 'CV, application, cover letter',
-      starter: 'Make my CV. Name: \nEducation: \nExperience: \nSkills: ' },
-    { id: 'writer', label: 'Writing', title: 'Writing', sub: 'Email, essay, letter',
-      starter: 'Write an excellent essay on this topic: ' },
-    { id: 'cyber', label: 'Cyber Security', title: 'Cyber Security', sub: 'Learn ethical hacking',
-      starter: 'How can I stay safe from phishing? Explain in simple words.' },
-    { id: 'youtube', label: 'YouTube', title: 'YouTube Creator', sub: 'Script, title, tags, Shorts',
-      starter: 'Write an 8-minute YouTube script on this topic: ' },
-    { id: 'apps', label: 'Anwaar Apps', title: 'Anwaar Digital Apps', sub: 'Apps and downloads',
-      starter: 'What apps does Anwaar Digital offer?' }
-  ];
 
   var state = {
     chats: [],
@@ -134,26 +118,6 @@
     if (state.currentId === id) newChat(); else renderSidebar();
   }
 
-  /* ---------- modes ---------- */
-  function renderModes() {
-    var box = $('#modes');
-    box.innerHTML = '';
-    MODES.forEach(function (m) {
-      var b = el('button', 'mode' + (m.id === state.mode ? ' active' : ''), m.label);
-      b.type = 'button';
-      b.setAttribute('role', 'tab');
-      b.setAttribute('aria-selected', m.id === state.mode ? 'true' : 'false');
-      b.addEventListener('click', function () { setMode(m.id); });
-      box.appendChild(b);
-    });
-  }
-  function setMode(id) {
-    state.mode = id;
-    var c = cur();
-    if (c) { c.mode = id; save(); }
-    renderModes();
-  }
-
   /* ---------- chats ---------- */
   function newChat() {
     stopSpeaking();
@@ -177,7 +141,6 @@
   }
   function renderAll() {
     renderSidebar();
-    renderModes();
     renderMessages();
     var c = cur();
     $('#topTitle').textContent = (c && c.title) || 'Anwaar AI';
@@ -194,26 +157,8 @@
 
   function welcomeView() {
     var w = el('div', 'welcome');
-    w.appendChild(el('h1', 'hello', 'Peace be upon you!'));
+    w.appendChild(el('h1', 'hello', 'Welcome to Anwaar AI!'));
     w.appendChild(el('p', 'sub', 'I am Anwaar AI. Ask in English, Urdu or Roman Urdu, and I will answer in the same language.'));
-    var grid = el('div', 'cards');
-    MODES.filter(function (m) { return m.id !== 'general'; }).forEach(function (m) {
-      var b = el('button', 'card');
-      b.type = 'button';
-      var t = el('b', null, m.title); t.setAttribute('dir', 'auto');
-      b.appendChild(t);
-      b.appendChild(el('span', null, m.sub));
-      b.addEventListener('click', function () {
-        setMode(m.id);
-        var inp = $('#input');
-        inp.value = m.starter;
-        autosize();
-        inp.focus();
-        inp.setSelectionRange(inp.value.length, inp.value.length);
-      });
-      grid.appendChild(b);
-    });
-    w.appendChild(grid);
     return w;
   }
 
