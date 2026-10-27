@@ -13,20 +13,20 @@
   var MAX_SEND = 20; // messages of context sent to server
 
   var MODES = [
-    { id: 'general', label: 'عام سوال', title: 'عام سوال', sub: 'Kuch bhi poochein',
+    { id: 'general', label: 'General', title: 'General', sub: 'Ask anything',
       starter: '' },
-    { id: 'islamic', label: 'اسلامی سوال', title: 'اسلامی سوال', sub: 'Quran, Hadith, masail',
-      starter: 'نماز میں سہو ہو جائے تو سجدۂ سہو کب واجب ہوتا ہے؟' },
-    { id: 'cv', label: 'CV / درخواست', title: 'CV اور درخواست', sub: 'CV, application, cover letter',
-      starter: 'Meri CV banao. Naam: \nTaleem: \nTajurba: \nHunar: ' },
-    { id: 'writer', label: 'اردو تحریر', title: 'اردو تحریر', sub: 'Email, mazmoon, letter',
-      starter: 'Is par ek behtareen Urdu mazmoon likho: ' },
-    { id: 'cyber', label: 'سائبر سیکیورٹی', title: 'سائبر سیکیورٹی', sub: 'Ethical hacking seekhein',
-      starter: 'Phishing se kaise bachein? Aasan Urdu mein samjhao.' },
-    { id: 'youtube', label: 'یوٹیوب', title: 'یوٹیوب کریئیٹر', sub: 'Script, title, tags, Shorts',
-      starter: 'Is topic par 8 minute ki Urdu YouTube script likho: ' },
-    { id: 'apps', label: 'انوار ایپس', title: 'انوار ڈیجیٹل ایپس', sub: 'Apps aur downloads',
-      starter: 'Anwaar Digital ki kaun kaun si apps hain?' }
+    { id: 'islamic', label: 'Islamic', title: 'Islamic questions', sub: 'Quran, Hadith, rulings',
+      starter: 'If a mistake happens in prayer, when is Sajda Sahw wajib?' },
+    { id: 'cv', label: 'CV / Application', title: 'CV and applications', sub: 'CV, application, cover letter',
+      starter: 'Make my CV. Name: \nEducation: \nExperience: \nSkills: ' },
+    { id: 'writer', label: 'Writing', title: 'Writing', sub: 'Email, essay, letter',
+      starter: 'Write an excellent essay on this topic: ' },
+    { id: 'cyber', label: 'Cyber Security', title: 'Cyber Security', sub: 'Learn ethical hacking',
+      starter: 'How can I stay safe from phishing? Explain in simple words.' },
+    { id: 'youtube', label: 'YouTube', title: 'YouTube Creator', sub: 'Script, title, tags, Shorts',
+      starter: 'Write an 8-minute YouTube script on this topic: ' },
+    { id: 'apps', label: 'Anwaar Apps', title: 'Anwaar Digital Apps', sub: 'Apps and downloads',
+      starter: 'What apps does Anwaar Digital offer?' }
   ];
 
   var state = {
@@ -108,13 +108,13 @@
     list.innerHTML = '';
     var shown = state.chats.filter(nonEmpty);
     if (!shown.length) {
-      list.appendChild(el('div', 'chat-empty', 'Abhi koi chat nahi.'));
+      list.appendChild(el('div', 'chat-empty', 'No chats yet.'));
       return;
     }
     shown.forEach(function (c) {
       var row = el('div', 'chat-item' + (c.id === state.currentId ? ' active' : ''));
       row.setAttribute('role', 'listitem');
-      var t = el('button', 't', c.title || 'نئی چیٹ');
+      var t = el('button', 't', c.title || 'New chat');
       t.type = 'button';
       t.setAttribute('dir', 'auto');
       t.addEventListener('click', function () { openChat(c.id); openMenu(false); });
@@ -180,7 +180,7 @@
     renderModes();
     renderMessages();
     var c = cur();
-    $('#topTitle').textContent = (c && c.title) || 'انوار اے آئی';
+    $('#topTitle').textContent = (c && c.title) || 'Anwaar AI';
   }
 
   function renderMessages() {
@@ -194,8 +194,8 @@
 
   function welcomeView() {
     var w = el('div', 'welcome');
-    w.appendChild(el('h1', 'hello', 'السلام علیکم!'));
-    w.appendChild(el('p', 'sub', 'Main Anwaar AI hoon. Urdu, Roman Urdu ya English mein sawal poochein, main usi zubaan mein jawab dunga.'));
+    w.appendChild(el('h1', 'hello', 'Peace be upon you!'));
+    w.appendChild(el('p', 'sub', 'I am Anwaar AI. Ask in English, Urdu or Roman Urdu, and I will answer in the same language.'));
     var grid = el('div', 'cards');
     MODES.filter(function (m) { return m.id !== 'general'; }).forEach(function (m) {
       var b = el('button', 'card');
@@ -244,12 +244,12 @@
     });
     a.appendChild(copy);
     if ('speechSynthesis' in window) {
-      var sp = el('button'); sp.type = 'button'; sp.innerHTML = ICON.speak + '<span>Sunein</span>';
+      var sp = el('button'); sp.type = 'button'; sp.innerHTML = ICON.speak + '<span>Listen</span>';
       sp.addEventListener('click', function () { toggleSpeak(m.text, sp); });
       a.appendChild(sp);
     }
     if (isLast) {
-      var rg = el('button'); rg.type = 'button'; rg.innerHTML = ICON.redo + '<span>Dobara</span>';
+      var rg = el('button'); rg.type = 'button'; rg.innerHTML = ICON.redo + '<span>Retry</span>';
       rg.addEventListener('click', regenerate);
       a.appendChild(rg);
     }
@@ -279,7 +279,7 @@
 
   function titleFrom(text) {
     var t = text.replace(/\s+/g, ' ').trim();
-    return t.length > 42 ? t.slice(0, 42) + '…' : t || 'نئی چیٹ';
+    return t.length > 42 ? t.slice(0, 42) + '…' : t || 'New chat';
   }
 
   function onSendClick() {
@@ -287,7 +287,7 @@
     var inp = $('#input');
     var text = inp.value.trim();
     if (!text && !state.image) return;
-    if (!text && state.image) text = 'اس تصویر کے بارے میں بتائیں۔';
+    if (!text && state.image) text = 'Tell me about this picture.';
     inp.value = '';
     autosize();
     stopListening();
@@ -321,7 +321,7 @@
     var box = $('#messages');
 
     if (!CFG.API_URL || CFG.API_URL.indexOf('YOUR-SUBDOMAIN') !== -1) {
-      pushError(c, 'Server ka link abhi set nahi hua. config.js kholein aur API_URL mein apna Worker ka link likhein.');
+      pushError(c, 'Server link is not set yet. Open config.js and enter your Worker link in API_URL.');
       return;
     }
 
@@ -383,7 +383,7 @@
         }
       }
       paint();
-      if (!acc.trim()) throw new Error('Jawab khali aaya. Dobara koshish karein.');
+      if (!acc.trim()) throw new Error('Empty reply received. Please try again.');
       aiMsg.text = acc;
       c.messages.push(aiMsg);
       c.ts = Date.now();
@@ -396,7 +396,7 @@
       } else {
         if (acc.trim()) { aiMsg.text = acc; c.messages.push(aiMsg); }
         var offline = !navigator.onLine || (err && /Failed to fetch|NetworkError|Load failed/i.test(err.message));
-        pushError(c, offline ? 'Internet ya server se rabta nahi ho saka. Connection check karke dobara koshish karein.' : (err.message || 'Kuch masla aa gaya.'));
+        pushError(c, offline ? 'Could not reach the internet or server. Check your connection and try again.' : (err.message || 'Something went wrong.'));
       }
     } finally {
       setBusy(false);
@@ -422,10 +422,10 @@
 
   function updateHint() {
     var h = $('#hint');
-    var base = 'AI غلطی کر سکتا ہے۔ اہم باتیں خود تسلی کر لیں۔';
+    var base = 'AI can make mistakes. Verify important things yourself.';
     h.textContent = base;
     if (state.remaining != null && state.remaining >= 0) {
-      var s = el('span', null, 'Aaj ke baqi paighamat: ' + state.remaining);
+      var s = el('span', null, 'Remaining messages today: ' + state.remaining);
       s.style.display = 'block';
       h.appendChild(s);
     }
@@ -461,7 +461,7 @@
   }
 
   /* ---------- voice input ---------- */
-  var VLANGS = [{ code: 'ur-PK', label: 'اردو' }, { code: 'en-US', label: 'English' }];
+  var VLANGS = [{ code: 'ur-PK', label: 'Urdu' }, { code: 'en-US', label: 'English' }];
   var vlang = 0;
   function initVoiceLang() {
     try { vlang = Math.max(0, VLANGS.findIndex(function (v) { return v.code === localStorage.getItem(KEY_VLANG); })); } catch (e) {}
@@ -565,7 +565,7 @@
     $('#newChat').addEventListener('click', newChat);
     $('#clearAll').addEventListener('click', function () {
       if (!state.chats.length) return;
-      if (confirm('Saari chats hamesha ke liye mit jayengi. Kya aap yaqeen se mitana chahte hain?')) {
+      if (confirm('All chats will be deleted permanently. Are you sure you want to delete them?')) {
         state.chats = []; save(); newChat();
       }
     });
