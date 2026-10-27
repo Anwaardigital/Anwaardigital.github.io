@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Anwaar Digital — Improved UI/UX Demo</title>
 <style>
-*{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,sans-serif;background:#0b0b10;color:#f5f5f5}
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:system-ui,-apple-system,sans-serif;background:#0b0b10;color:#f5f5f5}
 a{color:inherit}
 .top{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:#000;border-bottom:1px solid #222}
 .logo{font-weight:800;letter-spacing:2px} .logo span{color:#f5c542}
@@ -31,7 +31,7 @@ a{color:inherit}
 .filters button{background:#14141c;border:1px solid #333;color:#fff;padding:9px 18px;border-radius:999px;font-weight:700;cursor:pointer}
 .filters button.on{background:#f5c542;color:#111;border-color:#f5c542}
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-.card{background:#14141c;border:1px solid #2a2a35;border-radius:16px;padding:18px;display:flex;gap:14px}
+.card{background:#14141c;transition:transform .2s,border-color .2s} .card:hover{transform:translateY(-3px);border-color:#f5c542}border:1px solid #2a2a35;border-radius:16px;padding:18px;display:flex;gap:14px}
 .card img{width:64px;height:64px;border-radius:16px;flex:none}
 .card h3{margin:2px 0 4px} .card p{color:#b9b9c2;font-size:14px;margin:0 0 10px}
 .tag{font-size:11px;letter-spacing:1px;color:#f5c542;font-weight:700}
@@ -52,20 +52,20 @@ a{color:inherit}
 <body>
 <div class="top"><div class="logo">ANWAAR <span>DIGITAL</span></div><span class="demo">DEMO</span><a class="livebtn" href="https://anwaardigital.com/">Live site</a></div>
 <section class="hero">
-<span class="badge">100% FREE · NO HIDDEN CHARGES</span>
+<span class="badge">100% FREE · FOREVER FREE</span>
 <h1>Free Android Apps, Games <span>&amp; AI</span></h1>
 <p>Beautiful, professional, high-quality apps — made with care for everyone. Pehli screen par hi sab kuch: search karen, app chunen, download karen.</p>
 <input class="search" id="search" type="text" placeholder="Search apps... (e.g. Islam, AI, Ludo)">
 <div class="ctas"><a class="btn1" href="#apps">Explore Apps ↓</a><a class="btn2" href="https://anwaardigital.com/ai/">🤖 Try Anwaar AI</a></div>
 <div class="strip">
-<img src="https://anwaardigital.com/icons/islam786.png" alt="Islam 786">
-<img src="https://anwaardigital.com/icons/ai.png" alt="Anwaar AI">
-<img src="https://anwaardigital.com/icons/chatbox.png" alt="ChatBox">
-<img src="https://anwaardigital.com/icons/kidsislamic.png" alt="Bachon">
-<img src="https://anwaardigital.com/icons/downloadmanager.png" alt="Download Manager">
-<img src="https://anwaardigital.com/icons/quranteacher786.png" alt="Quran Teacher">
-<img src="https://anwaardigital.com/icons/ludo.png" alt="Ludo">
-<img src="https://anwaardigital.com/icons/bikeracer.png" alt="Bike Racer">
+<a href="#islam786"><img src="https://anwaardigital.com/icons/islam786.png" alt="Islam 786"></a>
+<a href="#anwaarai"><img src="https://anwaardigital.com/icons/ai.png" alt="Anwaar AI"></a>
+<a href="#chatbox"><img src="https://anwaardigital.com/icons/chatbox.png" alt="ChatBox"></a>
+<a href="#bachon"><img src="https://anwaardigital.com/icons/kidsislamic.png" alt="Bachon"></a>
+<a href="#dlmanager"><img src="https://anwaardigital.com/icons/downloadmanager.png" alt="Download Manager"></a>
+<a href="#quran"><img src="https://anwaardigital.com/icons/quranteacher786.png" alt="Quran Teacher"></a>
+<a href="#safebox"><img src="https://anwaardigital.com/icons/ludo.png" alt="Ludo"></a>
+<a href="#music"><img src="https://anwaardigital.com/icons/bikeracer.png" alt="Bike Racer"></a>
 </div>
 <div class="stats">
 <div><b>28</b><span>PREMIUM APPS</span></div>
@@ -85,17 +85,18 @@ a{color:inherit}
 <button data-f="games">Games</button>
 <button data-f="ai">AI</button>
 </div>
+<p id="count" style="color:#b9b9c2;font-size:14px"></p>
 <div class="grid">
-<div class="card" data-cat="islamic"><img src="https://anwaardigital.com/icons/islam786.png" alt="Islam 786"><div><span class="tag">ISLAMIC</span><h3>Islam 786</h3><p>Prayer times, Quran, duas, tasbeeh &amp; Islamic calendar — everything in one app.</p><a href="https://anwaardigital.com/#apps">Download →</a></div></div>
-<div class="card" data-cat="ai"><img src="https://anwaardigital.com/icons/ai.png" alt="Anwaar AI"><div><span class="tag">AI</span><h3>Malik Anwaar AI</h3><p>Free AI chat assistant — ask anything in Urdu &amp; English.</p><a href="https://anwaardigital.com/ai/">Open Anwaar AI →</a></div></div>
-<div class="card" data-cat="apps"><img src="https://anwaardigital.com/icons/chatbox.png" alt="ChatBox"><div><span class="tag">APPS</span><h3>ChatBox</h3><p>Chat with friends, share photos, videos &amp; status updates.</p><a href="https://anwaardigital.com/#apps">Download →</a></div></div>
-<div class="card" data-cat="islamic"><img src="https://anwaardigital.com/icons/kidsislamic.png" alt="Bachon"><div><span class="tag">ISLAMIC</span><h3>Bachon Ki Islami Taleem</h3><p>Islamic learning for kids — duas, stories &amp; good manners.</p><a href="https://anwaardigital.com/#apps">Download →</a></div></div>
-<div class="card" data-cat="apps"><img src="https://anwaardigital.com/icons/downloadmanager.png" alt="Download Manager"><div><span class="tag">APPS</span><h3>Download Manager</h3><p>Fast video downloader — save videos easily.</p><a href="https://anwaardigital.com/#apps">Download →</a></div></div>
-<div class="card" data-cat="islamic"><img src="https://anwaardigital.com/icons/quranteacher786.png" alt="Quran Teacher"><div><span class="tag">ISLAMIC</span><h3>Quran Teacher 786</h3><p>Learn Quran with proper pronunciation &amp; guidance.</p><a href="https://anwaardigital.com/#apps">Download →</a></div></div>
-<div class="card" data-cat="apps"><img src="https://anwaardigital.com/icons/safebox.png" alt="SafeBox"><div><span class="tag">APPS</span><h3>SafeBox</h3><p>Private vault — hide photos &amp; videos securely on your phone.</p><a href="https://anwaardigital.com/#apps">Download →</a></div></div>
-<div class="card" data-cat="apps"><img src="https://anwaardigital.com/icons/musicplayer.png" alt="Music Player"><div><span class="tag">APPS</span><h3>Music Player</h3><p>Beautiful music player for your favourite songs.</p><a href="https://anwaardigital.com/#apps">Download →</a></div></div>
-<div class="card" data-cat="games"><img src="https://anwaardigital.com/icons/ludo.png" alt="Ludo"><div><span class="tag">GAMES</span><h3>Ludo</h3><p>Classic Ludo game — play with family &amp; friends.</p><a href="https://anwaardigital.com/#apps">Download →</a></div></div>
-<div class="card" data-cat="games"><img src="https://anwaardigital.com/icons/bikeracer.png" alt="Bike Racer"><div><span class="tag">GAMES</span><h3>Bike Racer 3D</h3><p>Exciting 3D bike racing game.</p><a href="https://anwaardigital.com/#apps">Download →</a></div></div>
+<div class="card" id="islam786" data-cat="islamic"><img src="https://anwaardigital.com/icons/islam786.png" alt="Islam 786"><div><span class="tag">ISLAMIC</span><h3>Islam 786</h3><p>Prayer times, Quran, duas, tasbeeh &amp; Islamic calendar — everything in one app.</p><a href="https://anwaardigital.com/#apps">Download →</a></div></div>
+<div class="card" id="anwaarai" data-cat="ai"><img src="https://anwaardigital.com/icons/ai.png" alt="Anwaar AI"><div><span class="tag">AI</span><h3>Malik Anwaar AI</h3><p>Free AI chat assistant — ask anything in Urdu &amp; English.</p><a href="https://anwaardigital.com/ai/">Open Anwaar AI →</a></div></div>
+<div class="card" id="chatbox" data-cat="apps"><img src="https://anwaardigital.com/icons/chatbox.png" alt="ChatBox"><div><span class="tag">APPS</span><h3>ChatBox</h3><p>Chat with friends, share photos, videos &amp; status updates.</p><a href="https://anwaardigital.com/#apps">Download →</a></div></div>
+<div class="card" id="bachon" data-cat="islamic"><img src="https://anwaardigital.com/icons/kidsislamic.png" alt="Bachon"><div><span class="tag">ISLAMIC</span><h3>Bachon Ki Islami Taleem</h3><p>Islamic learning for kids — duas, stories &amp; good manners.</p><a href="https://anwaardigital.com/#apps">Download →</a></div></div>
+<div class="card" id="dlmanager" data-cat="apps"><img src="https://anwaardigital.com/icons/downloadmanager.png" alt="Download Manager"><div><span class="tag">APPS</span><h3>Download Manager</h3><p>Fast video downloader — save videos easily.</p><a href="https://anwaardigital.com/#apps">Download →</a></div></div>
+<div class="card" id="quran" data-cat="islamic"><img src="https://anwaardigital.com/icons/quranteacher786.png" alt="Quran Teacher"><div><span class="tag">ISLAMIC</span><h3>Quran Teacher 786</h3><p>Learn Quran with proper pronunciation &amp; guidance.</p><a href="https://anwaardigital.com/#apps">Download →</a></div></div>
+<div class="card" id="safebox" data-cat="apps"><img src="https://anwaardigital.com/icons/safebox.png" alt="SafeBox"><div><span class="tag">APPS</span><h3>SafeBox</h3><p>Private vault — hide photos &amp; videos securely on your phone.</p><a href="https://anwaardigital.com/#apps">Download →</a></div></div>
+<div class="card" id="music" data-cat="apps"><img src="https://anwaardigital.com/icons/musicplayer.png" alt="Music Player"><div><span class="tag">APPS</span><h3>Music Player</h3><p>Beautiful music player for your favourite songs.</p><a href="https://anwaardigital.com/#apps">Download →</a></div></div>
+<div class="card" id="ludo" data-cat="games"><img src="https://anwaardigital.com/icons/ludo.png" alt="Ludo"><div><span class="tag">GAMES</span><h3>Ludo</h3><p>Classic Ludo game — play with family &amp; friends.</p><a href="https://anwaardigital.com/#apps">Download →</a></div></div>
+<div class="card" id="bikeracer" data-cat="games"><img src="https://anwaardigital.com/icons/bikeracer.png" alt="Bike Racer"><div><span class="tag">GAMES</span><h3>Bike Racer 3D</h3><p>Exciting 3D bike racing game.</p><a href="https://anwaardigital.com/#apps">Download →</a></div></div>
 </div>
 </section>
 <section class="sec">
@@ -130,11 +131,16 @@ var btns=document.querySelectorAll('.filters button');
 var cur='all';
 function apply(){
   var q=(document.getElementById('search').value||'').toLowerCase();
+  var n=0, total=0;
   document.querySelectorAll('.card').forEach(function(c){
+    total++;
     var okF=(cur==='all'||c.getAttribute('data-cat')===cur);
     var okQ=!q||c.textContent.toLowerCase().indexOf(q)>-1;
-    c.style.display=(okF&&okQ)?'flex':'none';
+    var show=(okF&&okQ);
+    c.style.display=show?'flex':'none';
+    if(show) n++;
   });
+  document.getElementById('count').textContent = (q||cur!=='all') ? (n+' of '+total+' apps shown') : '';
 }
 btns.forEach(function(b){ b.addEventListener('click', function(){
   btns.forEach(function(x){x.classList.remove('on');}); b.classList.add('on');
