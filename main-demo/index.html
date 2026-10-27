@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anwaar Digital — Improved UI/UX Demo</title>
+<style>
+*{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,sans-serif;background:#0b0b10;color:#f5f5f5}
+a{color:inherit}
+.top{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:#000;border-bottom:1px solid #222}
+.logo{font-weight:800;letter-spacing:2px} .logo span{color:#f5c542}
+.demo{border:2px solid #fff;border-radius:20px;padding:4px 14px;font-size:13px}
+.livebtn{background:#f5c542;color:#111;text-decoration:none;padding:9px 16px;border-radius:999px;font-weight:700;font-size:14px}
+.hero{text-align:center;padding:34px 16px 10px;background:radial-gradient(600px 300px at 50% 0%,#2a2200,transparent)}
+.badge{display:inline-block;border:1px solid #f5c542;color:#f5c542;border-radius:999px;padding:6px 14px;font-size:13px;font-weight:700;letter-spacing:1px}
+.hero h1{font-size:clamp(30px,6vw,52px);margin:18px 0 8px;line-height:1.15} .hero h1 span{color:#f5c542}
+.hero p{color:#b9b9c2;max-width:620px;margin:0 auto}
+.search{width:100%;max-width:560px;display:block;margin:22px auto 12px;padding:14px 18px;border-radius:999px;border:1px solid #333;background:#14141c;color:#fff;font-size:15px}
+.ctas{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:6px 0 20px}
+.btn1{background:#f5c542;color:#111;text-decoration:none;padding:13px 22px;border-radius:999px;font-weight:800}
+.btn2{border:1px solid #444;color:#fff;text-decoration:none;padding:13px 22px;border-radius:999px;font-weight:700}
+.strip{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin:14px 0 6px}
+.strip img{width:52px;height:52px;border-radius:14px;border:1px solid #333}
+.stats{display:flex;justify-content:center;gap:0;margin:26px auto;max-width:720px;border-top:1px solid #222;border-bottom:1px solid #222}
+.stats div{flex:1;text-align:center;padding:16px 4px} .stats b{font-size:28px;display:block;color:#f5c542} .stats span{color:#b9b9c2;font-size:12px;letter-spacing:1px}
+.stats div+div{border-left:1px solid #222}
+.sec{padding:26px 16px;max-width:1060px;margin:0 auto}
+.kicker{color:#f5c542;letter-spacing:3px;font-size:13px;font-weight:700}
+.sec h2{font-size:30px;margin:8px 0} .sec .sub{color:#b9b9c2}
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}
+.filters button{background:#14141c;border:1px solid #333;color:#fff;padding:9px 18px;border-radius:999px;font-weight:700;cursor:pointer}
+.filters button.on{background:#f5c542;color:#111;border-color:#f5c542}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.card{background:#14141c;border:1px solid #2a2a35;border-radius:16px;padding:18px;display:flex;gap:14px}
+.card img{width:64px;height:64px;border-radius:16px;flex:none}
+.card h3{margin:2px 0 4px} .card p{color:#b9b9c2;font-size:14px;margin:0 0 10px}
+.tag{font-size:11px;letter-spacing:1px;color:#f5c542;font-weight:700}
+.card a{color:#f5c542;font-weight:800;text-decoration:none;font-size:14px}
+.aotw{display:flex;gap:20px;background:linear-gradient(135deg,#221a00,#14141c);border:1px solid #f5c542;border-radius:20px;padding:22px;align-items:center}
+.aotw img{width:110px;height:110px;border-radius:24px}
+.aotw h3{margin:0 0 6px;font-size:24px} .aotw p{color:#d8d8de;margin:0 0 14px}
+.why{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.why div{background:#14141c;border:1px solid #2a2a35;border-radius:16px;padding:18px}
+.why b{display:block;margin-bottom:6px} .why span{color:#b9b9c2;font-size:14px}
+.sites{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.sites a{display:block;background:#14141c;border:1px solid #2a2a35;border-radius:16px;padding:18px;text-decoration:none}
+.sites b{display:block;margin-bottom:4px} .sites span{color:#b9b9c2;font-size:14px}
+.note{text-align:center;color:#b9b9c2;padding:10px 16px 30px;font-size:14px} .note a{color:#f5c542}
+@media(max-width:820px){.grid{grid-template-columns:1fr}.why{grid-template-columns:1fr 1fr}.sites{grid-template-columns:1fr}.aotw{flex-direction:column;text-align:center}.stats b{font-size:22px}}
+</style>
+</head>
+<body>
+<div class="top"><div class="logo">ANWAAR <span>DIGITAL</span></div><span class="demo">DEMO</span><a class="livebtn" href="https://anwaardigital.com/">Live site</a></div>
+<section class="hero">
+<span class="badge">100% FREE · NO HIDDEN CHARGES</span>
+<h1>Free Android Apps, Games <span>&amp; AI</span></h1>
+<p>Beautiful, professional, high-quality apps — made with care for everyone. Pehli screen par hi sab kuch: search karen, app chunen, download karen.</p>
+<input class="search" id="search" type="text" placeholder="Search apps... (e.g. Islam, AI, Ludo)">
+<div class="ctas"><a class="btn1" href="#apps">Explore Apps ↓</a><a class="btn2" href="https://anwaardigital.com/ai/">🤖 Try Anwaar AI</a></div>
+<div class="strip">
+<img src="https://anwaardigital.com/icons/islam786.png" alt="Islam 786">
+<img src="https://anwaardigital.com/icons/ai.png" alt="Anwaar AI">
+<img src="https://anwaardigital.com/icons/chatbox.png" alt="ChatBox">
+<img src="https://anwaardigital.com/icons/kidsislamic.png" alt="Bachon">
+<img src="https://anwaardigital.com/icons/downloadmanager.png" alt="Download Manager">
+<img src="https://anwaardigital.com/icons/quranteacher786.png" alt="Quran Teacher">
+<img src="https://anwaardigital.com/icons/ludo.png" alt="Ludo">
+<img src="https://anwaardigital.com/icons/bikeracer.png" alt="Bike Racer">
+</div>
+<div class="stats">
+<div><b>28</b><span>PREMIUM APPS</span></div>
+<div><b>5</b><span>GAMES</span></div>
+<div><b>29</b><span>WINDOWS APPS</span></div>
+<div><b>100%</b><span>FREE</span></div>
+</div>
+</section>
+<section class="sec" id="apps">
+<div class="kicker">POPULAR APPS</div>
+<h2>Apps log sab se zyada pasand karte hain</h2>
+<p class="sub">Asli apps, asli icons — sirf design naya hai.</p>
+<div class="filters">
+<button class="on" data-f="all">All</button>
+<button data-f="islamic">Islamic</button>
+<button data-f="apps">Apps</button>
+<button data-f="games">Games</button>
+<button data-f="ai">AI</button>
+</div>
+<div class="grid">
+<div class="card" data-cat="islamic"><img src="https://anwaardigital.com/icons/islam786.png" alt="Islam 786"><div><span class="tag">ISLAMIC</span><h3>Islam 786</h3><p>Prayer times, Quran, duas, tasbeeh &amp; Islamic calendar — everything in one app.</p><a href="https://anwaardigital.com/#apps">Download →</a></div></div>
+<div class="card" data-cat="ai"><img src="https://anwaardigital.com/icons/ai.png" alt="Anwaar AI"><div><span class="tag">AI</span><h3>Malik Anwaar AI</h3><p>Free AI chat assistant — ask anything in Urdu &amp; English.</p><a href="https://anwaardigital.com/ai/">Open Anwaar AI →</a></div></div>
+<div class="card" data-cat="apps"><img src="https://anwaardigital.com/icons/chatbox.png" alt="ChatBox"><div><span class="tag">APPS</span><h3>ChatBox</h3><p>Chat with friends, share photos, videos &amp; status updates.</p><a href="https://anwaardigital.com/#apps">Download →</a></div></div>
+<div class="card" data-cat="islamic"><img src="https://anwaardigital.com/icons/kidsislamic.png" alt="Bachon"><div><span class="tag">ISLAMIC</span><h3>Bachon Ki Islami Taleem</h3><p>Islamic learning for kids — duas, stories &amp; good manners.</p><a href="https://anwaardigital.com/#apps">Download →</a></div></div>
+<div class="card" data-cat="apps"><img src="https://anwaardigital.com/icons/downloadmanager.png" alt="Download Manager"><div><span class="tag">APPS</span><h3>Download Manager</h3><p>Fast video downloader — save videos easily.</p><a href="https://anwaardigital.com/#apps">Download →</a></div></div>
+<div class="card" data-cat="islamic"><img src="https://anwaardigital.com/icons/quranteacher786.png" alt="Quran Teacher"><div><span class="tag">ISLAMIC</span><h3>Quran Teacher 786</h3><p>Learn Quran with proper pronunciation &amp; guidance.</p><a href="https://anwaardigital.com/#apps">Download →</a></div></div>
+<div class="card" data-cat="apps"><img src="https://anwaardigital.com/icons/safebox.png" alt="SafeBox"><div><span class="tag">APPS</span><h3>SafeBox</h3><p>Private vault — hide photos &amp; videos securely on your phone.</p><a href="https://anwaardigital.com/#apps">Download →</a></div></div>
+<div class="card" data-cat="apps"><img src="https://anwaardigital.com/icons/musicplayer.png" alt="Music Player"><div><span class="tag">APPS</span><h3>Music Player</h3><p>Beautiful music player for your favourite songs.</p><a href="https://anwaardigital.com/#apps">Download →</a></div></div>
+<div class="card" data-cat="games"><img src="https://anwaardigital.com/icons/ludo.png" alt="Ludo"><div><span class="tag">GAMES</span><h3>Ludo</h3><p>Classic Ludo game — play with family &amp; friends.</p><a href="https://anwaardigital.com/#apps">Download →</a></div></div>
+<div class="card" data-cat="games"><img src="https://anwaardigital.com/icons/bikeracer.png" alt="Bike Racer"><div><span class="tag">GAMES</span><h3>Bike Racer 3D</h3><p>Exciting 3D bike racing game.</p><a href="https://anwaardigital.com/#apps">Download →</a></div></div>
+</div>
+</section>
+<section class="sec">
+<div class="kicker">APP OF THE WEEK</div>
+<div class="aotw">
+<img src="https://anwaardigital.com/icons/islam786.png" alt="Islam 786">
+<div><h3>⭐ Islam 786</h3><p>Prayer timings, Quran, duas, tasbeeh and Islamic calendar — everything in one app. Is hafte ki sab se pasandeeda app.</p><a class="btn1" href="https://anwaardigital.com/#apps">⬇ Download Now</a></div>
+</div>
+</section>
+<section class="sec">
+<div class="kicker">WHY ANWAAR DIGITAL</div>
+<h2>Log kyun pasand karte hain</h2>
+<div class="why">
+<div><b>💯 100% Free</b><span>Koi hidden charges nahi.</span></div>
+<div><b>✨ Professional</b><span>Khubsurat, asli standard ka design.</span></div>
+<div><b>🔒 Safe</b><span>Seedha download, koi signup nahi.</span></div>
+<div><b>❤️ Made with care</b><span>Har app mehnat se banayi gayi.</span></div>
+</div>
+</section>
+<section class="sec">
+<div class="kicker">HAMARI WEBSITES</div>
+<h2>Teenon websites, ek jagah</h2>
+<div class="sites">
+<a href="https://anwaardigital.com/"><b>🏠 Anwaar Digital</b><span>Free Android apps &amp; games</span></a>
+<a href="https://anwaardigital.com/Freetools/"><b>🧰 Anwaar Free Tools</b><span>63 free browser tools</span></a>
+<a href="https://anwaardigital.com/Cybersecurity/"><b>🛡️ CyberSec Hub</b><span>53 guides &amp; 5 missions</span></a>
+</div>
+</section>
+<p class="note">UI/UX DESIGN DEMO hai — live main site ko kuch nahi hua, waisi hi hai jaisi thi. Asli site: <a href="https://anwaardigital.com/">anwaardigital.com</a></p>
+<script>
+var btns=document.querySelectorAll('.filters button');
+var cur='all';
+function apply(){
+  var q=(document.getElementById('search').value||'').toLowerCase();
+  document.querySelectorAll('.card').forEach(function(c){
+    var okF=(cur==='all'||c.getAttribute('data-cat')===cur);
+    var okQ=!q||c.textContent.toLowerCase().indexOf(q)>-1;
+    c.style.display=(okF&&okQ)?'flex':'none';
+  });
+}
+btns.forEach(function(b){ b.addEventListener('click', function(){
+  btns.forEach(function(x){x.classList.remove('on');}); b.classList.add('on');
+  cur=b.getAttribute('data-f'); apply();
+});});
+document.getElementById('search').addEventListener('input', apply);
+</script>
+</body>
+</html>
