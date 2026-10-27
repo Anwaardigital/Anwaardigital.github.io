@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ur" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Anwaar AI — انوار اے آئی</title>
+<meta name="description" content="Anwaar AI: free Urdu AI assistant by Anwaar Digital. اردو، رومن اردو اور انگلش میں سوال پوچھیں۔">
+<meta name="theme-color" content="#0b2016">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;600&family=Noto+Nastaliq+Urdu:wght@500;700&family=Sora:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app" id="app">
+
+  <aside class="sidebar" id="sidebar" aria-label="Chat history">
+    <div class="sb-head">
+      <div class="brand">
+        <svg class="logo" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M30.5 12.2a13 13 0 1 0 0 23.6A10.4 10.4 0 0 1 30.5 12.2z" fill="currentColor"/><circle cx="33.5" cy="17" r="2.2" fill="currentColor"/></svg>
+        <div>
+          <div class="brand-ur">انوار اے آئی</div>
+          <div class="brand-en">Anwaar AI</div>
+        </div>
+      </div>
+      <button class="icon-btn sb-close" id="sbClose" aria-label="Close menu">
+        <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <button class="btn-new" id="newChat">
+      <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+      <span dir="auto">نئی چیٹ</span>
+    </button>
+    <div class="chat-list" id="chatList" role="list"></div>
+    <div class="sb-foot">
+      <a href="https://anwaardigital.com" target="_blank" rel="noopener">anwaardigital.com</a>
+      <button class="link-btn" id="clearAll" type="button">Saari chats mitayein</button>
+    </div>
+  </aside>
+  <div class="scrim" id="scrim"></div>
+
+  <main class="main">
+    <header class="topbar">
+      <button class="icon-btn" id="menuBtn" aria-label="Open menu">
+        <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <div class="top-title" id="topTitle" dir="auto">انوار اے آئی</div>
+      <button class="pill-btn" id="voiceLang" type="button" title="Voice language">اردو</button>
+      <button class="icon-btn" id="themeBtn" aria-label="Light / dark">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.3M12 19.2v2.3M2.5 12h2.3M19.2 12h2.3M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6"/></svg>
+      </button>
+    </header>
+
+    <section class="messages" id="messages" aria-live="polite"></section>
+
+    <footer class="composer">
+      <div class="modes" id="modes" role="tablist" aria-label="Mode"></div>
+      <div class="img-preview" id="imgPreview" hidden>
+        <img id="imgThumb" alt="Selected image">
+        <button type="button" class="x" id="imgRemove" aria-label="Remove image">×</button>
+      </div>
+      <div class="input-row">
+        <button class="icon-btn" id="attachBtn" type="button" aria-label="Attach image">
+          <svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="15" rx="2.5"/><circle cx="9" cy="10" r="1.6"/><path d="M4 17l5-4.5 3.5 3 3-2.5 4.5 4"/></svg>
+        </button>
+        <input type="file" id="fileInput" accept="image/*" hidden>
+        <textarea id="input" rows="1" dir="auto" placeholder="اپنا سوال لکھیں…" enterkeyhint="send"></textarea>
+        <button class="icon-btn" id="micBtn" type="button" aria-label="Voice input">
+          <svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3"/></svg>
+        </button>
+        <button class="send-btn" id="sendBtn" type="button" aria-label="Send">
+          <svg viewBox="0 0 24 24"><path d="M4 12l16-7-6 15-2.5-6.2z"/></svg>
+        </button>
+      </div>
+      <div class="hint" id="hint" dir="auto">AI غلطی کر سکتا ہے۔ اہم باتیں خود تسلی کر لیں۔</div>
+    </footer>
+  </main>
+</div>
+
+<script src="config.js"></script>
+<script src="md.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
