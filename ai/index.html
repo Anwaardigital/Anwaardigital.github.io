@@ -1,81 +1,220 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" translate="no" data-theme="dark" data-size="m" data-urdu="naskh">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="google" content="notranslate">
 <title>Anwaar AI</title>
-<meta name="description" content="Anwaar AI: free AI assistant by Anwaar Digital. Ask questions in English, Urdu or Roman Urdu.">
+<meta name="description" content="Anwaar AI is a free AI assistant by Anwaar Digital. Chat in Urdu, Roman Urdu or English, create images, and get help with writing, CVs, Islamic questions and more.">
 <meta name="theme-color" content="#0b2016">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/anwaar-icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;600&family=Noto+Nastaliq+Urdu:wght@500;700&family=Sora:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;600&family=Noto+Nastaliq+Urdu:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="notranslate">
 <div class="app" id="app">
 
-  <aside class="sidebar" id="sidebar" aria-label="Chat history">
+  <aside class="sidebar" id="sidebar" aria-label="Chats">
     <div class="sb-head">
       <div class="brand">
         <svg class="logo" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M30.5 12.2a13 13 0 1 0 0 23.6A10.4 10.4 0 0 1 30.5 12.2z" fill="currentColor"/><circle cx="33.5" cy="17" r="2.2" fill="currentColor"/></svg>
-        <div>
-          <div class="brand-en">Anwaar AI</div>
+        <div class="brand-text">
+          <div class="brand-name">Anwaar AI</div>
+          <div class="brand-sub">by Anwaar Digital</div>
         </div>
       </div>
-      <button class="icon-btn sb-close" id="sbClose" aria-label="Close menu">
+      <button class="icon-btn sb-close" id="sbClose" type="button" aria-label="Close menu">
         <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
       </button>
     </div>
-    <button class="btn-new" id="newChat">
+
+    <button class="btn-new" id="newChat" type="button">
       <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
-      <span dir="auto">New chat</span>
+      <span>New chat</span>
     </button>
+
+    <div class="search">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+      <input id="search" type="search" placeholder="Search chats" autocomplete="off" spellcheck="false" aria-label="Search chats">
+    </div>
+
     <div class="chat-list" id="chatList" role="list"></div>
+
     <div class="sb-foot">
-      <a href="https://anwaardigital.com" target="_blank" rel="noopener">anwaardigital.com</a>
-      <button class="link-btn" id="clearAll" type="button">Delete all chats</button>
+      <button class="foot-btn" id="installBtn" type="button" hidden>
+        <svg viewBox="0 0 24 24"><path d="M12 4v11M7.5 10.5L12 15l4.5-4.5M5 19h14"/></svg>
+        <span>Install app</span>
+      </button>
+      <button class="foot-btn" id="openSettings" type="button">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 14a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V20a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H4a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H10a1.7 1.7 0 0 0 1-1.5V4a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V10a1.7 1.7 0 0 0 1.5 1H20a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+        <span>Settings</span>
+      </button>
+      <a class="foot-link" href="https://anwaardigital.com" target="_blank" rel="noopener">anwaardigital.com</a>
     </div>
   </aside>
   <div class="scrim" id="scrim"></div>
 
   <main class="main">
     <header class="topbar">
-      <button class="icon-btn" id="menuBtn" aria-label="Open menu">
+      <button class="icon-btn" id="menuBtn" type="button" aria-label="Open menu">
         <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
       <div class="top-title" id="topTitle" dir="auto">Anwaar AI</div>
-      <button class="pill-btn" id="voiceLang" type="button" title="Voice language">Urdu</button>
-      <button class="icon-btn" id="themeBtn" aria-label="Light / dark">
+      <button class="icon-btn" id="moreBtn" type="button" aria-label="Chat options" aria-haspopup="menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24"><circle cx="5.5" cy="12" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="18.5" cy="12" r="1.2"/></svg>
+      </button>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch light or dark theme">
         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.3M12 19.2v2.3M2.5 12h2.3M19.2 12h2.3M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6"/></svg>
       </button>
     </header>
 
     <section class="messages" id="messages" aria-live="polite"></section>
+    <button class="to-bottom" id="toBottom" type="button" aria-label="Scroll to latest message" hidden>
+      <svg viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+    </button>
 
     <footer class="composer">
-      <div class="img-preview" id="imgPreview" hidden>
-        <img id="imgThumb" alt="Selected image">
-        <button type="button" class="x" id="imgRemove" aria-label="Remove image">×</button>
+      <div class="modes" id="modes" role="group" aria-label="Tools"></div>
+
+      <div class="img-opts" id="imgOpts" hidden>
+        <div class="chips" id="styleChips" role="radiogroup" aria-label="Image style"></div>
+        <div class="seg small" id="aspectSeg" role="radiogroup" aria-label="Image shape">
+          <button type="button" role="radio" data-v="square">Square</button>
+          <button type="button" role="radio" data-v="portrait">Portrait</button>
+          <button type="button" role="radio" data-v="landscape">Landscape</button>
+        </div>
       </div>
+
+      <div class="att-preview" id="attPreview" hidden>
+        <img id="attThumb" alt="Selected image">
+        <div class="file-chip" id="attFile" hidden>
+          <svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8zM14 3v5h5"/></svg>
+          <span id="attName"></span>
+        </div>
+        <button type="button" class="x" id="attRemove" aria-label="Remove attachment">×</button>
+      </div>
+
       <div class="input-row">
-        <button class="icon-btn" id="attachBtn" type="button" aria-label="Attach image">
-          <svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="15" rx="2.5"/><circle cx="9" cy="10" r="1.6"/><path d="M4 17l5-4.5 3.5 3 3-2.5 4.5 4"/></svg>
+        <button class="icon-btn" id="attachBtn" type="button" aria-label="Attach an image or text file">
+          <svg viewBox="0 0 24 24"><path d="M20 11.5l-8.3 8.3a5 5 0 0 1-7.1-7.1l8.6-8.6a3.4 3.4 0 0 1 4.8 4.8l-8.5 8.5a1.7 1.7 0 0 1-2.4-2.4l7.8-7.8"/></svg>
         </button>
-        <input type="file" id="fileInput" accept="image/*" hidden>
-        <textarea id="input" rows="1" dir="auto" placeholder="Write your question…" enterkeyhint="send"></textarea>
-        <button class="icon-btn" id="micBtn" type="button" aria-label="Voice input">
+        <input type="file" id="fileInput" accept="image/*,.txt,.md,.csv,.json,.xml,.log,.js,.ts,.py,.html,.css,.java,.c,.cpp,.sql,.yml,.yaml" hidden>
+        <textarea id="input" rows="1" dir="auto" placeholder="Message Anwaar AI" enterkeyhint="send" aria-label="Message"></textarea>
+        <button class="icon-btn" id="micBtn" type="button" aria-label="Speak your message">
           <svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3"/></svg>
         </button>
         <button class="send-btn" id="sendBtn" type="button" aria-label="Send">
           <svg viewBox="0 0 24 24"><path d="M4 12l16-7-6 15-2.5-6.2z"/></svg>
         </button>
       </div>
-      <div class="hint" id="hint" dir="auto">AI can make mistakes. Verify important things yourself.</div>
+      <div class="hint" id="hint">Anwaar AI can make mistakes. Check important information.</div>
     </footer>
   </main>
 </div>
+
+<div class="menu" id="moreMenu" role="menu" hidden>
+  <button role="menuitem" type="button" data-act="rename">Rename chat</button>
+  <button role="menuitem" type="button" data-act="export">Export as Markdown</button>
+  <button role="menuitem" type="button" data-act="copy">Copy conversation</button>
+  <button role="menuitem" type="button" data-act="share">Share</button>
+  <button role="menuitem" type="button" data-act="delete" class="danger">Delete chat</button>
+</div>
+
+<dialog class="dlg" id="settings" aria-labelledby="setTitle">
+  <form method="dialog" class="dlg-head">
+    <h2 id="setTitle">Settings</h2>
+    <button class="icon-btn" aria-label="Close settings"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </form>
+  <div class="dlg-body">
+    <section>
+      <h3>Appearance</h3>
+      <div class="row"><span>Theme</span>
+        <div class="seg" data-pref="theme" role="radiogroup" aria-label="Theme">
+          <button type="button" role="radio" data-v="system">System</button>
+          <button type="button" role="radio" data-v="dark">Dark</button>
+          <button type="button" role="radio" data-v="light">Light</button>
+        </div>
+      </div>
+      <div class="row"><span>Text size</span>
+        <div class="seg" data-pref="size" role="radiogroup" aria-label="Text size">
+          <button type="button" role="radio" data-v="s">Small</button>
+          <button type="button" role="radio" data-v="m">Medium</button>
+          <button type="button" role="radio" data-v="l">Large</button>
+        </div>
+      </div>
+      <div class="row"><span>Urdu font</span>
+        <div class="seg" data-pref="urdu" role="radiogroup" aria-label="Urdu font">
+          <button type="button" role="radio" data-v="naskh">Naskh</button>
+          <button type="button" role="radio" data-v="nastaliq">Nastaliq</button>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h3>Voice</h3>
+      <div class="row"><span>Speak in</span>
+        <div class="seg" data-pref="vlang" role="radiogroup" aria-label="Voice input language">
+          <button type="button" role="radio" data-v="ur-PK">Urdu</button>
+          <button type="button" role="radio" data-v="en-US">English</button>
+          <button type="button" role="radio" data-v="ar-SA">Arabic</button>
+        </div>
+      </div>
+      <label class="row"><span>Read replies aloud</span><input type="checkbox" class="toggle" data-pref="autoread"></label>
+    </section>
+
+    <section>
+      <h3>Personalize</h3>
+      <label class="field"><span>Your name</span>
+        <input type="text" id="prefName" maxlength="60" placeholder="What should Anwaar AI call you?" autocomplete="off">
+      </label>
+      <label class="field"><span>Custom instructions</span>
+        <textarea id="prefInstr" rows="3" maxlength="600" placeholder="For example: keep answers short, I am a student, explain step by step."></textarea>
+      </label>
+    </section>
+
+    <section>
+      <h3>Your data</h3>
+      <p class="muted">Chats are stored only in this browser. Messages are sent to AI services to create replies, so please do not share passwords or private details.</p>
+      <div class="btn-row">
+        <button type="button" class="btn" id="exportAll">Export all chats</button>
+        <button type="button" class="btn danger" id="clearAll">Delete all chats</button>
+      </div>
+    </section>
+
+    <section>
+      <h3>About</h3>
+      <p class="muted">Anwaar AI 2.0, a free assistant by Anwaar Digital.</p>
+      <p class="links">
+        <a href="https://anwaardigital.com" target="_blank" rel="noopener">Website</a>
+        <a href="https://anwaardigital.com/privacy.html" target="_blank" rel="noopener">Privacy policy</a>
+        <a href="https://wa.me/923288317526" target="_blank" rel="noopener">WhatsApp support</a>
+      </p>
+    </section>
+  </div>
+</dialog>
+
+<dialog class="dlg small" id="reportDlg" aria-labelledby="repTitle">
+  <form method="dialog" class="dlg-head">
+    <h2 id="repTitle">Report this reply</h2>
+    <button class="icon-btn" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </form>
+  <div class="dlg-body">
+    <p class="muted">Tell us what is wrong, such as harmful, incorrect or offensive content. This reply and your question are sent to the Anwaar Digital team.</p>
+    <label class="field"><span>What went wrong? (optional)</span>
+      <textarea id="repReason" rows="3" maxlength="500"></textarea>
+    </label>
+    <div class="btn-row">
+      <button type="button" class="btn" id="repCancel">Cancel</button>
+      <button type="button" class="btn primary" id="repSend">Send report</button>
+    </div>
+  </div>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 
 <script src="config.js"></script>
 <script src="md.js"></script>

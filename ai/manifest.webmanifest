@@ -1,12 +1,17 @@
 {
   "name": "Anwaar AI",
   "short_name": "Anwaar AI",
-  "description": "Free Urdu AI assistant by Anwaar Digital",
+  "description": "Free AI assistant by Anwaar Digital: chat, create images, write, learn.",
   "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#0b2016",
   "theme_color": "#0b2016",
   "icons": [
+    { "src": "/anwaar-icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/anwaar-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/anwaar-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
     { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
   ]
 }
