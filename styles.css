@@ -318,12 +318,16 @@ a{text-decoration:none;color:inherit}
 }
 .wa-float:hover{transform:scale(1.1)}
 
+/* Menu khula ho to back-to-top button chhupao (warna menu ke button se takrata hai) */
+body.menu-open #backToTop{opacity:0!important;visibility:hidden!important}
+
 /* ---------- Responsive ---------- */
 @media(max-width:768px){
   .nav-links{
-    position:fixed;top:64px;right:0;left:0;flex-direction:column;gap:0;
-    background:rgba(6,42,32,.98);padding:10px 0 20px;
+    position:fixed;top:64px;right:0;left:0;flex-direction:column;gap:8px;
+    background:rgba(6,42,32,.98);padding:10px 16px 20px;
     transform:translateY(-130%);transition:transform .3s;border-bottom:1px solid rgba(255,215,0,.15);
+    max-height:calc(100vh - 64px);overflow-y:auto;
   }
   .nav-links.open{transform:translateY(0)}
   .nav-links li{width:100%;text-align:center}
