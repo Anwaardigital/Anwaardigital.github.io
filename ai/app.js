@@ -13,8 +13,11 @@
   var KEY_PREFS = 'anwaar_ai_prefs_v2';
   var MAX_CHATS = 60;
   var MAX_SEND = 20;
-  var MAX_FILE_CHARS = 12000;
+  var MAX_FILE_CHARS = 30000;
   var MAX_FILE_BYTES = 400 * 1024;
+  var MAX_PDF_BYTES = 12 * 1024 * 1024;
+  var MAX_PDF_PAGES = 40;
+  var MAX_MEMORY = 20;
 
   // There is no topic picker: the assistant works out what is needed from the message itself.
   // The only switch is "Create image", which turns the message box into an image prompt box.
@@ -24,7 +27,7 @@
     { id: 'anime', label: 'Anime' }, { id: '3d', label: '3D' }, { id: 'logo', label: 'Logo' },
     { id: 'islamic', label: 'Islamic art' }, { id: 'thumbnail', label: 'Thumbnail' }
   ];
-  var DEFAULT_PREFS = { theme: 'system', size: 'm', urdu: 'naskh', vlang: 'ur-PK', autoread: false, name: '', instr: '' };
+  var DEFAULT_PREFS = { theme: 'system', size: 'm', urdu: 'naskh', vlang: 'ur-PK', autoread: false, name: '', instr: '', memory: [] };
 
   var ICON = {
     copy: '<svg viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2.5"/><path d="M16 8V6.5A2.5 2.5 0 0 0 13.5 4h-7A2.5 2.5 0 0 0 4 6.5v7A2.5 2.5 0 0 0 6.5 16H8"/></svg>',
@@ -36,7 +39,11 @@
     share: '<svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="2.3"/><circle cx="17.5" cy="6" r="2.3"/><circle cx="17.5" cy="18" r="2.3"/><path d="M8 11l7.5-4M8 13l7.5 4"/></svg>',
     del: '<svg viewBox="0 0 24 24"><path d="M5 7h14M10 7V5h4v2M7 7l1 12h8l1-12"/></svg>',
     spark: '<svg viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9zM18.5 15l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z"/></svg>',
-    file: '<svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8zM14 3v5h5"/></svg>'
+    file: '<svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8zM14 3v5h5"/></svg>',
+    up: '<svg viewBox="0 0 24 24"><path d="M7 11v9H4v-9zM7 11l4-7a2 2 0 0 1 2 2v3h5.5a2 2 0 0 1 2 2.3l-1.2 6.5A2 2 0 0 1 17.3 20H7"/></svg>',
+    down: '<svg viewBox="0 0 24 24"><path d="M7 13V4H4v9zM7 13l4 7a2 2 0 0 0 2-2v-3h5.5a2 2 0 0 0 2-2.3l-1.2-6.5A2 2 0 0 0 17.3 4H7"/></svg>',
+    globe: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>',
+    doc: '<svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8zM14 3v5h5M9 13h6M9 17h6"/></svg>'
   };
   var LOGO = '<svg class="mark" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M30.5 12.2a13 13 0 1 0 0 23.6A10.4 10.4 0 0 1 30.5 12.2z" fill="currentColor"/><circle cx="33.5" cy="17" r="2.2" fill="currentColor"/></svg>';
 
@@ -46,7 +53,7 @@
     att: null, busy: false, controller: null,
     prefs: {}, speakingEl: null, rec: null, recOn: false,
     remaining: null, imgRemaining: null,
-    installEvt: null, reportIdx: -1, search: ''
+    installEvt: null, reportIdx: -1, search: '', web: false, caps: {}, voice: false, voiceMiss: 0
   };
 
   /* ================= small helpers ================= */
@@ -63,7 +70,7 @@
   function cur() { return state.chats.find(function (c) { return c.id === state.currentId; }); }
   function nonEmpty(c) { return !!(c && c.messages && c.messages.some(function (m) { return !m.error; })); }
   function hasArabicScript(t) { return /[؀-ۿ]/.test(t); }
-  function apiBase() { return String(CFG.API_URL || '').replace(/\/(chat|image|report)\/?$/, '').replace(/\/$/, ''); }
+  function apiBase() { return String(CFG.API_URL || '').replace(/\/(chat|image|report|feedback|health)\/?$/, '').replace(/\/$/, ''); }
   function configured() { var u = String(CFG.API_URL || ''); return !!u && u.indexOf('YOUR-SUBDOMAIN') === -1; }
 
   function scrollDown(force) {
@@ -406,7 +413,7 @@
       if (m.kind === 'image') return 'Anwaar AI: [Image] ' + (m.prompt || '');
       var who = m.role === 'user' ? 'You' : 'Anwaar AI';
       var extra = m.file ? ' [Attached file: ' + m.file.name + ']' : (m.imgId ? ' [Photo]' : '');
-      return who + ': ' + m.text + extra;
+      return who + ': ' + parseRefs(m.text).text + extra;
     }).join('\n\n');
   }
   function chatMarkdown(c) {
@@ -458,6 +465,15 @@
     b.appendChild(document.createTextNode('Create image'));
     b.addEventListener('click', function () { setMode(on ? 'general' : 'image'); });
     box.appendChild(b);
+    if (state.caps.search) {
+      var w = el('button', 'mode' + (state.web ? ' active' : ''));
+      w.type = 'button'; w.id = 'webToggle';
+      w.setAttribute('aria-pressed', state.web ? 'true' : 'false');
+      w.insertAdjacentHTML('beforeend', ICON.globe);
+      w.appendChild(document.createTextNode('Search the web'));
+      w.addEventListener('click', function () { state.web = !state.web; renderModes(); });
+      box.appendChild(w);
+    }
   }
   function setMode(id) {
     state.mode = normMode(id);
@@ -516,8 +532,9 @@
   function actBtn(label, icon, fn) {
     var b = el('button');
     b.type = 'button';
-    b.innerHTML = ICON[icon] + '<span></span>';
+    b.innerHTML = ICON[icon] + '<span class="lbl"></span>';
     b.lastChild.textContent = label;
+    b.setAttribute('aria-label', label);
     b.addEventListener('click', function () { fn(b); });
     return b;
   }
@@ -562,19 +579,235 @@
 
     var b = el('div', 'bubble');
     b.setAttribute('dir', 'auto');
-    if (m.error) b.textContent = m.text; else b.innerHTML = MD.renderMarkdown(m.text);
+    var parsed = m.error ? { text: m.text, refs: [] } : parseRefs(m.text);
+    if (m.error) b.textContent = m.text; else b.innerHTML = MD.renderMarkdown(parsed.text);
     wrap.appendChild(b);
+    if (parsed.refs.length) wrap.appendChild(refsView(parsed.refs));
+    if (m.sources && m.sources.length) wrap.appendChild(sourcesView(m.sources));
     var a = el('div', 'actions');
     if (m.error) {
       a.appendChild(actBtn('Try again', 'redo', regenerate));
     } else {
-      a.appendChild(actBtn('Copy', 'copy', function (btn) { copyText(m.text); flash(btn, 'Copied', 'Copy'); }));
-      if ('speechSynthesis' in window) a.appendChild(actBtn('Listen', 'speak', function (btn) { toggleSpeak(m.text, btn); }));
+      a.appendChild(actBtn('Copy', 'copy', function (btn) { copyText(parsed.text); flash(btn, 'Copied', 'Copy'); }));
+      if ('speechSynthesis' in window) a.appendChild(actBtn('Listen', 'speak', function (btn) { toggleSpeak(parsed.text, btn); }));
+      a.appendChild(saveBtn(m, parsed.text));
+      a.appendChild(rateBtn(m, idx, 'up'));
+      a.appendChild(rateBtn(m, idx, 'down'));
       if (isLastAi) a.appendChild(actBtn('Try again', 'redo', regenerate));
       a.appendChild(actBtn('Report', 'flag', function () { openReport(idx); }));
     }
     wrap.appendChild(a);
+    if (isLastAi && !m.error) wrap.appendChild(quickPills(m));
     return wrap;
+  }
+
+  /* ================= verified Quran and Hadith text ================= */
+  // The model only writes a marker such as [[quran:2:255]]. The real text is fetched from a public text source,
+  // so verses and hadith are never quoted from the model's memory.
+  var HADITH_BOOKS = { bukhari: 'Sahih al-Bukhari', muslim: 'Sahih Muslim', abudawud: 'Sunan Abi Dawud', tirmidhi: 'Jami at-Tirmidhi', nasai: "Sunan an-Nasa'i", ibnmajah: 'Sunan Ibn Majah' };
+  var QURAN_API = 'https://api.alquran.cloud/v1/ayah/';
+  var HADITH_CDN = 'https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/';
+  var refCache = {};
+
+  function parseRefs(text) {
+    var refs = [], seen = {};
+    var out = String(text || '').replace(/\[\[\s*(quran|hadith)\s*:\s*([a-z0-9]+)\s*:\s*(\d{1,5})(?:\s*-\s*(\d{1,3}))?\s*\]\]/gi, function (all, kind, a, b, c) {
+      kind = kind.toLowerCase(); a = a.toLowerCase();
+      var key = kind + ':' + a + ':' + b + ':' + (c || '');
+      if (!seen[key] && refs.length < 3) {
+        if (kind === 'quran') {
+          var sn = parseInt(a, 10), an = parseInt(b, 10), en = c ? parseInt(c, 10) : an;
+          if (sn >= 1 && sn <= 114 && an >= 1 && en >= an && en - an < 6) { seen[key] = 1; refs.push({ kind: 'quran', s: sn, a: an, e: en }); }
+        } else if (HADITH_BOOKS[a] && !c) { seen[key] = 1; refs.push({ kind: 'hadith', book: a, n: parseInt(b, 10) }); }
+      }
+      return '';
+    });
+    return { text: out.replace(/[ \t]+\n/g, '\n').replace(/\n{3,}/g, '\n\n').trim(), refs: refs };
+  }
+  function getJson(url) {
+    if (refCache[url]) return refCache[url];
+    var p = fetch(url).then(function (r) { if (!r.ok) throw new Error('bad status'); return r.json(); });
+    refCache[url] = p;
+    p.catch(function () { delete refCache[url]; });
+    return p;
+  }
+  function loadQuran(ref) {
+    var all = [];
+    for (var n = ref.a; n <= ref.e; n++) {
+      all.push(getJson(QURAN_API + ref.s + ':' + n + '/editions/quran-uthmani,ur.jalandhry,en.sahih').then(function (j) {
+        var d = j && j.data;
+        if (!Array.isArray(d) || d.length < 2) throw new Error('shape');
+        var pick = function (id) { var f = d.filter(function (x) { return x && x.edition && x.edition.identifier === id; })[0]; return f && typeof f.text === 'string' ? f.text : ''; };
+        var ar = pick('quran-uthmani');
+        if (!ar) throw new Error('no text');
+        return { n: d[0].numberInSurah, name: d[0].surah && d[0].surah.englishName, ar: ar, ur: pick('ur.jalandhry'), en: pick('en.sahih') };
+      }));
+    }
+    return Promise.all(all);
+  }
+  function loadHadith(ref) {
+    var one = function (lang) {
+      return getJson(HADITH_CDN + lang + '-' + ref.book + '/' + ref.n + '.json').then(function (j) {
+        var h = j && j.hadiths && j.hadiths[0];
+        return h && typeof h.text === 'string' ? h.text : '';
+      }).catch(function () { return ''; });
+    };
+    return Promise.all([one('ara'), one('urd'), one('eng')]).then(function (r) {
+      if (!r[0] && !r[1] && !r[2]) throw new Error('no text');
+      return { ar: r[0], ur: r[1], en: r[2] };
+    });
+  }
+  function refTitle(ref) {
+    if (ref.kind === 'quran') return 'Quran ' + ref.s + ':' + ref.a + (ref.e > ref.a ? '-' + ref.e : '');
+    return HADITH_BOOKS[ref.book] + ', hadith ' + ref.n;
+  }
+  function refsView(refs) {
+    var box = el('div', 'refs');
+    refs.forEach(function (ref) {
+      var card = el('div', 'refcard');
+      var head = el('div', 'ref-head');
+      head.appendChild(el('span', null, refTitle(ref)));
+      var tag = el('small', null, 'Loading…'); head.appendChild(tag);
+      card.appendChild(head);
+      box.appendChild(card);
+      var job = ref.kind === 'quran' ? loadQuran(ref) : loadHadith(ref).then(function (x) { return [x]; });
+      job.then(function (items) {
+        tag.textContent = 'Verified text';
+        var plain = [refTitle(ref)];
+        items.forEach(function (it) {
+          if (it.ar) { var ar = el('div', 'ref-ar', it.ar); ar.setAttribute('dir', 'rtl'); ar.setAttribute('lang', 'ar'); card.appendChild(ar); plain.push(it.ar); }
+          if (it.ur) { var u = el('div', 'ref-tr'); u.setAttribute('dir', 'rtl'); u.appendChild(el('span', 'ref-lbl', 'Urdu')); u.appendChild(document.createTextNode(it.ur)); card.appendChild(u); plain.push(it.ur); }
+          if (it.en) { var e = el('div', 'ref-tr'); e.appendChild(el('span', 'ref-lbl', 'English')); e.appendChild(document.createTextNode(it.en)); card.appendChild(e); plain.push(it.en); }
+        });
+        var acts = el('div', 'ref-actions');
+        var cp = el('button', null, 'Copy'); cp.type = 'button';
+        cp.addEventListener('click', function () { copyText(plain.join('\n\n')); cp.textContent = 'Copied'; setTimeout(function () { cp.textContent = 'Copy'; }, 1300); });
+        acts.appendChild(cp); card.appendChild(acts);
+        if (ref.kind === 'hadith') card.appendChild(el('p', 'ref-note', 'Text is shown as published; ask a scholar about authenticity and rulings.'));
+        stickIfNeeded();
+      }).catch(function () {
+        tag.textContent = 'Not loaded';
+        card.appendChild(el('p', 'ref-note', 'The verified text could not be loaded right now. Please check this reference in a trusted Quran or hadith source.'));
+      });
+    });
+    return box;
+  }
+
+  function sourcesView(list) {
+    var box = el('div', 'sources');
+    box.appendChild(el('span', null, 'Sources:'));
+    list.forEach(function (s, i) {
+      if (!s || typeof s.url !== 'string' || !/^https?:\/\//i.test(s.url)) return;
+      var a = el('a'); a.href = s.url; a.target = '_blank'; a.rel = 'noopener noreferrer';
+      a.appendChild(el('b', null, String(i + 1)));
+      a.appendChild(el('span', null, String(s.title || s.url)));
+      box.appendChild(a);
+    });
+    return box;
+  }
+
+  /* ================= quick actions, save, feedback ================= */
+
+  function quickPills(m) {
+    var box = el('div', 'quick');
+    var urdu = hasArabicScript(m.text);
+    var items = [
+      [urdu ? 'Translate to English' : 'Translate to Urdu', urdu ? 'Translate your last reply into English.' : 'Translate your last reply into Urdu.'],
+      ['Shorter', 'Make your last reply shorter. Keep only the key points.'],
+      ['Simpler', 'Explain your last reply in simpler words, as if to a beginner.']
+    ];
+    items.forEach(function (it) {
+      var b = el('button', null, it[0]); b.type = 'button';
+      b.addEventListener('click', function () { sendQuick(it[1]); });
+      box.appendChild(b);
+    });
+    return box;
+  }
+  function sendQuick(text) {
+    if (state.busy) return toast('Wait for the reply to finish, or press stop.');
+    if (state.mode === 'image') setMode('general');
+    $('#input').value = text; autosize();
+    state.att = null; updateAttPreview();
+    onSend();
+  }
+
+  function docTitle(text) {
+    var h = /^#{1,3}\s+(.+)$/m.exec(text);
+    var t = h ? h[1] : (cur() && cur().title) || 'Anwaar AI';
+    return t.replace(/[*_`#]/g, '').trim().slice(0, 80) || 'Anwaar AI';
+  }
+  function docHtml(text, forWord) {
+    var title = docTitle(text);
+    var css = 'body{font-family:Calibri,Arial,"Noto Naskh Arabic","Segoe UI",sans-serif;font-size:12pt;line-height:1.55;color:#111;margin:24px}' +
+      'h1{font-size:20pt}h2{font-size:15pt}h3{font-size:13pt}table{border-collapse:collapse}td,th{border:1px solid #999;padding:4px 8px}' +
+      'pre,code{font-family:Consolas,monospace;font-size:10.5pt;background:#f3f3f3}pre{padding:8px;white-space:pre-wrap}blockquote{border-left:3px solid #999;margin-left:0;padding-left:12px;color:#444}' +
+      '.copy-code{display:none}';
+    var body = MD.renderMarkdown(text);
+    var head = forWord ? '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">' : '<html>';
+    return head + '<head><meta charset="utf-8"><title>' + title.replace(/[<>&]/g, '') + '</title><style>' + css + '</style></head><body dir="auto">' + body + '</body></html>';
+  }
+  function saveWord(text) {
+    var blob = new Blob(['\ufeff', docHtml(text, true)], { type: 'application/msword' });
+    downloadBlob(blob, safeName(docTitle(text)) + '.doc');
+    toast('Saved as a Word document.');
+  }
+  function savePdf(text) {
+    var f = document.createElement('iframe');
+    f.setAttribute('aria-hidden', 'true');
+    f.style.cssText = 'position:fixed;right:0;bottom:0;width:0;height:0;border:0;visibility:hidden';
+    document.body.appendChild(f);
+    var done = false;
+    var go = function () {
+      if (done) return; done = true;
+      try { f.contentWindow.focus(); f.contentWindow.print(); } catch (e) { toast('Printing is not available here. Use Save as Word instead.'); }
+      setTimeout(function () { if (f.parentNode) f.parentNode.removeChild(f); }, 60000);
+    };
+    f.onload = go;
+    f.srcdoc = docHtml(text, false);
+    setTimeout(go, 1500);
+    toast('In the print window, choose "Save as PDF".', { ms: 4500 });
+  }
+  function saveBtn(m, text) {
+    var holder = document.createElement('span');
+    holder.style.display = 'inline-flex';
+    var open = actBtn('Save', 'doc', function () {
+      var ex = holder.querySelector('.savemenu');
+      if (ex) { ex.remove(); return; }
+      var menu = el('span', 'savemenu');
+      var pdf = el('button', null, 'PDF'); pdf.type = 'button';
+      var word = el('button', null, 'Word'); word.type = 'button';
+      pdf.addEventListener('click', function () { menu.remove(); savePdf(text); });
+      word.addEventListener('click', function () { menu.remove(); saveWord(text); });
+      menu.appendChild(pdf); menu.appendChild(word);
+      holder.appendChild(menu);
+    });
+    open.title = 'Save as PDF or Word';
+    holder.insertBefore(open, holder.firstChild);
+    return holder;
+  }
+
+  function rateBtn(m, idx, kind) {
+    var b = actBtn(kind === 'up' ? 'Good reply' : 'Bad reply', kind, function () {
+      if (m.rating) return;
+      m.rating = kind; save();
+      $$('.rate', b.parentNode).forEach(function (x) { x.classList.toggle('chosen', x === b); x.disabled = true; });
+      toast(kind === 'up' ? 'Thanks for the feedback.' : 'Thanks. This helps us improve.');
+      sendFeedback(idx, kind);
+    });
+    b.classList.add('rate');
+    if (m.rating) { b.disabled = true; b.classList.toggle('chosen', m.rating === kind); }
+    return b;
+  }
+  function sendFeedback(idx, kind) {
+    var c = cur(); if (!c || !configured()) return;
+    var m = c.messages[idx], q = '';
+    for (var i = idx - 1; i >= 0; i--) if (c.messages[i].role === 'user') { q = c.messages[i].text; break; }
+    try {
+      fetch(apiBase() + '/feedback', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ rating: kind, question: q.slice(0, 500), reply: String(m.text || '').slice(0, 1500) })
+      }).catch(function () {});
+    } catch (e) {}
   }
 
   function flash(btn, on, off) {
@@ -668,12 +901,13 @@
     return RX_EN.test(t) || RX_RU.test(t) || RX_UR.test(t);
   }
 
-  function fullText(m) {
+  function fullText(m, withFile) {
     var t = m.text;
-    if (m.file) t += '\n\n[Attached file: ' + m.file.name + (m.file.truncated ? ' (shortened)' : '') + ']\n```\n' + m.file.content + '\n```';
+    if (m.file && !withFile) t += '\n\n[Attached file: ' + m.file.name + ' (shared earlier in this chat)]';
+    else if (m.file) t += '\n\n[Attached file: ' + m.file.name + (m.file.truncated ? ' (shortened)' : '') + ']\n```\n' + m.file.content + '\n```';
     return t;
   }
-  function profile() { return { name: state.prefs.name || '', instructions: state.prefs.instr || '' }; }
+  function profile() { return { name: state.prefs.name || '', instructions: state.prefs.instr || '', memory: (state.prefs.memory || []).slice(0, MAX_MEMORY) }; }
 
   async function onSend() {
     if (state.busy) { if (state.controller) state.controller.abort(); return; }
@@ -686,6 +920,7 @@
     if (wantsImage && !text) return;
 
     stopSpeaking(); stopListening();
+    rememberFrom(text);
     var c = ensureCurrent();
     dropErrors(c);
     var m = { role: 'user', text: text || (att && att.kind === 'file' ? 'Please read this file and summarize it.' : 'Please describe this photo.'), ts: Date.now() };
@@ -744,10 +979,12 @@
 
   async function buildPayload(c) {
     var list = c.messages.filter(function (m) { return !m.error; }).slice(-MAX_SEND), out = [];
+    var lastFile = -1;
+    list.forEach(function (x, k) { if (x.file) lastFile = k; });
     for (var i = 0; i < list.length; i++) {
       var m = list[i];
       if (m.role === 'assistant' && m.kind === 'image') { out.push({ role: 'assistant', text: '[An image was created for the user.]' }); continue; }
-      var o = { role: m.role, text: fullText(m) };
+      var o = { role: m.role, text: fullText(m, i === lastFile) };
       if (m.role === 'user' && i === list.length - 1 && m.imgId) {
         var data = m._send || await Blobs.dataUrl(m.imgId);
         if (data) o.image = data;
@@ -775,11 +1012,15 @@
       var payload = await buildPayload(c);
       var res = await fetch(apiBase() + '/chat', {
         method: 'POST', headers: { 'Content-Type': 'application/json' }, signal: state.controller.signal,
-        body: JSON.stringify({ mode: 'general', profile: profile(), messages: payload })
+        body: JSON.stringify({ mode: 'general', profile: profile(), messages: payload, search: !!(state.web && state.caps.search) })
       });
       var rem = res.headers.get('X-Remaining');
       if (rem != null) { state.remaining = parseInt(rem, 10); updateHint(); }
       if (!res.ok) throw new Error(await readError(res));
+      var sources = parseSources(res.headers.get('X-Sources'));
+      var sres = res.headers.get('X-Search');
+      if (state.web && sres === 'limit') toast('Web search limit reached for today. Answering without it.');
+      else if (state.web && sres === 'failed') toast('Web search did not work this time. Answering without it.');
 
       var reader = res.body.getReader(), dec = new TextDecoder(), buf = '';
       for (;;) {
@@ -801,18 +1042,34 @@
       }
       paint();
       if (!acc.trim()) throw new Error('The reply came back empty. Please try again.');
-      c.messages.push({ role: 'assistant', text: acc, ts: Date.now() });
+      var am = { role: 'assistant', text: acc, ts: Date.now() };
+      if (sources.length) am.sources = sources;
+      c.messages.push(am);
       c.ts = Date.now(); save(); renderAll();
-      if (state.prefs.autoread) speakLast(acc);
+      try {
+        if (state.voice) speakThen(acc, listenVoice);
+        else if (state.prefs.autoread) speakLast(acc);
+      } catch (e) { stopVoiceChat(); } // a speech problem must never turn a good answer into an error
     } catch (err) {
       if (err && err.name === 'AbortError') {
+        stopVoiceChat();
         if (acc.trim()) { c.messages.push({ role: 'assistant', text: acc, ts: Date.now() }); save(); }
         renderAll();
       } else {
         if (acc.trim()) c.messages.push({ role: 'assistant', text: acc, ts: Date.now() });
         pushError(c, friendlyError(err));
+        stopVoiceChat();
       }
     } finally { setBusy(false); state.controller = null; }
+  }
+
+  function parseSources(h) {
+    if (!h) return [];
+    try {
+      var a = JSON.parse(decodeURIComponent(h));
+      return Array.isArray(a) ? a.filter(function (x) { return x && typeof x.url === 'string' && /^https?:\/\//i.test(x.url); }).slice(0, 5)
+        .map(function (x) { return { title: String(x.title || '').slice(0, 90), url: x.url.slice(0, 300) }; }) : [];
+    } catch (e) { return []; }
   }
 
   var IMG_STEPS = ['Writing a detailed prompt…', 'Painting your image…', 'Adding the final touches…'];
@@ -850,9 +1107,10 @@
       c.ts = Date.now(); save();
       if (typeof j.remaining === 'number') { state.imgRemaining = j.remaining; updateHint(); }
       renderAll();
+      if (state.voice) setTimeout(listenVoice, 80);
     } catch (err) {
-      if (err && err.name === 'AbortError') renderAll();
-      else pushError(c, friendlyError(err));
+      if (err && err.name === 'AbortError') { stopVoiceChat(); renderAll(); }
+      else { pushError(c, friendlyError(err)); stopVoiceChat(); }
     } finally { clearInterval(ticker); setBusy(false); state.controller = null; }
   }
 
@@ -863,6 +1121,48 @@
     if (state.remaining != null && state.remaining >= 0) bits.push(state.remaining + ' messages left today');
     if (state.imgRemaining != null && state.imgRemaining >= 0) bits.push(state.imgRemaining + ' images left today');
     if (bits.length) { var s = el('span', null, bits.join('  ·  ')); s.style.display = 'block'; h.appendChild(s); }
+  }
+
+  /* ================= memory ================= */
+
+  var RX_REMEMBER = [
+    /^\s*(?:please\s+)?remember\s+(?:that\s+)?(.{3,200})$/i,
+    /^\s*(?:mujhe\s+)?yaad\s+rakh(?:o|na|iye|iyega)?\s+(?:k|ke|kay|ki|ka)?\s*(.{3,200})$/i,
+    /^\s*(.{3,200}?)\s+(?:yaad\s+rakh(?:o|na|iye)|yaad\s+rakhna)\s*[.!]?$/i
+  ];
+  function rememberFrom(text) {
+    if (!text || text.length > 260 || state.mode === 'image') return;
+    for (var i = 0; i < RX_REMEMBER.length; i++) {
+      var m = RX_REMEMBER[i].exec(text);
+      if (m && m[1]) {
+        var item = m[1].replace(/\s+/g, ' ').replace(/[.!؟۔]+$/, '').trim();
+        if (item.length >= 3 && addMemory(item)) toast('Saved to memory. You can edit it in Settings.');
+        return;
+      }
+    }
+  }
+  function addMemory(item) {
+    item = String(item || '').replace(/\s+/g, ' ').trim().slice(0, 200);
+    if (!item) return false;
+    var list = (state.prefs.memory || []).slice();
+    if (list.some(function (x) { return x.toLowerCase() === item.toLowerCase(); })) return false;
+    list.push(item);
+    if (list.length > MAX_MEMORY) list = list.slice(list.length - MAX_MEMORY);
+    setPref('memory', list);
+    renderMemory();
+    return true;
+  }
+  function renderMemory() {
+    var ul = $('#memList'); if (!ul) return;
+    ul.innerHTML = '';
+    var list = state.prefs.memory || [];
+    if (!list.length) { var li0 = el('li', null, 'Nothing saved yet.'); li0.style.color = 'var(--muted)'; ul.appendChild(li0); return; }
+    list.forEach(function (t, i) {
+      var li = el('li'); var sp = el('span', null, t); sp.setAttribute('dir', 'auto');
+      var d = el('button', null, '×'); d.type = 'button'; d.setAttribute('aria-label', 'Remove this memory');
+      d.addEventListener('click', function () { var l = (state.prefs.memory || []).slice(); l.splice(i, 1); setPref('memory', l); renderMemory(); });
+      li.appendChild(sp); li.appendChild(d); ul.appendChild(li);
+    });
   }
 
   /* ================= attachments ================= */
@@ -881,9 +1181,10 @@
     if (!file) return;
     if (state.mode === 'image') return toast('Photos and files cannot be used for image creation. Switch to Chat to attach one.');
     if (/^image\//.test(file.type)) return pickImage(file);
+    if (file.type === 'application/pdf' || /\.pdf$/i.test(file.name)) return pickPdf(file);
     var isText = /^text\//.test(file.type) || /\.(txt|md|csv|json|xml|log|js|ts|py|html|css|java|c|cpp|sql|ya?ml)$/i.test(file.name);
-    if (!isText) return toast('This file type is not supported. Use an image or a text file.');
-    if (file.size > MAX_FILE_BYTES) return toast('That file is too large. The limit is 400 KB.');
+    if (!isText) return toast('This file type is not supported. Use an image, a PDF or a text file.');
+    if (file.size > MAX_FILE_BYTES) return toast('That file is too large. The limit for text files is 400 KB.');
     var r = new FileReader();
     r.onload = function () {
       var t = String(r.result || '');
@@ -894,6 +1195,56 @@
     };
     r.onerror = function () { toast('Could not read that file.'); };
     r.readAsText(file);
+  }
+  var pdfJsPromise = null;
+  function loadPdfJs() {
+    if (window.pdfjsLib) return Promise.resolve(window.pdfjsLib);
+    if (pdfJsPromise) return pdfJsPromise;
+    var base = String(CFG.PDFJS_BASE || 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/').replace(/\/?$/, '/');
+    pdfJsPromise = new Promise(function (resolve, reject) {
+      var sc = document.createElement('script');
+      sc.src = base + 'pdf.min.js';
+      sc.onload = function () {
+        if (!window.pdfjsLib) return reject(new Error('pdfjs'));
+        try { window.pdfjsLib.GlobalWorkerOptions.workerSrc = base + 'pdf.worker.min.js'; } catch (e) {}
+        resolve(window.pdfjsLib);
+      };
+      sc.onerror = function () { pdfJsPromise = null; reject(new Error('pdfjs')); };
+      document.head.appendChild(sc);
+    });
+    return pdfJsPromise;
+  }
+  function extractPdfText(buf) {
+    return loadPdfJs().then(function (lib) {
+      return lib.getDocument({ data: buf }).promise.then(function (doc) {
+        var pages = Math.min(doc.numPages, MAX_PDF_PAGES), out = '', chain = Promise.resolve();
+        for (var i = 1; i <= pages; i++) (function (n) {
+          chain = chain.then(function () {
+            if (out.length > MAX_FILE_CHARS) return;
+            return doc.getPage(n).then(function (pg) { return pg.getTextContent(); }).then(function (tc) {
+              out += tc.items.map(function (it) { return it.str + (it.hasEOL ? '\n' : ''); }).join(' ').replace(/[ \t]+/g, ' ') + '\n\n';
+            });
+          });
+        })(i);
+        return chain.then(function () { return { text: out.trim(), pages: doc.numPages, read: pages }; });
+      });
+    });
+  }
+  function pickPdf(file) {
+    if (file.size > MAX_PDF_BYTES) return toast('That PDF is too large. The limit is 12 MB.');
+    toast('Reading the PDF…', { ms: 2500 });
+    var r = new FileReader();
+    r.onload = function () {
+      extractPdfText(r.result).then(function (res) {
+        if (res.text.length < 20) return toast('No readable text found. Scanned PDFs are not supported yet. Try a text PDF or a photo of the page.');
+        var truncated = res.text.length > MAX_FILE_CHARS || res.read < res.pages;
+        state.att = { kind: 'file', name: file.name, content: res.text.slice(0, MAX_FILE_CHARS), truncated: truncated };
+        updateAttPreview();
+        if (truncated) toast('Only the first part of this PDF will be used.');
+      }).catch(function () { toast('Could not read that PDF. Check your connection and try again, or paste the text.'); });
+    };
+    r.onerror = function () { toast('Could not read that file.'); };
+    r.readAsArrayBuffer(file);
   }
   function pickImage(file) {
     loadImage(file).then(function (img) {
@@ -945,7 +1296,7 @@
     if ('speechSynthesis' in window) window.speechSynthesis.cancel();
     if (state.speakingEl) { state.speakingEl.classList.remove('on'); state.speakingEl = null; }
   }
-  function speak(text, btn) {
+  function speak(text, btn, done) {
     var plain = MD.toPlain(text);
     if (!plain) return;
     var arabic = hasArabicScript(plain);
@@ -960,7 +1311,7 @@
     parts.forEach(function (p, i) {
       var u = new SpeechSynthesisUtterance(p.trim());
       u.lang = lang; if (voice) u.voice = voice;
-      if (i === parts.length - 1) u.onend = function () { if (btn && state.speakingEl === btn) stopSpeaking(); };
+      if (i === parts.length - 1) u.onend = function () { if (btn && state.speakingEl === btn) stopSpeaking(); if (done) done(); };
       u.onerror = function () { if (btn && state.speakingEl === btn) stopSpeaking(); };
       window.speechSynthesis.speak(u);
     });
@@ -969,6 +1320,65 @@
     if (!('speechSynthesis' in window)) return;
     if (state.speakingEl === btn) return stopSpeaking();
     stopSpeaking(); speak(text, btn);
+  }
+  function speakThen(text, done) {
+    if (!('speechSynthesis' in window)) return done && done();
+    stopSpeaking();
+    var plain = MD.toPlain(parseRefs(text).text);
+    if (!plain) return done && done();
+    speak(plain, null, done);
+  }
+
+  /* ---------- hands-free voice chat: listen, answer, speak, listen again ---------- */
+  function setVoiceUI() {
+    var b = $('#voiceChatBtn');
+    b.classList.toggle('on', state.voice);
+    b.setAttribute('aria-pressed', state.voice ? 'true' : 'false');
+  }
+  function stopVoiceChat() {
+    if (!state.voice) return;
+    state.voice = false; state.voiceMiss = 0; setVoiceUI(); stopListening(); stopSpeaking();
+  }
+  function listenVoice() {
+    if (!state.voice || state.busy) return;
+    var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SR) return stopVoiceChat();
+    var rec = new SR(), got = '';
+    rec.lang = state.prefs.vlang || 'ur-PK';
+    rec.interimResults = false; rec.continuous = false;
+    rec.onresult = function (e) {
+      for (var i = 0; i < e.results.length; i++) got += e.results[i][0].transcript;
+    };
+    rec.onerror = function (e) {
+      if (e && (e.error === 'not-allowed' || e.error === 'service-not-allowed')) { toast('Microphone access was blocked. Allow it in your browser settings.'); stopVoiceChat(); }
+    };
+    rec.onend = function () {
+      state.recOn = false; $('#micBtn').classList.remove('on');
+      if (!state.voice) return;
+      got = got.trim();
+      if (got) {
+        state.voiceMiss = 0;
+        $('#input').value = got; autosize();
+        onSend();
+      } else if (++state.voiceMiss >= 3) {
+        toast('Voice chat stopped because I did not hear anything.'); stopVoiceChat();
+      } else setTimeout(listenVoice, 300);
+    };
+    try { rec.start(); state.rec = rec; state.recOn = true; $('#micBtn').classList.add('on'); } catch (e) { stopVoiceChat(); }
+  }
+  function initVoiceChat() {
+    var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    var b = $('#voiceChatBtn');
+    if (!SR || !('speechSynthesis' in window)) return;
+    b.hidden = false;
+    b.addEventListener('click', function () {
+      if (state.voice) return stopVoiceChat();
+      if (state.mode === 'image') setMode('general');
+      state.voice = true; state.voiceMiss = 0; setVoiceUI();
+      stopSpeaking();
+      toast('Voice chat is on. Speak after the beep-free pause. Tap the button again to stop.', { ms: 3500 });
+      listenVoice();
+    });
   }
   function speakLast(text) { if ('speechSynthesis' in window) { stopSpeaking(); speak(text, null); } }
 
@@ -1023,10 +1433,13 @@
       t.addEventListener('change', function () { setPref(t.dataset.pref, t.checked); });
     });
     $('#prefName').addEventListener('input', function (e) { setPref('name', e.target.value.slice(0, 60)); });
+    var addMem = function () { var i = $('#memInput'); if (addMemory(i.value)) { i.value = ''; } else if (i.value.trim()) toast('Already saved.'); };
+    $('#memAdd').addEventListener('click', addMem);
+    $('#memInput').addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); addMem(); } });
     $('#prefInstr').addEventListener('input', function (e) { setPref('instr', e.target.value.slice(0, 600)); });
 
     $('#openSettings').addEventListener('click', function () {
-      syncSettingsUI(); openMenu(false);
+      syncSettingsUI(); renderMemory(); openMenu(false);
       var d = $('#settings'); if (d.showModal) d.showModal(); else d.setAttribute('open', '');
     });
     ['settings', 'reportDlg'].forEach(function (id) {
@@ -1064,6 +1477,16 @@
     var m = $('#messages');
     $('#toBottom').hidden = m.scrollHeight - m.scrollTop - m.clientHeight < 240;
   }
+  // Ask the server what it can do (web search on or off). Failure just means the extras stay hidden.
+  function loadCaps() {
+    if (!configured()) return;
+    try {
+      fetch(apiBase() + '/health').then(function (r) { return r.ok ? r.json() : {}; }).then(function (j) {
+        state.caps = { search: !!(j && j.search) };
+        renderModes();
+      }).catch(function () {});
+    } catch (e) {}
+  }
   function closeMoreMenu() { $('#moreMenu').hidden = true; $('#moreBtn').setAttribute('aria-expanded', 'false'); }
 
   function init() {
@@ -1073,7 +1496,7 @@
     if (first) { state.currentId = first.id; state.mode = normMode(first.mode); }
     ensureCurrent();
 
-    initSettings(); initMic();
+    initSettings(); initMic(); initVoiceChat(); loadCaps();
 
     $('#menuBtn').addEventListener('click', function () { openMenu(true); });
     $('#sbClose').addEventListener('click', function () { openMenu(false); });
@@ -1171,6 +1594,6 @@
     renderAll();
   }
 
-  window.AnwaarApp = { detectImageIntent: detectImageIntent };
+  window.AnwaarApp = { detectImageIntent: detectImageIntent, parseRefs: parseRefs };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();

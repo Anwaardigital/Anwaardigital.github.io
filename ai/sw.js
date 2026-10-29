@@ -1,6 +1,6 @@
 /* Anwaar AI service worker: lets the app open offline and be installed.
    Network first, so every update you push to GitHub shows up on the next visit. */
-const CACHE = 'anwaar-ai-v3';
+const CACHE = 'anwaar-ai-v4';
 const SHELL = ['./', 'index.html', 'style.css', 'app.js', 'md.js', 'config.js', 'icon.svg', 'icon-192.png', 'icon-512.png', 'manifest.webmanifest'];
 
 self.addEventListener('install', (e) => {

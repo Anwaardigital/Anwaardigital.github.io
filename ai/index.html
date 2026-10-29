@@ -102,10 +102,13 @@
         <button class="icon-btn" id="attachBtn" type="button" aria-label="Attach an image or text file">
           <svg viewBox="0 0 24 24"><path d="M20 11.5l-8.3 8.3a5 5 0 0 1-7.1-7.1l8.6-8.6a3.4 3.4 0 0 1 4.8 4.8l-8.5 8.5a1.7 1.7 0 0 1-2.4-2.4l7.8-7.8"/></svg>
         </button>
-        <input type="file" id="fileInput" accept="image/*,.txt,.md,.csv,.json,.xml,.log,.js,.ts,.py,.html,.css,.java,.c,.cpp,.sql,.yml,.yaml" hidden>
+        <input type="file" id="fileInput" accept="image/*,.pdf,application/pdf,.txt,.md,.csv,.json,.xml,.log,.js,.ts,.py,.html,.css,.java,.c,.cpp,.sql,.yml,.yaml" hidden>
         <textarea id="input" rows="1" dir="auto" placeholder="Message Anwaar AI" enterkeyhint="send" aria-label="Message"></textarea>
         <button class="icon-btn" id="micBtn" type="button" aria-label="Speak your message">
           <svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3"/></svg>
+        </button>
+        <button class="icon-btn" id="voiceChatBtn" type="button" aria-label="Hands-free voice chat" aria-pressed="false" hidden>
+          <svg viewBox="0 0 24 24"><path d="M4 10v4M8 7v10M12 4v16M16 7v10M20 10v4"/></svg>
         </button>
         <button class="send-btn" id="sendBtn" type="button" aria-label="Send">
           <svg viewBox="0 0 24 24"><path d="M4 12l16-7-6 15-2.5-6.2z"/></svg>
@@ -174,6 +177,16 @@
       <label class="field"><span>Custom instructions</span>
         <textarea id="prefInstr" rows="3" maxlength="600" placeholder="For example: keep answers short, I am a student, explain step by step."></textarea>
       </label>
+    </section>
+
+    <section>
+      <h3>Memory</h3>
+      <p class="muted">Things Anwaar AI should remember about you. Say "Remember that I run three websites" in a chat, or add a note here. Stored only in this browser.</p>
+      <ul class="mem-list" id="memList"></ul>
+      <div class="mem-add">
+        <input type="text" id="memInput" maxlength="200" placeholder="Add something to remember" autocomplete="off" aria-label="Add a memory">
+        <button type="button" class="btn" id="memAdd">Add</button>
+      </div>
     </section>
 
     <section>
