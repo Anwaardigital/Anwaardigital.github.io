@@ -58,3 +58,9 @@ Firebase Console → **Build → Authentication → Sign-in method**:
 - Jab tak config placeholder (`YOUR_API_KEY`) hai, login dabane par website friendly message dikhayegi — crash nahi hogi.
 - Session **localStorage** me persist hoti hai — browser band karne par bhi login rahega.
 - Firebase free tier: 50,000 logins/month — bilkul free.
+
+## Our websites
+- Anwaar Digital — https://anwaardigital.com/
+- Anwaar Free Tools — https://anwaardigital.com/Freetools/
+- CyberSec Hub — https://anwaardigital.com/Cybersecurity/
+- GlobalStream — http://globalstream.anwaardigital.com/
