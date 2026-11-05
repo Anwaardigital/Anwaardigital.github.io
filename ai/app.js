@@ -49,7 +49,7 @@
 
   var state = {
     chats: [], currentId: null,
-    mode: 'general', style: 'auto', aspect: 'square',
+    mode: 'general', style: 'auto', aspect: 'square', site: '',
     att: null, busy: false, controller: null,
     prefs: {}, speakingEl: null, rec: null, recOn: false,
     remaining: null, imgRemaining: null,
@@ -1012,7 +1012,7 @@
       var payload = await buildPayload(c);
       var res = await fetch(apiBase() + '/chat', {
         method: 'POST', headers: { 'Content-Type': 'application/json' }, signal: state.controller.signal,
-        body: JSON.stringify({ mode: 'general', profile: profile(), messages: payload, search: !!(state.web && state.caps.search) })
+        body: JSON.stringify({ mode: 'general', profile: profile(), messages: payload, search: !!(state.web && state.caps.search), site: state.site })
       });
       var rem = res.headers.get('X-Remaining');
       if (rem != null) { state.remaining = parseInt(rem, 10); updateHint(); }
@@ -1491,6 +1491,7 @@
 
   function init() {
     loadPrefs(); applyPrefs();
+    try { var sq = new URLSearchParams(location.search).get('site') || ''; if (['main', 'freetools', 'hub', 'globalstream'].indexOf(sq) !== -1) state.site = sq; } catch (e) {}
     loadChats();
     var first = state.chats.filter(nonEmpty)[0];
     if (first) { state.currentId = first.id; state.mode = normMode(first.mode); }
