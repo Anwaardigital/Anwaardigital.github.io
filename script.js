@@ -8,26 +8,26 @@ const DIRECT_LINKS = {
 };
 
 const APPS = [
-  {name:"Islam 786", ver:"v3.5", icon:"🌙", desc:"Complete Islamic app — prayer times, Quran, duas, Qibla, tasbeeh & more.", dl: null},
-  {name:"Malik Anwaar AI", ver:"v4.0", icon:"🤖", desc:"Free AI chat assistant — ask anything in Urdu & English.", dl: null},
-  {name:"SafeBox", ver:"v3.1", icon:"🔒", desc:"Private vault — hide photos & videos securely on your phone.", dl: null},
-  {name:"CV Maker", ver:"v3.0", icon:"📄", desc:"Build professional CVs & resumes in minutes.", dl: null},
-  {name:"ClipCraft", ver:"v3.0", icon:"🎬", desc:"Video editor — trim, merge, music, text & filters.", dl: null},
-  {name:"LensCraft", ver:"v6.0", icon:"📸", desc:"Camera filters & photo editor with beautiful effects.", dl: null},
-  {name:"App Locker", ver:"v2.3", icon:"🔐", desc:"Lock your apps with PIN — keep your privacy safe.", dl: null},
-  {name:"PDF Master", ver:"v2.0", icon:"📕", desc:"All PDF tools — merge, split, compress, rotate & convert.", dl: null},
-  {name:"Urdu Notes", ver:"v3.2", icon:"📝", desc:"Beautiful Urdu notes app — write & organize easily.", dl: null},
-  {name:"Video Player", ver:"v2.1", icon:"▶️", desc:"Smooth HD video player for all formats.", dl: null},
-  {name:"Music Player", ver:"v2.4", icon:"🎵", desc:"Beautiful music player with 16 languages support.", dl: DIRECT_LINKS["Music Player"]},
-  {name:"Thumbnail Maker", ver:"v2.0", icon:"🖼️", desc:"Create stunning YouTube thumbnails in seconds.", dl: null},
-  {name:"Image Resizer", ver:"v2.0", icon:"📐", desc:"Resize images to any size quickly & easily.", dl: null},
+  {name:"Islam 786", ver:"v3.5", icon:"", desc:"Complete Islamic app — prayer times, Quran, duas, Qibla, tasbeeh & more.", dl: null},
+  {name:"Malik Anwaar AI", ver:"v4.0", icon:"", desc:"Free AI chat assistant — ask anything in Urdu & English.", dl: null},
+  {name:"SafeBox", ver:"v3.1", icon:"", desc:"Private vault — hide photos & videos securely on your phone.", dl: null},
+  {name:"CV Maker", ver:"v3.0", icon:"", desc:"Build professional CVs & resumes in minutes.", dl: null},
+  {name:"ClipCraft", ver:"v3.0", icon:"", desc:"Video editor — trim, merge, music, text & filters.", dl: null},
+  {name:"LensCraft", ver:"v6.0", icon:"", desc:"Camera filters & photo editor with beautiful effects.", dl: null},
+  {name:"App Locker", ver:"v2.3", icon:"", desc:"Lock your apps with PIN — keep your privacy safe.", dl: null},
+  {name:"PDF Master", ver:"v2.0", icon:"", desc:"All PDF tools — merge, split, compress, rotate & convert.", dl: null},
+  {name:"Urdu Notes", ver:"v3.2", icon:"", desc:"Beautiful Urdu notes app — write & organize easily.", dl: null},
+  {name:"Video Player", ver:"v2.1", icon:"►", desc:"Smooth HD video player for all formats.", dl: null},
+  {name:"Music Player", ver:"v2.4", icon:"", desc:"Beautiful music player with 16 languages support.", dl: DIRECT_LINKS["Music Player"]},
+  {name:"Thumbnail Maker", ver:"v2.0", icon:"", desc:"Create stunning YouTube thumbnails in seconds.", dl: null},
+  {name:"Image Resizer", ver:"v2.0", icon:"", desc:"Resize images to any size quickly & easily.", dl: null},
 ];
 
 const GAMES = [
-  {name:"Hill Climb", ver:"v3.4", icon:"🏔️", desc:"Thrilling hill climbing racing — conquer every mountain!", dl: null},
-  {name:"Bike Racer 3D", ver:"v1.1", icon:"🏍️", desc:"Real 3D bike racing with stunning graphics.", dl: null},
-  {name:"Ludo", ver:"v2.1", icon:"🎲", desc:"Classic Ludo — play with family & friends.", dl: null},
-  {name:"Car Driving Sim", ver:"v2.3", icon:"🚗", desc:"Realistic car driving simulator with smooth controls.", dl: null},
+  {name:"Hill Climb", ver:"v3.4", icon:"", desc:"Thrilling hill climbing racing — conquer every mountain!", dl: null},
+  {name:"Bike Racer 3D", ver:"v1.1", icon:"", desc:"Real 3D bike racing with stunning graphics.", dl: null},
+  {name:"Ludo", ver:"v2.1", icon:"", desc:"Classic Ludo — play with family & friends.", dl: null},
+  {name:"Car Driving Sim", ver:"v2.3", icon:"", desc:"Realistic car driving simulator with smooth controls.", dl: null},
 ];
 
 function cardHTML(app){
@@ -40,7 +40,7 @@ function cardHTML(app){
     <div class="app-ver">${app.ver}</div>
     <p>${app.desc}</p>
     <div class="card-btns">
-      <a href="${href}"${target} class="btn-dl">⬇ Download</a>
+      <a href="${href}"${target} class="btn-dl">↓ Download</a>
     </div>
   </div>`;
 }
@@ -64,7 +64,7 @@ document.getElementById('appSearch').addEventListener('input', e => {
   });
   let nr = grid.querySelector('.no-result');
   if (visible === 0 && !nr) {
-    grid.insertAdjacentHTML('beforeend', '<div class="no-result">No apps found. Try another search 🔍</div>');
+    grid.insertAdjacentHTML('beforeend', '<div class="no-result">No apps found. Try another search </div>');
   } else if (visible > 0 && nr) nr.remove();
 });
 

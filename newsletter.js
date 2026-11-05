@@ -10,7 +10,7 @@
     var saved=localStorage.getItem('ad_newsletter_email');
     if(saved){
       input.value=saved;
-      show('✅ Aap ki email save hai — email updates jald shuru honge, aap sab se pehle janenge!', 'info');
+      show('✓ Aap ki email save hai — email updates jald shuru honge, aap sab se pehle janenge!', 'info');
     }
   }catch(e){}
 
@@ -18,11 +18,11 @@
     ev.preventDefault();
     var email=input.value.trim();
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){
-      show('⚠️ Barah-e-karam durust email address likhein.', 'err');
+      show(' Barah-e-karam durust email address likhein.', 'err');
       return;
     }
     try{localStorage.setItem('ad_newsletter_email',email);}catch(e){}
-    show('Shukriya! Aap ki email save ho gayi — updates jald aa rahe hain. 🎉', 'ok');
+    show('Shukriya! Aap ki email save ho gayi — updates jald aa rahe hain. ', 'ok');
     form.reset();
   });
 })();

@@ -13,17 +13,17 @@
         app=document.getElementById('rqApp').value.trim(),
         details=document.getElementById('rqDetails').value.trim();
 
-    if(name.length<2){show('⚠️ Barah-e-karam apna naam likhein.', 'err');return;}
-    if(!/^[\d\s+\-()]{7,15}$/.test(phone)){show('⚠️ Barah-e-karam durust WhatsApp number likhein.', 'err');return;}
-    if(app.length<2){show('⚠️ Barah-e-karam app ka naam likhein.', 'err');return;}
+    if(name.length<2){show(' Barah-e-karam apna naam likhein.', 'err');return;}
+    if(!/^[\d\s+\-()]{7,15}$/.test(phone)){show(' Barah-e-karam durust WhatsApp number likhein.', 'err');return;}
+    if(app.length<2){show(' Barah-e-karam app ka naam likhein.', 'err');return;}
 
     var text='Assalam o Alaikum!\n\n*New App Request*\n\n'
-      +'👤 Naam: '+name+'\n'
-      +'📱 WhatsApp: '+phone+'\n'
-      +'📲 App ka Naam: '+app+'\n'
-      +'📝 Details: '+(details||'—');
+      +' Naam: '+name+'\n'
+      +' WhatsApp: '+phone+'\n'
+      +' App ka Naam: '+app+'\n'
+      +' Details: '+(details||'—');
     window.open('https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(text),'_blank','noopener');
-    show('✅ Thank you! Your request has been opened in WhatsApp.', 'ok');
+    show('✓ Thank you! Your request has been opened in WhatsApp.', 'ok');
     form.reset();
   });
 })();

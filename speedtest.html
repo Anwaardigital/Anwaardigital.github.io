@@ -60,7 +60,7 @@ h1 .gold-text{color:var(--gold)}
 <a class="back-link" href="index.html">← Back to Anwaar Digital</a>
 
 <div class="wrap">
-  <span class="tag">⚡ Free Tool</span>
+  <span class="tag"> Free Tool</span>
   <h1>Internet <span class="gold-text">Speed Test</span></h1>
   <p class="sub">Check your internet speed — ping, download and upload!</p>
 
@@ -71,20 +71,20 @@ h1 .gold-text{color:var(--gold)}
       <div class="metric"><div class="label">Upload</div><div class="value" id="mUp">—</div><div class="unit">Mbps</div></div>
     </div>
     <div class="bar-wrap"><div class="bar" id="bar"></div></div>
-    <div class="status" id="status">Press the button below to start the test 👇</div>
+    <div class="status" id="status">Press the button below to start the test </div>
     <button class="btn" id="startBtn" onclick="runTest()">Start Test</button>
 
     <div class="result" id="result">
-      <h3>✅ Test Complete!</h3>
+      <h3>✓ Test Complete!</h3>
       <p>Aap ki approximate speed:</p>
       <div class="big"><span id="rDown">0</span> Mbps</div>
       <p>Download • <span id="rUp">0</span> Mbps upload • <span id="rPing">0</span> ms ping</p>
       <br>
-      <button class="btn" onclick="runTest()">🔄 Test Again</button>
+      <button class="btn" onclick="runTest()"> Test Again</button>
     </div>
   </div>
 
-  <p class="note">ℹ️ Real browser-based measurement — ping, download & upload actually tested live. Speed varies with server location, network load and device.</p>
+  <p class="note"> Real browser-based measurement — ping, download & upload actually tested live. Speed varies with server location, network load and device.</p>
 </div>
 
 <script>
@@ -112,7 +112,7 @@ async function runTest(){
 
   try {
     // --- PING: 5 live round-trips, keep the best (minimum) ---
-    status.textContent = '📡 Ping measure ho raha hai... (live)';
+    status.textContent = ' Ping measure ho raha hai... (live)';
     let pings = [];
     for(let i = 0; i < 5; i++){
       const t0 = performance.now();
@@ -129,7 +129,7 @@ async function runTest(){
     document.getElementById('mPing').textContent = ping || '—';
 
     // --- DOWNLOAD: 4 parallel live fetches (~930KB total), real bytes / real time ---
-    status.textContent = '⬇ Download speed test ho rahi hai... (live)';
+    status.textContent = '↓ Download speed test ho rahi hai... (live)';
     bar.style.width = '40%';
     const d0 = performance.now();
     const jobs = [];
@@ -158,7 +158,7 @@ async function runTest(){
     document.getElementById('mDown').textContent = shown.toFixed(1);
 
     // --- UPLOAD: POST 1MB of random data, measure real send time ---
-    status.textContent = '⬆ Upload speed test ho rahi hai... (live)';
+    status.textContent = '↑ Upload speed test ho rahi hai... (live)';
     let upMbps = 0, upOk = false;
     try {
       const payload = new Uint8Array(1024 * 1024); // 1MB
@@ -180,13 +180,13 @@ async function runTest(){
     bar.style.width = '100%';
 
     // --- Result card with REAL numbers ---
-    status.textContent = '✅ Ho gaya! (asal measurement)';
+    status.textContent = '✓ Ho gaya! (asal measurement)';
     document.getElementById('rDown').textContent = shown.toFixed(1);
     document.getElementById('rUp').textContent = upOk ? upMbps.toFixed(1) : 'N/A';
     document.getElementById('rPing').textContent = ping || '—';
     result.style.display = 'block';
   } catch(err){
-    status.textContent = '⚠️ Test fail ho gaya — internet check karke dobara try karein.';
+    status.textContent = ' Test fail ho gaya — internet check karke dobara try karein.';
     btn.style.display = '';
   }
   running = false; btn.disabled = false;
@@ -195,7 +195,7 @@ async function runTest(){
 
 
 <footer style="margin-top:44px;padding:28px 16px;text-align:center;border-top:1px solid rgba(255,215,0,.25)">
-  <p style="color:var(--gold-light);font-weight:700;margin-bottom:10px">🌙 Anwaar Digital</p>
+  <p style="color:var(--gold-light);font-weight:700;margin-bottom:10px"> Anwaar Digital</p>
   <p style="font-size:.85rem;color:var(--muted);margin-bottom:10px">
     <a href="index.html" style="color:var(--gold)">Home</a> ·
     <a href="about.html" style="color:var(--gold)">About</a> ·

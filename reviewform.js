@@ -40,9 +40,9 @@
     ev.preventDefault();
     var name=document.getElementById('rvName').value.trim(),
         text=document.getElementById('rvText').value.trim();
-    if(name.length<2){show('⚠️ Barah-e-karam apna naam likhein.', 'err');return;}
-    if(rating<1){show('⚠️ Barah-e-karam star rating chunein.', 'err');return;}
-    if(text.length<5){show('⚠️ Barah-e-karam thora detail mein review likhein.', 'err');return;}
+    if(name.length<2){show(' Barah-e-karam apna naam likhein.', 'err');return;}
+    if(rating<1){show(' Barah-e-karam star rating chunein.', 'err');return;}
+    if(text.length<5){show(' Barah-e-karam thora detail mein review likhein.', 'err');return;}
 
     var review={name:name,rating:rating,text:text,at:Date.now()};
     var list=getSaved();list.push(review);setSaved(list);
@@ -54,7 +54,7 @@
       grid.appendChild(tmp.content.firstChild);
       grid.scrollIntoView({behavior:'smooth',block:'center'});
     }
-    show('Shukriya '+esc(name)+'! Aapka review add ho gaya. 🌟', 'ok');
+    show('Shukriya '+esc(name)+'! Aapka review add ho gaya. ★', 'ok');
     form.reset();rating=0;paint();
   });
 })();
