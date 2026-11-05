@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../styles.css">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌙</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'></text></svg>">
 <style>
 .article-wrap{max-width:800px;margin:0 auto;padding:5.5rem 1.2rem 3.5rem}
 .article-wrap h1{font-size:2rem;color:#7fe0b2;line-height:1.35;margin:.4rem 0 .8rem}
@@ -63,11 +63,11 @@ body.light-mode .article-wrap a{color:#0e6b4d}
 <nav class="navbar" id="navbar">
   <div class="nav-inner">
     <a href="../index.html" class="brand">
-      <span class="brand-icon">🌙</span>
+      <span class="brand-icon"></span>
       <span class="brand-text">Anwaar <span class="gold">Digital</span></span>
     </a>
     <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
-    <button id="darkModeToggle" class="dark-toggle" aria-label="Toggle theme">🌙</button>
+    <button id="darkModeToggle" class="dark-toggle" aria-label="Toggle theme"></button>
     <ul class="nav-links" id="navLinks">
       <li><a href="../index.html">Home</a></li>
       <li><a href="../blog.html" class="active">Blog</a></li>
@@ -79,7 +79,7 @@ body.light-mode .article-wrap a{color:#0e6b4d}
 
 <main>
 <article class="article-wrap">
-  <div class="article-meta">🔐 Android Privacy · October 16, 2026 · By Anwaar Digital Team</div>
+  <div class="article-meta"> Android Privacy · October 16, 2026 · By Anwaar Digital Team</div>
   <h1>Android App Permissions Explained: What to Allow, What to Deny (2026 Guide)</h1>
   <p>A flashlight app asks for your location. A photo editor wants your contacts. A simple calculator requests access to your microphone. These permission popups appear so often that most people tap <strong>"Allow"</strong> without thinking — and that one-tap habit is exactly what shady apps count on. Permissions are Android's way of asking <em>you</em> to draw the line between what an app genuinely needs and what it is merely curious about. This guide explains every major permission in plain English, shows you exactly which ones to allow and which to deny, and walks you through a five-minute audit of the permissions you have already granted.</p>
 
@@ -104,21 +104,21 @@ body.light-mode .article-wrap a{color:#0e6b4d}
   </ul>
   <p>Newer Android versions add <strong>one-time permissions</strong> and <strong>auto-reset</strong>: if you do not open an app for a few months, Android silently revokes its permissions. You can also grant <strong>approximate location</strong> instead of precise location for apps that only need your general area. These defaults are genuinely good — your job is simply not to override them carelessly.</p>
 
-  <div class="tip">💡 <strong>Tip:</strong> When in doubt, choose "Allow only while using the app" or "Ask every time." You can always upgrade a permission later — but you can never take back data an app already collected.</div>
+  <div class="tip"> <strong>Tip:</strong> When in doubt, choose "Allow only while using the app" or "Ask every time." You can always upgrade a permission later — but you can never take back data an app already collected.</div>
 
   <h2>The Big Four: Location, Camera, Microphone, Contacts</h2>
   <p>These four permissions expose the most sensitive parts of your digital life, so they deserve the most scrutiny.</p>
 
-  <h3>📍 Location</h3>
+  <h3> Location</h3>
   <p>A maps or ride-hailing app obviously needs your location. A weather widget needs your approximate area. But a calculator, a flashlight, or a wallpaper app has no legitimate reason to know where you are. Allow location <strong>only while using the app</strong> for apps with a genuine reason, prefer <strong>approximate location</strong> when Android offers it (Android 12+), and never grant <strong>"Allow all the time"</strong> unless you specifically trust the app and understand why — fitness trackers and family-locator apps are the rare exceptions.</p>
 
-  <h3>📷 Camera</h3>
+  <h3> Camera</h3>
   <p>Grant camera access to camera apps, QR scanners, video-call apps, and banking apps (for depositing checks). Deny it for everything else. One detail many people miss: Android also lets apps access your camera <strong>through the system camera app</strong> without needing the permission themselves. If an app only needs a profile photo, it should use the built-in camera — if it insists on its own camera permission anyway, ask yourself why.</p>
 
-  <h3>🎤 Microphone</h3>
+  <h3> Microphone</h3>
   <p>Allow for voice calls, voice assistants, voice notes, and video recording. Deny for apps with no audio feature. Android shows a green dot indicator whenever any app uses the camera or microphone — if that dot lights up while you are just scrolling a shopping app, something is wrong. Check <strong>Settings → Privacy → Privacy dashboard</strong> to see exactly which apps used these sensors recently.</p>
 
-  <h3>👥 Contacts</h3>
+  <h3> Contacts</h3>
   <p>Messaging and dialer apps need your contacts. Almost nothing else does. Be especially careful here: granting contacts access gives the app <em>everyone else's</em> phone numbers and emails, not just yours. Social apps often request it to "find friends" — and then upload your entire address book to their servers. Deny it unless the app's core purpose is communication.</p>
 
   <h2>Storage, Notifications, Phone, SMS: When to Say Yes</h2>
@@ -132,7 +132,7 @@ body.light-mode .article-wrap a{color:#0e6b4d}
   </ul>
 
   <h2>Red Flags: Permission Requests That Signal a Shady App</h2>
-  <div class="warn">⚠️ <strong>Treat these combinations as warning signs:</strong> a simple utility app (flashlight, calculator, wallpaper, compass) asking for location + contacts + SMS; any app demanding permissions <em>before</em> you use the feature that needs them; and apps that refuse to work at all when you deny an unrelated permission.</div>
+  <div class="warn"> <strong>Treat these combinations as warning signs:</strong> a simple utility app (flashlight, calculator, wallpaper, compass) asking for location + contacts + SMS; any app demanding permissions <em>before</em> you use the feature that needs them; and apps that refuse to work at all when you deny an unrelated permission.</div>
   <p>A legitimate app explains <em>why</em> it needs a permission, asks at the moment of use, and keeps working (with reduced features) if you deny. A shady app asks for everything upfront, gives no explanation, and blocks you for saying no. When you see the second pattern, uninstall — it is one of the clearest malware tells we cover in our <a href="apk-safety-guide-2026.html">APK safety guide</a>.</p>
 
   <h2>The 5-Minute Permission Audit</h2>
@@ -165,9 +165,9 @@ body.light-mode .article-wrap a{color:#0e6b4d}
 <!-- ============ FOOTER ============ -->
 <footer class="footer">
   <div class="container">
-    <div class="footer-brand">🌙 Anwaar <span class="gold-text">Digital</span></div>
+    <div class="footer-brand"> Anwaar <span class="gold-text">Digital</span></div>
     <p>All apps developed by Malik Muhammad Anwaar</p>
-    <p class="footer-note">🤲 Please remember me in your prayers</p>
+    <p class="footer-note"> Please remember me in your prayers</p>
     <div class="footer-links">
       <a href="../index.html">Home</a> · <a href="../blog.html">Blog</a> · <a href="../about.html">About</a> · <a href="../contact.html">Contact</a>
     </div>
@@ -175,9 +175,9 @@ body.light-mode .article-wrap a{color:#0e6b4d}
       <a href="../privacy.html">Privacy Policy</a> · <a href="../terms.html">Terms of Service</a> · <a href="../disclaimer.html">Disclaimer</a>
     </div>
     <div class="social-links">
-      <a href="https://www.youtube.com/@ajoobaJahan" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube">▶️</a>
-      <a href="https://wa.me/923288317526" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp">💬</a>
-      <a href="mailto:malikanwaarapps@gmail.com" aria-label="Email" title="Email">📧</a>
+      <a href="https://www.youtube.com/@ajoobaJahan" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube">►</a>
+      <a href="https://wa.me/923288317526" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp"></a>
+      <a href="mailto:malikanwaarapps@gmail.com" aria-label="Email" title="Email"></a>
     </div>
     <p class="copyright">© 2026 Anwaar Digital. All rights reserved.</p>
   </div>
