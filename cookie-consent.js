@@ -46,11 +46,11 @@
     document.body.appendChild(b);
     document.getElementById('adCookieAccept').onclick = function () {
       try { localStorage.setItem(KEY, 'accepted'); } catch (e) {}
-      hideBanner(); loadGA();
+      hideBanner(); loadGA(); placeFloats();
     };
     document.getElementById('adCookieDecline').onclick = function () {
       try { localStorage.setItem(KEY, 'declined'); } catch (e) {}
-      hideBanner();
+      hideBanner(); placeFloats();
     };
   }
 
@@ -67,6 +67,67 @@
   }
 
   init();
+
+  /* Floating-button stack (2026-11-05): AI, WhatsApp and back-to-top must never cover each other,
+     and must sit above the cookie banner while it is visible. Base = banner height + 16, else 16.
+     The AI button is created here because the main site's shared script is this file. */
+  function placeFloats() {
+    var b = document.getElementById('adCookieBanner');
+    var base = (b ? b.offsetHeight : 0) + 16;
+    var ai = document.getElementById('anwaar-ai-btn');
+    if (ai) { ai.style.bottom = base + 'px'; ai.style.right = '16px'; }
+    var wa = document.querySelector('.wa-float');
+    if (wa) { wa.style.bottom = (base + 60) + 'px'; wa.style.right = '16px'; }
+    var tp = document.getElementById('backToTop');
+    if (tp) { tp.style.bottom = (base + 132) + 'px'; tp.style.right = '16px'; }
+  }
+
+  function addAiButton() {
+    if (document.getElementById('anwaar-ai-btn')) return;
+    if (!document.body) return;
+    var a = document.createElement('a');
+    a.id = 'anwaar-ai-btn';
+    a.href = 'https://anwaardigital.com/ai/?site=main';
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.setAttribute('aria-label', 'Anwaar AI');
+    a.textContent = '\u2726 Anwaar AI';
+    a.style.cssText = 'position:fixed;right:16px;bottom:16px;z-index:9999;display:flex;align-items:center;background:#1a2b4a;color:#fff;text-decoration:none;font-family:system-ui,-apple-system,sans-serif;font-size:15px;font-weight:600;padding:12px 16px;border-radius:999px;box-shadow:0 4px 16px rgba(0,0,0,.35)';
+    document.body.appendChild(a);
+  }
+
+  function addBackToTop() {
+    if (document.getElementById('backToTop')) return;
+    if (!document.body) return;
+    var btn = document.createElement('button');
+    btn.id = 'backToTop';
+    btn.setAttribute('aria-label', 'Back to top');
+    btn.title = 'Back to top';
+    btn.innerHTML = '&#8593;';
+    btn.style.cssText = 'position:fixed;bottom:148px;right:16px;width:48px;height:48px;border-radius:50%;border:none;background:#FFD700;color:#1a1a1a;font-size:22px;line-height:1;cursor:pointer;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s,transform .2s;box-shadow:0 4px 12px rgba(0,0,0,.35);z-index:9999;padding:0;';
+    document.body.appendChild(btn);
+    window.addEventListener('scroll', function () {
+      var s = window.pageYOffset || document.documentElement.scrollTop;
+      if (s > 300) { btn.style.opacity = '1'; btn.style.visibility = 'visible'; }
+      else { btn.style.opacity = '0'; btn.style.visibility = 'hidden'; }
+    }, { passive: true });
+    btn.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  }
+
+  function initFloats() {
+    addAiButton();
+    addBackToTop();
+    placeFloats();
+    if (window.MutationObserver && document.body) {
+      new MutationObserver(placeFloats).observe(document.body, { childList: true });
+    }
+    window.addEventListener('resize', placeFloats);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function () { initFloats(); placeFloats(); });
+  } else {
+    initFloats();
+  }
 
   window.showCookieBanner = function () {
     try { localStorage.removeItem(KEY); } catch (e) {}
