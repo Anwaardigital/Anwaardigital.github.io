@@ -63,4 +63,4 @@ Firebase Console → **Build → Authentication → Sign-in method**:
 - Anwaar Digital — https://anwaardigital.com/
 - Anwaar Free Tools — https://anwaardigital.com/Freetools/
 - CyberSec Hub — https://anwaardigital.com/Cybersecurity/
-- GlobalStream — http://globalstream.anwaardigital.com/
+- GlobalStream — https://globalstream.anwaardigital.com/
