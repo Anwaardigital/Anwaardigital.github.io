@@ -1611,7 +1611,7 @@ const WINDOWS = [
 ];
 
 function iconHTML(app){
-  return app.icon.endsWith(".png")
+  return (app.icon.startsWith("data:image/") || /\.(png|jpe?g|webp|svg)$/i.test(app.icon))
     ? `<img src="${app.icon}" alt="${app.name} icon" class="app-icon-img" loading="lazy">`
     : app.icon;
 }
