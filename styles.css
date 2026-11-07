@@ -978,3 +978,29 @@ body.light-mode .gold-text{color:#a07e12}
 .guide-emoji{font-size:2.6rem;display:block;margin-bottom:12px}
 .guide-card h3{font-size:1.1rem;font-weight:600;margin-bottom:8px;color:var(--text)}
 .guide-card p{font-size:.88rem;color:var(--muted);line-height:1.6}
+
+/* ---------- Real icons (no emoji) — added 2026-11-06 ---------- */
+.brand-icon{display:inline-flex;align-items:center}
+.brand-icon img{width:34px;height:34px;border-radius:50%;display:block;object-fit:cover}
+.cat-icon{color:var(--gold)}
+.cat-icon svg,.cat-icon img{width:46px;height:46px;display:block}
+.cat-icon img{border-radius:12px;object-fit:cover}
+.why-icon svg{width:34px;height:34px}
+.nl-icon svg{width:44px;height:44px}
+.contact-icon{color:#25d366}
+.contact-icon svg{width:52px;height:52px}
+.contact-row .icon{color:var(--gold)}
+.contact-row .icon.wa{color:#25d366}
+.contact-row .icon.yt{color:#ff0000}
+.contact-row .icon svg{width:22px;height:22px;vertical-align:-4px}
+.social-links a{color:var(--gold)}
+.social-links a svg{width:22px;height:22px;display:block}
+.footer-social a{color:var(--gold);text-decoration:none}
+.footer-social a svg{width:16px;height:16px;vertical-align:-3px;margin-right:4px}
+.footer-brand img{width:30px;height:30px;border-radius:50%;vertical-align:-8px;margin-right:6px;object-fit:cover}
+.auth-brand img{width:64px;height:64px;border-radius:50%;object-fit:cover}
+.dark-toggle svg{width:20px;height:20px;vertical-align:middle}
+.share-btn svg{width:17px;height:17px}
+.section-tag svg{width:13px;height:13px;vertical-align:-1px;margin-right:5px}
+.hero-badge svg{width:14px;height:14px;vertical-align:-2px;margin-right:5px}
+.btn svg,.rq-btn svg,.nl-btn svg,.btn-auth svg{width:16px;height:16px;vertical-align:-3px;margin-right:5px}
