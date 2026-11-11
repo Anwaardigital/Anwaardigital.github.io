@@ -11,7 +11,7 @@
       bullets: [
         "✓ Accurate prayer times (Sunni Hanafi Barelvi)",
         "✓ Complete Quran, duas and tasbeeh counter",
-        "✓ Completely FREE — no ads, no hidden charges"
+        "✓ Completely FREE — no hidden charges, ads never interrupt worship"
       ]
     },
     {
