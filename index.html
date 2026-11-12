@@ -1379,14 +1379,14 @@
     <div class="nl-card">
       <div class="nl-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
       <p class="nl-text">Every new app, update and guide — straight to your inbox, once a week. Free forever, no spam, unsubscribe anytime.</p>
-      <!-- BREVO: paste the form action URL over __BREVO_FORM_ACTION_URL__ (Share step > Simple HTML). No API key here. -->
-      <form id="nlFormBrevo" class="nl-form" action="__BREVO_FORM_ACTION_URL__" method="POST">
-        <input type="email" id="nlEmailBrevo" name="EMAIL" placeholder="Your email address..." autocomplete="email" aria-label="Email address" required>
-        <!-- PASTE-IN POINT 2 — hidden fields from Brevo's Simple HTML code go here -->
-        <input type="text" name="email_address_check" value="" class="input--hidden" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-        <input type="hidden" name="locale" value="en">
+      <!-- NEWSLETTER (interim): saves email on this device until the real Brevo form action URL is pasted here (Brevo dashboard > Share step > Simple HTML). -->
+      <form id="nlForm" class="nl-form">
+        <input type="email" id="nlEmail" name="EMAIL" placeholder="Your email address..." autocomplete="email" aria-label="Email address" required>
+        
+        
         <button type="submit" class="nl-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Subscribe</button>
       </form>
+      <p id="nlMsg" class="nl-msg"></p>
       <p class="nl-note" style="font-size:.85rem;opacity:.75;margin-top:12px">We never share your email with anyone.</p>
     </div>
   </div>
