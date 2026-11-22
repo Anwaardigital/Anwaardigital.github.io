@@ -1,0 +1,15 @@
+<svg width="140" height="24" viewBox="0 0 140 24" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="listed-hype-star-auto-title">
+  <title id="listed-hype-star-auto-title">Listed on Hype Star</title>
+  <style>
+    .badge-background { fill: #FFFEFA; stroke: #17201E; }
+    .badge-mark, .badge-label { fill: #17201E; }
+    @media (prefers-color-scheme: dark) {
+      .badge-background { fill: #17201E; stroke: #DCE9A3; }
+      .badge-mark { fill: #DCE9A3; }
+      .badge-label { fill: #F7F6F1; }
+    }
+  </style>
+  <rect class="badge-background" x="0.5" y="0.5" width="139" height="23" rx="5.5"/>
+  <path class="badge-mark" d="M5 7H19V25H42V32H56V58H42V39H19V58H5V7ZM47 3L51 16L62 20L51 24L47 37L43 24L32 20L43 16L47 3Z" transform="translate(2.5 2.5) scale(0.29)"/>
+  <text class="badge-label" x="25" y="15.5" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="700">Listed on Hype Star</text>
+</svg>

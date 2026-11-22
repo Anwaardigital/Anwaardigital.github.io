@@ -305,8 +305,8 @@ a{text-decoration:none;color:inherit}
 .footer-links{margin-bottom:16px}
 .footer-links a{color:var(--muted);font-size:.9rem;transition:color .2s}
 .footer-links a:hover{color:var(--gold)}
-.footer-email{color:var(--gold)!important;font-weight:700;font-size:1rem;margin:18px 0 8px;word-break:break-all}
-.footer-email a{color:var(--gold)!important}
+.footer-email{color:var(--gold)!important;font-weight:700;font-size:1rem;margin:18px 0 8px}
+.footer-email a{color:var(--gold)!important;overflow-wrap:anywhere}
 .copyright{font-size:.82rem!important;opacity:.7}
 
 /* ---------- WhatsApp float ---------- */
